@@ -12,7 +12,7 @@
   },
   "parent": "causalchaos:main/root",
   "criteria": {
-    "causalitycrystal": {
+    "causality_crystal": {
       "trigger": "minectaft:inventory_changed",
       "conditions": {
         "items": [
