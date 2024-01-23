@@ -11,4 +11,8 @@
     },
     "announce_to_chat": false
   },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
 }
