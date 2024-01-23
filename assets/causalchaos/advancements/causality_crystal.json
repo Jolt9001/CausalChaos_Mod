@@ -17,7 +17,7 @@
       "conditions": {
         "items": [
           {
-            "item": causalchaos:causalitycrystal",
+            "item": "causalchaos:causalitycrystal",
             "data": 1
           }
         ]
