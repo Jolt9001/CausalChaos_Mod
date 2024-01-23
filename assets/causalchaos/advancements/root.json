@@ -1,1 +1,14 @@
-
+{
+  "display": {
+    "icon": {
+      "item":
+    },
+    "title": {
+      "translate": "achievement.causalchaos.root"
+    },
+    "description": {
+      "translate": "achievement.causalchaos.root.desc"
+    },
+    "announce_to_chat": false
+  },
+}
