@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item":
+    },
+    "title": {
+      "translate":
+    },
+    "description": {
+      "translate":
+    }
+  },
+  "parent": "causalchaos:main/root",
+  "criteria": {
+    "causalitycrystal": {
+      "trigger": "minectaft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": causalchaos:causalitycrystal",
+            "data": 1
+          }
+        ]
+      }
+    }
+  }
+}
