@@ -1,4 +1,4 @@
-package com.example.causalchaos;
+package com.jolt9001.causalchaos;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
