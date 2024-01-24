@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:ite,/generated",
+    "textures": {
+        "layer0": "causalchaos:item/cobalt_ingot"
+    }
+}
