@@ -1,4 +1,4 @@
-package com.example.causalchaos;
+package com.jolt9001.causalchaos;
 
 import com.mojang.logging.LogUtils;
 import java.io.ObjectInputFilter.Config;
