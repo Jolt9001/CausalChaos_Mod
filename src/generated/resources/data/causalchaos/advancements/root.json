@@ -1,0 +1,30 @@
+{
+    "advancements": [
+        {
+            "conditions": [
+                {
+                    "prop": "spawn_with_book",
+                    "type": "causalchaos:config"
+                }
+            ],
+            "advancement": {
+                "rewards": {
+                    "loot": [
+                        "causalchaos:gameplay/causal_journal"
+                    ]
+                },
+                "criteria": {
+                    "tick": {
+                        "trigger": "minecraft:tick",
+                        "conditions": {}
+                    }
+                },
+                "requirements": [
+                    [
+                        "tick"
+                    ]
+                ]
+            }
+        }
+    ]
+}
