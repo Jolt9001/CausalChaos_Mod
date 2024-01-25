@@ -1,8 +1,6 @@
 package jolt9001.causalchaos;
 
 import com.mojang.logging.LogUtils;
-import java.io.ObjectInputFilter.Config;
-import java.lang.System.Logger;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -33,11 +31,16 @@ import net.minecraftforge.registries.RegistryObject;
 
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
+/*
+*
+* @author Jolt9001
+ */
+@SuppressWarnings("unused")
 @Mod(CausalChaos.MODID)
 public class CausalChaos {
-    // Define mod id in a common place for everything to reference
-    public static final String MODID = "examplemod";
+
+    public static final String MOD_NAME = "Causal Chaos";
+    public static final String MODID = "causalchaos";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
@@ -60,7 +63,8 @@ public class CausalChaos {
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
+            .displayItems((parameters, output) ->
+            {
                 output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
             }).build());
 
@@ -92,7 +96,9 @@ public class CausalChaos {
         LOGGER.info("HELLO FROM COMMON SETUP");
 
         if (Config.logDirtBlock)
+        {
             LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+        }
 
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
@@ -102,7 +108,9 @@ public class CausalChaos {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
+        {
             event.accept(EXAMPLE_BLOCK_ITEM);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -115,9 +123,9 @@ public class CausalChaos {
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
