@@ -20,7 +20,7 @@ This is the Causal Journal, a repository for the information and lore behind the
 * [Getting Started](getting-started.md)
 * [Tips and Tricks](tips-tricks.md)
 * [Basics](basics/basics-index.md)
-* [Item Dictionary](items-blocks-machines/items-blocks-machines.md)
+* [Item Dictionary](items-blocks-machines/items-blocks-machines-index.md)
 * [Bestiary](bestiary/bestiary-index.md)
 * [Dimensions](dimensions/dimensions-index.md)
 * [Advancements and Challenges](advancements-challenges/advancements-challenges-index.md)
