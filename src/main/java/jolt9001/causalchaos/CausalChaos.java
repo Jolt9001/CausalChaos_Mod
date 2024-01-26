@@ -2,6 +2,7 @@ package jolt9001.causalchaos;
 
 import com.mojang.logging.LogUtils;
 
+import jolt9001.causalchaos.common.config.Config;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -29,25 +30,26 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import jolt9001.causalchaos.common.config.Config;
+
 import org.slf4j.Logger;
 
-/*
+/**
 *
 * @author Jolt9001
  */
-@SuppressWarnings("unused")
+
 @Mod(CausalChaos.MODID)
 public class CausalChaos {
 
     public static final String MOD_NAME = "Causal Chaos";
     public static final String MODID = "causalchaos";
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
+    // Create a Deferred Register to hold Blocks which will all be registered under the "causalchaos" namespace
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
+    // Create a Deferred Register to hold Items which will all be registered under the "causalchaos" namespace
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
+    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "causalchaos" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
@@ -87,8 +89,9 @@ public class CausalChaos {
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
+        Config a = new Config();
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, a.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
