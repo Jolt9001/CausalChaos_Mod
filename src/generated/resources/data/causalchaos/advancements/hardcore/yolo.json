@@ -1,9 +1,18 @@
 {
-    "advancements": [
-        {
-            "conditions": [
-                
-            ]
+    "criteria": {
+        "minecraft:impossible": {
+            "trigger": "minecraft:impossible"
         }
-    ]
+    },
+    "display": {
+        "icon": {
+            "item": "causalchaos:causality_crystal"
+        },
+        "title": {
+            "translate": "advancements.causalchaos.hardcore.yolo.title"
+        },
+        "description": {
+            "translate": "advancements.causalchaos.hardcore.yolo.description"
+        }
+    }
 }
