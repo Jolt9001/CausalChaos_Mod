@@ -1,10 +1,8 @@
 package jolt9001.causalchaos.library.item;
 
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.BookItem;
 
-import java.util.Properties;
-
-public class JournalItem extends Item {
+public class JournalItem extends BookItem {
 
     public JournalItem(Properties properties) {
         super(properties);
