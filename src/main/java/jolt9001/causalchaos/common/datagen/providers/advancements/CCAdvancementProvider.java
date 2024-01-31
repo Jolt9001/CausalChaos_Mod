@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.common.data.providers.advancements;
+package jolt9001.causalchaos.common.datagen.providers.advancements;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

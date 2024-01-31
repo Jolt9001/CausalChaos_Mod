@@ -1,11 +1,11 @@
-package jolt9001.causalchaos.common.data.providers.advancements;
+package jolt9001.causalchaos.common.datagen.providers.advancements;
 
-import jolt9001.causalchaos.common.data.IconGenerator;
+import jolt9001.causalchaos.common.datagen.IconGenerator;
 
+import jolt9001.causalchaos.common.triggers.AdvancementTriggers;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -120,7 +120,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                             false
                     )
                     .parent(getCrystalHardcore)
-                    .addCriterion("hardcore_death", )
+                    .addCriterion("hardcore_death", AdvancementTriggers.hardcoreDeathCriterion())
                     .save(consumer, "causalchaos.main/hardcore_death");
         }
         // Journal Completion

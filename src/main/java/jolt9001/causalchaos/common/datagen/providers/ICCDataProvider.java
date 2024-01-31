@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.common.data.providers;
+package jolt9001.causalchaos.common.datagen.providers;
 
 import net.minecraft.data.DataProvider;
 

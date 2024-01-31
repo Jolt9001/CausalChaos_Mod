@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.common.data;
+package jolt9001.causalchaos.common.datagen;
 
 import net.minecraft.resources.ResourceLocation;
 

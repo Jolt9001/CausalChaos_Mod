@@ -1,8 +1,8 @@
-package jolt9001.causalchaos.common.data;
+package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.common.data.providers.advancements.CCAdvancementProvider;
-import jolt9001.causalchaos.common.data.providers.recipes.CraftingRecipes;
+import jolt9001.causalchaos.common.datagen.providers.advancements.CCAdvancementProvider;
+import jolt9001.causalchaos.common.datagen.providers.recipes.CraftingRecipes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

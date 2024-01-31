@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.common.data.providers.recipes;
+package jolt9001.causalchaos.common.datagen.providers.recipes;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeOutput;
