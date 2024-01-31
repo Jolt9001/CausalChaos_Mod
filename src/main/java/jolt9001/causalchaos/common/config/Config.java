@@ -2,6 +2,7 @@ package jolt9001.causalchaos.common.config;
 
 import jolt9001.causalchaos.CausalChaos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BookItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
@@ -23,6 +24,10 @@ import java.util.stream.Collectors;
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config {
+
+    public static Common COMMON_CONFIG;
+    public static Client CLIENT_CONFIG;
+
     /**
      * Common specific config
      */
@@ -30,6 +35,7 @@ public class Config {
 
         //gameplay
         public final BooleanValue spawnWithBook;
+        public final BooleanValue immediateMeteor;
 
         // recipes
 
@@ -45,15 +51,22 @@ public class Config {
         public final EnumValue<LogInvalidToolStack> logInvalidToolStack;
         public enum LogInvalidToolStack { STACKTRACE, WARNING, IGNORED }
 
-        Common(ForgeConfigSpec.Builder builder) {
-            builder.comment("Gameplay config").push("gameplay");
-
-            this.spawnWithBook = builder
-                    .comment("Set this to false to disable spawning with Causal Journal.")
-                    .translation("causalchaos.configgui.spawnWithBook")
-                    .worldRestart()
-                    .define("spawnWithBook", true);
-
+        public Common(ForgeConfigSpec.Builder builder) {
+            builder
+                    .comment("Settings that affect gameplay.")
+                    .push("Gameplay Settings");
+            {
+                this.spawnWithBook = builder
+                        .comment("Set this to false to disable spawning with Causal Journal.")
+                        .translation("causalchaos.configgui.spawnWithBook")
+                        .worldRestart()
+                        .define("spawnWithBook", true);
+                this.immediateMeteor = builder
+                        .comment("Set this to true to make the Causality Crystal spawn immediately.")
+                        .translation("causalchaos.configgui.immediateMeteor")
+                        .worldRestart()
+                        .define("immediateMeteor", false);
+            }
             builder.pop();
 
             builder.comment("Recipe config").push("recipes");
@@ -94,6 +107,15 @@ public class Config {
         }
     }
 
+    /**
+     * Client-specific configuration - only loaded clientside
+     */
+    public static class Client {
+
+        public Client(ForgeConfigSpec.Builder builder) {
+
+        }
+    }
 
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 

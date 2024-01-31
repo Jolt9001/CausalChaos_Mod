@@ -1,17 +1,14 @@
-package jolt9001.causalchaos.common.data;
+package jolt9001.causalchaos.common.data.providers.advancements;
 
-import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.common.data.IconGenerator;
 
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
-import net.minecraft.client.gui.screens.DeathScreen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.LevelData;
 
@@ -19,7 +16,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
 import jolt9001.causalchaos.library.definitions.CCItems;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 import java.util.function.Consumer;
@@ -29,13 +25,8 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
     // protected Consumer<Advancement> advancementConsumer;
     // protected BiConsumer<ResourceLocation, ConditionalAdvancement.Builder> conditionalConsumer;
 
-    public CCAdvancementGenerator(DataGenerator generatorIn) {
-        super();
-    }
-
     @Override
     public void generate(HolderLookup.Provider registries, Consumer<AdvancementHolder> consumer, ExistingFileHelper fileHelper) {
-
         // Advancement builder variable for efficiency
         Advancement.Builder builder = Advancement.Builder.advancement();
 
@@ -119,11 +110,11 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
             var hardcoreDeath = builder
                     .display(
                             (ItemLike) IconGenerator.RESUSCITATION_ICON,
-                            Component.translatable("achievement.causalchaps.hardcore_death", "Resuscitation"),
+                            Component.translatable("achievement.causalchaos.hardcore_death", "Resuscitation"),
                             Component.translatable("achievement.causalchaos.hardcore_death",
                                     "Embrace mortality, yet defy the fall."),
                             null,
-                            FrameType.CHALLENGE,
+                            FrameType.GOAL,
                             true,
                             true,
                             false
