@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "t t t",
+    "t b t",
+    "f f f"
+  ],
+  "key": {
+    "t": {
+      "item": "causalchaos:titanium_ingot"
+    },
+    "f": {
+      "item": "minecraft:iron_ingot"
+    },
+    "b": {
+      "item": "minecraft:blast_furnace"
+    }
+  },
+  "result": {
+    "item": "causalchaos:starforge0"
+  }
+}

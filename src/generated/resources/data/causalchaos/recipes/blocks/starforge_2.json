@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "t t t",
+    "t s t",
+    "w w w"
+  ],
+  "key": {
+    "t": {
+      "item": "causalchaos:thundersteel_ingot"
+    },
+    "w": {
+      "item": "causalchaos:tungsten_ingot"
+    },
+    "s": {
+      "item": "causalchaos:starforge1"
+    }
+  },
+  "result": {
+    "item": "causalchaos:starforge2"
+  }
+}
