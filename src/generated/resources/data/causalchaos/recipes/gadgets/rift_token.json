@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "causalchaos:sigils",
+  "pattern": [
+    "s c s",
+    "c q c",
+    "s c s"
+  ],
+  "key": {
+    "s": {
+      "item": "causalchaos:thundersteel_ingot"
+    },
+    "c": {
+      "item": "causalchaos:time_crystal"
+    },
+    "q":{
+      "item": "causalchaos:quantum_sigil"
+    }
+  },
+  "result": {
+    "item": "causalchaos:rift_token"
+  }
+}

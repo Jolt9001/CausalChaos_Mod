@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  r  ",
+    "p c p",
+    "  d  "
+  ],
+  "key": {
+    "r": {
+      "item": "causalchaos:stable_rift_token"
+    },
+    "p": {
+      "item": "causalchaos:perplexium_ingot"
+    },
+    "c": {
+      "item": "causalchaos:causality_crystal"
+    },
+    "d": {
+      "item": "causalchaos:dimensional_anchor"
+    }
+  },
+  "result": {
+    "item": "causalchaos:wormhole_stabilizer"
+  }
+}

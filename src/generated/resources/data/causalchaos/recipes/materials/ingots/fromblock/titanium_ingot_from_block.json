@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "causalchaos:titanium_block"
+    }
+  ],
+  "result": {
+    "item": "causalchaos:titanium_ingot",
+    "count": 9
+  }
+}

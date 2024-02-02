@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "causalchaos:sigils",
+  "pattern": [
+    "w t w",
+    "t c t",
+    "w t w"
+  ],
+  "key": {
+    "w": {
+      "item": "causalchaos:tungsten_ingot"
+    },
+    "t": {
+      "item": "causalchaos:time_crystal"
+    },
+    "c": {
+      "item": "causalchaos:causality_crystal"
+    }
+  },
+  "result": {
+    "item": "causalchaos:quantum_sigil"
+  }
+}

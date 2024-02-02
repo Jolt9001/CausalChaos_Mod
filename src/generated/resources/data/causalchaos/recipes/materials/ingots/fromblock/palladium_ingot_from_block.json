@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "causalchaos:palladium_block"
+    }
+  ],
+  "result": {
+    "item": "causalchaos:palladium_ingot",
+    "count": 9
+  }
+}

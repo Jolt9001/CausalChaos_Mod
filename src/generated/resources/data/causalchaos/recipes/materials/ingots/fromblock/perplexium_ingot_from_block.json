@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "causalchaos:perplexium_block"
+    }
+  ],
+  "result": {
+    "item": "causalchaos:perplexium_ingot",
+    "count": 9
+  }
+}

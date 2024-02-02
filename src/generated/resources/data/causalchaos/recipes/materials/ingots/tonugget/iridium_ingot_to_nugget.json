@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "causalchaos:iridium_ingot"
+    }
+  ],
+  "result": {
+    "item": "causalchaos:iridium_nugget",
+    "count": 9
+  }
+}

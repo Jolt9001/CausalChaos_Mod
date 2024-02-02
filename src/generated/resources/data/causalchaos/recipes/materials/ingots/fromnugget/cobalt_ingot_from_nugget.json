@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    ". . .",
+    ". . .",
+    ". . ."
+  ],
+  "key": {
+    ".": {
+      "item": "causalchaos:cobalt_nugget"
+    }
+  },
+  "result": {
+    "item": "causalchaos:cobalt_ingot"
+  }
+}

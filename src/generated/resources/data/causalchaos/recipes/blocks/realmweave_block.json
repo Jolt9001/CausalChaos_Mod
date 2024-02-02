@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "causalchaos:abyssal_thread"
+    }
+  },
+  "result": {
+    "item": "causalchaos:realmweave_block"
+  }
+}
