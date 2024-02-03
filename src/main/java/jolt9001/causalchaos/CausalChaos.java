@@ -41,9 +41,6 @@ import org.slf4j.Logger;
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CausalChaos {
-
-    // Required Information
-    public static final String MOD_NAME = "Causal Chaos";
     public static final String MODID = "causalchaos";
     private static final Logger LOGGER = LogUtils.getLogger();
 
@@ -54,8 +51,7 @@ public class CausalChaos {
             throw new IllegalStateException();
         }
         INSTANCE = this;
-
-
+        LOGGER.info("Me when the");
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
