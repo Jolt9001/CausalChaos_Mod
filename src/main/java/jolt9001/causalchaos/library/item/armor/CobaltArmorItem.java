@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.item;
+package jolt9001.causalchaos.library.item.armor;
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
