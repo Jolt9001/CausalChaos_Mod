@@ -1,0 +1,10 @@
+{
+  "sea_level": 18,
+  "disable_mob_generation": false,
+  "aquifers_enabled": false,
+  "ore_veins_enabled": false,
+  "legacy_random_source": false,
+  "default_block": {
+    "name": "causalchaos:realmweave_block"
+  }
+}
