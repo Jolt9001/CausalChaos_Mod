@@ -1,3 +1,6 @@
 {
-    "name": "Owner"
+    "name": "Owner",
+    "values": [
+        "causalchaos:causality_crystal"
+    ]
 }

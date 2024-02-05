@@ -1,1 +1,13 @@
-{}
+{
+  "values": [
+    "causalchaos:cobalt_axe",
+    "causalchaos:infused_thundersteel_axe",
+    "causalchaos:iridium_axe",
+    "causalchaos:neodymium_axe",
+    "causalchaos:palladium_axe",
+    "causalchaos:perplexium_axe",
+    "causalchaos:thundersteel_axe",
+    "causalchaos:titanium_axe",
+    "causalchaos:tungsten_axe"
+  ]
+}

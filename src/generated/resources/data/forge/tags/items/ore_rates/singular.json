@@ -1,1 +1,10 @@
-{}
+{
+  "values": [
+    "causalchaos:cobalt_ore",
+    "causalchaos:iridium_ore",
+    "causalchaos:neodymium_ore",
+    "causalchaos:palladium_ore",
+    "causalchaos:titanium_ore",
+    "causalchaos:tungsten_ore"
+  ]
+}
