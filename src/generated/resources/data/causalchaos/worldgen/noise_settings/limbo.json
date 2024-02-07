@@ -6,5 +6,15 @@
   "legacy_random_source": false,
   "default_block": {
     "name": "causalchaos:realmweave_block"
+  },
+  "default_fluid": {
+    "name": "minecraft:air"
+  },
+  "spawn_target": [],
+  "noise": {
+  },
+  "noise_router": {
+  },
+  "surface_rule": {
   }
 }
