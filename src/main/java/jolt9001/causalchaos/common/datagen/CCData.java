@@ -1,7 +1,6 @@
 package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.common.datagen.providers.advancements.CCAdvancementProvider;
 import jolt9001.causalchaos.common.datagen.providers.recipes.CraftingRecipes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -33,7 +32,6 @@ public class CCData {
         // Recipes
         gen.addProvider(event.includeServer(), new CraftingRecipes(out));
         // Misc
-        gen.addProvider(event.includeServer(), new CCAdvancementProvider(out, prov, help));
 
         // Client side: Sounds, Block/Item Models, Particles, Language
 
