@@ -6,8 +6,7 @@ import java.util.List;
 public final class CCBlocks {
 
     private static final List<BlockDefinition<?>> BLOCKS = new ArrayList<>();
-
-    // Environmental
-
+    // Environmental (ores, terrain, etc)
     // Resource
+    //
 }

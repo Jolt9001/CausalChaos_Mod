@@ -8,13 +8,21 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.LevelData;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
 import jolt9001.causalchaos.library.definitions.CCItems;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 import java.util.Optional;
@@ -66,27 +74,125 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .parent(root)
                 .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL))
                 .save(consumer, "causalchaos.main/get_crystal");
+
+        var dashStrike = builder;
+        var dodge = builder;
+        var dangerSense = builder;
+
         // Ability
+        var standInHitbox = builder;
+        var QTEFail = builder;
+        var perfectDodge = builder;
+        var lightningDodge = builder;
+        var killCreeperWhileExploding = builder;
+
+        var mastery1 = builder;
+        var mastery2 = builder;
+        var mastery3 = builder;
+        var mastery4 = builder;
+        var mastery5 = builder;
 
         // Bosses (Demon Lord, Worldeater, Leviathan Skywyrm)
+            // generic
+        var heroDeath = builder;
+
+            // Demon Lord
+        var fightDL1 = builder;
+        var fightDL2 = builder;
+        var tripleDLPerfectDodge = builder;
+        var DLFlurryCounter = builder;
+        var bossDLDeathless = builder;
+        var soloDL = builder;
+        var anchorDeathlessDL = builder;
+        var parallelDLDefeat = builder;
+
+            // Worldeater
+        var worldeaterEncounter = builder;
+        var worldeaterDefeat = builder;
+        var worldeaterMax = builder;
+
+            // Leviathan Skywyrm
 
         // Early Game (Time Loop)
+        var timeLoopActivate = builder;
+        var anchorEncounter = builder;
+        var anchorDeath = builder;
+        var anchorProtect = builder;
+        var twistedEncounter = builder;
+        var riftwalkerKill = builder;
 
         // MidGame (Advancements specific to the ending of the time loop)
+        var loopEscape = builder;
 
         // Endgame (post time loop)
+        var obtainStarforge = builder;
+        var obtainThundersteel = builder;
+        var obtainPerplexium = builder;
+        var infusedThundersteel = builder;
+        var purePerplexium = builder;
+        var villageHousing25 = builder;
+        var villagerGift = builder;
+        var superbossVillage = builder;
+        var realityGlitch = builder;
 
         // Dimensions
+            // Sky Islands
+
             // Limbo
+        var enterLimbo = builder;
+        var limboDeath = builder;
+        var limboEscape = builder;
+        var stableRiftToken = builder;
+        var limboPortal = builder;
 
             // Realm Tears + Parallel Universes
+        var enterRealmTear = builder;
+        var permanentRealmTear = builder;
+        var dimensionalAnchor = builder;
 
             //Transcendent's Plain
+        var TPPortalActivate = builder;
+        var preeminence = builder;
+        var chaosModeKill = builder;
 
         // Superbosses
             // Normal Mode
+        var Tsuna = builder;
+        var Kai = builder;
+        var Terry = builder;
+        var Lyadova = builder;
+        var Aella = builder;
+        var Jack = builder;
+        var Xanthea = builder;
+        var Will = builder;
+        var Matthue = builder;
+        var Alline = builder;
+        var Madeline = builder;
+        var Emily = builder;
+        var Adrian = builder;
+        var Andrea = builder;
+        var Christian = builder;
+        var Jolt = builder;
+        var FPJolt = builder;
 
             // Chaos Mode
+        var CTsuna = builder;
+        var CKai = builder;
+        var CTerry = builder;
+        var CLyadova = builder;
+        var CAella = builder;
+        var CJack = builder;
+        var CXanthea = builder;
+        var CWill = builder;
+        var CMatthue = builder;
+        var CAlline = builder;
+        var CMadeline = builder;
+        var CEmily = builder;
+        var CAdrian = builder;
+        var CAndrea = builder;
+        var CChristian = builder;
+        var CJolt = builder;
+        var CFPJolt = builder;
 
         // Hardcore
         var getCrystalHardcore = builder
@@ -107,6 +213,8 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 // .addCriterion("is_hardcore", [hardcore mode trigger])
                 .save(consumer, "causalchaos.main/get_crystal_hardcore");
 
+        LivingEntity entity = null;
+        LivingDeathEvent event = new LivingDeathEvent(entity, null);
         var hardcoreDeath = builder
                 .display(
                         (ItemLike) IconGenerator.RESUSCITATION_ICON,
@@ -120,12 +228,32 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         false
                 )
                 .parent(getCrystalHardcore)
-                .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied())
+                .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
                 .save(consumer, "causalchaos.main/hardcore_death");
+        var hardcoreDLDefeat = builder;
+        var perfectSuperboss = builder;
+        var day100 = builder;
+        var halfHeartSuperboss = builder;
+
         // Journal Completion
+        var journal25 = builder;
+        var journal50 = builder;
+        var journal75 = builder;
+        var journal100 = builder;
 
         // Challenges and Funnies
+            // Challenges
+
+            // Funnies
+        var blackHoleTP = builder;
+        var FPJoltDeath = builder;
+        var playerLostMind = builder;
+        var superweaponOnVanillaMob = builder;
+        var badRNG = builder;
 
         // Hidden Challenges
+        var bossRush = builder;
+        var chaosCompletion = builder;
+        var chaosCompletionHardcore = builder;
     }
 }

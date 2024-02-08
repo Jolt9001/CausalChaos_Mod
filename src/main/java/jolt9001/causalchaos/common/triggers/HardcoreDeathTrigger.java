@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import java.util.Optional;
 
@@ -29,8 +30,11 @@ public class HardcoreDeathTrigger extends SimpleCriterionTrigger<HardcoreDeathTr
             super(predicate);
         }
 
-        public static Criterion<Instance> youDied() {
-            return INSTANCE.createCriterion(new HardcoreDeathTrigger.Instance(Optional.empty()));
+        public static Criterion<Instance> youDied(LivingDeathEvent event) {
+            if (event.getEntity() instanceof ServerPlayer) {
+                return INSTANCE.createCriterion(new HardcoreDeathTrigger.Instance(Optional.empty()));
+            }
+            return null;
         }
     }
 }
