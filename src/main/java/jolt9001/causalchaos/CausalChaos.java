@@ -6,6 +6,7 @@ import jolt9001.causalchaos.common.config.Config;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -33,6 +34,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import org.slf4j.Logger;
+
+import java.util.Locale;
 
 /**
 *
@@ -71,9 +74,10 @@ public class CausalChaos {
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-        Config a = new Config();
+        // Config a = new Config();
+
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, a.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     // Create a Deferred Register to hold Blocks which will all be registered under the "causalchaos" namespace
@@ -140,5 +144,9 @@ public class CausalChaos {
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
+    }
+
+    public static ResourceLocation prefix(String name) {
+        return new ResourceLocation(MODID, name.toLowerCase(Locale.ROOT));
     }
 }
