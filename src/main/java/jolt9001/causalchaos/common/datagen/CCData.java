@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class CCDataGenerators {
+public class CCData {
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {

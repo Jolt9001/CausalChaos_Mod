@@ -9,6 +9,10 @@ import java.util.Optional;
 
 public class AdvancementTriggers {
 
+    public static void init() {
+        CriteriaTriggers.register("causalchaos:hardcore_death", HardcoreDeathTrigger.INSTANCE);
+    }
+
     /**
      * Tutorial Triggers
      */
@@ -42,11 +46,6 @@ public class AdvancementTriggers {
 
     /**
      * Dimension Triggers
-     * Sky Islands
-     */
-
-    /**
-     * Dimension Triggers
      * Limbo
      */
     public static final PlayerTrigger LIMBO_DEATH = new PlayerTrigger(); // You can't escape...
@@ -58,24 +57,6 @@ public class AdvancementTriggers {
      */
     public static final ChangeDimensionTrigger PARALLEL_UNIVERSE = new ChangeDimensionTrigger();
     public static final ItemUsedOnLocationTrigger STABILIZER = new ItemUsedOnLocationTrigger();
-
-    /**
-     * Dimension Triggers
-     * Transcendent's Plain
-     */
-
-    /**
-     * Normal Mode Superbosses
-     */
-
-    /**
-     * Chaos Mode Superbosses
-     */
-
-    /**
-     * Hardcore Triggers
-     */
-    public static final PlayerTrigger HARDCORE_DEATH = new PlayerTrigger(); //Embrace mortality, yet defy the fall.
 
     /**
      * Causal Journal
@@ -93,12 +74,4 @@ public class AdvancementTriggers {
      * Hidden Advancements
      */
     public static final PlayerTrigger BOSS_RUSH = new PlayerTrigger();
-
-    /**
-     * Criteria Creation
-     * @return Criteria
-     */
-    public static Criterion<?> hardcoreDeathCriterion() {
-        return HARDCORE_DEATH.createCriterion(new PlayerTrigger.TriggerInstance(Optional.empty()));
-    }
 }

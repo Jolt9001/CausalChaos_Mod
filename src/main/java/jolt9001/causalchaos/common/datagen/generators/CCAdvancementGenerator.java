@@ -1,8 +1,7 @@
-package jolt9001.causalchaos.common.datagen.providers.advancements;
-
-import jolt9001.causalchaos.common.datagen.IconGenerator;
+package jolt9001.causalchaos.common.datagen.generators;
 
 import jolt9001.causalchaos.common.triggers.AdvancementTriggers;
+import jolt9001.causalchaos.common.triggers.HardcoreDeathTrigger;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
@@ -18,6 +17,7 @@ import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import jolt9001.causalchaos.library.definitions.CCItems;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class CCAdvancementGenerator implements ForgeAdvancementProvider.AdvancementGenerator {
@@ -89,40 +89,39 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
             // Chaos Mode
 
         // Hardcore
-        if (levelData.isHardcore()) {
-            var getCrystalHardcore = builder
-                    .display(
-                            CCItems.CAUSALITY_CRYSTAL,
-                            Component.translatable("achievement.causalchaos.crystal_get",
-                                    "YOLO"),
-                            Component.translatable("achievement.causalchaos.crystal_get.desc",
-                                    "Obtain a Causality Crystal in Hardcore Mode."),
-                            null,
-                            FrameType.TASK,
-                            true,
-                            true,
-                            false
-                    )
-                    .parent(root)
-                    .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL))
-                    .save(consumer, "causalchaos.main/get_crystal_hardcore");
+        var getCrystalHardcore = builder
+                .display(
+                        CCItems.CAUSALITY_CRYSTAL,
+                        Component.translatable("achievement.causalchaos.crystal_get",
+                                "YOLO"),
+                        Component.translatable("achievement.causalchaos.crystal_get.desc",
+                                "Obtain a Causality Crystal in Hardcore Mode."),
+                        null,
+                        FrameType.TASK,
+                        true,
+                        true,
+                        false
+                )
+                .parent(root)
+                .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL))
+                // .addCriterion("is_hardcore", [hardcore mode trigger])
+                .save(consumer, "causalchaos.main/get_crystal_hardcore");
 
-            var hardcoreDeath = builder
-                    .display(
-                            (ItemLike) IconGenerator.RESUSCITATION_ICON,
-                            Component.translatable("achievement.causalchaos.hardcore_death", "Resuscitation"),
-                            Component.translatable("achievement.causalchaos.hardcore_death",
-                                    "Embrace mortality, yet defy the fall."),
-                            null,
-                            FrameType.GOAL,
-                            true,
-                            true,
-                            false
-                    )
-                    .parent(getCrystalHardcore)
-                    .addCriterion("hardcore_death", AdvancementTriggers.hardcoreDeathCriterion())
-                    .save(consumer, "causalchaos.main/hardcore_death");
-        }
+        var hardcoreDeath = builder
+                .display(
+                        (ItemLike) IconGenerator.RESUSCITATION_ICON,
+                        Component.translatable("achievement.causalchaos.hardcore_death", "Resuscitation"),
+                        Component.translatable("achievement.causalchaos.hardcore_death",
+                                "Embrace mortality, yet defy the fall."),
+                        null,
+                        FrameType.GOAL,
+                        true,
+                        true,
+                        false
+                )
+                .parent(getCrystalHardcore)
+                .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied())
+                .save(consumer, "causalchaos.main/hardcore_death");
         // Journal Completion
 
         // Challenges and Funnies
