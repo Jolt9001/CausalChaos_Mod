@@ -15,9 +15,9 @@ public class CobaltArmorItem extends ArmorItem {
     @Override
     public String getArmorTexture(ItemStack s, Entity e, EquipmentSlot slot, String layer) {
         if (slot == EquipmentSlot.LEGS) {
-            return CausalChaos.ARMOR_DIR + "cobalt_layer_2.jpg";
+            return CausalChaos.ARMOR_DIR + "cobalt_layer_2.png";
         } else {
-            return CausalChaos.ARMOR_DIR + "cobalt_layer_1.jpg";
+            return CausalChaos.ARMOR_DIR + "cobalt_layer_1.png";
         }
     }
 }
