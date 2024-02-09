@@ -45,12 +45,12 @@ public final class CCItems {
     public static final ItemDefinition<Item> TITANIUM_NUGGET = item("Titanium Nugget", CCItemIds.TITANIUM_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
     public static final ItemDefinition<Item> TUNGSTEN_NUGGET = item("Tungsten Nugget", CCItemIds.TUNGSTEN_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
 
-    public static final ItemDefinition<Item> RAW_COBALT = item("Raw Cobalt", CCItemIds.RAW_COBALT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_IRIDIUM = item("Raw Iridium", CCItemIds.RAW_IRIDIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_NEODYMIUM = item("Raw Neodymium", CCItemIds.RAW_NEODYMIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_PALLADIUM = item("Raw Palladium", CCItemIds.RAW_PALLADIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_TITANIUM = item("Raw Titanium", CCItemIds.RAW_TITANIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_TUNGSTEN = item("Raw Tungsten", CCItemIds.RAW_TUNGSTEN, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
+    public static final ItemDefinition<Item> RAW_COBALT = item("Carrollite", CCItemIds.RAW_COBALT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
+    public static final ItemDefinition<Item> RAW_IRIDIUM = item("Iridosmine", CCItemIds.RAW_IRIDIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
+    public static final ItemDefinition<Item> RAW_NEODYMIUM = item("Bastnäsite", CCItemIds.RAW_NEODYMIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
+    public static final ItemDefinition<Item> RAW_PALLADIUM = item("Palladium Arsenide", CCItemIds.RAW_PALLADIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
+    public static final ItemDefinition<Item> RAW_TITANIUM = item("Ilmenite", CCItemIds.RAW_TITANIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
+    public static final ItemDefinition<Item> RAW_TUNGSTEN = item("Scheelite", CCItemIds.RAW_TUNGSTEN, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
 
     // Tools
         // Axes
