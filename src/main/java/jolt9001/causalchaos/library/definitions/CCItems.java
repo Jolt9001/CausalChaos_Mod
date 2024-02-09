@@ -113,6 +113,7 @@ public final class CCItems {
 
     // Armor
 
+
     // Items done, now to put them in a list.
     public static List<ItemDefinition<?>> getItems() {
         return Collections.unmodifiableList(ITEMS);

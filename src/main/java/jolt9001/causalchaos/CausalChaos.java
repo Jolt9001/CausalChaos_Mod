@@ -47,6 +47,11 @@ public class CausalChaos {
     public static final String MODID = "causalchaos";
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    private static final String ENTITY_MODEL_DIR = "textures/entity/";
+    private static final String GUI_DIR = "textures.gui/";
+
+    public static final String ARMOR_DIR = MODID + ":textures/armor/";
+
     static CausalChaos INSTANCE;
 
     public CausalChaos() {
