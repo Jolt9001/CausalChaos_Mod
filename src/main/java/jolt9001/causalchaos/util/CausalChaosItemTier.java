@@ -61,7 +61,7 @@ public class CausalChaosItemTier {
     public static final Tier INFUSED_THUNDERSTEEL = TierSortingRegistry.registerTier(
             new ForgeTier(4, 10274,18,8.5F, 15,
                     BlockTags.create(CausalChaos.prefix("needs_infused_thundersteel_tool")),
-                    Ingredient::of),
+                    () -> Ingredient.of(CCItems.PERPLEXIUM_NUGGET)),
             CausalChaos.prefix("infused_thundersteel"), List.of(Tiers.NETHERITE), List.of());
 
     public static final Tier PERPLEXIUM = TierSortingRegistry.registerTier(

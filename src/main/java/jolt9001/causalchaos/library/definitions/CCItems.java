@@ -1,11 +1,9 @@
 package jolt9001.causalchaos.library.definitions;
 
-import jolt9001.causalchaos.library.gui.CreativeTabs;
 import jolt9001.causalchaos.library.ids.CCItemIds;
 import jolt9001.causalchaos.library.item.*;
-import jolt9001.causalchaos.library.item.material.*;
-import jolt9001.causalchaos.library.item.armor.*;
-import jolt9001.causalchaos.library.item.tool.*;
+import jolt9001.causalchaos.library.item.enums.CCArmorMaterial;
+import jolt9001.causalchaos.library.item.armor.material.*;
 import jolt9001.causalchaos.util.CausalChaosItemTier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -112,8 +110,26 @@ public final class CCItems {
     public static final ItemDefinition<Item> WHITE_THUNDER = item("White Thunder", CCItemIds.WHITE_THUNDER, p -> new SwordItem(CausalChaosItemTier.SUPERWEAPON, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
 
     // Armor
-
-
+        // Boots
+    public static final ItemDefinition<Item> COBALT_BOOTS = item("Cobalt Boots", CCItemIds.COBALT_BOOTS, p -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.BOOTS, new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_BOOTS = item("Infused Thundersteel Boots", CCItemIds.INFUSED_THUNDERSTEEL_BOOTS, p -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> IRIDIUM_BOOTS = item("Iridium Boots", CCItemIds.IRIDIUM_BOOTS, p -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.BOOTS, new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> NEODYMIUM_BOOTS = item("Neodymium Boots", CCItemIds.NEODYMIUM_BOOTS, p -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> PALLADIUM_BOOTS = item("Palladium Boots", CCItemIds.PALLADIUM_BOOTS, p -> new PalladiumArmorItem(CCArmorMaterial.ARMOR_PALLADIUM, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> PERPLEXIUM_BOOTS = item("Perplexium Boots", CCItemIds.PERPLEXIUM_BOOTS, p -> new PerplexiumArmorItem(CCArmorMaterial.ARMOR_PERPLEXIUM, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> THUNDERSTEEL_BOOTS = item("Thundersteel Boots", CCItemIds.THUNDERSTEEL_BOOTS, p -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.BOOTS, new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> TITANIUM_BOOTS = item("Titanium Boots", CCItemIds.TITANIUM_BOOTS, p -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> TUNGSTEN_BOOTS = item("Tungsten Boots", CCItemIds.TUNGSTEN_BOOTS, p -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
+        // Chestplates
+    public static final ItemDefinition<Item> COBALT_CHESTPLATE = item("Cobalt Chestplate", CCItemIds.COBALT_CHESTPLATE, p -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.CHESTPLATE, new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_CHESTPLATE = item("Infused Thundersteel Chestplate", CCItemIds.INFUSED_THUNDERSTEEL_CHESTPLATE, p -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> IRIDIUM_CHESTPLATE = item("Iridium Chestplate", CCItemIds.IRIDIUM_CHESTPLATE, p -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> NEODYMIUM_CHESTPLATE = item("Neodymium Chestplate", CCItemIds.NEODYMIUM_CHESTPLATE, p -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> PALLADIUM_CHESTPLATE = item("Palladium Chestplate", CCItemIds.PALLADIUM_CHESTPLATE, p -> new PalladiumArmorItem(CCArmorMaterial.ARMOR_PALLADIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> PERPLEXIUM_CHESTPLATE = item("Perplexium Chestplate", CCItemIds.PERPLEXIUM_CHESTPLATE, p -> new PerplexiumArmorItem(CCArmorMaterial.ARMOR_PERPLEXIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> THUNDERSTEEL_CHESTPLATE = item("Thundersteel Chestplate", CCItemIds.THUNDERSTEEL_CHESTPLATE, p -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> TITANIUM_CHESTPLATE = item("Titanium Chestplate", CCItemIds.TITANIUM_CHESTPLATE, p -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final ItemDefinition<Item> TUNGSTEN_CHESTPLATE = item("Tungsten Chestplate", CCItemIds.TUNGSTEN_CHESTPLATE, p -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
     // Items done, now to put them in a list.
     public static List<ItemDefinition<?>> getItems() {
         return Collections.unmodifiableList(ITEMS);
