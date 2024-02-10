@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 public final class CCItems {
 
-    private static final List<ItemDefinition<?>> ITEMS = new ArrayList<>();
+    public static final List<ItemDefinition<?>> ITEMS = new ArrayList<>();
 
     // Causal Journal
     public static final ItemDefinition<JournalItem> JOURNAL = item("Causal Journal", CCItemIds.JOURNAL, p -> new JournalItem(p.stacksTo(1)), CreativeModeTabs.TOOLS_AND_UTILITIES);
@@ -130,6 +130,7 @@ public final class CCItems {
     public static final ItemDefinition<Item> THUNDERSTEEL_CHESTPLATE = item("Thundersteel Chestplate", CCItemIds.THUNDERSTEEL_CHESTPLATE, p -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()), CreativeModeTabs.COMBAT);
     public static final ItemDefinition<Item> TITANIUM_CHESTPLATE = item("Titanium Chestplate", CCItemIds.TITANIUM_CHESTPLATE, p -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
     public static final ItemDefinition<Item> TUNGSTEN_CHESTPLATE = item("Tungsten Chestplate", CCItemIds.TUNGSTEN_CHESTPLATE, p -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
+
     // Items done, now to put them in a list.
     public static List<ItemDefinition<?>> getItems() {
         return Collections.unmodifiableList(ITEMS);
