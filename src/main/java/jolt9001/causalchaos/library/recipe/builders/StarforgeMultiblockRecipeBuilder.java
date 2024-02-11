@@ -1,7 +1,7 @@
-package jolt9001.causalchaos.library.item.recipe.builders.starforgealone;
+package jolt9001.causalchaos.library.recipe.builders;
 
 import com.google.gson.JsonObject;
-import jolt9001.causalchaos.library.item.recipe.recipes.AbstractStarforgeRecipe;
+import jolt9001.causalchaos.library.recipe.recipes.AbstractStarforgeRecipe;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -19,10 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * This recipe builder has properties of both a furnace and a crafting table.
- */
-public class StarforgeAloneRecipeBuilder implements RecipeBuilder {
+public class StarforgeMultiblockRecipeBuilder implements RecipeBuilder {
     private final RecipeCategory category;
     private final Ingredient[][] ingredients;
     private final ItemStack output;
@@ -33,7 +30,7 @@ public class StarforgeAloneRecipeBuilder implements RecipeBuilder {
     private String group;
     private final RecipeSerializer<? extends AbstractStarforgeRecipe> serializer;
 
-    public StarforgeAloneRecipeBuilder(RecipeCategory category, ItemStack output, Ingredient[][] ingredients, float exp, int cookTime, RecipeSerializer<? extends AbstractStarforgeRecipe> serializer) {
+    public StarforgeMultiblockRecipeBuilder(RecipeCategory category, ItemStack output, Ingredient[][] ingredients, float exp, int cookTime, RecipeSerializer<? extends AbstractStarforgeRecipe> serializer) {
         this.category = category;
         this.output = output;
         this.ingredients = ingredients;
@@ -42,12 +39,12 @@ public class StarforgeAloneRecipeBuilder implements RecipeBuilder {
         this.serializer = serializer;
     }
 
-    public static StarforgeAloneRecipeBuilder generic(RecipeCategory category, ItemStack output, Ingredient[][] ingredients, float exp, int cookTime, RecipeSerializer<? extends AbstractStarforgeRecipe> serializer) {
-        return new StarforgeAloneRecipeBuilder(category, output, ingredients, exp, cookTime, serializer);
+    public static StarforgeMultiblockRecipeBuilder generic(RecipeCategory category, ItemStack output, Ingredient[][] ingredients, float exp, int cookTime, RecipeSerializer<? extends AbstractStarforgeRecipe> serializer) {
+        return new StarforgeMultiblockRecipeBuilder(category, output, ingredients, exp, cookTime, serializer);
     }
 
     @Override
-    public StarforgeAloneRecipeBuilder unlockedBy(String criterionName, Criterion<?> criterionTrigger) {
+    public StarforgeMultiblockRecipeBuilder unlockedBy(String criterionName, Criterion<?> criterionTrigger) {
         this.criteria.put(criterionName, criterionTrigger);
         return this;
     }
@@ -58,7 +55,7 @@ public class StarforgeAloneRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public StarforgeAloneRecipeBuilder group(@Nullable String group) {
+    public StarforgeMultiblockRecipeBuilder group(@Nullable String group) {
         this.group = group;
         return this;
     }
@@ -94,14 +91,18 @@ public class StarforgeAloneRecipeBuilder implements RecipeBuilder {
             if (!this.group.isEmpty()) {
                 json.addProperty("group", this.group);
             }
-            int size = 2;
+            int size = 6;
             for (int i = 0; i <= size; i++) { // loops through the rows
                 for (int j = 0; j <= size; j++) { // loops through the columns
                     json.add("ingredient", this.ingredients[i][j].toJson(true));
                     /*
-                    [0,0] [0,1] [0,2]
-                    [1,0] [1,1] [1,2]
-                    [2.0] [2,1] [2,2]
+                    [0,0] [0,1] [0,2] [0,3] [0,4] [0,5] [0,6]
+                    [1,0] [1,1] [1,2] [1,3] [1,4] [1,5] [1,6]
+                    [2,0] [2,1] [2,2] [2,3] [2,4] [2,5] [2,6]
+                    [3,0] [3,1] [3,2] [3,3] [3,4] [3,5] [3,6]
+                    [4,0] [4,1] [4,2] [4,3] [4,4] [4,5] [4,6]
+                    [5,0] [5,1] [5,2] [5,3] [5,4] [5,5] [5,6]
+                    [6,0] [6,1] [6,2] [6,3] [6,4] [6,5] [6,6]
                      */
                 }
             }

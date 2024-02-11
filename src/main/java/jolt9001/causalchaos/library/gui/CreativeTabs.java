@@ -13,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 import jolt9001.causalchaos.CausalChaos;
 
 public class CreativeTabs {
-
+/*
     static DeferredRegister<CreativeModeTab> TABS;
 
     public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("core", () -> CreativeModeTab.builder()
@@ -36,4 +36,6 @@ public class CreativeTabs {
 
         }
     }
+
+ */
 }

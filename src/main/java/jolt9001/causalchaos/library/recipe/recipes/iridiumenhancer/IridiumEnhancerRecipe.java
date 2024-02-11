@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.item.recipe.recipes.iridiumenhancer;
+package jolt9001.causalchaos.library.recipe.recipes.iridiumenhancer;
 
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.Container;

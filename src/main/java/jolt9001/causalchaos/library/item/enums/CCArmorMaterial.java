@@ -17,25 +17,25 @@ public enum CCArmorMaterial implements ArmorMaterial {
         map.put(ArmorItem.Type.LEGGINGS, 5);
         map.put(ArmorItem.Type.CHESTPLATE, 7);
         map.put(ArmorItem.Type.HELMET, 2);
-    }), 14, SoundEvents.ARMOR_EQUIP_IRON, 0.5F, () -> Ingredient.of(CCItems.NEODYMIUM_INGOT), 0.0F),
+    }), 14, SoundEvents.ARMOR_EQUIP_IRON, 0.5F, () -> Ingredient.of(CCItems.NEODYMIUM_INGOT.get()), 0.0F),
     ARMOR_PALLADIUM("palladium_ingot", 30, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 7);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 14, SoundEvents.ARMOR_EQUIP_IRON, 0F, () -> Ingredient.of(CCItems.PALLADIUM_INGOT), 0.0F),
+    }), 14, SoundEvents.ARMOR_EQUIP_IRON, 0F, () -> Ingredient.of(CCItems.PALLADIUM_INGOT.get()), 0.0F),
     ARMOR_TITANIUM("titanium_ingot", 36, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 10, SoundEvents.ARMOR_EQUIP_IRON, 1F, () -> Ingredient.of(CCItems.TITANIUM_INGOT), 0.0F),
+    }), 10, SoundEvents.ARMOR_EQUIP_IRON, 1F, () -> Ingredient.of(CCItems.TITANIUM_INGOT.get()), 0.0F),
     ARMOR_COBALT("cobalt_ingot", 43, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 30, SoundEvents.ARMOR_EQUIP_GOLD, 2F, () -> Ingredient.of(CCItems.COBALT_INGOT), 0.0F),
+    }), 30, SoundEvents.ARMOR_EQUIP_GOLD, 2F, () -> Ingredient.of(CCItems.COBALT_INGOT.get()), 0.0F),
 
     /**
      * This is when stuff gets out of control... All the following armor sets are better than Netherite.
@@ -45,31 +45,31 @@ public enum CCArmorMaterial implements ArmorMaterial {
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 20, SoundEvents.ARMOR_EQUIP_GOLD, 4F, () -> Ingredient.of(CCItems.IRIDIUM_INGOT), 0.1F),
+    }), 20, SoundEvents.ARMOR_EQUIP_GOLD, 4F, () -> Ingredient.of(CCItems.IRIDIUM_INGOT.get()), 0.1F),
     ARMOR_TUNGSTEN("tungsten_ingot", 64, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 15, SoundEvents.ARMOR_EQUIP_IRON, 5F, () -> Ingredient.of(CCItems.TUNGSTEN_INGOT), 0.5F),
+    }), 15, SoundEvents.ARMOR_EQUIP_IRON, 5F, () -> Ingredient.of(CCItems.TUNGSTEN_INGOT.get()), 0.5F),
     ARMOR_THUNDERSTEEL("thundersteel_ingot", 100, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 13, SoundEvents.ARMOR_EQUIP_DIAMOND, 6F, () -> Ingredient.of(CCItems.THUNDERSTEEL_INGOT), 1.0F),
+    }), 13, SoundEvents.ARMOR_EQUIP_DIAMOND, 6F, () -> Ingredient.of(CCItems.THUNDERSTEEL_INGOT.get()), 1.0F),
     ARMOR_INFUSED_THUNDERSTEEL("perplexium_nugget", 150, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 12F, () -> Ingredient.of(CCItems.PERPLEXIUM_NUGGET), 2.0F),
+    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 12F, () -> Ingredient.of(CCItems.PERPLEXIUM_NUGGET.get()), 2.0F),
     ARMOR_PERPLEXIUM("perplexium_ingot", 200, Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);
         map.put(ArmorItem.Type.HELMET, 3);
-    }), 15, SoundEvents.ARMOR_EQUIP_DIAMOND, 18F, () -> Ingredient.of(CCItems.PERPLEXIUM_INGOT), 3.0F);
+    }), 15, SoundEvents.ARMOR_EQUIP_DIAMOND, 18F, () -> Ingredient.of(CCItems.PERPLEXIUM_INGOT.get()), 3.0F);
 
     private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 13);

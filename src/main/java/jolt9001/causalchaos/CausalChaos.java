@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 
 import jolt9001.causalchaos.common.config.Config;
 
+import jolt9001.causalchaos.library.recipe.CCRecipes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -72,6 +73,8 @@ public class CausalChaos {
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
+
+        CCRecipes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

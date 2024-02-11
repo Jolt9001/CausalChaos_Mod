@@ -1,48 +1,55 @@
 package jolt9001.causalchaos.library.definitions;
 
+import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.library.ids.CCItemIds;
 import jolt9001.causalchaos.library.item.*;
 import jolt9001.causalchaos.library.item.enums.CCArmorMaterial;
 import jolt9001.causalchaos.library.item.armor.material.*;
 import jolt9001.causalchaos.util.CausalChaosItemTier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public final class CCItems {
 
-    public static final List<ItemDefinition<?>> ITEMS = new ArrayList<>();
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CausalChaos.MODID);
 
     // Causal Journal
-    public static final ItemDefinition<JournalItem> JOURNAL = item("Causal Journal", CCItemIds.JOURNAL, p -> new JournalItem(p.stacksTo(1)), CreativeModeTabs.TOOLS_AND_UTILITIES);
+    public static final RegistryObject<JournalItem> JOURNAL = ITEMS.register("causal_journal", () -> new JournalItem(new Item.Properties()));
 
     // Quest (I.E. the Causality Crystal)
-    public static final ItemDefinition<CausalityCrystalItem> CAUSALITY_CRYSTAL = item("Causality Crystal", CCItemIds.CAUSALITY_CRYSTAL, p -> new CausalityCrystalItem(p.stacksTo(1)), CreativeModeTabs.TOOLS_AND_UTILITIES);
+    public static final RegistryObject<CausalityCrystalItem> CAUSALITY_CRYSTAL = ITEMS.register("causal_journal", () -> new CausalityCrystalItem(new Item.Properties()));
 
     // Crafting Ingredients and Materials (ingots, nuggets, raw ores, etc.)
-    public static final ItemDefinition<Item> COBALT_INGOT = item("Cobalt Ingot", CCItemIds.COBALT_INGOT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> IRIDIUM_INGOT = item("Iridium Ingot", CCItemIds.IRIDIUM_INGOT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> NEODYMIUM_INGOT = item("Neodymium Ingot", CCItemIds.NEODYMIUM_INGOT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> PALLADIUM_INGOT = item("Palladium Ingot", CCItemIds.PALLADIUM_INGOT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> PERPLEXIUM_INGOT = item("Perplexium Ingot", CCItemIds.PERPLEXIUM_INGOT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> THUNDERSTEEL_INGOT = item("Thundersteel Ingot", CCItemIds.THUNDERSTEEL_INGOT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> TITANIUM_INGOT = item("Titanium Ingot", CCItemIds.TITANIUM_INGOT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> TUNGSTEN_INGOT = item("Tungsten Ingot", CCItemIds.TUNGSTEN_INGOT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
+    public static final RegistryObject<Item> COBALT_INGOT =  ITEMS.register("cobalt_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_INGOT = ITEMS.register("iridium_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_INGOT = ITEMS.register("neodymium_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_INGOT = ITEMS.register("palladium_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_INGOT = ITEMS.register("perplexium_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_INGOT = ITEMS.register("thundersteel_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_INGOT = ITEMS.register("tungsten_ingot", () -> new Item(new Item.Properties()));
 
-    public static final ItemDefinition<Item> COBALT_NUGGET = item("Cobalt Nugget", CCItemIds.COBALT_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> IRIDIUM_NUGGET = item("Iridium Nugget", CCItemIds.IRIDIUM_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> NEODYMIUM_NUGGET = item("Neodymium Nugget", CCItemIds.NEODYMIUM_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> PALLADIUM_NUGGET = item("Palladium Nugget", CCItemIds.PALLADIUM_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> PERPLEXIUM_NUGGET = item("Perplexium Nugget", CCItemIds.PERPLEXIUM_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> THUNDERSTEEL_NUGGET = item("Thundersteel Nugget", CCItemIds.THUNDERSTEEL_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> TITANIUM_NUGGET = item("Titanium Nugget", CCItemIds.TITANIUM_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> TUNGSTEN_NUGGET = item("Tungsten Nugget", CCItemIds.TUNGSTEN_NUGGET, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-
+    public static final RegistryObject<Item> COBALT_NUGGET =  ITEMS.register("cobalt_nugget", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_NUGGET = ITEMS.register("iridium_nugget", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_NUGGET = ITEMS.register("neodymium_nugget", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_NUGGET = ITEMS.register("palladium_nugget", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_NUGGET = ITEMS.register("perplexium_nugget", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_NUGGET = ITEMS.register("thundersteel_nugget", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_NUGGET = ITEMS.register("titanium_nugget", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_NUGGET = ITEMS.register("tungsten_nugget", () -> new Item(new Item.Properties()));
+/*
     public static final ItemDefinition<Item> RAW_COBALT = item("Raw Cobalt", CCItemIds.RAW_COBALT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
     public static final ItemDefinition<Item> RAW_IRIDIUM = item("Raw Iridium", CCItemIds.RAW_IRIDIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
     public static final ItemDefinition<Item> RAW_NEODYMIUM = item("Raw Neodymium", CCItemIds.RAW_NEODYMIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
@@ -50,89 +57,122 @@ public final class CCItems {
     public static final ItemDefinition<Item> RAW_TITANIUM = item("Raw Titanium", CCItemIds.RAW_TITANIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
     public static final ItemDefinition<Item> RAW_TUNGSTEN = item("Raw Tungsten", CCItemIds.RAW_TUNGSTEN, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
     public static final ItemDefinition<Item> ANTHRACITE = item("Anthracite", CCItemIds.ANTHRACITE, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
+ */
+    public static final RegistryObject<Item> RAW_COBALT =  ITEMS.register("raw_cobalt", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAW_IRIDIUM = ITEMS.register("raw_iridium", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAW_NEODYMIUM = ITEMS.register("raw_neodymium", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAW_PALLADIUM = ITEMS.register("raw_palladium", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAW_TITANIUM = ITEMS.register("raw_titanium", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAW_TUNGSTEN = ITEMS.register("raw_tungsten", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ANTHRACITE = ITEMS.register("anthracite", () -> new Item(new Item.Properties()));
 
     // Tools
         // Axes
-    public static final ItemDefinition<Item> COBALT_AXE = item("Cobalt Axe", CCItemIds.COBALT_AXE, p -> new AxeItem(CausalChaosItemTier.COBALT, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_AXE = item("Infused Thundersteel Axe", CCItemIds.INFUSED_THUNDERSTEEL_AXE, p -> new AxeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> IRIDIUM_AXE = item("Iridium Axe", CCItemIds.IRIDIUM_AXE, p -> new AxeItem(CausalChaosItemTier.IRIDIUM, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> NEODYMIUM_AXE = item("Neodymium Axe", CCItemIds.NEODYMIUM_AXE, p -> new AxeItem(CausalChaosItemTier.NEODYMIUM, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> PALLADIUM_AXE = item("Palladium Axe", CCItemIds.PALLADIUM_AXE, p -> new AxeItem(CausalChaosItemTier.PALLADIUM, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> PERPLEXIUM_AXE = item("Perplexium Axe", CCItemIds.PERPLEXIUM_AXE, p -> new AxeItem(CausalChaosItemTier.PERPLEXIUM, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> THUNDERSTEEL_AXE = item("Thundersteel Axe", CCItemIds.THUNDERSTEEL_AXE, p -> new AxeItem(CausalChaosItemTier.THUNDERSTEEL, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> TITANIUM_AXE = item("Titanium Axe", CCItemIds.TITANIUM_AXE, p -> new AxeItem(CausalChaosItemTier.TITANIUM, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> TUNGSTEN_AXE = item("Tungsten Axe", CCItemIds.TUNGSTEN_AXE, p -> new AxeItem(CausalChaosItemTier.TUNGSTEN, 6.0F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
+    public static final RegistryObject<Item> COBALT_AXE = ITEMS.register("cobalt_axe", () -> new AxeItem(CausalChaosItemTier.COBALT, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_AXE = ITEMS.register("infused_thundersteel_axe", () -> new AxeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_AXE = ITEMS.register("iridium_axe", () -> new AxeItem(CausalChaosItemTier.IRIDIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_AXE = ITEMS.register("neodymium_axe", () -> new AxeItem(CausalChaosItemTier.NEODYMIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_AXE = ITEMS.register("palladium_axe", () -> new AxeItem(CausalChaosItemTier.PALLADIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_AXE = ITEMS.register("perplexium_axe", () -> new AxeItem(CausalChaosItemTier.PERPLEXIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_AXE = ITEMS.register("thundersteel_axe", () -> new AxeItem(CausalChaosItemTier.THUNDERSTEEL, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_AXE = ITEMS.register("titanium_axe", () -> new AxeItem(CausalChaosItemTier.TITANIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_AXE = ITEMS.register("tungsten_axe", () -> new AxeItem(CausalChaosItemTier.TUNGSTEN, 6.0F, -3.0F, new Item.Properties()));
 
         // Hoes
-    public static final ItemDefinition<Item> COBALT_HOE = item("Cobalt Axe", CCItemIds.COBALT_HOE, p -> new AxeItem(CausalChaosItemTier.COBALT, 3, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_HOE = item("Infused Thundersteel Axe", CCItemIds.INFUSED_THUNDERSTEEL_HOE, p -> new AxeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 3, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> IRIDIUM_HOE = item("Iridium Axe", CCItemIds.IRIDIUM_HOE, p -> new AxeItem(CausalChaosItemTier.IRIDIUM, 3, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> NEODYMIUM_HOE = item("Neodymium Axe", CCItemIds.NEODYMIUM_HOE, p -> new AxeItem(CausalChaosItemTier.NEODYMIUM, 3, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> PALLADIUM_HOE = item("Palladium Axe", CCItemIds.PALLADIUM_HOE, p -> new AxeItem(CausalChaosItemTier.PALLADIUM, 3, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> PERPLEXIUM_HOE = item("Perplexium Axe", CCItemIds.PERPLEXIUM_HOE, p -> new AxeItem(CausalChaosItemTier.PERPLEXIUM, 3, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> THUNDERSTEEL_HOE = item("Thundersteel Axe", CCItemIds.THUNDERSTEEL_HOE, p -> new AxeItem(CausalChaosItemTier.THUNDERSTEEL, 3F, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> TITANIUM_HOE = item("Titanium Axe", CCItemIds.TITANIUM_HOE, p -> new AxeItem(CausalChaosItemTier.TITANIUM, 3, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> TUNGSTEN_HOE = item("Tungsten Axe", CCItemIds.TUNGSTEN_HOE, p -> new AxeItem(CausalChaosItemTier.TUNGSTEN, 3, -0.5F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-        // Pickaxes
-    public static final ItemDefinition<Item> COBALT_PICKAXE = item("Cobalt Pickaxe", CCItemIds.COBALT_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.COBALT, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_PICKAXE = item("Infused Thundersteel Pickaxe", CCItemIds.INFUSED_THUNDERSTEEL_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> IRIDIUM_PICKAXE = item("Iridium Pickaxe", CCItemIds.IRIDIUM_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.IRIDIUM, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> NEODYMIUM_PICKAXE = item("Neodymium Pickaxe", CCItemIds.NEODYMIUM_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.NEODYMIUM, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> PALLADIUM_PICKAXE = item("Palladium Pickaxe", CCItemIds.PALLADIUM_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.PALLADIUM, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> PERPLEXIUM_PICKAXE = item("Perplexium Pickaxe", CCItemIds.PERPLEXIUM_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.PERPLEXIUM, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> THUNDERSTEEL_PICKAXE = item("Thundersteel Pickaxe", CCItemIds.THUNDERSTEEL_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.THUNDERSTEEL, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> TITANIUM_PICKAXE = item("Titanium Pickaxe", CCItemIds.TITANIUM_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.TITANIUM, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> TUNGSTEN_PICKAXE = item("Tungsten Pickaxe", CCItemIds.TUNGSTEN_PICKAXE, p -> new PickaxeItem(CausalChaosItemTier.TUNGSTEN, 1, -2.8F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
+    public static final RegistryObject<Item> COBALT_HOE = ITEMS.register("cobalt_hoe", () -> new HoeItem(CausalChaosItemTier.COBALT, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_HOE = ITEMS.register("infused_thundersteel_hoe", () -> new HoeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_HOE = ITEMS.register("iridium_hoe", () -> new HoeItem(CausalChaosItemTier.IRIDIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_HOE = ITEMS.register("neodymium_hoe", () -> new HoeItem(CausalChaosItemTier.NEODYMIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_HOE = ITEMS.register("palladium_hoe", () -> new HoeItem(CausalChaosItemTier.PALLADIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_HOE = ITEMS.register("perplexium_hoe", () -> new HoeItem(CausalChaosItemTier.PERPLEXIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_HOE = ITEMS.register("thundersteel_hoe", () -> new HoeItem(CausalChaosItemTier.THUNDERSTEEL, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_HOE = ITEMS.register("titanium_hoe", () -> new HoeItem(CausalChaosItemTier.TITANIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_HOE = ITEMS.register("tungsten_hoe", () -> new HoeItem(CausalChaosItemTier.TUNGSTEN, 3, -0.5F, new Item.Properties()));
+
+    // Pickaxes
+    public static final RegistryObject<Item> COBALT_PICKAXE = ITEMS.register("cobalt_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.COBALT, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_PICKAXE = ITEMS.register("infused_thundersteel_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_PICKAXE = ITEMS.register("iridium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.IRIDIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_PICKAXE = ITEMS.register("neodymium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.NEODYMIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_PICKAXE = ITEMS.register("palladium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.PALLADIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_PICKAXE = ITEMS.register("perplexium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.PERPLEXIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_PICKAXE = ITEMS.register("thundersteel_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.THUNDERSTEEL, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.TITANIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_PICKAXE = ITEMS.register("tungsten_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.TUNGSTEN, 1, -2.8F, new Item.Properties()));
 
         // Shovels
-    public static final ItemDefinition<Item> COBALT_SHOVEL = item("Cobalt Shovel", CCItemIds.COBALT_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.COBALT, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_SHOVEL = item("Infused Thundersteel Shovel", CCItemIds.INFUSED_THUNDERSTEEL_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> IRIDIUM_SHOVEL = item("Iridium Shovel", CCItemIds.IRIDIUM_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.IRIDIUM, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> NEODYMIUM_SHOVEL = item("Neodymium Shovel", CCItemIds.NEODYMIUM_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.NEODYMIUM, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> PALLADIUM_SHOVEL = item("Palladium Shovel", CCItemIds.PALLADIUM_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.PALLADIUM, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> PERPLEXIUM_SHOVEL = item("Perplexium Shovel", CCItemIds.PERPLEXIUM_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.PERPLEXIUM, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> THUNDERSTEEL_SHOVEL = item("Thundersteel Shovel", CCItemIds.THUNDERSTEEL_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.THUNDERSTEEL, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> TITANIUM_SHOVEL = item("Titanium Shovel", CCItemIds.TITANIUM_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.TITANIUM, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
-    public static final ItemDefinition<Item> TUNGSTEN_SHOVEL = item("Tungsten Shovel", CCItemIds.TUNGSTEN_SHOVEL, p -> new ShovelItem(CausalChaosItemTier.TUNGSTEN, 1.5F, -3.0F, new Item.Properties()), CreativeModeTabs.TOOLS_AND_UTILITIES);
+    public static final RegistryObject<Item> COBALT_SHOVEL = ITEMS.register("cobalt_shovel", () -> new ShovelItem(CausalChaosItemTier.COBALT, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_SHOVEL = ITEMS.register("infused_thundersteel_shovel", () -> new ShovelItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_SHOVEL = ITEMS.register("iridium_shovel", () -> new ShovelItem(CausalChaosItemTier.IRIDIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_SHOVEL = ITEMS.register("neodymium_shovel", () -> new ShovelItem(CausalChaosItemTier.NEODYMIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_SHOVEL = ITEMS.register("palladium_shovel", () -> new ShovelItem(CausalChaosItemTier.PALLADIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_SHOVEL = ITEMS.register("perplexium_shovel", () -> new ShovelItem(CausalChaosItemTier.PERPLEXIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_SHOVEL = ITEMS.register("thundersteel_shovel", () -> new ShovelItem(CausalChaosItemTier.THUNDERSTEEL, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_SHOVEL = ITEMS.register("titanium_shovel", () -> new ShovelItem(CausalChaosItemTier.TITANIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_SHOVEL = ITEMS.register("tungsten_hoe", () -> new ShovelItem(CausalChaosItemTier.TUNGSTEN, 1.5F, -3.0F, new Item.Properties()));
 
     // Weapons
         // Material Melee
-    public static final ItemDefinition<Item> COBALT_SWORD = item("Cobalt Sword", CCItemIds.COBALT_SWORD, p -> new SwordItem(CausalChaosItemTier.COBALT, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_SWORD = item("Infused Thundersteel Sword", CCItemIds.INFUSED_THUNDERSTEEL_SWORD, p -> new SwordItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> IRIDIUM_SWORD = item("Iridium Sword", CCItemIds.IRIDIUM_SWORD, p -> new SwordItem(CausalChaosItemTier.IRIDIUM, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> NEODYMIUM_SWORD = item("Neodymium Sword", CCItemIds.NEODYMIUM_SWORD, p -> new SwordItem(CausalChaosItemTier.NEODYMIUM, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> PALLADIUM_SWORD = item("Palladium Sword", CCItemIds.PALLADIUM_SWORD, p -> new SwordItem(CausalChaosItemTier.PALLADIUM, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> PERPLEXIUM_SWORD = item("Perplexium Sword", CCItemIds.PERPLEXIUM_SWORD, p -> new SwordItem(CausalChaosItemTier.PERPLEXIUM, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> THUNDERSTEEL_SWORD = item("Thundersteel Sword", CCItemIds.THUNDERSTEEL_SWORD, p -> new SwordItem(CausalChaosItemTier.THUNDERSTEEL, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> TITANIUM_SWORD = item("Titanium Sword", CCItemIds.TITANIUM_SWORD, p -> new SwordItem(CausalChaosItemTier.TITANIUM, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> TUNGSTEN_SWORD = item("Tungsten Sword", CCItemIds.TUNGSTEN_SWORD, p -> new SwordItem(CausalChaosItemTier.TUNGSTEN, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final RegistryObject<Item> COBALT_SWORD = ITEMS.register("cobalt_sword", () -> new SwordItem(CausalChaosItemTier.COBALT, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_SWORD = ITEMS.register("infused_thundersteel_sword", () -> new SwordItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_SWORD = ITEMS.register("iridium_sword", () -> new SwordItem(CausalChaosItemTier.IRIDIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_SWORD = ITEMS.register("neodymium_sword", () -> new SwordItem(CausalChaosItemTier.NEODYMIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_SWORD = ITEMS.register("palladium_sword", () -> new SwordItem(CausalChaosItemTier.PALLADIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_SWORD = ITEMS.register("perplexium_sword", () -> new SwordItem(CausalChaosItemTier.PERPLEXIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_SWORD = ITEMS.register("thundersteel_sword", () -> new SwordItem(CausalChaosItemTier.THUNDERSTEEL, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_SWORD = ITEMS.register("titanium_sword", () -> new SwordItem(CausalChaosItemTier.TITANIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_SWORD = ITEMS.register("tungsten_sword", () -> new SwordItem(CausalChaosItemTier.TUNGSTEN, 3, -2.4F, new Item.Properties()));
 
         // Super Melee
-    public static final ItemDefinition<Item> WHITE_THUNDER = item("White Thunder", CCItemIds.WHITE_THUNDER, p -> new SwordItem(CausalChaosItemTier.SUPERWEAPON, 3, -2.4F, new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final RegistryObject<Item> WHITE_THUNDER = ITEMS.register("white_thunder", () -> new SwordItem(CausalChaosItemTier.SUPERWEAPON, 3, -2.4F, new Item.Properties()));
 
-    // Armor
+    // Material Armor
         // Boots
-    public static final ItemDefinition<Item> COBALT_BOOTS = item("Cobalt Boots", CCItemIds.COBALT_BOOTS, p -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.BOOTS, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_BOOTS = item("Infused Thundersteel Boots", CCItemIds.INFUSED_THUNDERSTEEL_BOOTS, p -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> IRIDIUM_BOOTS = item("Iridium Boots", CCItemIds.IRIDIUM_BOOTS, p -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.BOOTS, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> NEODYMIUM_BOOTS = item("Neodymium Boots", CCItemIds.NEODYMIUM_BOOTS, p -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> PALLADIUM_BOOTS = item("Palladium Boots", CCItemIds.PALLADIUM_BOOTS, p -> new PalladiumArmorItem(CCArmorMaterial.ARMOR_PALLADIUM, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> PERPLEXIUM_BOOTS = item("Perplexium Boots", CCItemIds.PERPLEXIUM_BOOTS, p -> new PerplexiumArmorItem(CCArmorMaterial.ARMOR_PERPLEXIUM, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> THUNDERSTEEL_BOOTS = item("Thundersteel Boots", CCItemIds.THUNDERSTEEL_BOOTS, p -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.BOOTS, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> TITANIUM_BOOTS = item("Titanium Boots", CCItemIds.TITANIUM_BOOTS, p -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> TUNGSTEN_BOOTS = item("Tungsten Boots", CCItemIds.TUNGSTEN_BOOTS, p -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.BOOTS,  new Item.Properties()), CreativeModeTabs.COMBAT);
-        // Chestplates
-    public static final ItemDefinition<Item> COBALT_CHESTPLATE = item("Cobalt Chestplate", CCItemIds.COBALT_CHESTPLATE, p -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.CHESTPLATE, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> INFUSED_THUNDERSTEEL_CHESTPLATE = item("Infused Thundersteel Chestplate", CCItemIds.INFUSED_THUNDERSTEEL_CHESTPLATE, p -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> IRIDIUM_CHESTPLATE = item("Iridium Chestplate", CCItemIds.IRIDIUM_CHESTPLATE, p -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> NEODYMIUM_CHESTPLATE = item("Neodymium Chestplate", CCItemIds.NEODYMIUM_CHESTPLATE, p -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> PALLADIUM_CHESTPLATE = item("Palladium Chestplate", CCItemIds.PALLADIUM_CHESTPLATE, p -> new PalladiumArmorItem(CCArmorMaterial.ARMOR_PALLADIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> PERPLEXIUM_CHESTPLATE = item("Perplexium Chestplate", CCItemIds.PERPLEXIUM_CHESTPLATE, p -> new PerplexiumArmorItem(CCArmorMaterial.ARMOR_PERPLEXIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> THUNDERSTEEL_CHESTPLATE = item("Thundersteel Chestplate", CCItemIds.THUNDERSTEEL_CHESTPLATE, p -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> TITANIUM_CHESTPLATE = item("Titanium Chestplate", CCItemIds.TITANIUM_CHESTPLATE, p -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
-    public static final ItemDefinition<Item> TUNGSTEN_CHESTPLATE = item("Tungsten Chestplate", CCItemIds.TUNGSTEN_CHESTPLATE, p -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.CHESTPLATE,  new Item.Properties()), CreativeModeTabs.COMBAT);
+    public static final RegistryObject<Item> COBALT_BOOTS = ITEMS.register("cobalt_boots", () -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_BOOTS = ITEMS.register("infused_thundersteel_boots", () -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_BOOTS = ITEMS.register("iridium_boots", () -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_BOOTS = ITEMS.register("neodymium_boots", () -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_BOOTS = ITEMS.register("palladium_boots", () -> new PalladiumArmorItem(CCArmorMaterial.ARMOR_PALLADIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_BOOTS = ITEMS.register("perplexium_boots", () -> new PerplexiumArmorItem(CCArmorMaterial.ARMOR_PERPLEXIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_BOOTS = ITEMS.register("thundersteel_boots", () -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_BOOTS = ITEMS.register("titanium_boots", () -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_BOOTS = ITEMS.register("tungsten_boots", () -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.BOOTS, new Item.Properties()));
 
+        // Chestplates
+    public static final RegistryObject<Item> COBALT_CHESTPLATE = ITEMS.register("cobalt_chestplate", () -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_CHESTPLATE = ITEMS.register("infused_thundersteel_chestplate", () -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_CHESTPLATE = ITEMS.register("iridium_chestplate", () -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_CHESTPLATE = ITEMS.register("neodymium_chestplate", () -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_CHESTPLATE = ITEMS.register("palladium_chestplate", () -> new PalladiumArmorItem(CCArmorMaterial.ARMOR_PALLADIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_CHESTPLATE = ITEMS.register("perplexium_chestplate", () -> new PerplexiumArmorItem(CCArmorMaterial.ARMOR_PERPLEXIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_CHESTPLATE = ITEMS.register("thundersteel_chestplate", () -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_CHESTPLATE = ITEMS.register("titanium_chestplate", () -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_CHESTPLATE = ITEMS.register("tungsten_chestplate", () -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+
+        // Helmets
+    public static final RegistryObject<Item> COBALT_HELMET = ITEMS.register("cobalt_helmet", () -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_HELMET = ITEMS.register("infused_thundersteel_helmet", () -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_HELMET = ITEMS.register("iridium_helmet", () -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_HELMET = ITEMS.register("neodymium_helmet", () -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_HELMET = ITEMS.register("palladium_helmet", () -> new PalladiumArmorItem(CCArmorMaterial.ARMOR_PALLADIUM, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_HELMET = ITEMS.register("perplexium_helmet", () -> new PerplexiumArmorItem(CCArmorMaterial.ARMOR_PERPLEXIUM, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_HELMET = ITEMS.register("thundersteel_helmet", () -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_HELMET = ITEMS.register("titanium_helmet", () -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_HELMET = ITEMS.register("tungsten_helmet", () -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.HELMET, new Item.Properties()));
+
+        // Leggings
+    public static final RegistryObject<Item> COBALT_LEGGINGS = ITEMS.register("cobalt_leggings", () -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_LEGGINGS = ITEMS.register("infused_thundersteel_leggings", () -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_LEGGINGS = ITEMS.register("iridium_leggings", () -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_LEGGINGS = ITEMS.register("neodymium_leggings", () -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_LEGGINGS = ITEMS.register("palladium_leggings", () -> new PalladiumArmorItem(CCArmorMaterial.ARMOR_PALLADIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_LEGGINGS = ITEMS.register("perplexium_leggings", () -> new PerplexiumArmorItem(CCArmorMaterial.ARMOR_PERPLEXIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_LEGGINGS = ITEMS.register("thundersteel_leggings", () -> new ThundersteelArmorItem(CCArmorMaterial.ARMOR_THUNDERSTEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_LEGGINGS = ITEMS.register("titanium_leggings", () -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_LEGGINGS = ITEMS.register("tungsten_leggings", () -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     // Items done, now to put them in a list.
+
+    /*
     public static List<ItemDefinition<?>> getItems() {
         return Collections.unmodifiableList(ITEMS);
     }
@@ -141,13 +181,15 @@ public final class CCItems {
         Item.Properties p = new Item.Properties();
         T item = factory.apply(p);
         ItemDefinition<T> definition = new ItemDefinition<>(name, id, item);
-/*
         if (group.equals(CreativeTabs.ITEMS)) {
 
         }
-*/
+
         ITEMS.add(definition);
 
         return definition;
     }
+
+     */
+
 }
