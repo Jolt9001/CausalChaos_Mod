@@ -34,6 +34,7 @@ public final class CCItemIds {
     public static final ResourceLocation RAW_PALLADIUM = id("raw_palladium");
     public static final ResourceLocation RAW_TITANIUM = id("raw_titanium");
     public static final ResourceLocation RAW_TUNGSTEN = id("raw_tungsten");
+    public static final ResourceLocation ANTHRACITE = id("anthracite");
 
     // Uncategorized Tools
     public static final ResourceLocation JOURNAL = id("causal_journal");
