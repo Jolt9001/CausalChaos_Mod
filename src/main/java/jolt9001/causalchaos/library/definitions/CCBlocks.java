@@ -31,6 +31,7 @@ public final class CCBlocks {
 
         // Terrain Blocks
     public static final RegistryObject<Block> REALMWEAVE_BLOCK = BLOCKS.register("realmweave_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
     // Resource
     public static final RegistryObject<Block> COBALT_BLOCK = BLOCKS.register("cobalt_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> IRIDIUM_BLOCK = BLOCKS.register("iridium_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));

@@ -26,18 +26,22 @@ public class StarforgeMultiblockRecipe implements Recipe<Container> {
     // Size of grid
     // protected final int gridSize;
 
+    // Tier
+    protected final int tier;
+
     // array of Ingredient inputs, ItemStack for outputs, and the cook time.
     protected final List<Ingredient> ingredients;
     protected final ItemStack output;
     protected final int cookTime;
 
-    public StarforgeMultiblockRecipe(String group, List<Ingredient> ingredients, CompoundTag tag, int cookTime, ItemStack output) {
+    public StarforgeMultiblockRecipe(String group, List<Ingredient> ingredients, CompoundTag tag, int cookTime, ItemStack output, int tier) {
         // this.gridSize = gridSize
         this.group = group;
         this.ingredients = ingredients;
         this.tag = tag;
         this.cookTime = cookTime;
         this.output = output;
+        this.tier = tier;
     }
 
     @Override
@@ -100,7 +104,8 @@ public class StarforgeMultiblockRecipe implements Recipe<Container> {
                 Ingredient.CODEC_NONEMPTY.listOf().fieldOf("ingredients").forGetter(func -> func.ingredients),
                 CompoundTag.CODEC.fieldOf("tag").forGetter(func -> func.tag),
                 Codec.INT.fieldOf("cook_time").forGetter(func -> func.cookTime),
-                ItemStack.CODEC.fieldOf("output").forGetter(func -> func.output)
+                ItemStack.CODEC.fieldOf("output").forGetter(func -> func.output),
+                Codec.INT.fieldOf("tier").forGetter(func -> func.tier)
         ).apply(instance, StarforgeMultiblockRecipe::new));
 /*
         private static Codec<List<Ingredient>> validateAmount(Codec<Ingredient> delegate, int max) {
@@ -131,7 +136,8 @@ public class StarforgeMultiblockRecipe implements Recipe<Container> {
             }
             int cookTime = buffer.readVarInt();
             ItemStack output = buffer.readItem();
-            return new StarforgeMultiblockRecipe(group, inputs, tag, cookTime, output);
+            int tier = buffer.readInt();
+            return new StarforgeMultiblockRecipe(group, inputs, tag, cookTime, output, tier);
         }
 
         @Override
@@ -152,6 +158,7 @@ public class StarforgeMultiblockRecipe implements Recipe<Container> {
             }
             buffer.writeVarInt(recipe.getCookTime());
             buffer.writeItemStack(recipe.getResultItem(null), true);
+            buffer.writeVarInt(recipe.tier);
         }
     }
 }

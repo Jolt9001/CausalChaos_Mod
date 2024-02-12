@@ -12,14 +12,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider {
-    public T0StarforgeBlockEntity(BlockPos pos, BlockState state){
+public class T1StarforgeBlockEntity extends BlockEntity implements MenuProvider {
+    public T1StarforgeBlockEntity(BlockPos pos, BlockState state){
         super(CCBlockEntities.T0_STARFORGE_BE.get(), pos, state);
     }
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.causalchaos.tier_0_starforge");
+        return Component.translatable("block.causalchaos.tier_1_starforge");
     }
 
     @Nullable
@@ -28,7 +28,7 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
         return null;
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, T0StarforgeBlockEntity blockEntity) {
+    public static void serverTick(Level level, BlockPos pos, BlockState state, T1StarforgeBlockEntity blockEntity) {
 
     }
 }
