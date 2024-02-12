@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.common.datagen.providers.recipes;
+package jolt9001.causalchaos.common.datagen.providers;
 
 import com.google.gson.JsonObject;
 import net.minecraft.core.registries.BuiltInRegistries;

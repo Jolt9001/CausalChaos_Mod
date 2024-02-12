@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.common.datagen.providers.worldgen;
+package jolt9001.causalchaos.common.datagen.providers;
 
 import com.google.gson.JsonElement;
 import com.mojang.serialization.DynamicOps;

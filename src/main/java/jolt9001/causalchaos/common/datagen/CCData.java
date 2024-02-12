@@ -1,7 +1,7 @@
 package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.common.datagen.providers.recipes.CCRecipeProvider;
+import jolt9001.causalchaos.common.datagen.providers.CCRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
