@@ -2,10 +2,7 @@ package jolt9001.causalchaos.library.screen;
 
 import jolt9001.causalchaos.library.block.custom.CCBlocks;
 import jolt9001.causalchaos.library.block.custom.StarforgeBlock;
-import jolt9001.causalchaos.library.block.entity.starforgealone.T0StarforgeBlockEntity;
-import jolt9001.causalchaos.library.block.entity.starforgealone.T1StarforgeBlockEntity;
-import jolt9001.causalchaos.library.block.entity.starforgealone.T2StarforgeBlockEntity;
-import jolt9001.causalchaos.library.block.entity.starforgealone.T3StarforgeBlockEntity;
+import jolt9001.causalchaos.library.block.entity.starforgemultiblock.*;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +12,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
-import org.jetbrains.annotations.Nullable;
 
 public class StarforgeMultiblockMenu extends AbstractContainerMenu {
     public BlockEntity blockEntity = null;

@@ -3,27 +3,18 @@ package jolt9001.causalchaos;
 import com.mojang.logging.LogUtils;
 
 import jolt9001.causalchaos.common.config.Config;
-
 import jolt9001.causalchaos.library.block.entity.CCBlockEntities;
 import jolt9001.causalchaos.library.block.custom.CCBlocks;
 import jolt9001.causalchaos.library.gui.CCCreativeModeTabs;
 import jolt9001.causalchaos.library.item.CCItems;
 import jolt9001.causalchaos.library.recipe.CCRecipes;
-import jolt9001.causalchaos.library.screen.CCMenuTypes;
-import jolt9001.causalchaos.library.screen.StarforgeAloneScreen;
+import jolt9001.causalchaos.library.screen.*;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,9 +28,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 import org.slf4j.Logger;
 

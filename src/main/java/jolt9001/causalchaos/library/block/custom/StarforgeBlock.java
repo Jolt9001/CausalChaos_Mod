@@ -2,6 +2,7 @@ package jolt9001.causalchaos.library.block.custom;
 
 import jolt9001.causalchaos.library.block.entity.CCBlockEntities;
 import jolt9001.causalchaos.library.block.entity.starforgealone.*;
+import jolt9001.causalchaos.library.block.entity.starforgemultiblock.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -25,6 +26,12 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
     public static void setTier(int t) {
         tier = t;
     }
+    public static boolean getIsMultiblock() {
+        return isMultiblock;
+    }
+    public static void setIsMultiblock(boolean check) {
+        isMultiblock = check;
+    }
 
     protected StarforgeBlock(Properties properties) {
         super(properties);
@@ -37,7 +44,7 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (checkIfMultiblock(level, pos)) {
+            if (!checkIfMultiblock(level, pos)) {
                 if (blockEntity instanceof T0StarforgeBlockEntity) {
                     setTier(0);
                     ((T0StarforgeBlockEntity) blockEntity).drops();
@@ -51,6 +58,17 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
                     setTier(3);
                     ((T3StarforgeBlockEntity) blockEntity).drops();
                 }
+            } else {
+                if (blockEntity instanceof T1StarforgeMultiBlockEntity) {
+                    setTier(1);
+                    ((T1StarforgeMultiBlockEntity) blockEntity).drops();
+                } else if (blockEntity instanceof T2StarforgeMultiBlockEntity) {
+                    setTier(2);
+                    ((T2StarforgeMultiBlockEntity) blockEntity).drops();
+                } else if (blockEntity instanceof T3StarforgeMultiBlockEntity) {
+                    setTier(3);
+                    ((T3StarforgeMultiBlockEntity) blockEntity).drops();
+                }
             }
         }
         super.onRemove(state, level, pos, newState, isMoving);
@@ -61,7 +79,7 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (!checkIfMultiblock(level, pos)) {
+            if (!getIsMultiblock()) {
                 if (blockEntity instanceof T0StarforgeBlockEntity) {
                     setTier(0);
                     return InteractionResult.SUCCESS;
@@ -77,8 +95,20 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
                 } else {
                     throw new IllegalStateException("Container provider is missing.");
                 }
+            } else {
+                if (blockEntity instanceof T1StarforgeMultiBlockEntity) {
+                    setTier(1);
+                    return InteractionResult.SUCCESS;
+                } else if (blockEntity instanceof T2StarforgeMultiBlockEntity) {
+                    setTier(2);
+                    return InteractionResult.SUCCESS;
+                } else if (blockEntity instanceof T3StarforgeMultiBlockEntity) {
+                    setTier(3);
+                    return InteractionResult.SUCCESS;
+                } else {
+                    throw new IllegalStateException("Container provider is missing.");
+                }
             }
-            throw new IllegalStateException("Container provider is missing.");
         } else {
             this.openContainer(level, pos, player);
             return InteractionResult.CONSUME;
@@ -88,23 +118,32 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return switch (tier) {
-            case 0 -> new T0StarforgeBlockEntity(pos, state);
-            case 1 -> new T1StarforgeBlockEntity(pos, state);
-            case 2 -> new T2StarforgeBlockEntity(pos, state);
-            case 3 -> new T3StarforgeBlockEntity(pos, state);
-            default -> null;
-        };
+        if (!isMultiblock) {
+            return switch (tier) {
+                case 0 -> new T0StarforgeBlockEntity(pos, state);
+                case 1 -> new T1StarforgeBlockEntity(pos, state);
+                case 2 -> new T2StarforgeBlockEntity(pos, state);
+                case 3 -> new T3StarforgeBlockEntity(pos, state);
+                default -> null;
+            };
+        } else {
+            newMultiblockEntity(pos, state);
+            return null;
+        }
     }
 
     public BlockEntity newMultiblockEntity(BlockPos pos, BlockState state) {
-        return switch (tier) {
-            case 0 -> new T0StarforgeBlockEntity(pos, state);
-            case 1 -> new T1StarforgeBlockEntity(pos, state);
-            case 2 -> new T2StarforgeBlockEntity(pos, state);
-            case 3 -> new T3StarforgeBlockEntity(pos, state);
-            default -> null;
-        };
+        if (isMultiblock) {
+            return switch (tier) {
+                case 1 -> new T1StarforgeMultiBlockEntity(pos, state);
+                case 2 -> new T2StarforgeMultiBlockEntity(pos, state);
+                case 3 -> new T3StarforgeMultiBlockEntity(pos, state);
+                default -> null;
+            };
+        } else {
+            newBlockEntity(pos, state);
+            return null;
+        }
     }
 
     @Override
@@ -137,7 +176,7 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
     protected void openContainer(Level level, BlockPos pos, Player player) {
         if (!level.isClientSide()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (!checkIfMultiblock(level, pos)) {
+            if (!getIsMultiblock()) {
                 if (blockEntity instanceof T0StarforgeBlockEntity t0StarforgeBlockEntity) {
                     setTier(0);
                     player.openMenu(t0StarforgeBlockEntity);
@@ -174,10 +213,17 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
      *
      * @param level
      * @param pos
-     * @return
+     * @return boolean instanceof
      */
     public static boolean checkIfMultiblock(Level level, BlockPos pos) {
-        isMultiblock = false;
-        return isMultiblock;
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+
+
+        return switch (tier) {
+            case 1 -> blockEntity instanceof T1StarforgeMultiBlockEntity;
+            case 2 -> blockEntity instanceof T2StarforgeMultiBlockEntity;
+            case 3 -> blockEntity instanceof T3StarforgeMultiBlockEntity;
+            default -> throw new IllegalStateException("Illegal value: " + tier);
+        };
     }
 }
