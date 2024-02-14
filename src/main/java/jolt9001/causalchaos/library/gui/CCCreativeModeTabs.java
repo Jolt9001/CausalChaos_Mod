@@ -1,19 +1,19 @@
 package jolt9001.causalchaos.library.gui;
 
-import jolt9001.causalchaos.library.definitions.CCItems;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
-
 import jolt9001.causalchaos.CausalChaos;
+import net.minecraft.core.registries.Registries;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-public class CreativeTabs {
-/*
+public class CCCreativeModeTabs {
+    public static final DeferredRegister CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CausalChaos.MODID);
+
+    public static void register(IEventBus eventBus) {
+        CREATIVE_TABS.register(eventBus);
+    }
+
+    /*
     static DeferredRegister<CreativeModeTab> TABS;
 
     public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("core", () -> CreativeModeTab.builder()

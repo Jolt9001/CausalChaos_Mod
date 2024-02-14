@@ -1,7 +1,7 @@
 package jolt9001.causalchaos.common.datagen.generators;
 
-import jolt9001.causalchaos.library.definitions.CCBlocks;
-import jolt9001.causalchaos.library.definitions.CCItems;
+import jolt9001.causalchaos.library.block.custom.CCBlocks;
+import jolt9001.causalchaos.library.item.CCItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;

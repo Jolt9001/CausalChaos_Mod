@@ -4,7 +4,12 @@ import com.mojang.logging.LogUtils;
 
 import jolt9001.causalchaos.common.config.Config;
 
+import jolt9001.causalchaos.library.block.entity.CCBlockEntities;
+import jolt9001.causalchaos.library.block.custom.CCBlocks;
+import jolt9001.causalchaos.library.gui.CCCreativeModeTabs;
+import jolt9001.causalchaos.library.item.CCItems;
 import jolt9001.causalchaos.library.recipe.CCRecipes;
+import jolt9001.causalchaos.library.screen.CCMenuTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -47,9 +52,10 @@ import java.util.Locale;
 public class CausalChaos {
     public static final String MODID = "causalchaos";
     private static final Logger LOGGER = LogUtils.getLogger();
-
+/*
     private static final String ENTITY_MODEL_DIR = "textures/entity/";
     private static final String GUI_DIR = "textures.gui/";
+ */
 
     public static final String ARMOR_DIR = MODID + ":textures/armor/";
 
@@ -60,26 +66,24 @@ public class CausalChaos {
             throw new IllegalStateException();
         }
         INSTANCE = this;
-        LOGGER.info("Me when the");
+        LOGGER.info("Me when the mod startup");
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+        CCCreativeModeTabs.register(modEventBus);
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so tabs get registered
-        CREATIVE_MODE_TABS.register(modEventBus);
+        CCBlocks.register(modEventBus);
+        CCItems.register(modEventBus);
+
+        CCBlockEntities.register(modEventBus);
+
+        CCMenuTypes.register(modEventBus);
 
         CCRecipes.register(modEventBus);
 
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        modEventBus.addListener(this::commonSetup);
 
-        // Register the item to a creative tab
+        MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
 
         // Config a = new Config();
@@ -88,34 +92,9 @@ public class CausalChaos {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    // Create a Deferred Register to hold Blocks which will all be registered under the "causalchaos" namespace
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    // Create a Deferred Register to hold Items which will all be registered under the "causalchaos" namespace
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "causalchaos" namespace
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-
-    // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
-    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-    // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
-    public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
-
-    // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
-    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEat().nutrition(1).saturationMod(2f).build())));
-
-    // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-            .displayItems((parameters, output) ->
-            {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-            }).build());
-
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
+        LOGGER.info("Me when the common setup");
 
         if (Config.logDirtBlock)
         {
@@ -129,9 +108,9 @@ public class CausalChaos {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
         {
-            event.accept(EXAMPLE_BLOCK_ITEM);
+            event.accept(CCItems.COBALT_INGOT);
         }
     }
 
@@ -139,7 +118,7 @@ public class CausalChaos {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+        LOGGER.info("Starting server...");
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -149,7 +128,7 @@ public class CausalChaos {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
+            LOGGER.info("Me when the client setup");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }

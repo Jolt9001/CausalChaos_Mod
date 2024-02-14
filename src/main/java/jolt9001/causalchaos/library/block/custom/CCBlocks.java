@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.definitions;
+package jolt9001.causalchaos.library.block.custom;
 
 import jolt9001.causalchaos.CausalChaos;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -57,7 +58,22 @@ public final class CCBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(3f)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
-        // Terrain Blocks
+    // Raw ore blocks
+    public static final RegistryObject<Block> RAW_COBALT_BLOCK = BLOCKS.register("raw_cobalt_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> RAW_IRIDIUM_BLOCK = BLOCKS.register("raw_iridium_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> RAW_NEODYMIUM_BLOCK = BLOCKS.register("raw_neodymium_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> RAW_PALLADIUM_BLOCK = BLOCKS.register("raw_palladium_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> RAW_ITANIUM_BLOCK = BLOCKS.register("raw_titanium_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> RAW_TUNGSTEN_BLOCK = BLOCKS.register("raw_tungsten_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
+
+
+    // Terrain Blocks
     public static final RegistryObject<Block> REALMWEAVE_BLOCK = BLOCKS.register("realmweave_block",
                 () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
@@ -94,4 +110,8 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> WORMHOLE_STABILIZER = BLOCKS.register("wormhole_stabilizer",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+
+    public static void register(IEventBus eventBus) {
+        BLOCKS.register(eventBus);
+    }
 }

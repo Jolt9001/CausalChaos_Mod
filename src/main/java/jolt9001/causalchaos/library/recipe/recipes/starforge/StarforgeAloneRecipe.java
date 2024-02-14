@@ -14,6 +14,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
@@ -23,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class StarforgeAloneRecipe implements Recipe<Container> {
+public class StarforgeAloneRecipe implements Recipe<SimpleContainer> {
 
     // Recipe type and identification
     protected final String group;
@@ -48,7 +49,7 @@ public class StarforgeAloneRecipe implements Recipe<Container> {
 
 
     @Override
-    public boolean matches(Container container, Level level) {
+    public boolean matches(SimpleContainer container, Level level) {
         if (level.isClientSide()) {
             return false;
         }
@@ -56,7 +57,7 @@ public class StarforgeAloneRecipe implements Recipe<Container> {
     }
 
     @Override
-    public ItemStack assemble(Container container, RegistryAccess access) {
+    public ItemStack assemble(SimpleContainer container, RegistryAccess access) {
         return output;
     }
 

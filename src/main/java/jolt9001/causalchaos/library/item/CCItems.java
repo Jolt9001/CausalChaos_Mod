@@ -1,25 +1,14 @@
-package jolt9001.causalchaos.library.definitions;
+package jolt9001.causalchaos.library.item;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.ids.CCItemIds;
-import jolt9001.causalchaos.library.item.*;
 import jolt9001.causalchaos.library.item.enums.CCArmorMaterial;
 import jolt9001.causalchaos.library.item.armor.material.*;
 import jolt9001.causalchaos.util.CausalChaosItemTier;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 public final class CCItems {
 
@@ -181,7 +170,9 @@ public final class CCItems {
     public static final RegistryObject<Item> TIME_CRYSTAL = ITEMS.register("time_crystal", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> VOID_FABRIC = ITEMS.register("void_fabric", () -> new Item(new Item.Properties()));
 
-
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+    }
 
     /*
     public static List<ItemDefinition<?>> getItems() {

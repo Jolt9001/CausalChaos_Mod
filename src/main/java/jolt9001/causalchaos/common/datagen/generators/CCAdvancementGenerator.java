@@ -1,6 +1,5 @@
 package jolt9001.causalchaos.common.datagen.generators;
 
-import jolt9001.causalchaos.common.triggers.AdvancementTriggers;
 import jolt9001.causalchaos.common.triggers.HardcoreDeathTrigger;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
@@ -8,24 +7,17 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.LevelData;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
-import jolt9001.causalchaos.library.definitions.CCItems;
+import jolt9001.causalchaos.library.item.CCItems;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 public class CCAdvancementGenerator implements ForgeAdvancementProvider.AdvancementGenerator {
