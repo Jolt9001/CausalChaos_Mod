@@ -1,7 +1,7 @@
 package jolt9001.causalchaos.library.block.entity;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.block.entity.starforge.T0StarforgeBlockEntity;
+import jolt9001.causalchaos.library.block.entity.starforgealone.T0StarforgeBlockEntity;
 import jolt9001.causalchaos.library.block.custom.CCBlocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;

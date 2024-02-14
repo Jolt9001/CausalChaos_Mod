@@ -2,6 +2,7 @@ package jolt9001.causalchaos.library.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.library.block.custom.StarforgeBlock;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
@@ -11,11 +12,11 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class StarforgeAloneScreen extends AbstractContainerScreen<StarforgeAloneMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(CausalChaos.MODID, "textures/gui/starforge_alone.png");
-    private static int tier = 0;
+    private static int tier;
 
-    public StarforgeAloneScreen(StarforgeAloneMenu menu, Inventory inv, Component comp, int tier) {
+    public StarforgeAloneScreen(StarforgeAloneMenu menu, Inventory inv, Component comp) {
         super(menu, inv, comp);
-        StarforgeAloneScreen.tier = tier;
+        tier = StarforgeBlock.getTier();
     }
 
     @Override

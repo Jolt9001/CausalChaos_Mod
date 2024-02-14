@@ -10,7 +10,9 @@ import jolt9001.causalchaos.library.gui.CCCreativeModeTabs;
 import jolt9001.causalchaos.library.item.CCItems;
 import jolt9001.causalchaos.library.recipe.CCRecipes;
 import jolt9001.causalchaos.library.screen.CCMenuTypes;
+import jolt9001.causalchaos.library.screen.StarforgeAloneScreen;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
@@ -130,6 +132,9 @@ public class CausalChaos {
             // Some client setup code
             LOGGER.info("Me when the client setup");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+            MenuScreens.register(CCMenuTypes.STARFORGE_ALONE_MENU.get(), StarforgeAloneScreen::new);
+            MenuScreens.register(CCMenuTypes.STARFORGE_MULTIBLOCK_MENU.get(), StarforgeMultiblockScreen::new);
         }
     }
 

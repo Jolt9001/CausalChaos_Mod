@@ -76,6 +76,8 @@ public final class CCBlocks {
     // Terrain Blocks
     public static final RegistryObject<Block> REALMWEAVE_BLOCK = BLOCKS.register("realmweave_block",
                 () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> QUANTUM_FABRIC = BLOCKS.register("quantum_fabric",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     // Resource
     public static final RegistryObject<Block> ANTHRACITE_BLOCK = BLOCKS.register("anthracite_block",
@@ -109,6 +111,34 @@ public final class CCBlocks {
     public static final RegistryObject<Block> DIMENSIONAL_ANCHOR = BLOCKS.register("dimensional_anchor",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> WORMHOLE_STABILIZER = BLOCKS.register("wormhole_stabilizer",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+
+    // Multiblock Components
+    public static final RegistryObject<Block> FUSION_CORE = BLOCKS.register("fusion_core",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T1_HEAT_SINK = BLOCKS.register("t1_heat_sink",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T2_HEAT_SINK = BLOCKS.register("t2_heat_sink",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T3_HEAT_SINK = BLOCKS.register("t3_heat_sink",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T1_ELECTROMAGNET = BLOCKS.register("t1_electromagnet",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T2_ELECTROMAGNET = BLOCKS.register("t2_electromagnet",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T3_ELECTROMAGNET = BLOCKS.register("t3_electromagnet",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T1_ACCEPTOR = BLOCKS.register("t1_acceptor",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T2_ACCEPTOR = BLOCKS.register("t2_acceptor",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T3_ACCEPTOR = BLOCKS.register("t3_acceptor",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T1_CORE_SHIELDING = BLOCKS.register("t1_core_shielding",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T2_CORE_SHIELDING = BLOCKS.register("t2_core_shielding",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T3_CORE_SHIELDING = BLOCKS.register("t3_core_shielding",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     public static void register(IEventBus eventBus) {

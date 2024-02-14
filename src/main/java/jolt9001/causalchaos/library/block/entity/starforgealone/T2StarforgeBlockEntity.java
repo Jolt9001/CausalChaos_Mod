@@ -1,8 +1,8 @@
-package jolt9001.causalchaos.library.block.entity.starforge;
+package jolt9001.causalchaos.library.block.entity.starforgealone;
 
-import jolt9001.causalchaos.library.block.custom.StarforgeBlock;
 import jolt9001.causalchaos.library.block.entity.CCBlockEntities;
 import jolt9001.causalchaos.library.recipe.recipes.starforge.StarforgeAloneRecipe;
+import jolt9001.causalchaos.library.screen.StarforgeAloneMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -33,7 +33,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider {
+public class T2StarforgeBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(11) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -53,22 +53,22 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     private int progress = 0;
     private int maxProgress = 78;
 
-    public T0StarforgeBlockEntity(BlockPos pos, BlockState state){
+    public T2StarforgeBlockEntity(BlockPos pos, BlockState state){
         super(CCBlockEntities.T0_STARFORGE_BE.get(), pos, state);
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> T0StarforgeBlockEntity.this.progress;
-                    case 1 -> T0StarforgeBlockEntity.this.maxProgress;
+                    case 0 -> T2StarforgeBlockEntity.this.progress;
+                    case 1 -> T2StarforgeBlockEntity.this.maxProgress;
                     default ->  0;
                 };
             }
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0 -> T0StarforgeBlockEntity.this.progress = value;
-                    case 1 -> T0StarforgeBlockEntity.this.maxProgress = value;
+                    case 0 -> T2StarforgeBlockEntity.this.progress = value;
+                    case 1 -> T2StarforgeBlockEntity.this.maxProgress = value;
                 }
             }
             @Override
@@ -114,7 +114,7 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInv, Player player) {
-        return null;
+        return new StarforgeAloneMenu(containerId, playerInv, this, this.data);
     }
 
     @Override
@@ -202,4 +202,5 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     public CompoundTag getUpdateTag() {
         return saveWithoutMetadata();
     }
+
 }
