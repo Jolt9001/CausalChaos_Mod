@@ -1,2 +1,0 @@
-# Hitbox: Creeper Explosion
-<p>After conducting a thorough investigation, I have come to the realization that Creepers are a highly dangerous force to reckon with. Their formidable strength and agility make them a constant threat, and I must remain vigilant at all times to ensure my safety. If I let my guard down for even a moment, they could easily terminate my existence without warning, leaving me powerless to defend myself. Therefore, I must always be alert and ready to react quickly to any potential danger that may arise.</p>

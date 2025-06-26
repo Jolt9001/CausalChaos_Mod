@@ -37,16 +37,15 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var root = builder
                 .display(
                         CCItems.JOURNAL.get(), //get ItemLike object
-                        Component.translatable("achievement.causalchaos.root", "Causal Chaos"),
+                        Component.translatable("achievement.causalchaos.root", "Causal Chaos"), //Advancement name
                         Component.translatable("achievement.causalchaos.root.desc",
                                 "It might be a good idea to hold on to this."), //Advancement Description
                         null, // background
-                        FrameType.TASK,
+                        FrameType.TASK, //the shape of the advancement icon
                         false, // showToast
                         false, // announceChat
                         false) // hidden
-                .rewards(AdvancementRewards.Builder.loot(new ResourceLocation(
-                        "causalchaos:gameplay/causal_journal"))) //grant reward in the form of a Causal Journal
+                .rewards(AdvancementRewards.Builder.loot(new ResourceLocation("causalchaos:gameplay/causal_journal"))) //grant reward in the form of a Causal Journal
                 .addCriterion("tick", PlayerTrigger.TriggerInstance.tick()) //Triggered the moment the player joins the world
                 .save(consumer, "causalchaos:main/root"); //Save the advancement
 
