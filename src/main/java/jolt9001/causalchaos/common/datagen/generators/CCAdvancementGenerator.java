@@ -36,18 +36,19 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         // Root
         var root = builder
                 .display(
-                        CCItems.JOURNAL.get(),
+                        CCItems.JOURNAL.get(), //get ItemLike object
                         Component.translatable("achievement.causalchaos.root", "Causal Chaos"),
                         Component.translatable("achievement.causalchaos.root.desc",
-                                "It might be a good idea to hold on to this."),
+                                "It might be a good idea to hold on to this."), //Advancement Description
                         null, // background
                         FrameType.TASK,
                         false, // showToast
                         false, // announceChat
                         false) // hidden
-                .rewards(AdvancementRewards.Builder.loot(new ResourceLocation("causalchaos:gameplay/causal_journal")))
-                .addCriterion("tick", PlayerTrigger.TriggerInstance.tick())
-                .save(consumer, "causalchaos:main/root");
+                .rewards(AdvancementRewards.Builder.loot(new ResourceLocation(
+                        "causalchaos:gameplay/causal_journal"))) //grant reward in the form of a Causal Journal
+                .addCriterion("tick", PlayerTrigger.TriggerInstance.tick()) //Triggered the moment the player joins the world
+                .save(consumer, "causalchaos:main/root"); //Save the advancement
 
 
         // Tutorial
@@ -221,7 +222,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         true,
                         false
                 )
-                //.parent(getCrystalHardcore)
+                .parent(getCrystalHardcore)
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
                 .save(consumer, "causalchaos.main/hardcore_death");
         var hardcoreDLDefeat = builder;
