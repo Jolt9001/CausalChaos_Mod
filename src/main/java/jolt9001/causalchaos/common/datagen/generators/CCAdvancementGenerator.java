@@ -36,23 +36,24 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         // Root
         var root = builder
                 .display(
-                        CCItems.JOURNAL,
+                        CCItems.JOURNAL.get(),
                         Component.translatable("achievement.causalchaos.root", "Causal Chaos"),
                         Component.translatable("achievement.causalchaos.root.desc",
                                 "It might be a good idea to hold on to this."),
-                        null, /* background */
+                        null, // background
                         FrameType.TASK,
-                        false, /* showToast */
-                        false, /* announceChat */
-                        false) /* hidden */
+                        false, // showToast
+                        false, // announceChat
+                        false) // hidden
                 .rewards(AdvancementRewards.Builder.loot(new ResourceLocation("causalchaos:gameplay/causal_journal")))
                 .addCriterion("tick", PlayerTrigger.TriggerInstance.tick())
                 .save(consumer, "causalchaos:main/root");
 
+
         // Tutorial
         var getCrystalDefault = builder
                 .display(
-                        CCItems.CAUSALITY_CRYSTAL,
+                        CCItems.CAUSALITY_CRYSTAL.get(),
                         Component.translatable("achievement.causalchaos.crystal_get",
                                 "Ooh, Shiny!"),
                         Component.translatable("achievement.causalchaos.crystal_get.desc",
@@ -64,7 +65,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         false
                 )
                 .parent(root)
-                .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL))
+                .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
                 .save(consumer, "causalchaos.main/get_crystal");
 
         var dashStrike = builder;
@@ -129,6 +130,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
 
         // Dimensions
             // Sky Islands
+        var enterSkylands = builder;
 
             // Limbo
         var enterLimbo = builder;
@@ -189,7 +191,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         // Hardcore
         var getCrystalHardcore = builder
                 .display(
-                        CCItems.CAUSALITY_CRYSTAL,
+                        CCItems.CAUSALITY_CRYSTAL.get(),
                         Component.translatable("achievement.causalchaos.crystal_get",
                                 "YOLO"),
                         Component.translatable("achievement.causalchaos.crystal_get.desc",
@@ -201,7 +203,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         false
                 )
                 .parent(root)
-                .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL))
+                .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
                 // .addCriterion("is_hardcore", [hardcore mode trigger])
                 .save(consumer, "causalchaos.main/get_crystal_hardcore");
 
@@ -219,7 +221,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         true,
                         false
                 )
-                .parent(getCrystalHardcore)
+                //.parent(getCrystalHardcore)
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
                 .save(consumer, "causalchaos.main/hardcore_death");
         var hardcoreDLDefeat = builder;

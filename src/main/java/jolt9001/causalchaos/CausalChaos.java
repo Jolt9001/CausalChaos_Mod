@@ -37,7 +37,8 @@ import java.util.Locale;
 /**
 *
 * @author Jolt9001
- */
+* Minecraft 1.20.1
+*/
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CausalChaos {
