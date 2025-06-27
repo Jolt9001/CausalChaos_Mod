@@ -11,6 +11,7 @@ public class AdvancementTriggers {
 
     public static void init() {
         CriteriaTriggers.register("causalchaos:hardcore_death", HardcoreDeathTrigger.INSTANCE);
+        CriteriaTriggers.register("causalchaos:hardcore_check", HardcoreCheckTrigger.INSTANCE);
     }
 
     /**

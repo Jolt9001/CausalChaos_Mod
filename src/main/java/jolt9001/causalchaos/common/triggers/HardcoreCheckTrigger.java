@@ -1,7 +1,39 @@
 package jolt9001.causalchaos.common.triggers;
 
+import com.google.gson.JsonObject;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.critereon.AbstractCriterionTriggerInstance;
+import net.minecraft.advancements.critereon.ContextAwarePredicate;
+import net.minecraft.advancements.critereon.DeserializationContext;
+import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+
+import java.util.Optional;
+
 /**
  * Criterion to check if the player is in hardcore mode
  */
-public class HardcoreCheckTrigger {
+public class HardcoreCheckTrigger extends SimpleCriterionTrigger<HardcoreCheckTrigger.Instance> {
+    public static final HardcoreCheckTrigger INSTANCE = new HardcoreCheckTrigger();
+    @Override
+    protected HardcoreCheckTrigger.Instance createInstance(JsonObject json, Optional<ContextAwarePredicate> predicate, DeserializationContext context) {
+        return new HardcoreCheckTrigger.Instance(predicate);
+    }
+
+    public void trigger(ServerPlayer player) {
+        if (player.level().getLevelData().isHardcore()) {
+            this.trigger(player, (instance) -> true);
+        }
+    }
+
+    public static class Instance extends AbstractCriterionTriggerInstance {
+        public Instance(Optional<ContextAwarePredicate> predicate) {
+            super(predicate);
+        }
+
+        public static Criterion<HardcoreCheckTrigger.Instance> hardcoreCheck() {
+            return INSTANCE.createCriterion(new HardcoreCheckTrigger.Instance(Optional.empty()));
+        }
+    }
 }
