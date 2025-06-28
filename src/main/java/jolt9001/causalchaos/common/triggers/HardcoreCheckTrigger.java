@@ -7,7 +7,8 @@ import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.advancements.critereon.DeserializationContext;
 import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraft.world.level.storage.LevelData;
+import org.apache.logging.log4j.Level;
 
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ import java.util.Optional;
  */
 public class HardcoreCheckTrigger extends SimpleCriterionTrigger<HardcoreCheckTrigger.Instance> {
     public static final HardcoreCheckTrigger INSTANCE = new HardcoreCheckTrigger();
+
     @Override
     protected HardcoreCheckTrigger.Instance createInstance(JsonObject json, Optional<ContextAwarePredicate> predicate, DeserializationContext context) {
         return new HardcoreCheckTrigger.Instance(predicate);
@@ -32,8 +34,11 @@ public class HardcoreCheckTrigger extends SimpleCriterionTrigger<HardcoreCheckTr
             super(predicate);
         }
 
-        public static Criterion<HardcoreCheckTrigger.Instance> hardcoreCheck() {
-            return INSTANCE.createCriterion(new HardcoreCheckTrigger.Instance(Optional.empty()));
+        public static Criterion<HardcoreCheckTrigger.Instance> hardcoreCheck(LevelData data) {
+            if (data.isHardcore()) {
+                return INSTANCE.createCriterion(new HardcoreCheckTrigger.Instance(Optional.empty()));
+            }
+            return null;
         }
     }
 }
