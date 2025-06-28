@@ -254,7 +254,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
             // Challenges
         var bossRush = builder; // "Manhunt" Prereq: Tsuna, Kai, Terry, Lyadova, Aella, Jack, Xanthea, Will, Matthue, Alline, Madeline, Emily, Adrian, Andrea, Christian, Jolt, FPJolt
         var chaosCompletion = builder; // "Masochistic Persistence" Prereq: CTsuna, CKai, CTerry, CLyadova, CAella, CJack, CXanthea, CWill, CMatthue, CAlline, CMadeline, CEmily, CAdrian, CAndrea, CChristian, CJolt, CFPJolt
-        var bossRushHardcore = builder; // "Hardcore Hitman" Prereq: getCrystalHardcore, (same as bossRush)
+        var bossRushHardcore = builder; // "Hardcore Hitman" Prereq: hardcoreDLdefeat, (same as bossRush)
         var chaosCompletionHardcore = builder; // "Perfected Flagellation"  Prereq: bossRushHardcore, (same as chaosCompletion)
 
             // Funnies

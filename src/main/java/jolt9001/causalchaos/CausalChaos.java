@@ -48,7 +48,6 @@ public class CausalChaos {
     private static final String ENTITY_MODEL_DIR = "textures/entity/";
     private static final String GUI_DIR = "textures.gui/";
  */
-
     public static final String ARMOR_DIR = MODID + ":textures/armor/";
 
     static CausalChaos INSTANCE;
@@ -80,7 +79,7 @@ public class CausalChaos {
 
         // Config a = new Config();
 
-        // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
+        // Register the mod's ForgeConfigSpec so that Forge can create and load the config file for me
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 

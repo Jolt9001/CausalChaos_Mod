@@ -20,7 +20,7 @@ public class CCRecipes {
 /*
     public static final Supplier<RecipeType<StarforgeAloneRecipe>> STARFORGE_ALONE = RECIPE_TYPES.register("starforge_alone", () -> RecipeType.simple(new ResourceLocation(CausalChaos.MODID, "starforge_alone")));
     public static final Supplier<RecipeType<StarforgeMultiblockRecipe>> STARFORGE_MULTIBLOCK = RECIPE_TYPES.register("starforge_multiblock", () -> RecipeType.simple(new ResourceLocation(CausalChaos.MODID, "starforge_multiblock")));
-    // public static final Supplier<RecipeType<IridiumEnhancerRecipe>> IRIDIUM_ENHANCEMENT;
+    public static final Supplier<RecipeType<IridiumEnhancerRecipe>> IRIDIUM_ENHANCEMENT;
  */
     public static final RegistryObject<RecipeSerializer<StarforgeAloneRecipe>> STARFORGE_ALONE_SERIALIZER = SERIALIZERS.register("starforge_alone", () -> StarforgeAloneRecipe.Serializer.INSTANCE);
 

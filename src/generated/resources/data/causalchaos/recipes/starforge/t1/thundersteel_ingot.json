@@ -1,3 +1,35 @@
 {
-  "type": "causalchaos:forging_tier1"
+  "type": "causalchaos:forging_tier1",
+  "pattern": [
+    "  w f f f w  ",
+    "w i t c t i w",
+    "f t p p p t f",
+    "f c p n p c f",
+    "f t n t n t f",
+    "w i t c t i w",
+    "  w f f f w  "
+  ],
+  "key": {
+    "w": {
+      "item": "causalchaos:tungsten_ingot"
+    },
+    "f": {
+      "item": "minecraft:iron_ingot"
+    },
+    "i": {
+      "item": "causalchaos:iridium_ingot"
+    },
+    "t": {
+      "item": "causalchaos:titanium_ingot"
+    },
+    "c": {
+      "item": "causalchaos:cobalt_ingot"
+    },
+    "p": {
+      "item": "causalchaos:palladium_ingot"
+    },
+    "n": {
+      "item": "causalchaos:neodymium_ingot"
+    }
+  }
 }
