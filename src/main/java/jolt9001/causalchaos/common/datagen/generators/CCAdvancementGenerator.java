@@ -235,13 +235,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         (ItemLike) IconGenerator.RESUSCITATION_ICON,
                         Component.translatable("achievement.causalchaos.hardcore_death", "Resuscitation"),
                         Component.translatable("achievement.causalchaos.hardcore_death.desc",
-                                "Embrace mortality, yet defy the fall."),
-                        null,
-                        FrameType.GOAL,
-                        true,
-                        true,
-                        false
-                )
+                                "Embrace mortality, yet defy the fall."), null, FrameType.GOAL, true, true, false)
                 .parent(getCrystalHardcore)
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
                 .save(consumer, "causalchaos.main/hardcore_death");
@@ -268,7 +262,15 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var FPJoltDeath = builder; // "Instant Karma" Prereq: Jolt
         var playerLostMind = builder; // "Straitjacket" Prereq: enterTPlain
         var superweaponOnVanillaMob = builder; // "Unnecessary" Prereq: Tsuna
-        var badRNG = builder; // "Rolled a 1" Prereq: TPPortalActivate
+        var badRNG = builder
+                .display(
+                        (ItemLike)IconGenerator.NAT1,
+                        Component.translatable("achievement.causalchaos.badRNG", "Rolled a 1"),
+                        Component.translatable("achievement.causalchaos.badRNG.desc", "RNG hates you."),
+                        null, FrameType.TASK,true, true, false)
+                // .parent(TPPortalActivate)
+                /* Add criteria that allows for hit detecion from RNG-based attacks */
+                .save(consumer, "causalchaos.main/badRNG"); // "Rolled a 1" Prereq: TPPortalActivate
 
             // Hidden Challenges
         var chaosBossRush = builder; // "Unlimited" Prereq: chaosCompletion

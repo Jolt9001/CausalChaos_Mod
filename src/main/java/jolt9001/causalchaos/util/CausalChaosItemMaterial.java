@@ -11,7 +11,7 @@ import net.minecraftforge.common.TierSortingRegistry;
 
 import java.util.List;
 
-public class CausalChaosItemTier {
+public class CausalChaosItemMaterial {
     // Mining level, durability, mining speed multiplier, damage bonus, enchantability
     // Base damage for swords is 4, reference personal docs for stats
 

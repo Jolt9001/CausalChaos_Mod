@@ -64,10 +64,9 @@ public class CCBlockLootTables extends BlockLootSubProvider {
 
     protected LootTable.Builder createCopperLikeOreDrops(Block block, Item item) {
         return createSilkTouchDispatchTable(block,
-                this.applyExplosionDecay(block,
-                        LootItem.lootTableItem(item)
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0F)))
-                                .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+                this.applyExplosionDecay(block, LootItem.lootTableItem(item)
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0F)))
+                        .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
     }
 
 }

@@ -3,7 +3,7 @@ package jolt9001.causalchaos.library.item;
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.library.item.enums.CCArmorMaterial;
 import jolt9001.causalchaos.library.item.armor.material.*;
-import jolt9001.causalchaos.util.CausalChaosItemTier;
+import jolt9001.causalchaos.util.CausalChaosItemMaterial;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,7 +18,7 @@ public final class CCItems {
     public static final RegistryObject<JournalItem> JOURNAL = ITEMS.register("causal_journal", () -> new JournalItem(new Item.Properties()));
 
     // Quest (I.E. the Causality Crystal)
-    public static final RegistryObject<CausalityCrystalItem> CAUSALITY_CRYSTAL = ITEMS.register("causal_journal", () -> new CausalityCrystalItem(new Item.Properties()));
+    public static final RegistryObject<CausalityCrystalItem> CAUSALITY_CRYSTAL = ITEMS.register("causality_crystal", () -> new CausalityCrystalItem(new Item.Properties()));
 
     // Crafting Ingredients and Materials (ingots, nuggets, raw ores, etc.)
     public static final RegistryObject<Item> COBALT_INGOT =  ITEMS.register("cobalt_ingot", () -> new Item(new Item.Properties()));
@@ -38,15 +38,7 @@ public final class CCItems {
     public static final RegistryObject<Item> THUNDERSTEEL_NUGGET = ITEMS.register("thundersteel_nugget", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TITANIUM_NUGGET = ITEMS.register("titanium_nugget", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TUNGSTEN_NUGGET = ITEMS.register("tungsten_nugget", () -> new Item(new Item.Properties()));
-/*
-    public static final ItemDefinition<Item> RAW_COBALT = item("Raw Cobalt", CCItemIds.RAW_COBALT, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_IRIDIUM = item("Raw Iridium", CCItemIds.RAW_IRIDIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_NEODYMIUM = item("Raw Neodymium", CCItemIds.RAW_NEODYMIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_PALLADIUM = item("Raw Palladium", CCItemIds.RAW_PALLADIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_TITANIUM = item("Raw Titanium", CCItemIds.RAW_TITANIUM, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> RAW_TUNGSTEN = item("Raw Tungsten", CCItemIds.RAW_TUNGSTEN, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
-    public static final ItemDefinition<Item> ANTHRACITE = item("Anthracite", CCItemIds.ANTHRACITE, p -> new Item(new Item.Properties()), CreativeModeTabs.INGREDIENTS);
- */
+
     public static final RegistryObject<Item> RAW_COBALT =  ITEMS.register("raw_cobalt", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_IRIDIUM = ITEMS.register("raw_iridium", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_NEODYMIUM = ITEMS.register("raw_neodymium", () -> new Item(new Item.Properties()));
@@ -57,63 +49,63 @@ public final class CCItems {
 
     // Tools
         // Axes
-    public static final RegistryObject<Item> COBALT_AXE = ITEMS.register("cobalt_axe", () -> new AxeItem(CausalChaosItemTier.COBALT, 6.0F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_AXE = ITEMS.register("infused_thundersteel_axe", () -> new AxeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 6.0F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> IRIDIUM_AXE = ITEMS.register("iridium_axe", () -> new AxeItem(CausalChaosItemTier.IRIDIUM, 6.0F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> NEODYMIUM_AXE = ITEMS.register("neodymium_axe", () -> new AxeItem(CausalChaosItemTier.NEODYMIUM, 6.0F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> PALLADIUM_AXE = ITEMS.register("palladium_axe", () -> new AxeItem(CausalChaosItemTier.PALLADIUM, 6.0F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> PERPLEXIUM_AXE = ITEMS.register("perplexium_axe", () -> new AxeItem(CausalChaosItemTier.PERPLEXIUM, 6.0F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> THUNDERSTEEL_AXE = ITEMS.register("thundersteel_axe", () -> new AxeItem(CausalChaosItemTier.THUNDERSTEEL, 6.0F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> TITANIUM_AXE = ITEMS.register("titanium_axe", () -> new AxeItem(CausalChaosItemTier.TITANIUM, 6.0F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> TUNGSTEN_AXE = ITEMS.register("tungsten_axe", () -> new AxeItem(CausalChaosItemTier.TUNGSTEN, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_AXE = ITEMS.register("cobalt_axe", () -> new AxeItem(CausalChaosItemMaterial.COBALT, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_AXE = ITEMS.register("infused_thundersteel_axe", () -> new AxeItem(CausalChaosItemMaterial.INFUSED_THUNDERSTEEL, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_AXE = ITEMS.register("iridium_axe", () -> new AxeItem(CausalChaosItemMaterial.IRIDIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_AXE = ITEMS.register("neodymium_axe", () -> new AxeItem(CausalChaosItemMaterial.NEODYMIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_AXE = ITEMS.register("palladium_axe", () -> new AxeItem(CausalChaosItemMaterial.PALLADIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_AXE = ITEMS.register("perplexium_axe", () -> new AxeItem(CausalChaosItemMaterial.PERPLEXIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_AXE = ITEMS.register("thundersteel_axe", () -> new AxeItem(CausalChaosItemMaterial.THUNDERSTEEL, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_AXE = ITEMS.register("titanium_axe", () -> new AxeItem(CausalChaosItemMaterial.TITANIUM, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_AXE = ITEMS.register("tungsten_axe", () -> new AxeItem(CausalChaosItemMaterial.TUNGSTEN, 6.0F, -3.0F, new Item.Properties()));
 
         // Hoes
-    public static final RegistryObject<Item> COBALT_HOE = ITEMS.register("cobalt_hoe", () -> new HoeItem(CausalChaosItemTier.COBALT, 3, -0.5F, new Item.Properties()));
-    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_HOE = ITEMS.register("infused_thundersteel_hoe", () -> new HoeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 3, -0.5F, new Item.Properties()));
-    public static final RegistryObject<Item> IRIDIUM_HOE = ITEMS.register("iridium_hoe", () -> new HoeItem(CausalChaosItemTier.IRIDIUM, 3, -0.5F, new Item.Properties()));
-    public static final RegistryObject<Item> NEODYMIUM_HOE = ITEMS.register("neodymium_hoe", () -> new HoeItem(CausalChaosItemTier.NEODYMIUM, 3, -0.5F, new Item.Properties()));
-    public static final RegistryObject<Item> PALLADIUM_HOE = ITEMS.register("palladium_hoe", () -> new HoeItem(CausalChaosItemTier.PALLADIUM, 3, -0.5F, new Item.Properties()));
-    public static final RegistryObject<Item> PERPLEXIUM_HOE = ITEMS.register("perplexium_hoe", () -> new HoeItem(CausalChaosItemTier.PERPLEXIUM, 3, -0.5F, new Item.Properties()));
-    public static final RegistryObject<Item> THUNDERSTEEL_HOE = ITEMS.register("thundersteel_hoe", () -> new HoeItem(CausalChaosItemTier.THUNDERSTEEL, 3, -0.5F, new Item.Properties()));
-    public static final RegistryObject<Item> TITANIUM_HOE = ITEMS.register("titanium_hoe", () -> new HoeItem(CausalChaosItemTier.TITANIUM, 3, -0.5F, new Item.Properties()));
-    public static final RegistryObject<Item> TUNGSTEN_HOE = ITEMS.register("tungsten_hoe", () -> new HoeItem(CausalChaosItemTier.TUNGSTEN, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_HOE = ITEMS.register("cobalt_hoe", () -> new HoeItem(CausalChaosItemMaterial.COBALT, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_HOE = ITEMS.register("infused_thundersteel_hoe", () -> new HoeItem(CausalChaosItemMaterial.INFUSED_THUNDERSTEEL, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_HOE = ITEMS.register("iridium_hoe", () -> new HoeItem(CausalChaosItemMaterial.IRIDIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_HOE = ITEMS.register("neodymium_hoe", () -> new HoeItem(CausalChaosItemMaterial.NEODYMIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_HOE = ITEMS.register("palladium_hoe", () -> new HoeItem(CausalChaosItemMaterial.PALLADIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_HOE = ITEMS.register("perplexium_hoe", () -> new HoeItem(CausalChaosItemMaterial.PERPLEXIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_HOE = ITEMS.register("thundersteel_hoe", () -> new HoeItem(CausalChaosItemMaterial.THUNDERSTEEL, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_HOE = ITEMS.register("titanium_hoe", () -> new HoeItem(CausalChaosItemMaterial.TITANIUM, 3, -0.5F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_HOE = ITEMS.register("tungsten_hoe", () -> new HoeItem(CausalChaosItemMaterial.TUNGSTEN, 3, -0.5F, new Item.Properties()));
 
     // Pickaxes
-    public static final RegistryObject<Item> COBALT_PICKAXE = ITEMS.register("cobalt_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.COBALT, 1, -2.8F, new Item.Properties()));
-    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_PICKAXE = ITEMS.register("infused_thundersteel_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 1, -2.8F, new Item.Properties()));
-    public static final RegistryObject<Item> IRIDIUM_PICKAXE = ITEMS.register("iridium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.IRIDIUM, 1, -2.8F, new Item.Properties()));
-    public static final RegistryObject<Item> NEODYMIUM_PICKAXE = ITEMS.register("neodymium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.NEODYMIUM, 1, -2.8F, new Item.Properties()));
-    public static final RegistryObject<Item> PALLADIUM_PICKAXE = ITEMS.register("palladium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.PALLADIUM, 1, -2.8F, new Item.Properties()));
-    public static final RegistryObject<Item> PERPLEXIUM_PICKAXE = ITEMS.register("perplexium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.PERPLEXIUM, 1, -2.8F, new Item.Properties()));
-    public static final RegistryObject<Item> THUNDERSTEEL_PICKAXE = ITEMS.register("thundersteel_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.THUNDERSTEEL, 1, -2.8F, new Item.Properties()));
-    public static final RegistryObject<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.TITANIUM, 1, -2.8F, new Item.Properties()));
-    public static final RegistryObject<Item> TUNGSTEN_PICKAXE = ITEMS.register("tungsten_pickaxe", () -> new PickaxeItem(CausalChaosItemTier.TUNGSTEN, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_PICKAXE = ITEMS.register("cobalt_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.COBALT, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_PICKAXE = ITEMS.register("infused_thundersteel_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.INFUSED_THUNDERSTEEL, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_PICKAXE = ITEMS.register("iridium_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.IRIDIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_PICKAXE = ITEMS.register("neodymium_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.NEODYMIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_PICKAXE = ITEMS.register("palladium_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.PALLADIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_PICKAXE = ITEMS.register("perplexium_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.PERPLEXIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_PICKAXE = ITEMS.register("thundersteel_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.THUNDERSTEEL, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_PICKAXE = ITEMS.register("titanium_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.TITANIUM, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_PICKAXE = ITEMS.register("tungsten_pickaxe", () -> new PickaxeItem(CausalChaosItemMaterial.TUNGSTEN, 1, -2.8F, new Item.Properties()));
 
         // Shovels
-    public static final RegistryObject<Item> COBALT_SHOVEL = ITEMS.register("cobalt_shovel", () -> new ShovelItem(CausalChaosItemTier.COBALT, 1.5F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_SHOVEL = ITEMS.register("infused_thundersteel_shovel", () -> new ShovelItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 1.5F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> IRIDIUM_SHOVEL = ITEMS.register("iridium_shovel", () -> new ShovelItem(CausalChaosItemTier.IRIDIUM, 1.5F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> NEODYMIUM_SHOVEL = ITEMS.register("neodymium_shovel", () -> new ShovelItem(CausalChaosItemTier.NEODYMIUM, 1.5F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> PALLADIUM_SHOVEL = ITEMS.register("palladium_shovel", () -> new ShovelItem(CausalChaosItemTier.PALLADIUM, 1.5F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> PERPLEXIUM_SHOVEL = ITEMS.register("perplexium_shovel", () -> new ShovelItem(CausalChaosItemTier.PERPLEXIUM, 1.5F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> THUNDERSTEEL_SHOVEL = ITEMS.register("thundersteel_shovel", () -> new ShovelItem(CausalChaosItemTier.THUNDERSTEEL, 1.5F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> TITANIUM_SHOVEL = ITEMS.register("titanium_shovel", () -> new ShovelItem(CausalChaosItemTier.TITANIUM, 1.5F, -3.0F, new Item.Properties()));
-    public static final RegistryObject<Item> TUNGSTEN_SHOVEL = ITEMS.register("tungsten_hoe", () -> new ShovelItem(CausalChaosItemTier.TUNGSTEN, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_SHOVEL = ITEMS.register("cobalt_shovel", () -> new ShovelItem(CausalChaosItemMaterial.COBALT, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_SHOVEL = ITEMS.register("infused_thundersteel_shovel", () -> new ShovelItem(CausalChaosItemMaterial.INFUSED_THUNDERSTEEL, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_SHOVEL = ITEMS.register("iridium_shovel", () -> new ShovelItem(CausalChaosItemMaterial.IRIDIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_SHOVEL = ITEMS.register("neodymium_shovel", () -> new ShovelItem(CausalChaosItemMaterial.NEODYMIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_SHOVEL = ITEMS.register("palladium_shovel", () -> new ShovelItem(CausalChaosItemMaterial.PALLADIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_SHOVEL = ITEMS.register("perplexium_shovel", () -> new ShovelItem(CausalChaosItemMaterial.PERPLEXIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_SHOVEL = ITEMS.register("thundersteel_shovel", () -> new ShovelItem(CausalChaosItemMaterial.THUNDERSTEEL, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_SHOVEL = ITEMS.register("titanium_shovel", () -> new ShovelItem(CausalChaosItemMaterial.TITANIUM, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_SHOVEL = ITEMS.register("tungsten_hoe", () -> new ShovelItem(CausalChaosItemMaterial.TUNGSTEN, 1.5F, -3.0F, new Item.Properties()));
 
     // Weapons
         // Material Melee
-    public static final RegistryObject<Item> COBALT_SWORD = ITEMS.register("cobalt_sword", () -> new SwordItem(CausalChaosItemTier.COBALT, 3, -2.4F, new Item.Properties()));
-    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_SWORD = ITEMS.register("infused_thundersteel_sword", () -> new SwordItem(CausalChaosItemTier.INFUSED_THUNDERSTEEL, 3, -2.4F, new Item.Properties()));
-    public static final RegistryObject<Item> IRIDIUM_SWORD = ITEMS.register("iridium_sword", () -> new SwordItem(CausalChaosItemTier.IRIDIUM, 3, -2.4F, new Item.Properties()));
-    public static final RegistryObject<Item> NEODYMIUM_SWORD = ITEMS.register("neodymium_sword", () -> new SwordItem(CausalChaosItemTier.NEODYMIUM, 3, -2.4F, new Item.Properties()));
-    public static final RegistryObject<Item> PALLADIUM_SWORD = ITEMS.register("palladium_sword", () -> new SwordItem(CausalChaosItemTier.PALLADIUM, 3, -2.4F, new Item.Properties()));
-    public static final RegistryObject<Item> PERPLEXIUM_SWORD = ITEMS.register("perplexium_sword", () -> new SwordItem(CausalChaosItemTier.PERPLEXIUM, 3, -2.4F, new Item.Properties()));
-    public static final RegistryObject<Item> THUNDERSTEEL_SWORD = ITEMS.register("thundersteel_sword", () -> new SwordItem(CausalChaosItemTier.THUNDERSTEEL, 3, -2.4F, new Item.Properties()));
-    public static final RegistryObject<Item> TITANIUM_SWORD = ITEMS.register("titanium_sword", () -> new SwordItem(CausalChaosItemTier.TITANIUM, 3, -2.4F, new Item.Properties()));
-    public static final RegistryObject<Item> TUNGSTEN_SWORD = ITEMS.register("tungsten_sword", () -> new SwordItem(CausalChaosItemTier.TUNGSTEN, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_SWORD = ITEMS.register("cobalt_sword", () -> new SwordItem(CausalChaosItemMaterial.COBALT, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_SWORD = ITEMS.register("infused_thundersteel_sword", () -> new SwordItem(CausalChaosItemMaterial.INFUSED_THUNDERSTEEL, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_SWORD = ITEMS.register("iridium_sword", () -> new SwordItem(CausalChaosItemMaterial.IRIDIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> NEODYMIUM_SWORD = ITEMS.register("neodymium_sword", () -> new SwordItem(CausalChaosItemMaterial.NEODYMIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> PALLADIUM_SWORD = ITEMS.register("palladium_sword", () -> new SwordItem(CausalChaosItemMaterial.PALLADIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> PERPLEXIUM_SWORD = ITEMS.register("perplexium_sword", () -> new SwordItem(CausalChaosItemMaterial.PERPLEXIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> THUNDERSTEEL_SWORD = ITEMS.register("thundersteel_sword", () -> new SwordItem(CausalChaosItemMaterial.THUNDERSTEEL, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> TITANIUM_SWORD = ITEMS.register("titanium_sword", () -> new SwordItem(CausalChaosItemMaterial.TITANIUM, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> TUNGSTEN_SWORD = ITEMS.register("tungsten_sword", () -> new SwordItem(CausalChaosItemMaterial.TUNGSTEN, 3, -2.4F, new Item.Properties()));
 
         // Super Melee
-    public static final RegistryObject<Item> WHITE_THUNDER = ITEMS.register("white_thunder", () -> new SwordItem(CausalChaosItemTier.SUPERWEAPON, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_THUNDER = ITEMS.register("white_thunder", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties()));
 
     // Material Armor
         // Boots
@@ -173,7 +165,6 @@ public final class CCItems {
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
-
     /*
     public static List<ItemDefinition<?>> getItems() {
         return Collections.unmodifiableList(ITEMS);
@@ -186,12 +177,8 @@ public final class CCItems {
         if (group.equals(CreativeTabs.ITEMS)) {
 
         }
-
         ITEMS.add(definition);
-
         return definition;
     }
-
      */
-
 }
