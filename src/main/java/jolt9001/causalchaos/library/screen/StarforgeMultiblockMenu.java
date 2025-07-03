@@ -1,6 +1,7 @@
 package jolt9001.causalchaos.library.screen;
 
-import jolt9001.causalchaos.library.block.custom.CCBlocks;
+import jolt9001.causalchaos.init.CCBlocks;
+import jolt9001.causalchaos.init.CCMenuTypes;
 import jolt9001.causalchaos.library.block.custom.StarforgeBlock;
 import jolt9001.causalchaos.library.block.entity.starforgemultiblock.*;
 import net.minecraft.network.FriendlyByteBuf;

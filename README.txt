@@ -38,9 +38,15 @@ license, if you do not agree with it you can change your mapping names to other 
 build.gradle. For the latest license text, refer to the mapping file itself, or the reference copy here:
 https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
 
-Additional Resources: 
-=========================
+Additional Resources:
+==============================
 Community Documentation: https://docs.minecraftforge.net/en/latest/gettingstarted/
 LexManos' Install Video: https://youtu.be/8VEdtQLuLO0
 Forge Forums: https://forums.minecraftforge.net/
 Forge Discord: https://discord.minecraftforge.net/
+
+Credits:
+==============================
+Jolt9001: Project Lead, Lead Developer
+DetectiveCollective: Texture Artist, Model Builder
+MechanicPluto: Texture Artist

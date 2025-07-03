@@ -1,11 +1,12 @@
 package jolt9001.causalchaos.library.screen;
 
+import jolt9001.causalchaos.init.CCMenuTypes;
 import jolt9001.causalchaos.library.block.custom.StarforgeBlock;
 import jolt9001.causalchaos.library.block.entity.starforgealone.T0StarforgeBlockEntity;
 import jolt9001.causalchaos.library.block.entity.starforgealone.T1StarforgeBlockEntity;
 import jolt9001.causalchaos.library.block.entity.starforgealone.T2StarforgeBlockEntity;
 import jolt9001.causalchaos.library.block.entity.starforgealone.T3StarforgeBlockEntity;
-import jolt9001.causalchaos.library.block.custom.CCBlocks;
+import jolt9001.causalchaos.init.CCBlocks;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;

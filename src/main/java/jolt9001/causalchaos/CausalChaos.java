@@ -2,12 +2,7 @@ package jolt9001.causalchaos;
 
 import com.mojang.logging.LogUtils;
 
-import jolt9001.causalchaos.common.config.Config;
-import jolt9001.causalchaos.library.block.entity.CCBlockEntities;
-import jolt9001.causalchaos.library.block.custom.CCBlocks;
-import jolt9001.causalchaos.library.gui.CCCreativeModeTabs;
-import jolt9001.causalchaos.library.item.CCItems;
-import jolt9001.causalchaos.library.recipe.CCRecipes;
+import jolt9001.causalchaos.init.*;
 import jolt9001.causalchaos.library.screen.*;
 
 import net.minecraft.client.Minecraft;

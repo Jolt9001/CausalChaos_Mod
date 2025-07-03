@@ -1,6 +1,6 @@
 package jolt9001.causalchaos.library.item.enums;
 
-import jolt9001.causalchaos.library.item.CCItems;
+import jolt9001.causalchaos.init.CCItems;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

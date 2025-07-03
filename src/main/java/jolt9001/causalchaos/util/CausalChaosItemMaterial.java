@@ -1,7 +1,7 @@
 package jolt9001.causalchaos.util;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.item.CCItems;
+import jolt9001.causalchaos.init.CCItems;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
