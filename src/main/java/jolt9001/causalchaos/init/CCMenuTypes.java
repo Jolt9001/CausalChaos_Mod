@@ -19,7 +19,5 @@ public class CCMenuTypes {
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuTypes(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));
     }
-    public static void register(IEventBus eventBus) {
-        MENUS.register(eventBus);
-    }
+    public static void register(IEventBus eventBus) {MENUS.register(eventBus);}
 }

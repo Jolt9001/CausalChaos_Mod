@@ -210,9 +210,7 @@ public final class CCItems {
     public static final RegistryObject<Item> TIME_CRYSTAL = ITEMS.register("time_crystal", () -> new Item(new Item.Properties())); // Drops from Demon Lord and Riftwalkers
     public static final RegistryObject<Item> VOID_FABRIC = ITEMS.register("void_fabric", () -> new Item(new Item.Properties()));
 
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
-    }
+    public static void register(IEventBus eventBus) {ITEMS.register(eventBus);}
     /*
     public static List<ItemDefinition<?>> getItems() {
         return Collections.unmodifiableList(ITEMS);
