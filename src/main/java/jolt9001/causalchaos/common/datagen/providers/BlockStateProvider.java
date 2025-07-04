@@ -38,7 +38,7 @@ public class BlockStateProvider extends net.minecraftforge.client.model.generato
         blockWithItem(CCBlocks.RAW_IRIDIUM_BLOCK);
         blockWithItem(CCBlocks.RAW_NEODYMIUM_BLOCK);
         blockWithItem(CCBlocks.RAW_PALLADIUM_BLOCK);
-        blockWithItem(CCBlocks.RAW_ITANIUM_BLOCK);
+        blockWithItem(CCBlocks.RAW_TITANIUM_BLOCK);
         blockWithItem(CCBlocks.RAW_TUNGSTEN_BLOCK);
 
         // Resource storage

@@ -75,21 +75,21 @@ public class CausalChaos {
         // Config a = new Config();
 
         // Register the mod's ForgeConfigSpec so that Forge can create and load the config file for me
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CCConfig.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
         LOGGER.info("Me when the common setup");
 
-        if (Config.logDirtBlock)
+        if (CCConfig.logDirtBlock)
         {
             LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
         }
 
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
+        LOGGER.info(CCConfig.magicNumberIntroduction + CCConfig.magicNumber);
 
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        CCConfig.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
     // Add the example block item to the building blocks tab

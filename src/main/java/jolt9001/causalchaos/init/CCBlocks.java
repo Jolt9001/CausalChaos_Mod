@@ -67,7 +67,7 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> RAW_PALLADIUM_BLOCK = BLOCKS.register("raw_palladium_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> RAW_ITANIUM_BLOCK = BLOCKS.register("raw_titanium_block",
+    public static final RegistryObject<Block> RAW_TITANIUM_BLOCK = BLOCKS.register("raw_titanium_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> RAW_TUNGSTEN_BLOCK = BLOCKS.register("raw_tungsten_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).noOcclusion()));
@@ -141,7 +141,5 @@ public final class CCBlocks {
     public static final RegistryObject<Block> T3_CORE_SHIELDING = BLOCKS.register("t3_core_shielding",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
-    public static void register(IEventBus eventBus) {
-        BLOCKS.register(eventBus);
-    }
+    public static void register(IEventBus eventBus) {BLOCKS.register(eventBus);}
 }

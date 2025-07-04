@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 // Demonstrates how to use Forge's config APIs
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class Config {
+public class CCConfig {
 
     public static Common COMMON_CONFIG;
     public static Client CLIENT_CONFIG;
@@ -130,7 +130,7 @@ public class Config {
     // a list of strings that are treated as resource locations for items
     public static final ForgeConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER
             .comment("A list of items to log on common setup.")
-            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), Config::validateItemName);
+            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), CCConfig::validateItemName);
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 
