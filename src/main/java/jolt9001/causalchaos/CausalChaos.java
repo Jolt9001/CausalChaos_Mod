@@ -5,10 +5,12 @@ import com.mojang.logging.LogUtils;
 import jolt9001.causalchaos.init.*;
 import jolt9001.causalchaos.library.screen.*;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Blocks;
 
 import net.minecraftforge.api.distmarker.Dist;
@@ -39,11 +41,12 @@ import java.util.Locale;
 public class CausalChaos {
     public static final String MODID = "causalchaos";
     private static final Logger LOGGER = LogUtils.getLogger();
-/*
-    private static final String ENTITY_MODEL_DIR = "textures/entity/";
+    private static final String MODEL_DIR = "textures/entity/";
     private static final String GUI_DIR = "textures.gui/";
- */
+    private static final String ENVIRO_DIR = "textures/environment/";
     public static final String ARMOR_DIR = MODID + ":textures/armor/";
+    public static final String REGISTRY_NAMESPACE = "causalchaos";
+    private static final Rarity rarity = Rarity.create("CAUSALCHAOS", ChatFormatting.AQUA);
 
     static CausalChaos INSTANCE;
 
@@ -121,8 +124,32 @@ public class CausalChaos {
             MenuScreens.register(CCMenuTypes.STARFORGE_MULTIBLOCK_MENU.get(), StarforgeMultiblockScreen::new);
         }
     }
+    /*
+    public void registerCommands(RegisterCommandsEvent event) {
+        CCCommand.register(event.getDispatcher());
+    }
+     */
 
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(MODID, name.toLowerCase(Locale.ROOT));
+    }
+    public static ResourceLocation namedRegistry(String name) {
+        return new ResourceLocation(REGISTRY_NAMESPACE, name.toLowerCase(Locale.ROOT));
+    }
+
+    public static ResourceLocation getModelTexture(String name) {
+        return new ResourceLocation(MODID, MODEL_DIR + name);
+    }
+
+    public static ResourceLocation getGuiTexture(String name) {
+        return new ResourceLocation(MODID, GUI_DIR + name);
+    }
+
+    public static ResourceLocation getEnvTexture(String name) {
+        return new ResourceLocation(MODID, ENVIRO_DIR + name);
+    }
+
+    public static Rarity getRarity() {
+        return rarity;
     }
 }
