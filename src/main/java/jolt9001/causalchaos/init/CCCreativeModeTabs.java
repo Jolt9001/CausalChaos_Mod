@@ -66,9 +66,12 @@ public class CCCreativeModeTabs {
                 output.accept(CCBlocks.T1_ELECTROMAGNET.get());
                 output.accept(CCBlocks.T2_ELECTROMAGNET.get());
                 output.accept(CCBlocks.T3_ELECTROMAGNET.get());
-                output.accept(CCBlocks.T1_ACCEPTOR.get());
-                output.accept(CCBlocks.T2_ACCEPTOR.get());
-                output.accept(CCBlocks.T3_ACCEPTOR.get());
+                output.accept(CCBlocks.T1_HOPPER.get());
+                output.accept(CCBlocks.T2_HOPPER.get());
+                output.accept(CCBlocks.T3_HOPPER.get());
+                output.accept(CCBlocks.T1_S_HOPPER.get());
+                output.accept(CCBlocks.T2_S_HOPPER.get());
+                output.accept(CCBlocks.T3_S_HOPPER.get());
                 output.accept(CCBlocks.T1_CORE_SHIELDING.get());
                 output.accept(CCBlocks.T2_CORE_SHIELDING.get());
                 output.accept(CCBlocks.T3_CORE_SHIELDING.get());

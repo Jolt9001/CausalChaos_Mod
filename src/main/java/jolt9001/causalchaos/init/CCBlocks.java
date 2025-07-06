@@ -17,45 +17,45 @@ public final class CCBlocks {
     // Environmental (ores, terrain, etc)
         // Stone Ores
     public static final RegistryObject<Block> ANTHRACITE_ORE = BLOCKS.register("anthracite_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.COAL_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> COBALT_ORE = BLOCKS.register("cobalt_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> IRIDIUM_ORE = BLOCKS.register("iridium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> NEODYMIUM_ORE = BLOCKS.register("neodymium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> PALLADIUM_ORE = BLOCKS.register("palladium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> TITANIUM_ORE = BLOCKS.register("titanium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> TUNGSTEN_ORE = BLOCKS.register("tungsten_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(2f).
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
 
         // Deepslate Ores
     public static final RegistryObject<Block> DEEPSLATE_COBALT_ORE = BLOCKS.register("deepslate_cobalt_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(3f)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).strength(3f)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> DEEPSLATE_IRIDIUM_ORE = BLOCKS.register("deepslate_iridium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(3f)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).strength(3f)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> DEEPSLATE_NEODYMIUM_ORE = BLOCKS.register("deepslate_neodymium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(3f)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).strength(3f)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> DEEPSLATE_PALLADIUM_ORE = BLOCKS.register("deepslate_palladium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(3f)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).strength(3f)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> DEEPSLATE_TITANIUM_ORE = BLOCKS.register("deepslate_titanium_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(3f)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).strength(3f)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> DEEPSLATE_TUNGSTEN_ORE = BLOCKS.register("deepslate_tungsten_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(3f)
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).strength(3f)
                     .requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
     // Raw ore blocks
@@ -79,6 +79,10 @@ public final class CCBlocks {
     public static final RegistryObject<Block> QUANTUM_FABRIC = BLOCKS.register("quantum_fabric",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
+    // Portal Block
+    public static final RegistryObject<Block> TRANSCENDENT_PORTAL = BLOCKS.register("transcendent_portal",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL).noOcclusion()));
+
     // Resource
     public static final RegistryObject<Block> ANTHRACITE_BLOCK = BLOCKS.register("anthracite_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).noOcclusion()));
@@ -100,13 +104,13 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     // Machine
-    public static final RegistryObject<Block> T0_STARFORGE = BLOCKS.register("starforge_tier_0",
+    public static final RegistryObject<Block> T0_STARFORGE = BLOCKS.register("starforge0",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLAST_FURNACE).noOcclusion()));
-    public static final RegistryObject<Block> T1_STARFORGE = BLOCKS.register("starforge_tier_1",
+    public static final RegistryObject<Block> T1_STARFORGE = BLOCKS.register("starforge1",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLAST_FURNACE).noOcclusion()));
-    public static final RegistryObject<Block> T2_STARFORGE = BLOCKS.register("starforge_tier_2",
+    public static final RegistryObject<Block> T2_STARFORGE = BLOCKS.register("starforge2",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLAST_FURNACE).noOcclusion()));
-    public static final RegistryObject<Block> T3_STARFORGE = BLOCKS.register("starforge_tier_3",
+    public static final RegistryObject<Block> T3_STARFORGE = BLOCKS.register("starforge3",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLAST_FURNACE).noOcclusion()));
     public static final RegistryObject<Block> DIMENSIONAL_ANCHOR = BLOCKS.register("dimensional_anchor",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
@@ -116,29 +120,35 @@ public final class CCBlocks {
     // Multiblock Components
     public static final RegistryObject<Block> FUSION_CORE = BLOCKS.register("fusion_core",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T1_HEAT_SINK = BLOCKS.register("t1_heat_sink",
+    public static final RegistryObject<Block> T1_HEAT_SINK = BLOCKS.register("heat_sink1",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T2_HEAT_SINK = BLOCKS.register("t2_heat_sink",
+    public static final RegistryObject<Block> T2_HEAT_SINK = BLOCKS.register("heat_sink2",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T3_HEAT_SINK = BLOCKS.register("t3_heat_sink",
+    public static final RegistryObject<Block> T3_HEAT_SINK = BLOCKS.register("heat_sink3",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T1_ELECTROMAGNET = BLOCKS.register("t1_electromagnet",
+    public static final RegistryObject<Block> T1_ELECTROMAGNET = BLOCKS.register("electromagnet1",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T2_ELECTROMAGNET = BLOCKS.register("t2_electromagnet",
+    public static final RegistryObject<Block> T2_ELECTROMAGNET = BLOCKS.register("electromagnet2",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T3_ELECTROMAGNET = BLOCKS.register("t3_electromagnet",
+    public static final RegistryObject<Block> T3_ELECTROMAGNET = BLOCKS.register("electromagnet3",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T1_ACCEPTOR = BLOCKS.register("t1_acceptor",
+    public static final RegistryObject<Block> T1_HOPPER = BLOCKS.register("hopper1",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T2_ACCEPTOR = BLOCKS.register("t2_acceptor",
+    public static final RegistryObject<Block> T2_HOPPER = BLOCKS.register("hopper2",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T3_ACCEPTOR = BLOCKS.register("t3_acceptor",
+    public static final RegistryObject<Block> T3_HOPPER = BLOCKS.register("hopper3",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T1_CORE_SHIELDING = BLOCKS.register("t1_core_shielding",
+    public static final RegistryObject<Block> T1_S_HOPPER = BLOCKS.register("s_hopper1",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T2_CORE_SHIELDING = BLOCKS.register("t2_core_shielding",
+    public static final RegistryObject<Block> T2_S_HOPPER = BLOCKS.register("s_hopper2",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryObject<Block> T3_CORE_SHIELDING = BLOCKS.register("t3_core_shielding",
+    public static final RegistryObject<Block> T3_S_HOPPER = BLOCKS.register("s_hopper3",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T1_CORE_SHIELDING = BLOCKS.register("core_shield1",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T2_CORE_SHIELDING = BLOCKS.register("core_shield2",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> T3_CORE_SHIELDING = BLOCKS.register("core_shield3",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     public static void register(IEventBus eventBus) {BLOCKS.register(eventBus);}

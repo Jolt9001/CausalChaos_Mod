@@ -46,6 +46,7 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
     public static final TagKey<Item> TUNGSTEN_INGOTS = makeForgeTag("ingots/tungsten");
 
     // Storage Blocks
+    public static final TagKey<Item> STORAGE_BLOCKS_ANTHRACITE = makeForgeTag("storage_blocks/anthracite");
     public static final TagKey<Item> STORAGE_BLOCKS_COBALT = makeForgeTag("storage_blocks/cobalt");
     public static final TagKey<Item> STORAGE_BLOCKS_IRIDIUM = makeForgeTag("storage_blocks/iridium");
     public static final TagKey<Item> STORAGE_BLOCKS_NEODYMIUM = makeForgeTag("storage_blocks/neodymium");
@@ -57,7 +58,6 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
 
     // Portal activator
     public static final TagKey<Item> PORTAL_ACTIVATOR = create("portal/activator");
-    public static final TagKey<Item> RIFT_TOKEN = create("items/rift_token");
 
     public static final TagKey<Item> WIP = create("wip");
     public static final TagKey<Item> NYI = create("nyi");
@@ -74,9 +74,9 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
                 .addTag(RAW_MATERIALS_NEODYMIUM).addTag(RAW_MATERIALS_PALLADIUM).addTag(RAW_MATERIALS_TITANIUM)
                 .addTag(RAW_MATERIALS_TUNGSTEN);
         tag(Tags.Items.STORAGE_BLOCKS)
-                .addTag(STORAGE_BLOCKS_COBALT).addTag(STORAGE_BLOCKS_IRIDIUM).addTag(STORAGE_BLOCKS_NEODYMIUM)
-                .addTag(STORAGE_BLOCKS_PALLADIUM).addTag(STORAGE_BLOCKS_PERPLEXIUM).addTag(STORAGE_BLOCKS_THUNDERSTEEL)
-                .addTag(STORAGE_BLOCKS_TITANIUM).addTag(STORAGE_BLOCKS_TUNGSTEN);
+                .addTag(STORAGE_BLOCKS_ANTHRACITE).addTag(STORAGE_BLOCKS_COBALT).addTag(STORAGE_BLOCKS_IRIDIUM)
+                .addTag(STORAGE_BLOCKS_NEODYMIUM).addTag(STORAGE_BLOCKS_PALLADIUM).addTag(STORAGE_BLOCKS_PERPLEXIUM)
+                .addTag(STORAGE_BLOCKS_THUNDERSTEEL).addTag(STORAGE_BLOCKS_TITANIUM).addTag(STORAGE_BLOCKS_TUNGSTEN);
         tag(Tags.Items.NUGGETS)
                 .addTag(COBALT_NUGGETS).addTag(IRIDIUM_NUGGETS).addTag(NEODYMIUM_NUGGETS).addTag(PALLADIUM_NUGGETS)
                 .addTag(PERPLEXIUM_NUGGETS).addTag(THUNDERSTEEL_NUGGETS).addTag(TITANIUM_NUGGETS)
@@ -136,8 +136,7 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
                 CCItems.NEODYMIUM_SWORD.get(), CCItems.PALLADIUM_SWORD.get(), CCItems.PERPLEXIUM_SWORD.get(),
                 CCItems.THUNDERSTEEL_SWORD.get(), CCItems.TITANIUM_SWORD.get(), CCItems.TUNGSTEN_SWORD.get()
         );
-
-        tag(PORTAL_ACTIVATOR).addTag(RIFT_TOKEN);
+        tag(PORTAL_ACTIVATOR).add(CCItems.RIFT_TOKEN.get());
     }
 
     public static TagKey<Item> create(String tagName) {
