@@ -6,6 +6,6 @@ public class CCEntities {
     // Monsters
     // Bosses
     // Superbosses
-        // Hostile
+        // Battle
         // NPC
 }

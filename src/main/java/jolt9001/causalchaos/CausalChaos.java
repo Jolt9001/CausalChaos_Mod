@@ -32,7 +32,6 @@ import org.slf4j.Logger;
 import java.util.Locale;
 
 /**
-*
 * @author Jolt9001
 * Minecraft 1.20.1
 */
@@ -70,7 +69,7 @@ public class CausalChaos {
 
         CCRecipes.register(modEventBus);
 
-        modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::init);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -81,7 +80,7 @@ public class CausalChaos {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CCConfig.SPEC);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void init(FMLCommonSetupEvent evt) {
         // Some common setup code
         LOGGER.info("Me when the common setup");
 

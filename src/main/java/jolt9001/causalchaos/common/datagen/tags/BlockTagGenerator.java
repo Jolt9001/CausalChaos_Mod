@@ -59,6 +59,7 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
     // Other Blocks
     public static final TagKey<Block> QUANTUM_FABRIC = BlockTags.create(CausalChaos.prefix("quantum_fabric"));
     public static final TagKey<Block> REALMWEAVE = BlockTags.create(CausalChaos.prefix("realmweave_block"));
+    public static final TagKey<Block> TRANSCENDENT_PORTAL = BlockTags.create(CausalChaos.prefix("transcendent_portal_block"));
 
     // Tool requirement tag
     public static final TagKey<Block> NEEDS_THUNDERSTEEL_TOOL = BlockTags.create(CausalChaos.prefix("needs_thundersteel_tool"));
@@ -189,7 +190,7 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
         tag(BlockTags.MINEABLE_WITH_SHOVEL);
 
         // Portal
-        tag(BlockTags.PORTALS).add(CCBlocks.TRANSCENDENT_PORTAL.get());
+        tag(BlockTags.PORTALS).addTag(TRANSCENDENT_PORTAL);
 
     }
 }
