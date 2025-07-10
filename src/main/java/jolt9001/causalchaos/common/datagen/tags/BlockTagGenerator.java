@@ -16,6 +16,7 @@ import java.util.concurrent.CompletableFuture;
 public class BlockTagGenerator extends ModdedBlockTagGenerator {
     // Storage Blocks
     public static final TagKey<Block> STORAGE_BLOCKS_ANTHRACITE = BlockTags.create(CausalChaos.prefix("storage_blocks/anthracite"));
+    public static final TagKey<Block> STORAGE_BLOCKS_MAGNETITE = BlockTags.create(CausalChaos.prefix("storage_blocks/magnetite"));
     public static final TagKey<Block> STORAGE_BLOCKS_COBALT = BlockTags.create(CausalChaos.prefix("storage_blocks/cobalt"));
     public static final TagKey<Block> STORAGE_BLOCKS_IRIDIUM = BlockTags.create(CausalChaos.prefix("storage_blocks/iridium"));
     public static final TagKey<Block> STORAGE_BLOCKS_NEODYMIUM = BlockTags.create(CausalChaos.prefix("storage_blocks/neodymium"));
@@ -41,6 +42,7 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
 
     // Special Ores
     public static final TagKey<Block> ORES_ANTHRACITE = BlockTags.create(CausalChaos.prefix("ores/anthracite")); // Only spawns in Sky Island dimension
+    public static final TagKey<Block> ORES_MAGNETITE = BlockTags.create(CausalChaos.prefix("ores/magnetite")); // Only spawns in Sky Island dimension
 
     // Starforge Machine Blocks
     public static final TagKey<Block> FUSION_CORE = BlockTags.create(CausalChaos.prefix("machines/fusion_core"));
@@ -78,6 +80,7 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
 
         // Material Storage
         tag(STORAGE_BLOCKS_ANTHRACITE).add(CCBlocks.ANTHRACITE_BLOCK.get());
+        tag(STORAGE_BLOCKS_MAGNETITE).add(CCBlocks.MAGNETITE_BLOCK.get());
         tag(STORAGE_BLOCKS_COBALT).add(CCBlocks.COBALT_BLOCK.get());
         tag(STORAGE_BLOCKS_IRIDIUM).add(CCBlocks.IRIDIUM_BLOCK.get());
         tag(STORAGE_BLOCKS_NEODYMIUM).add(CCBlocks.NEODYMIUM_BLOCK.get());
@@ -97,7 +100,7 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
         tag(STORAGE_RAW_TITANIUM).add(CCBlocks.RAW_TITANIUM_BLOCK.get());
         tag(STORAGE_RAW_TUNGSTEN).add(CCBlocks.RAW_TUNGSTEN_BLOCK.get());
         tag(Tags.Blocks.STORAGE_BLOCKS).addTags(
-                STORAGE_BLOCKS_ANTHRACITE, STORAGE_BLOCKS_COBALT, STORAGE_BLOCKS_IRIDIUM,
+                STORAGE_BLOCKS_ANTHRACITE, STORAGE_BLOCKS_MAGNETITE, STORAGE_BLOCKS_COBALT, STORAGE_BLOCKS_IRIDIUM,
                 STORAGE_BLOCKS_NEODYMIUM, STORAGE_BLOCKS_PALLADIUM, STORAGE_BLOCKS_TITANIUM, STORAGE_BLOCKS_TUNGSTEN, STORAGE_RAW_COBALT,
                 STORAGE_RAW_IRIDIUM, STORAGE_RAW_NEODYMIUM, STORAGE_RAW_PALLADIUM, STORAGE_RAW_TITANIUM,
                 STORAGE_RAW_TUNGSTEN
@@ -106,6 +109,7 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
 
         // Ores
         tag(ORES_ANTHRACITE).add(CCBlocks.ANTHRACITE_ORE.get());
+        tag(ORES_MAGNETITE).add(CCBlocks.MAGNETITE_ORE.get());
         tag(ORES_COBALT).add(CCBlocks.COBALT_ORE.get(), CCBlocks.DEEPSLATE_COBALT_ORE.get());
         tag(ORES_IRIDIUM).add(CCBlocks.IRIDIUM_ORE.get(), CCBlocks.DEEPSLATE_IRIDIUM_ORE.get());
         tag(ORES_NEODYMIUM).add(CCBlocks.NEODYMIUM_ORE.get(), CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get());
@@ -137,10 +141,10 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
         tag(REALMWEAVE).add(CCBlocks.REALMWEAVE_BLOCK.get());
 
         // Ores
-        tag(Tags.Blocks.ORES).add(CCBlocks.ANTHRACITE_ORE.get());
+        tag(Tags.Blocks.ORES).add(CCBlocks.ANTHRACITE_ORE.get(), CCBlocks.MAGNETITE_ORE.get());
         tag(Tags.Blocks.ORES).addTags(ORES_COBALT, ORES_IRIDIUM, ORES_NEODYMIUM, ORES_PALLADIUM, ORES_TITANIUM, ORES_TUNGSTEN);
         tag(Tags.Blocks.ORE_RATES_SINGULAR).addTags(ORES_COBALT, ORES_IRIDIUM, ORES_NEODYMIUM, ORES_PALLADIUM, ORES_TITANIUM, ORES_TUNGSTEN);
-        tag(Tags.Blocks.ORE_RATES_SINGULAR).add(CCBlocks.ANTHRACITE_ORE.get());
+        tag(Tags.Blocks.ORE_RATES_SINGULAR).add(CCBlocks.ANTHRACITE_ORE.get(), CCBlocks.MAGNETITE_ORE.get());
 
         // Tool requirements
         tag(BlockTags.NEEDS_STONE_TOOL);
@@ -171,6 +175,7 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
         tag(BlockTags.MINEABLE_WITH_HOE);
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 CCBlocks.ANTHRACITE_ORE.get(), CCBlocks.ANTHRACITE_BLOCK.get(),
+                CCBlocks.MAGNETITE_ORE.get(), CCBlocks.MAGNETITE_BLOCK.get(),
                 CCBlocks.COBALT_ORE.get(), CCBlocks.DEEPSLATE_COBALT_ORE.get(), CCBlocks.RAW_COBALT_BLOCK.get(), CCBlocks.COBALT_BLOCK.get(),
                 CCBlocks.IRIDIUM_ORE.get(), CCBlocks.DEEPSLATE_IRIDIUM_ORE.get(), CCBlocks.RAW_IRIDIUM_BLOCK.get(), CCBlocks.IRIDIUM_BLOCK.get(),
                 CCBlocks.NEODYMIUM_ORE.get(), CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get(), CCBlocks.RAW_NEODYMIUM_BLOCK.get(), CCBlocks.NEODYMIUM_BLOCK.get(),

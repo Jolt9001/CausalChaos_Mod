@@ -24,6 +24,7 @@ public class BlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         // Ores and Terrain
         add(CCBlocks.ANTHRACITE_ORE.get(), block -> createOreDrops(CCBlocks.ANTHRACITE_ORE.get(), CCItems.ANTHRACITE.get()));
+        add(CCBlocks.MAGNETITE_ORE.get(), block -> createOreDrops(CCBlocks.MAGNETITE_ORE.get(), CCItems.MAGNETITE.get()));
         add(CCBlocks.COBALT_ORE.get(), block -> createOreDrops(CCBlocks.COBALT_ORE.get(), CCItems.RAW_COBALT.get()));
         add(CCBlocks.IRIDIUM_ORE.get(), block -> createOreDrops(CCBlocks.IRIDIUM_ORE.get(), CCItems.RAW_IRIDIUM.get()));
         add(CCBlocks.NEODYMIUM_ORE.get(), block -> createOreDrops(CCBlocks.NEODYMIUM_ORE.get(), CCItems.RAW_NEODYMIUM.get()));

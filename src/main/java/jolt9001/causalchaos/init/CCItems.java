@@ -1,16 +1,20 @@
 package jolt9001.causalchaos.init;
 
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.library.definitions.ItemDefinition;
 import jolt9001.causalchaos.library.item.CausalityCrystalItem;
 import jolt9001.causalchaos.library.item.JournalItem;
 import jolt9001.causalchaos.library.item.enums.CCArmorMaterial;
 import jolt9001.causalchaos.library.item.armor.material.*;
 import jolt9001.causalchaos.util.CausalChaosItemMaterial;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Function;
 
 public final class CCItems {
 
@@ -48,6 +52,7 @@ public final class CCItems {
     public static final RegistryObject<Item> RAW_TITANIUM = ITEMS.register("raw_titanium", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_TUNGSTEN = ITEMS.register("raw_tungsten", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ANTHRACITE = ITEMS.register("anthracite", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> MAGNETITE = ITEMS.register("magnetite", () -> new Item(new Item.Properties()));
 
     // Tools
         // Axes
@@ -211,6 +216,7 @@ public final class CCItems {
     public static final RegistryObject<Item> VOID_FABRIC = ITEMS.register("void_fabric", () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {ITEMS.register(eventBus);}
+
     /*
     public static List<ItemDefinition<?>> getItems() {
         return Collections.unmodifiableList(ITEMS);
@@ -220,11 +226,11 @@ public final class CCItems {
         Item.Properties p = new Item.Properties();
         T item = factory.apply(p);
         ItemDefinition<T> definition = new ItemDefinition<>(name, id, item);
-        if (group.equals(CreativeTabs.ITEMS)) {
+        if (group.equals(CCCreativeModeTabs.ITEMS)) {
 
         }
         ITEMS.add(definition);
         return definition;
     }
-     */
+    */
 }

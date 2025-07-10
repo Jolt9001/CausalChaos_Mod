@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.worldgen.dimensions;
+package jolt9001.causalchaos.library.world.components.chunkgenerators;
 
 public class Limbo {
     /**

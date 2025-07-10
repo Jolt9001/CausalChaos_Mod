@@ -39,7 +39,7 @@ import java.util.Locale;
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CausalChaos {
     public static final String MODID = "causalchaos";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     private static final String MODEL_DIR = "textures/entity/";
     private static final String GUI_DIR = "textures.gui/";
     private static final String ENVIRO_DIR = "textures/environment/";

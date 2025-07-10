@@ -24,7 +24,7 @@ public class TranscendentPortalShape {
     private int height;
     private final int width;
 
-    public static Optional<TranscendentPortalShape> findEmptyShape(LevelAccessor level, BlockPos bottomLeft, Predicate<TranscendentPortalShape> predicate, Direction.Axis axis) {
+    public static Optional<TranscendentPortalShape> findEmptyShape(LevelAccessor level, BlockPos bottomLeft, Direction.Axis axis) {
         return findPortalShape(level, bottomLeft, (shape) -> shape.isValid() && shape.numPortalBlocks == 0, axis);
     }
 
@@ -132,7 +132,8 @@ public class TranscendentPortalShape {
     }
     public void createPortalBlocks() {
         BlockState state = CCBlocks.TRANSCENDENT_PORTAL.get().defaultBlockState().setValue(NetherPortalBlock.AXIS, this.axis);
-        BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1)).forEach((pos) -> this.level.setBlock(pos, state, 2 | 16));
+        BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1)).forEach((pos) ->
+                this.level.setBlock(pos, state, 2 | 16));
     }
     public boolean isComplete() {
         return this.isValid() && this.numPortalBlocks == this.width * this.height;

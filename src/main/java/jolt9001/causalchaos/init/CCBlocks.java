@@ -19,6 +19,9 @@ public final class CCBlocks {
     public static final RegistryObject<Block> ANTHRACITE_ORE = BLOCKS.register("anthracite_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.COAL_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
+    public static final RegistryObject<Block> MAGNETITE_ORE = BLOCKS.register("magnetite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(2f).
+                    requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
     public static final RegistryObject<Block> COBALT_ORE = BLOCKS.register("cobalt_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).strength(2f).
                     requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
@@ -85,6 +88,8 @@ public final class CCBlocks {
 
     // Resource
     public static final RegistryObject<Block> ANTHRACITE_BLOCK = BLOCKS.register("anthracite_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> MAGNETITE_BLOCK = BLOCKS.register("magnetite_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> COBALT_BLOCK = BLOCKS.register("cobalt_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));

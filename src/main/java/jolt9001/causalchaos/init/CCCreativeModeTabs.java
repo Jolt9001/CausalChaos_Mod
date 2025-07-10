@@ -25,6 +25,8 @@ public class CCCreativeModeTabs {
             .displayItems((params, output) -> {
                 output.accept(CCBlocks.ANTHRACITE_ORE.get());
                 output.accept(CCBlocks.ANTHRACITE_BLOCK.get());
+                output.accept(CCBlocks.MAGNETITE_ORE.get());
+                output.accept(CCBlocks.MAGNETITE_BLOCK.get());
                 output.accept(CCBlocks.COBALT_ORE.get());
                 output.accept(CCBlocks.DEEPSLATE_COBALT_ORE.get());
                 output.accept(CCBlocks.RAW_COBALT_BLOCK.get());
@@ -86,6 +88,7 @@ public class CCCreativeModeTabs {
                 output.accept(CCItems.JOURNAL.get());
                 output.accept(CCItems.CAUSALITY_CRYSTAL.get());
                 output.accept(CCItems.ANTHRACITE.get());
+                output.accept(CCItems.MAGNETITE.get());
                 output.accept(CCItems.RAW_COBALT.get());
                 output.accept(CCItems.COBALT_NUGGET.get());
                 output.accept(CCItems.COBALT_INGOT.get());
