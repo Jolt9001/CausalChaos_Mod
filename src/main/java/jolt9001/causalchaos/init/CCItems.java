@@ -1,20 +1,16 @@
 package jolt9001.causalchaos.init;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.definitions.ItemDefinition;
 import jolt9001.causalchaos.library.item.CausalityCrystalItem;
 import jolt9001.causalchaos.library.item.JournalItem;
 import jolt9001.causalchaos.library.item.enums.CCArmorMaterial;
 import jolt9001.causalchaos.library.item.armor.material.*;
 import jolt9001.causalchaos.util.CausalChaosItemMaterial;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.Function;
 
 public final class CCItems {
 
@@ -112,24 +108,22 @@ public final class CCItems {
     public static final RegistryObject<Item> TUNGSTEN_SWORD = ITEMS.register("tungsten_sword", () -> new SwordItem(CausalChaosItemMaterial.TUNGSTEN, 3, -2.4F, new Item.Properties()));
 
         // Super Melee
-    /*
-    Pellucid Katana, drops from Tsuna
-    Sanguine Shortsword, drops from Kai
-    Infallible Bayonet, drops from Terry
-    Gallant Shashka, drops from Lyadova
-    Bespattered Warhammer, drops from Aella
-    Oscillating Trident, drops from Jack
-    Umbral Guisarme, drops from Xanthea
-    Collapsar Claymore, drops from Will
-    Hallucinogenic Bracers, drops from Matthue
-    Caduceus Glaive, drops from Alline
-    Instinctual Scythe, drops from Madeline
-    Illusory Spear, drops from Emily
-    Diablo Gauntlets, drops from Adrian
-    Worldline Rapier, drops from Andrea
-    Repulsor Saber, drops from Rex
-    Electron Staff, drops from Jolt
-    */
+    public static final RegistryObject<Item> PELLUCID_KATANA = ITEMS.register("pellucid_katana", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Tsuna
+    public static final RegistryObject<Item> SANGUINE_SHORTSWORD = ITEMS.register("sanguine_shortsword", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Kai
+    public static final RegistryObject<Item> INFALLIBLE_BAYONET = ITEMS.register("infallible_bayonet", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Terry
+    public static final RegistryObject<Item> GALLANT_SHASHKA = ITEMS.register("gallant_shashka", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Lyadova
+    public static final RegistryObject<Item> BESPATTERED_WARHAMMER = ITEMS.register("bespattered_warhammer", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Aella
+    public static final RegistryObject<Item> OSCILLATING_TRIDENT = ITEMS.register("oscillating_trident", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Jack
+    public static final RegistryObject<Item> UMBRAL_GUISARME = ITEMS.register("umbral_guisarme", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Xanthea
+    public static final RegistryObject<Item> COLLAPSAR_CLAYMORE = ITEMS.register("collapsar_claymore", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Will
+    public static final RegistryObject<Item> HALLUCINOGENIC_BRACERS = ITEMS.register("hallucinogenic_bracers", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Matthue
+    public static final RegistryObject<Item> CADUCEUS_GLAIVE = ITEMS.register("caduceus_glaive", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Alline
+    public static final RegistryObject<Item> INSTINCTUAL_SCYTHE = ITEMS.register("instinctual_scythe", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Madeline
+    public static final RegistryObject<Item> ILLUSORY_SPEAR = ITEMS.register("illusory_spear", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Emily
+    public static final RegistryObject<Item> DIABLO_GAUNTLETS = ITEMS.register("diablo_gauntlets", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Adrian
+    public static final RegistryObject<Item> WORLDLINE_RAPIER = ITEMS.register("worldline_rapier", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Andrea
+    public static final RegistryObject<Item> REPULSOR_SABER = ITEMS.register("repulsor_saber", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Rex
+    public static final RegistryObject<Item> ELECTRON_STAFF = ITEMS.register("electron_staff", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from Jolt
     public static final RegistryObject<Item> WHITE_THUNDER = ITEMS.register("white_thunder", () -> new SwordItem(CausalChaosItemMaterial.SUPERWEAPON, 3, -2.4F, new Item.Properties())); // Drops from FPJolt
 
         // Material Ranged
@@ -211,10 +205,17 @@ public final class CCItems {
     public static final RegistryObject<Item> STABLE_RIFT_TOKEN = ITEMS.register("stable_rift_token", () -> new Item(new Item.Properties()));
 
     // Crafting ingredients
-    public static final RegistryObject<Item> ABYSSAL_THREAD = ITEMS.register("abyssal_thread", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TIME_CRYSTAL = ITEMS.register("time_crystal", () -> new Item(new Item.Properties())); // Drops from Demon Lord and Riftwalkers
-    public static final RegistryObject<Item> VOID_FABRIC = ITEMS.register("void_fabric", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ABYSS_STRING = ITEMS.register("abyss_string", () -> new Item(new Item.Properties())); // Dropped from Riftwalkers (all types)
+    public static final RegistryObject<Item> TIME_CRYSTAL = ITEMS.register("time_crystal", () -> new Item(new Item.Properties())); // Drops from Demon Lord, Superbosses, and Riftwalkers
+    public static final RegistryObject<Item> VOID_FABRIC = ITEMS.register("void_fabric", () -> new Item(new Item.Properties())); // Crafted from nine Abyss String
+    public static final RegistryObject<Item> WORLD_THREAD = ITEMS.register("world_thread", () -> new Item(new Item.Properties())); // Drops from powerful Riftwalkers and the Worldeater
+    public static final RegistryObject<Item> REALM_SEED = ITEMS.register("realm_seed", () -> new Item(new Item.Properties())); // Crafted with Void Fabric, Time Crystals, and a World Thread
 
+    // Smithing Templates
+    public static final RegistryObject<Item> THUNDERSTEEL_UPGRADE = ITEMS.register("thundersteel_upgrade_smithing_template", () -> new Item(new Item.Properties()));
+    // Add more smithing templates as treasures
+
+    // Registration
     public static void register(IEventBus eventBus) {ITEMS.register(eventBus);}
 
     /*

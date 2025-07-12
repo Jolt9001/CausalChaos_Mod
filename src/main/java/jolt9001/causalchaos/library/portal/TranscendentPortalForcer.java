@@ -63,7 +63,7 @@ public class TranscendentPortalForcer implements ITeleporter {
             flag = false;
             // Validate that portal still exists
             CausalChaos.LOGGER.debug("Using cache, validating. {}", blockpos);
-            if (blockpos == null || !destDim.getBlockState(blockpos).is(CCBlocks.TRANSCENDENT_PORTAL.get())) {
+            if (blockpos == null || !destDim.getBlockState(blockpos).is(CCBlocks.TRANSCENDENT_GATEWAY.get())) {
                 // Portal broke, recreate
                 CausalChaos.LOGGER.debug("Invalid portal, regenerating.");
                 blockpos = null;
@@ -137,7 +137,7 @@ public class TranscendentPortalForcer implements ITeleporter {
         }
     }
     private static boolean isPortal(BlockState state) {
-        return state.getBlock() == CCBlocks.TRANSCENDENT_PORTAL.get();
+        return state.getBlock() == CCBlocks.TRANSCENDENT_GATEWAY.get();
     }
     private static boolean isPortalAt(ServerLevel level, BlockPos pos) {
         return isPortal(level.getBlockState(pos));

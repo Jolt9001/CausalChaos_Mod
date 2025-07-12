@@ -1,18 +1,19 @@
 package jolt9001.causalchaos.common.datagen.helpers;
 
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.init.CCItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public abstract class RecipeDataHelper extends RecipeProvider {
-    public RecipeDataHelper(PackOutput out) {
+public abstract class CraftingDataHelper extends RecipeProvider {
+    public CraftingDataHelper(PackOutput out) {
         super(out);
     }
 
@@ -24,6 +25,12 @@ public abstract class RecipeDataHelper extends RecipeProvider {
                 .define('#', ingredient)
                 .unlockedBy("has_item", has(ingredient))
                 .save(out, CausalChaos.prefix("compressed_blocks/" + name));
+    }
+    protected final void reverseCompressedBlock(RecipeOutput out, String name, Supplier<? extends Block> result, TagKey<Item> ingredient) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result.get(), 9)
+                .requires(ingredient)
+                .unlockedBy("has_item", has(ingredient))
+                .save(out, CausalChaos.prefix("compressed_blocks/reversed/" + name));
     }
 
     protected final void helmetItem(RecipeOutput out, String name, Supplier<? extends Item> result, TagKey<Item> material) {
@@ -116,6 +123,18 @@ public abstract class RecipeDataHelper extends RecipeProvider {
                 .define('#', material)
                 .define('X', handle)
                 .unlockedBy("has_item", has(material))
+                .save(out, locEquip(name));
+    }
+
+    protected final void infusedThundersteel(RecipeOutput out, String name, Item base, Item result) {
+        SmithingTransformRecipeBuilder
+                .smithing(Ingredient.of(CCItems.THUNDERSTEEL_UPGRADE.get()),
+                        Ingredient.of(base), Ingredient.of(CCItems.PERPLEXIUM_INGOT.get()), RecipeCategory.MISC, result)
+                .save(out, locEquip(name));
+    }
+
+    protected final void smithingTrims(RecipeOutput out, String name, Item template, Item base, Item addition) {
+        SmithingTrimRecipeBuilder.smithingTrim(Ingredient.of(template), Ingredient.of(base), Ingredient.of(addition), RecipeCategory.MISC)
                 .save(out, locEquip(name));
     }
 

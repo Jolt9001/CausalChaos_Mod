@@ -115,7 +115,7 @@ public class TranscendentPortalShape {
                 if (!isEmpty(blockState)) {
                     return i;
                 }
-                if (blockState.is(CCBlocks.TRANSCENDENT_PORTAL.get())) {
+                if (blockState.is(CCBlocks.TRANSCENDENT_GATEWAY.get())) {
                     ++this.numPortalBlocks;
                 }
             }
@@ -125,13 +125,13 @@ public class TranscendentPortalShape {
     }
 
     private static boolean isEmpty(BlockState state) {
-        return state.isAir() || state.is(CCBlocks.TRANSCENDENT_PORTAL.get());
+        return state.isAir() || state.is(CCBlocks.TRANSCENDENT_GATEWAY.get());
     }
     public boolean isValid() {
         return this.bottomLeft != null && this.width >= 2 && this.width <= 21 && this.height >= 3 && this.height <= 21;
     }
     public void createPortalBlocks() {
-        BlockState state = CCBlocks.TRANSCENDENT_PORTAL.get().defaultBlockState().setValue(NetherPortalBlock.AXIS, this.axis);
+        BlockState state = CCBlocks.TRANSCENDENT_GATEWAY.get().defaultBlockState().setValue(NetherPortalBlock.AXIS, this.axis);
         BlockPos.betweenClosed(this.bottomLeft, this.bottomLeft.relative(Direction.UP, this.height - 1).relative(this.rightDir, this.width - 1)).forEach((pos) ->
                 this.level.setBlock(pos, state, 2 | 16));
     }

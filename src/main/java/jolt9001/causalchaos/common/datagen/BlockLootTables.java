@@ -39,7 +39,7 @@ public class BlockLootTables extends BlockLootSubProvider {
         add(CCBlocks.DEEPSLATE_TITANIUM_ORE.get(), block -> createOreDrops(CCBlocks.DEEPSLATE_TITANIUM_ORE.get(), CCItems.RAW_TITANIUM.get()));
         add(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get(), block -> createOreDrops(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get(), CCItems.RAW_TUNGSTEN.get()));
 
-        add(CCBlocks.REALMWEAVE_BLOCK.get(), block -> createOreDrops(CCBlocks.REALMWEAVE_BLOCK.get(), CCItems.ABYSSAL_THREAD.get()));
+        add(CCBlocks.REALMWEAVE_BLOCK.get(), block -> createOreDrops(CCBlocks.REALMWEAVE_BLOCK.get(), CCItems.ABYSS_STRING.get()));
 
         // Resource blocks
         dropSelf(CCBlocks.ANTHRACITE_BLOCK.get());

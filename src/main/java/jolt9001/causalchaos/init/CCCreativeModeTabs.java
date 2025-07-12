@@ -103,6 +103,7 @@ public class CCCreativeModeTabs {
                 output.accept(CCItems.PALLADIUM_INGOT.get());
                 output.accept(CCItems.PERPLEXIUM_NUGGET.get());
                 output.accept(CCItems.PERPLEXIUM_INGOT.get());
+                output.accept(CCItems.THUNDERSTEEL_UPGRADE.get());
                 output.accept(CCItems.THUNDERSTEEL_NUGGET.get());
                 output.accept(CCItems.THUNDERSTEEL_INGOT.get());
                 output.accept(CCItems.RAW_TITANIUM.get());
@@ -114,9 +115,11 @@ public class CCCreativeModeTabs {
                 output.accept(CCItems.QUANTUM_SIGIL.get());
                 output.accept(CCItems.RIFT_TOKEN.get());
                 output.accept(CCItems.STABLE_RIFT_TOKEN.get());
-                output.accept(CCItems.ABYSSAL_THREAD.get());
+                output.accept(CCItems.ABYSS_STRING.get());
                 output.accept(CCItems.TIME_CRYSTAL.get());
                 output.accept(CCItems.VOID_FABRIC.get());
+                output.accept(CCItems.WORLD_THREAD.get());
+                output.accept(CCItems.REALM_SEED.get());
             }).build()
     );
     public static final RegistryObject<CreativeModeTab> EQUIPMENT = TABS.register("equipment", () -> CreativeModeTab.builder()

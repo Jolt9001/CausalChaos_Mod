@@ -33,7 +33,7 @@ import java.util.Locale;
 
 /**
 * @author Jolt9001
-* Minecraft 1.20.1
+* Minecraft 1.20.4
 */
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -43,7 +43,7 @@ public class CausalChaos {
     private static final String MODEL_DIR = "textures/entity/";
     private static final String GUI_DIR = "textures.gui/";
     private static final String ENVIRO_DIR = "textures/environment/";
-    public static final String ARMOR_DIR = MODID + ":textures/armor/";
+    public static final String ARMOR_DIR = "textures/armor/";
     public static final String REGISTRY_NAMESPACE = "causalchaos";
     private static final Rarity rarity = Rarity.create("CAUSALCHAOS", ChatFormatting.AQUA);
 

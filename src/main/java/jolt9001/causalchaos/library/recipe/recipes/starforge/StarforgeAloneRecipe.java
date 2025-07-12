@@ -2,16 +2,13 @@ package jolt9001.causalchaos.library.recipe.recipes.starforge;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
-import jolt9001.causalchaos.CausalChaos;
-
+import jolt9001.causalchaos.init.CCRecipes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
-import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
@@ -21,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class StarforgeAloneRecipe implements Recipe<SimpleContainer> {
+public class StarforgeAloneRecipe implements Recipe<Container> {
 
     // Recipe type and identification
     protected final String group;
@@ -46,7 +43,7 @@ public class StarforgeAloneRecipe implements Recipe<SimpleContainer> {
 
 
     @Override
-    public boolean matches(SimpleContainer container, Level level) {
+    public boolean matches(Container container, Level level) {
         if (level.isClientSide()) {
             return false;
         }
@@ -54,14 +51,12 @@ public class StarforgeAloneRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer container, RegistryAccess access) {
+    public ItemStack assemble(Container container, RegistryAccess access) {
         return output;
     }
 
     @Override
-    public boolean canCraftInDimensions(int width, int height) { // fits in area
-        return true;
-    }
+    public boolean canCraftInDimensions(int width, int height) { return true; }
 
     @Override
     public ItemStack getResultItem(RegistryAccess access) {
@@ -77,12 +72,12 @@ public class StarforgeAloneRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return CCRecipes.STARFORGE_ALONE_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return Type.INSTANCE;
+        return CCRecipes.STARFORGE_ALONE.get();
     }
 
     @Override
@@ -101,16 +96,15 @@ public class StarforgeAloneRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<StarforgeAloneRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(CausalChaos.MODID, "starforge_alone");
+        // public static final ResourceLocation ID = new ResourceLocation(CausalChaos.MODID, "starforge_alone");
 
-
-        private static final Codec<StarforgeAloneRecipe> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+        private static final Codec<StarforgeAloneRecipe> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
                 // ExtraCodecs.strictOptionalField(Codec.INT, "grid_size", 2).forGetter(func -> func.gridSize),
-                ExtraCodecs.strictOptionalField(Codec.STRING, "group", "").forGetter(func -> func.group),
-                Ingredient.CODEC_NONEMPTY.listOf().fieldOf("ingredients").forGetter(func -> func.ingredients),
-                CompoundTag.CODEC.fieldOf("tag").forGetter(func -> func.tag),
-                Codec.INT.fieldOf("cook_time").forGetter(func -> func.cookTime),
-                ItemStack.CODEC.fieldOf("output").forGetter(func -> func.output)
+                ExtraCodecs.strictOptionalField(Codec.STRING, "group", "").forGetter(func -> func.group), // Group
+                Ingredient.CODEC_NONEMPTY.listOf().fieldOf("ingredients").forGetter(func -> func.ingredients), // Ingredients
+                CompoundTag.CODEC.fieldOf("tag").forGetter(func -> func.tag), // Tag
+                Codec.INT.fieldOf("cook_time").forGetter(func -> func.cookTime), // int Cook Time
+                ItemStack.CODEC.fieldOf("output").forGetter(func -> func.output) // ItemStack Output
         ).apply(instance, StarforgeAloneRecipe::new));
 /*
         private static Codec<List<Ingredient>> validateAmount(Codec<Ingredient> delegate, int max) {
@@ -127,41 +121,41 @@ public class StarforgeAloneRecipe implements Recipe<SimpleContainer> {
 
         @Nullable
         @Override
-        public StarforgeAloneRecipe fromNetwork(FriendlyByteBuf buffer) { // READ
-            String group = buffer.readUtf();
+        public StarforgeAloneRecipe fromNetwork(FriendlyByteBuf buf) { // READ
+            String group = buf.readUtf();
             // int gridSize = 2;
-            NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
             for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(buffer));
+                inputs.set(i, Ingredient.fromNetwork(buf));
             }
 
             CompoundTag tag = null;
-            if (buffer.readBoolean()) {
-                tag = buffer.readNbt();
+            if (buf.readBoolean()) {
+                tag = buf.readNbt();
             }
-            int cookTime = buffer.readVarInt();
-            ItemStack output = buffer.readItem();
+            int cookTime = buf.readVarInt();
+            ItemStack output = buf.readItem();
             return new StarforgeAloneRecipe(group, inputs, tag, cookTime, output);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buffer, StarforgeAloneRecipe recipe) {
-            buffer.writeUtf(recipe.group);
+        public void toNetwork(FriendlyByteBuf buf, StarforgeAloneRecipe recipe) {
+            buf.writeUtf(recipe.group);
             // int size = 2;
-            buffer.writeInt(recipe.getIngredients().size());
+            buf.writeInt(recipe.getIngredients().size());
 
             for (Ingredient ingredient : recipe.getIngredients()) {
-                ingredient.toNetwork(buffer);
+                ingredient.toNetwork(buf);
             }
 
             if (recipe.tag != null) {
-                buffer.writeBoolean(true);
-                buffer.writeNbt(recipe.tag);
+                buf.writeBoolean(true);
+                buf.writeNbt(recipe.tag);
             } else {
-                buffer.writeBoolean(false);
+                buf.writeBoolean(false);
             }
-            buffer.writeVarInt(recipe.getCookTime());
-            buffer.writeItemStack(recipe.getResultItem(null), true);
+            buf.writeVarInt(recipe.getCookTime());
+            buf.writeItemStack(recipe.getResultItem(null), true);
         }
     }
 }

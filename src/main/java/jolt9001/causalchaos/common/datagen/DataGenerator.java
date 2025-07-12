@@ -21,7 +21,7 @@ public class DataGenerator {
         ExistingFileHelper help = event.getExistingFileHelper();
 
         // Server Side: Worldgen. Recipes, Advancements, Loot Tables, Tags
-        gen.addProvider(event.includeServer(), new RecipeGenerator(out));
+        gen.addProvider(event.includeServer(), new CraftingGenerator(out));
         gen.addProvider(event.includeServer(), new CCAdvancementProvider(out, prov, help));
         // Client side: Sounds, Block/Item Models, Particles, Language
     }

@@ -18,6 +18,7 @@ import java.util.concurrent.CompletableFuture;
 public class ItemTagGenerator extends ModdedItemTagGenerator {
     // Raw Materials
     public static final TagKey<Item> RAW_MATERIALS_ANTHRACITE = makeForgeTag("raw_materials/anthracite");
+    public static final TagKey<Item> RAW_MATERIALS_MAGNETITE = makeForgeTag("raw_materials/magnetite");
     public static final TagKey<Item> RAW_MATERIALS_COBALT = makeForgeTag("raw_materials/cobalt");
     public static final TagKey<Item> RAW_MATERIALS_IRIDIUM = makeForgeTag("raw_materials/iridium");
     public static final TagKey<Item> RAW_MATERIALS_NEODYMIUM = makeForgeTag("raw_materials/neodymium");
@@ -47,6 +48,7 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
 
     // Storage Blocks
     public static final TagKey<Item> STORAGE_BLOCKS_ANTHRACITE = makeForgeTag("storage_blocks/anthracite");
+    public static final TagKey<Item> STORAGE_BLOCKS_MAGNETITE = makeForgeTag("storage_blocks/magnetite");
     public static final TagKey<Item> STORAGE_BLOCKS_COBALT = makeForgeTag("storage_blocks/cobalt");
     public static final TagKey<Item> STORAGE_BLOCKS_IRIDIUM = makeForgeTag("storage_blocks/iridium");
     public static final TagKey<Item> STORAGE_BLOCKS_NEODYMIUM = makeForgeTag("storage_blocks/neodymium");
@@ -55,6 +57,14 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
     public static final TagKey<Item> STORAGE_BLOCKS_THUNDERSTEEL = makeForgeTag("storage_blocks/thundersteel");
     public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = makeForgeTag("storage_blocks/titanium");
     public static final TagKey<Item> STORAGE_BLOCKS_TUNGSTEN = makeForgeTag("storage_blocks/tungsten");
+
+    // Tools
+    public static final TagKey<Item> TOOLS_PERPLEXIUM = makeForgeTag("tools/perplexium");
+    public static final TagKey<Item> TOOLS_INFUSED_THUNDERSTEEL = makeForgeTag("tools/infused_thundersteel");
+
+    // Armors
+    public static final TagKey<Item> ARMORS_PERPLEXIUM = makeForgeTag("armors/perplexium");
+    public static final TagKey<Item> ARMORS_INFUSED_THUNDERSTEEL = makeForgeTag("armors/infused_thundersteel");
 
     // Portal activator
     public static final TagKey<Item> PORTAL_ACTIVATOR = create("portal/activator");
@@ -109,6 +119,12 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
                 CCItems.PERPLEXIUM_LEGGINGS.get(), CCItems.THUNDERSTEEL_LEGGINGS.get(), CCItems.TITANIUM_LEGGINGS.get(),
                 CCItems.TUNGSTEN_LEGGINGS.get()
         );
+        tag(ARMORS_PERPLEXIUM).add(
+                CCItems.PERPLEXIUM_BOOTS.get(), CCItems.PERPLEXIUM_CHESTPLATE.get(), CCItems.PERPLEXIUM_HELMET.get(),
+                CCItems.PERPLEXIUM_LEGGINGS.get());
+        tag(ARMORS_INFUSED_THUNDERSTEEL).add(
+                CCItems.INFUSED_THUNDERSTEEL_BOOTS.get(), CCItems.INFUSED_THUNDERSTEEL_CHESTPLATE.get(),
+                CCItems.INFUSED_THUNDERSTEEL_HELMET.get(), CCItems.INFUSED_THUNDERSTEEL_LEGGINGS.get());
 
         // Tools
         tag(ItemTags.AXES).add(
@@ -136,6 +152,15 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
                 CCItems.NEODYMIUM_SWORD.get(), CCItems.PALLADIUM_SWORD.get(), CCItems.PERPLEXIUM_SWORD.get(),
                 CCItems.THUNDERSTEEL_SWORD.get(), CCItems.TITANIUM_SWORD.get(), CCItems.TUNGSTEN_SWORD.get()
         );
+        tag(TOOLS_PERPLEXIUM).add(
+                CCItems.PERPLEXIUM_AXE.get(), CCItems.PERPLEXIUM_HOE.get(), CCItems.PERPLEXIUM_PICKAXE.get(),
+                CCItems.PERPLEXIUM_SHOVEL.get(), CCItems.PERPLEXIUM_SWORD.get());
+        tag(TOOLS_INFUSED_THUNDERSTEEL).add(
+                CCItems.INFUSED_THUNDERSTEEL_AXE.get(), CCItems.INFUSED_THUNDERSTEEL_HOE.get(),
+                CCItems.INFUSED_THUNDERSTEEL_PICKAXE.get(), CCItems.INFUSED_THUNDERSTEEL_SHOVEL.get(),
+                CCItems.INFUSED_THUNDERSTEEL_SWORD.get());
+
+
         tag(PORTAL_ACTIVATOR).add(CCItems.RIFT_TOKEN.get());
     }
 

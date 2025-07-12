@@ -1,11 +1,15 @@
 package jolt9001.causalchaos.init;
 
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.library.portal.TranscendentPortalBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -83,8 +87,8 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     // Portal Block
-    public static final RegistryObject<Block> TRANSCENDENT_PORTAL = BLOCKS.register("transcendent_portal",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL).noOcclusion()));
+    public static final RegistryObject<Block> TRANSCENDENT_GATEWAY = BLOCKS.register("transcendent_gateway",
+            () -> new TranscendentPortalBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(CCBlocks::lightLevel15).pushReaction(PushReaction.BLOCK).forceSolidOn()));
 
     // Resource
     public static final RegistryObject<Block> ANTHRACITE_BLOCK = BLOCKS.register("anthracite_block",
@@ -157,4 +161,5 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     public static void register(IEventBus eventBus) {BLOCKS.register(eventBus);}
+    private static int lightLevel15(BlockState state) { return 15; }
 }

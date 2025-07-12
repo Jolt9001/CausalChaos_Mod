@@ -2,6 +2,7 @@ package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.common.advancements.HardcoreCheckTrigger;
 import jolt9001.causalchaos.common.advancements.HardcoreDeathTrigger;
+import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
 import jolt9001.causalchaos.init.CCBlocks;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
@@ -68,7 +69,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         // Ability
         var standInHitbox = builder; // "Danger Zone" Prereq: dangerSense
         var QTEFail = builder; // "You Blinked" Prereq: standInHitbox
-        var perfectDodge = builder; // "Saw It Coming" Prereq: standInHitbox
+        var perfectDodge = builder; // "Saw It Coming" Prereq: standInHitbox, dodge
         var lightningDodge = builder; // "Lightning-Fast Reaction" Prereq: perfectDodge
         var killCreeperWhileExploding = builder; // "Assisted Suicide" Prereq: perfectDodge
 
@@ -97,6 +98,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var worldeaterMax = builder; // "Not Afraid Anymore" Prereq: CFPJolt, worldeaterEncounter
 
             // Leviathan Skywyrm
+        var killSkywyrm = builder;
 
         // Early Game (Time Loop)
         var timeLoopActivate = builder; // "Future Vision?" Prereq: fightDL1
@@ -138,16 +140,52 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .parent(obtainThundersteel)
                 .addCriterion("get_perplexium", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.PERPLEXIUM_INGOT.get()))
                 .save(consumer, "causalchaos:get_perplexium");
-        var infusedThundersteel = builder; // "Upgrades, People, Upgrades!" Prereq: obtainPerplexium
-        var purePerplexium = builder; // "Unlimited Power!" Prereq: obtainPerplexium
+        var infusedThundersteelArmor = builder
+                .display(
+                        CCItems.INFUSED_THUNDERSTEEL_CHESTPLATE.get(),
+                        Component.translatable("achievement.causalchaos.thundersteel_infuse_armor", "Upgrades, People, Upgrades!"),
+                        Component.translatable("achievement.causalchaos.thundersteel_infuse_armor.desc", "Upgrade a piece of Thundersteel armor with Perplexium."),
+                        null, FrameType.TASK, true, true, false)
+                .parent(obtainPerplexium)
+                .addCriterion("thundersteel_infuse_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_INFUSED_THUNDERSTEEL)))
+                .save(consumer, "causalchaos:thundersteel_infuse_armor");
+        var infusedThundersteelTool = builder
+                .display(
+                        CCItems.INFUSED_THUNDERSTEEL_SWORD.get(),
+                        Component.translatable("achievement.causalchaos.thundersteel_infuse_tool", "Barely Good Enough"),
+                        Component.translatable("achievement.causalchaos.thundersteel_infuse_tool.desc", "Upgrade a Thundersteel tool with Perplexium."),
+                        null, FrameType.TASK, true, true, false)
+                .parent(obtainPerplexium)
+                .addCriterion("thundersteel_infuse_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_INFUSED_THUNDERSTEEL)))
+                .save(consumer, "causalchaos:thundersteel_infuse_tool");
+        var purePerplexiumArmor = builder
+                .display(
+                        CCItems.PERPLEXIUM_CHESTPLATE.get(),
+                        Component.translatable("achievement.causalchaos.perplexium_armor", "Title Card"),
+                        Component.translatable("achievement.causalchaos.perplexium_armor.desc", "Obtain a piece of Perplexium armor and become nigh Invin-"),
+                        null, FrameType.TASK, true, true, false)
+                .parent(obtainPerplexium)
+                .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_PERPLEXIUM)))
+                .save(consumer, "causalchaos:perplexium_armor");
+        var purePerplexiumTool = builder
+                .display(
+                        CCItems.PERPLEXIUM_SWORD.get(),
+                        Component.translatable("achievement.causalchaos.perplexium_tool", "Unlimited Power!"),
+                        Component.translatable("achievement.causalchaos.perplexium_tool.desc", "Obtain a Perplexium tool or weapon and bask in your awesomeness."),
+                        null, FrameType.TASK, true, true, false)
+                .parent(obtainPerplexium)
+                .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM)))
+                .save(consumer, "causalchaos:perplexium_armor");
         var villageHousing25 = builder; // "Superhuman City" Prereq: anchorEncounter
         var villagerGift = builder; // "Thank You!" Prereq: anchorEncounter
-        var superbossVillage = builder; // "Supreme Sanctuary" Prereq: Tsuna
+        var superbossVillage = builder; // "Supreme Sanctuary" Prereq: Jolt
         var realityGlitch = builder; // "Butterfly Effect" Prereq: stableRiftToken
 
         // Dimensions
             // Sky Islands
         var enterSkylands = builder; // "Not The Aether" Prereq: mastery3
+        var findStorm = builder;
+        var perfectElytra = builder;
 
             // Limbo
         var enterLimbo = builder; // "Oh No..." Prereq: EnterRiftwalkerRealmTear
@@ -157,7 +195,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var limboPortal = builder; // "Self-Imprisonment" Prereq: stableRiftToken
 
             //Transcendent's Plain
-        var TPPortalActivate = builder; // "Gateway to the Infinite" Prereq: getPerplexium
+        var TPPortalEnter = builder; // "Gateway to the Infinite" Prereq: getPerplexium
         var EnterTPlain = builder; // "Preeminence" Prereq: Tsuna
         var chaosModeKill = builder; // "Chronicles of Chaos"
 
