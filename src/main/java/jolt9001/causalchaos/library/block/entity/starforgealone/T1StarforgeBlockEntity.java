@@ -1,7 +1,7 @@
 package jolt9001.causalchaos.library.block.entity.starforgealone;
 
 import jolt9001.causalchaos.init.CCBlockEntities;
-import jolt9001.causalchaos.library.recipe.recipes.starforge.StarforgeAloneRecipe;
+import jolt9001.causalchaos.library.recipe.recipes.StarforgeAloneRecipe;
 import jolt9001.causalchaos.library.screen.StarforgeAloneMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

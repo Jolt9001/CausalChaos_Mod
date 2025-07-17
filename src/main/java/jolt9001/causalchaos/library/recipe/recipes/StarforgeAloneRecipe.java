@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.recipe.recipes.starforge;
+package jolt9001.causalchaos.library.recipe.recipes;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

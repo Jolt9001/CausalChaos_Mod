@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class StarforgeMultiblockRecipeBuilder  {
-    public class StarforgeMultiblockShapedRecipeBuilder implements RecipeBuilder {
+    public static class StarforgeMultiblockShapedRecipeBuilder implements RecipeBuilder {
         private final RecipeCategory category;
         private final List<String> rows = Lists.newArrayList();
         private final Item result;
@@ -50,10 +50,10 @@ public class StarforgeMultiblockRecipeBuilder  {
             this.count = count;
         }
 
-        public StarforgeMultiblockShapedRecipeBuilder shapedSingle(RecipeCategory category, Item result, int cookTime, float exp) {
+        public static StarforgeMultiblockShapedRecipeBuilder shapedSingle(RecipeCategory category, Item result, int cookTime, float exp) {
             return shapedMulti(category, result, cookTime, exp, 1);
         }
-        public StarforgeMultiblockShapedRecipeBuilder shapedMulti(RecipeCategory category, Item result, int cookTime, float exp, int count) {
+        public static StarforgeMultiblockShapedRecipeBuilder shapedMulti(RecipeCategory category, Item result, int cookTime, float exp, int count) {
             return new StarforgeMultiblockShapedRecipeBuilder(category, result, cookTime, exp, count);
         }
 
@@ -208,7 +208,7 @@ public class StarforgeMultiblockRecipeBuilder  {
         }
     }
 
-    public class StarforgeMultiblockShapelessRecipeBuilder implements RecipeBuilder {
+    public static class StarforgeMultiblockShapelessRecipeBuilder implements RecipeBuilder {
         private final RecipeCategory category;
         private final Item result;
         private final int count;
@@ -227,11 +227,11 @@ public class StarforgeMultiblockRecipeBuilder  {
             this.count = count;
         }
 
-        public StarforgeMultiblockShapelessRecipeBuilder shapelessSingle(RecipeCategory category, int cookTime, float exp, Item output) {
+        public static StarforgeMultiblockShapelessRecipeBuilder shapelessSingle(RecipeCategory category, int cookTime, float exp, Item output) {
             return shapelessMulti(category, output, cookTime, exp, 1);
         }
 
-        public StarforgeMultiblockShapelessRecipeBuilder shapelessMulti(RecipeCategory category, Item output, int cookTime, float exp, int count) {
+        public static StarforgeMultiblockShapelessRecipeBuilder shapelessMulti(RecipeCategory category, Item output, int cookTime, float exp, int count) {
             return new StarforgeMultiblockShapelessRecipeBuilder(category, output, cookTime, exp, count);
         }
 

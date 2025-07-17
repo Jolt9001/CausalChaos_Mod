@@ -27,7 +27,7 @@ import java.util.Set;
  * This recipe builder has properties of both a furnace and a crafting table.
  */
 public class StarforgeAloneRecipeBuilder {
-    public class StarforgeAloneShapedRecipeBuilder implements RecipeBuilder {
+    public static class StarforgeAloneShapedRecipeBuilder implements RecipeBuilder {
         private final RecipeCategory category;
         private final List<String> rows = Lists.newArrayList();
         private final Item result;
@@ -48,11 +48,11 @@ public class StarforgeAloneRecipeBuilder {
             this.count = count;
         }
 
-        public StarforgeAloneShapedRecipeBuilder shapedSingle(RecipeCategory category, Item output, int cookTime, float exp) {
+        public static StarforgeAloneShapedRecipeBuilder shapedSingle(RecipeCategory category, ItemLike output, int cookTime, float exp) {
             return shapedMulti(category, output, cookTime, exp, 1);
         }
 
-        public StarforgeAloneShapedRecipeBuilder shapedMulti(RecipeCategory category, Item output, int cookTime, float exp, int count) {
+        public static StarforgeAloneShapedRecipeBuilder shapedMulti(RecipeCategory category, ItemLike output, int cookTime, float exp, int count) {
             return new StarforgeAloneShapedRecipeBuilder(category, output, cookTime, exp, count);
         }
 
@@ -207,7 +207,7 @@ public class StarforgeAloneRecipeBuilder {
         public AdvancementHolder advancement() { return this.advancement; }
     }
 
-    public class StarforgeAloneShapelessRecipeBuilder implements RecipeBuilder {
+    public static class StarforgeAloneShapelessRecipeBuilder implements RecipeBuilder {
         private final RecipeCategory category;
         private final Item result;
         private final int count;

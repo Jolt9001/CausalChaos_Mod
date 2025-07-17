@@ -1,11 +1,14 @@
 package jolt9001.causalchaos.common.datagen;
 
+import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.common.datagen.helpers.CraftingDataHelper;
 import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
 import jolt9001.causalchaos.init.CCBlocks;
 import jolt9001.causalchaos.init.CCItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
 public class CraftingGenerator extends CraftingDataHelper {
@@ -18,6 +21,56 @@ public class CraftingGenerator extends CraftingDataHelper {
         blockCompressionRecipes(out);
         equipmentRecipes(out);
         smithingRecipes(out);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T0_STARFORGE.get())
+                .pattern("nnn")
+                .pattern("nbn")
+                .pattern("fff")
+                .define('n', Items.NETHERITE_INGOT)
+                .define('b', Blocks.BLAST_FURNACE)
+                .define('f', Items.IRON_INGOT)
+                .unlockedBy("has_item", has(Blocks.BLAST_FURNACE))
+                .save(out, CausalChaos.prefix("machines/t0_starforge"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T1_STARFORGE.get())
+                .pattern("www")
+                .pattern("wsw")
+                .pattern("nnn")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('s', CCBlocks.T0_STARFORGE.get())
+                .define('n', Items.NETHERITE_INGOT)
+                .unlockedBy("has_item", has(CCBlocks.T0_STARFORGE.get()))
+                .save(out, CausalChaos.prefix("machines/t1_starforge"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T2_STARFORGE.get())
+                .pattern("ttt")
+                .pattern("tst")
+                .pattern("www")
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('s', CCBlocks.T1_STARFORGE.get())
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .unlockedBy("has_item", has(CCBlocks.T1_STARFORGE.get()))
+                .save(out, CausalChaos.prefix("machines/t2_starforge"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T3_STARFORGE.get())
+                .pattern("ppp")
+                .pattern("psp")
+                .pattern("ttt")
+                .define('p', CCItems.PERPLEXIUM_INGOT.get())
+                .define('s', CCBlocks.T2_STARFORGE.get())
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .unlockedBy("has_item", has(CCBlocks.T2_STARFORGE.get()))
+                .save(out, CausalChaos.prefix("machines/t3_starforge"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, CCBlocks.QUANTUM_FABRIC.get())
+                .pattern("ptp")
+                .pattern("tct")
+                .pattern("ptp")
+                .define('p', CCItems.PERPLEXIUM_NUGGET.get())
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('c', CCItems.CAUSALITY_CRYSTAL.get())
+                ;
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, CCItems.QUANTUM_SIGIL.get());
     }
 
     private void equipmentRecipes(RecipeOutput out) {

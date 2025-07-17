@@ -11,12 +11,11 @@ import net.minecraftforge.common.TierSortingRegistry;
 
 import java.util.List;
 
-public class CausalChaosItemMaterial {
+public class CCTiers {
     // Mining level, durability, mining speed multiplier, damage bonus, enchantability
     // Base damage for swords is 4, reference personal docs for stats
-
     public static final Tier NEODYMIUM = TierSortingRegistry.registerTier(
-            new ForgeTier(2, 732, 6.5F, 2, 14,
+            new ForgeTier(2, 732, 6, 2, 14,
                     BlockTags.create(CausalChaos.prefix("needs_neodymium_tool")),
                     () -> Ingredient.of(CCItems.NEODYMIUM_INGOT.get())),
             CausalChaos.prefix("neodymium"), List.of(Tiers.IRON), List.of(Tiers.DIAMOND));
@@ -58,7 +57,7 @@ public class CausalChaosItemMaterial {
             CausalChaos.prefix("thundersteel"), List.of(Tiers.NETHERITE), List.of());
 
     public static final Tier INFUSED_THUNDERSTEEL = TierSortingRegistry.registerTier(
-            new ForgeTier(4, 10274,18,8.5F, 15,
+            new ForgeTier(4, 10274,18,9, 15,
                     BlockTags.create(CausalChaos.prefix("needs_infused_thundersteel_tool")),
                     () -> Ingredient.of(CCItems.PERPLEXIUM_NUGGET.get())),
             CausalChaos.prefix("infused_thundersteel"), List.of(Tiers.NETHERITE), List.of());

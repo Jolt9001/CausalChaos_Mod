@@ -1,9 +1,8 @@
-package jolt9001.causalchaos.library.recipe.recipes.starforgemultiblock;
+package jolt9001.causalchaos.library.recipe.recipes;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.recipe.recipes.starforge.StarforgeAloneRecipe;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;

@@ -1,8 +1,8 @@
 package jolt9001.causalchaos.init;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.recipe.recipes.starforge.StarforgeAloneRecipe;
-import jolt9001.causalchaos.library.recipe.recipes.starforgemultiblock.StarforgeMultiblockRecipe;
+import jolt9001.causalchaos.library.recipe.recipes.StarforgeAloneRecipe;
+import jolt9001.causalchaos.library.recipe.recipes.StarforgeMultiblockRecipe;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;

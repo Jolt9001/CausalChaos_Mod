@@ -209,7 +209,49 @@ public class CCCreativeModeTabs {
                 output.accept(CCItems.TUNGSTEN_BOOTS.get());
 
                 // Superboss gear
+                output.accept(CCItems.PELLUCID_KATANA.get());
+                output.accept(CCItems.DIAPHANOUS_SHURIKEN.get());
+                output.accept(CCItems.SANGUINE_SHORTSWORD.get());
+                output.accept(CCItems.GUIDED_NANOSPEAR.get());
+                output.accept(CCItems.INFALLIBLE_BAYONET.get());
+                output.accept(CCItems.PINPOINT_REVOLVER.get());
+                output.accept(CCItems.AIMBOT_45.get());
+                output.accept(CCItems.GALLANT_SHASHKA.get());
+                output.accept(CCItems.NIGHTMARE_BOW.get());
+                output.accept(CCItems.TREPIDOUS_ARROW.get());
+                output.accept(CCItems.BESPATTERED_WARHAMMER.get());
+                output.accept(CCItems.PRISMATIC_GRENADE.get());
+                output.accept(CCItems.OSCILLATING_TRIDENT.get());
+                output.accept(CCItems.ENTROPIC_SHORTBOW.get());
+                output.accept(CCItems.VIBRATING_ARROW.get());
+                output.accept(CCItems.UMBRAL_GUISARME.get());
+                output.accept(CCItems.TWILIGHT_JAVELIN.get());
+                output.accept(CCItems.COLLAPSAR_CLAYMORE.get());
+                output.accept(CCItems.RELATIVISTIC_RAYGUN.get());
+                output.accept(CCItems.HALLUCINOGENIC_BRACERS.get());
+                output.accept(CCItems.PSYCHOTIC_LONGBOW.get());
+                output.accept(CCItems.DELIRIUM_ARROW.get());
+                output.accept(CCItems.CADUCEUS_GLAIVE.get());
+                output.accept(CCItems.VAMPIRIC_CHAKRAM.get());
+                output.accept(CCItems.INSTINCTUAL_SCYTHE.get());
+                output.accept(CCItems.ARDENT_TOMAHAWK.get());
+                output.accept(CCItems.ILLUSORY_SPEAR.get());
+                output.accept(CCItems.PHRENIC_DART.get());
+                output.accept(CCItems.DIABLO_GAUNTLETS.get());
+                output.accept(CCItems.BRIMSTONE_FLAMETHROWER.get());
+                output.accept(CCItems.BRIMSTONE_CANISTER.get());
+                output.accept(CCItems.WORLDLINE_RAPIER.get());
+                output.accept(CCItems.SNAPSHOT_RIFLE.get());
+                output.accept(CCItems.CHRONAL_BULLET.get());
+                output.accept(CCItems.REPULSOR_SABER.get());
+                output.accept(CCItems.SUPERRADIANT_DAGGER.get());
+                output.accept(CCItems.ELECTRON_STAFF.get());
+                output.accept(CCItems.SPARK_LAUNCHERS.get());
+                output.accept(CCItems.TERAVOLT_CANNON.get());
+                output.accept(CCItems.SUPERLUMINAL_SLUG.get());
                 output.accept(CCItems.WHITE_THUNDER.get());
+                output.accept(CCItems.OBLIVION_CROSSBOW.get());
+                output.accept(CCItems.WORLD_THREAD_BOLT.get());
             }).build());
 
 /*
