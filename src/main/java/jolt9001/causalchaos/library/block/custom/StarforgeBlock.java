@@ -44,7 +44,7 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (!checkIfMultiblock(level, pos)) {
+            if (!checkMultiblock(level, pos)) {
                 if (blockEntity instanceof T0StarforgeBlockEntity) {
                     setTier(0);
                     ((T0StarforgeBlockEntity) blockEntity).drops();
@@ -192,6 +192,19 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
                 } else {
                     throw new IllegalStateException("Container provider is missing.");
                 }
+            } else {
+                if (blockEntity instanceof T1StarforgeMultiBlockEntity t1StarforgeMultiBlockEntity) {
+                    setTier(1);
+                    player.openMenu(t1StarforgeMultiBlockEntity);
+                } else if (blockEntity instanceof T2StarforgeMultiBlockEntity t2StarforgeMultiblockEntity) {
+                    setTier(2);
+                    player.openMenu(t2StarforgeMultiblockEntity);
+                } else if (blockEntity instanceof T3StarforgeMultiBlockEntity t3StarforgeMultiBlockEntity) {
+                    setTier(3);
+                    player.openMenu(t3StarforgeMultiBlockEntity);
+                } else {
+                    throw new IllegalStateException("Container provider is missing.");
+                }
             }
         }
     }
@@ -215,15 +228,17 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
      * @param pos
      * @return boolean instanceof
      */
-    public static boolean checkIfMultiblock(Level level, BlockPos pos) {
+    public static boolean checkMultiblock(Level level, BlockPos pos) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
-
-
         return switch (tier) {
             case 1 -> blockEntity instanceof T1StarforgeMultiBlockEntity;
             case 2 -> blockEntity instanceof T2StarforgeMultiBlockEntity;
             case 3 -> blockEntity instanceof T3StarforgeMultiBlockEntity;
             default -> throw new IllegalStateException("Illegal value: " + tier);
         };
+    }
+
+    public static void buildMultiblock() {
+
     }
 }
