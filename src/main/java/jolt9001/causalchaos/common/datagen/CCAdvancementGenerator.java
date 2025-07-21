@@ -39,28 +39,28 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var root = builder
                 .display(
                         CCItems.JOURNAL.get(), //get ItemLike object
-                        Component.translatable("achievement.causalchaos.root", "Causal Chaos"), //Advancement name
-                        Component.translatable("achievement.causalchaos.root.desc", "It might be a good idea to hold on to this."), //Advancement Description
+                        Component.translatable("achievement.jolt9001.causalchaos.root", "Causal Chaos"), //Advancement name
+                        Component.translatable("achievement.jolt9001.causalchaos.root.desc", "It might be a good idea to hold on to this."), //Advancement Description
                         null, // background
                         FrameType.TASK, //the shape of the advancement icon
                         false, // showToast
                         false, // announceChat
                         false) // hidden
-                .rewards(AdvancementRewards.Builder.loot(new ResourceLocation("causalchaos:gameplay/causal_journal"))) //grant reward in the form of a Causal Journal
+                .rewards(AdvancementRewards.Builder.loot(new ResourceLocation("jolt9001.causalchaos:gameplay/causal_journal"))) //grant reward in the form of a Causal Journal
                 .addCriterion("tick", PlayerTrigger.TriggerInstance.tick()) //Triggered the moment the player joins the world
-                .save(consumer, "causalchaos:root"); //Save the advancement
+                .save(consumer, "jolt9001.causalchaos:root"); //Save the advancement
 
 
         // Tutorial
         var getCrystalDefault = builder
                 .display(
                         CCItems.CAUSALITY_CRYSTAL.get(),
-                        Component.translatable("achievement.causalchaos.crystal_get", "Ooh, Shiny!"),
-                        Component.translatable("achievement.causalchaos.crystal_get.desc", "Obtain a Causality Crystal."),
+                        Component.translatable("achievement.jolt9001.causalchaos.crystal_get", "Ooh, Shiny!"),
+                        Component.translatable("achievement.jolt9001.causalchaos.crystal_get.desc", "Obtain a Causality Crystal."),
                         null, FrameType.TASK, true, true, false)
                 .parent(root)
                 .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
-                .save(consumer, "causalchaos:get_crystal");
+                .save(consumer, "jolt9001.causalchaos:get_crystal");
 
         var dashStrike = builder; // "I Am Speed" Prereq: getCrystalDefault
         var dodge = builder; // "Can't Touch This" Prereq: getCrystalDefault
@@ -116,66 +116,66 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var obtainStarforge = builder
                 .display(
                         CCBlocks.T0_STARFORGE.get(),
-                        Component.translatable("achievement.causalchaos.starforge_get", "Crystal Catalyst"),
-                        Component.translatable("achievement.causalchaos.starforge_get.desc", "Craft a Starforge."),
+                        Component.translatable("achievement.jolt9001.causalchaos.starforge_get", "Crystal Catalyst"),
+                        Component.translatable("achievement.jolt9001.causalchaos.starforge_get.desc", "Craft a Starforge."),
                         null, FrameType.TASK, true, true, false)
                 //.parent(loopEscape)
                 .addCriterion("get_starforge", InventoryChangeTrigger.TriggerInstance.hasItems(CCBlocks.T0_STARFORGE.get()))
-                .save(consumer, "causalchaos:get_starforge");
+                .save(consumer, "jolt9001.causalchaos:get_starforge");
         var obtainThundersteel = builder
                 .display(
                         CCItems.THUNDERSTEEL_INGOT.get(),
-                        Component.translatable("achievement.causalchaos.thundersteel_get", "Ultimate alloy"),
-                        Component.translatable("achievement.causalchaos.thundersteel_get.desc", "Obtain Thundersteel."),
+                        Component.translatable("achievement.jolt9001.causalchaos.thundersteel_get", "Ultimate alloy"),
+                        Component.translatable("achievement.jolt9001.causalchaos.thundersteel_get.desc", "Obtain Thundersteel."),
                         null, FrameType.TASK, true, true, false)
                 .parent(obtainStarforge)
                 .addCriterion("get_thundersteel", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.THUNDERSTEEL_INGOT.get()))
-                .save(consumer, "causalchaos:get_thundersteel");
+                .save(consumer, "jolt9001.causalchaos:get_thundersteel");
         var obtainPerplexium = builder
                 .display(
                         CCItems.PERPLEXIUM_INGOT.get(),
-                        Component.translatable("achievement.causalchaos.perplexium_get", "Cheap Imitation"),
-                        Component.translatable("achievement.causalchaos.perplexium_get.desc", "Obtain Perplexium."),
+                        Component.translatable("achievement.jolt9001.causalchaos.perplexium_get", "Cheap Imitation"),
+                        Component.translatable("achievement.jolt9001.causalchaos.perplexium_get.desc", "Obtain Perplexium."),
                         null, FrameType.TASK, true, true, false)
                 .parent(obtainThundersteel)
                 .addCriterion("get_perplexium", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.PERPLEXIUM_INGOT.get()))
-                .save(consumer, "causalchaos:get_perplexium");
+                .save(consumer, "jolt9001.causalchaos:get_perplexium");
         var infusedThundersteelArmor = builder
                 .display(
                         CCItems.INFUSED_THUNDERSTEEL_CHESTPLATE.get(),
-                        Component.translatable("achievement.causalchaos.thundersteel_infuse_armor", "Upgrades, People, Upgrades!"),
-                        Component.translatable("achievement.causalchaos.thundersteel_infuse_armor.desc", "Upgrade a piece of Thundersteel armor with Perplexium."),
+                        Component.translatable("achievement.jolt9001.causalchaos.thundersteel_infuse_armor", "Upgrades, People, Upgrades!"),
+                        Component.translatable("achievement.jolt9001.causalchaos.thundersteel_infuse_armor.desc", "Upgrade a piece of Thundersteel armor with Perplexium."),
                         null, FrameType.TASK, true, true, false)
                 .parent(obtainPerplexium)
                 .addCriterion("thundersteel_infuse_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_INFUSED_THUNDERSTEEL)))
-                .save(consumer, "causalchaos:thundersteel_infuse_armor");
+                .save(consumer, "jolt9001.causalchaos:thundersteel_infuse_armor");
         var infusedThundersteelTool = builder
                 .display(
                         CCItems.INFUSED_THUNDERSTEEL_SWORD.get(),
-                        Component.translatable("achievement.causalchaos.thundersteel_infuse_tool", "Barely Good Enough"),
-                        Component.translatable("achievement.causalchaos.thundersteel_infuse_tool.desc", "Upgrade a Thundersteel tool with Perplexium."),
+                        Component.translatable("achievement.jolt9001.causalchaos.thundersteel_infuse_tool", "Barely Good Enough"),
+                        Component.translatable("achievement.jolt9001.causalchaos.thundersteel_infuse_tool.desc", "Upgrade a Thundersteel tool with Perplexium."),
                         null, FrameType.TASK, true, true, false)
                 .parent(obtainPerplexium)
                 .addCriterion("thundersteel_infuse_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_INFUSED_THUNDERSTEEL)))
-                .save(consumer, "causalchaos:thundersteel_infuse_tool");
+                .save(consumer, "jolt9001.causalchaos:thundersteel_infuse_tool");
         var purePerplexiumArmor = builder
                 .display(
                         CCItems.PERPLEXIUM_CHESTPLATE.get(),
-                        Component.translatable("achievement.causalchaos.perplexium_armor", "Title Card"),
-                        Component.translatable("achievement.causalchaos.perplexium_armor.desc", "Obtain a piece of Perplexium armor and become nigh Invin-"),
+                        Component.translatable("achievement.jolt9001.causalchaos.perplexium_armor", "Title Card"),
+                        Component.translatable("achievement.jolt9001.causalchaos.perplexium_armor.desc", "Obtain a piece of Perplexium armor and become nigh Invin-"),
                         null, FrameType.TASK, true, true, false)
                 .parent(obtainPerplexium)
                 .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_PERPLEXIUM)))
-                .save(consumer, "causalchaos:perplexium_armor");
+                .save(consumer, "jolt9001.causalchaos:perplexium_armor");
         var purePerplexiumTool = builder
                 .display(
                         CCItems.PERPLEXIUM_SWORD.get(),
-                        Component.translatable("achievement.causalchaos.perplexium_tool", "Unlimited Power!"),
-                        Component.translatable("achievement.causalchaos.perplexium_tool.desc", "Obtain a Perplexium tool or weapon and bask in your awesomeness."),
+                        Component.translatable("achievement.jolt9001.causalchaos.perplexium_tool", "Unlimited Power!"),
+                        Component.translatable("achievement.jolt9001.causalchaos.perplexium_tool.desc", "Obtain a Perplexium tool or weapon and bask in your awesomeness."),
                         null, FrameType.TASK, true, true, false)
                 .parent(obtainPerplexium)
                 .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM)))
-                .save(consumer, "causalchaos:perplexium_armor");
+                .save(consumer, "jolt9001.causalchaos:perplexium_armor");
         var villageHousing25 = builder; // "Superhuman City" Prereq: anchorEncounter
         var villagerGift = builder; // "Thank You!" Prereq: anchorEncounter
         var superbossVillage = builder; // "Supreme Sanctuary" Prereq: Jolt
@@ -249,9 +249,9 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var getCrystalHardcore = builder
                 .display(
                         CCItems.CAUSALITY_CRYSTAL.get(),
-                        Component.translatable("achievement.causalchaos.crystal_get",
+                        Component.translatable("achievement.jolt9001.causalchaos.crystal_get",
                                 "YOLO"),
-                        Component.translatable("achievement.causalchaos.crystal_get.desc",
+                        Component.translatable("achievement.jolt9001.causalchaos.crystal_get.desc",
                                 "Obtain a Causality Crystal in Hardcore Mode."),
                         null,
                         FrameType.TASK,
@@ -262,19 +262,19 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .parent(root)
                 .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
                 .addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
-                .save(consumer, "causalchaos:get_crystal_hardcore");
+                .save(consumer, "jolt9001.causalchaos:get_crystal_hardcore");
 
         LivingEntity entity = null;
         LivingDeathEvent event = new LivingDeathEvent(entity, null);
         var hardcoreDeath = builder
                 .display(
                         (ItemLike) IconGenerator.RESUSCITATION_ICON,
-                        Component.translatable("achievement.causalchaos.hardcore_death", "Resuscitation"),
-                        Component.translatable("achievement.causalchaos.hardcore_death.desc",
+                        Component.translatable("achievement.jolt9001.causalchaos.hardcore_death", "Resuscitation"),
+                        Component.translatable("achievement.jolt9001.causalchaos.hardcore_death.desc",
                                 "Embrace mortality, yet defy the fall."), null, FrameType.GOAL, true, true, false)
                 .parent(getCrystalHardcore)
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
-                .save(consumer, "causalchaos:hardcore_death");
+                .save(consumer, "jolt9001.causalchaos:hardcore_death");
         var hardcoreDLDefeat = builder; // "Last Stand" Prereq: getCrystalHardcore
         var perfectSuperboss = builder; // "Memento Mori" Prereq: getCrystalHardcore + TPPortalActivate
         var day100 = builder; /// "Indomitable Spirit" Prereq: getCrystalHardcore
@@ -301,12 +301,12 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var badRNG = builder
                 .display(
                         (ItemLike)IconGenerator.NAT1,
-                        Component.translatable("achievement.causalchaos.badRNG", "Rolled a 1"),
-                        Component.translatable("achievement.causalchaos.badRNG.desc", "RNG hates you."),
+                        Component.translatable("achievement.jolt9001.causalchaos.badRNG", "Rolled a 1"),
+                        Component.translatable("achievement.jolt9001.causalchaos.badRNG.desc", "RNG hates you."),
                         null, FrameType.TASK,true, true, false)
                 // .parent(TPPortalActivate)
                 /* Add criteria that allows for hit detecion from RNG-based attacks */
-                .save(consumer, "causalchaos:badRNG"); // "Rolled a 1" Prereq: TPPortalActivate
+                .save(consumer, "jolt9001.causalchaos:badRNG"); // "Rolled a 1" Prereq: TPPortalActivate
 
             // Hidden Challenges
         var chaosBossRush = builder; // "Unlimited" Prereq: chaosCompletion

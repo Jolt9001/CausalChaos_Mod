@@ -4,8 +4,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
-public class Riftwalker extends Monster {
-    public Riftwalker(EntityType<? extends Riftwalker> type, Level world) {
+public class RiftwalkerCorruptor extends Monster {
+    public RiftwalkerCorruptor(EntityType<? extends RiftwalkerCorruptor> type, Level world) {
         super(type, world);
     }
 }

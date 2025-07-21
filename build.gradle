@@ -8,7 +8,7 @@ plugins {
 version = '1.20.2-0.0.0.1'
 group = 'jolt9001.causalchaos'
 
-base.archivesName = 'causalchaos'
+base.archivesName = 'jolt9001.causalchaos'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)

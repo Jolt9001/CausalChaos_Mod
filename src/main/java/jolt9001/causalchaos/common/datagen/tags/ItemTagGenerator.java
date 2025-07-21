@@ -161,7 +161,7 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
                 CCItems.INFUSED_THUNDERSTEEL_SWORD.get());
 
 
-        tag(PORTAL_ACTIVATOR).add(CCItems.RIFT_TOKEN.get());
+        tag(PORTAL_ACTIVATOR).add(CCItems.STABLE_RIFT_TOKEN.get());
     }
 
     public static TagKey<Item> create(String tagName) {

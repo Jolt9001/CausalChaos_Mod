@@ -54,7 +54,7 @@ public class T3StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     private int maxProgress = 78;
 
     public T3StarforgeBlockEntity(BlockPos pos, BlockState state){
-        super(CCBlockEntities.T0_STARFORGE_BE.get(), pos, state);
+        super(CCBlockEntities.T3_STARFORGE_BE.get(), pos, state);
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
@@ -108,7 +108,7 @@ public class T3StarforgeBlockEntity extends BlockEntity implements MenuProvider 
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.causalchaos.tier_0_starforge");
+        return Component.translatable("block.jolt9001.causalchaos.tier_0_starforge");
     }
 
     @Nullable

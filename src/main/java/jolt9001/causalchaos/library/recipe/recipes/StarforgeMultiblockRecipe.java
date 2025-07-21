@@ -3,6 +3,7 @@ package jolt9001.causalchaos.library.recipe.recipes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.init.CCRecipes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
@@ -83,9 +84,7 @@ public class StarforgeMultiblockRecipe implements Recipe<Container> {
     }
 
     @Override
-    public RecipeType<?> getType() {
-        return null;
-    }
+    public RecipeType<?> getType() { return CCRecipes.STARFORGE_MULTIBLOCK.get(); }
 
     public static class Type implements RecipeType<StarforgeMultiblockRecipe> {
         public static final StarforgeMultiblockRecipe.Type INSTANCE = new StarforgeMultiblockRecipe.Type();

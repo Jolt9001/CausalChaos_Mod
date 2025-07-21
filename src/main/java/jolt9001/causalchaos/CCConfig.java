@@ -57,18 +57,18 @@ public class CCConfig {
             {
                 this.spawnWithBook = builder
                         .comment("Set this to false to disable spawning with Causal Journal. Default: true")
-                        .translation("causalchaos.configgui.spawnWithBook")
+                        .translation("jolt9001.causalchaos.configgui.spawnWithBook")
                         .worldRestart()
                         .define("spawnWithBook", true);
                 this.immediateMeteor = builder
                         .comment("Set this to true to make the Causality Crystal spawn immediately. Default: false")
-                        .translation("causalchaos.configgui.immediateMeteor")
+                        .translation("jolt9001.causalchaos.configgui.immediateMeteor")
                         .worldRestart()
                         .define("immediateMeteor", false);
             }
             builder.pop();
             originDimension = builder.
-                    translation("causalchaos.configgui.originDimension").
+                    translation("jolt9001.causalchaos.configgui.originDimension").
                     comment("The dimension you can always travel to the mod's dimensions from, as well as the dimension you will return to. Default: overworld. (domain:regname)").
                     define("originDimension", "minecraft:overworld");
 
@@ -84,12 +84,12 @@ public class CCConfig {
             {
                 this.generateCobalt = builder
                         .comment("Allow Cobalt Ore Generation")
-                        .translation("causalchaos.configgui.generateCobalt")
+                        .translation("jolt9001.causalchaos.configgui.generateCobalt")
                         .worldRestart()
                         .define("generateCobalt", true);
                 this.veinCountCobalt = builder
                         .comment("approximate ores per chunk")
-                        .translation("causalchaos.configgui.veinCountCobalt")
+                        .translation("jolt9001.causalchaos.configgui.veinCountCobalt")
                         .worldRestart()
                         .define("veinCountCobalt", 8);
 

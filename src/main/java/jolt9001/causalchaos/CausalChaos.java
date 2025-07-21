@@ -33,7 +33,7 @@ import java.util.Locale;
 
 /**
 * @author Jolt9001
-* Minecraft 1.20.4
+* Minecraft 1.20.2
 */
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -50,6 +50,9 @@ public class CausalChaos {
     static CausalChaos INSTANCE;
 
     public CausalChaos() {
+        LOGGER.info("Loading Causal Chaos...");
+
+
         if (INSTANCE != null) {
             throw new IllegalStateException();
         }
@@ -64,6 +67,7 @@ public class CausalChaos {
         CCItems.register(modEventBus);
 
         CCBlockEntities.register(modEventBus);
+        CCMultiblockEntities.register(modEventBus);
 
         CCMenuTypes.register(modEventBus);
 
@@ -78,6 +82,7 @@ public class CausalChaos {
 
         // Register the mod's ForgeConfigSpec so that Forge can create and load the config file for me
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CCConfig.SPEC);
+        modEventBus.addListener(this::init);
     }
 
     private void init(FMLCommonSetupEvent evt) {

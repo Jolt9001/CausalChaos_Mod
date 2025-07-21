@@ -9,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 public final class CCSounds {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(Registries.SOUND_EVENT, CausalChaos.MODID);
 
-    public static final RegistryObject<SoundEvent> PORTAL_WHOOSH = createEvent("block.causalchaos.portal.whoosh");
+    public static final RegistryObject<SoundEvent> PORTAL_WHOOSH = createEvent("block.jolt9001.causalchaos.portal.whoosh");
 
     private static RegistryObject<SoundEvent> createEvent(String sound) {
         return SOUNDS.register(sound, () -> SoundEvent.createVariableRangeEvent(CausalChaos.prefix(sound)));

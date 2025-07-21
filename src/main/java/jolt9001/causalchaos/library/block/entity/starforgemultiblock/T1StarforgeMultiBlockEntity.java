@@ -1,6 +1,7 @@
 package jolt9001.causalchaos.library.block.entity.starforgemultiblock;
 
 import jolt9001.causalchaos.init.CCBlockEntities;
+import jolt9001.causalchaos.init.CCMultiblockEntities;
 import jolt9001.causalchaos.library.recipe.recipes.StarforgeMultiblockRecipe;
 import jolt9001.causalchaos.library.screen.StarforgeMultiblockMenu;
 import net.minecraft.core.BlockPos;
@@ -44,9 +45,10 @@ public class T1StarforgeMultiBlockEntity extends BlockEntity implements MenuProv
         }
     };
 
-    private static final int[] INPUT_SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-    private static final int FUEL_SLOT =  9;
-    private static final int RESULT_SLOT = 10;
+    private static final int[] INPUT_SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 18, 20,
+            21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
+    // private static final int FUEL_SLOT =  9;
+    private static final int RESULT_SLOT = 48;
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     protected final ContainerData data;
@@ -54,7 +56,7 @@ public class T1StarforgeMultiBlockEntity extends BlockEntity implements MenuProv
     private int maxProgress = 78;
 
     public T1StarforgeMultiBlockEntity(BlockPos pos, BlockState state){
-        super(CCBlockEntities.T0_STARFORGE_BE.get(), pos, state);
+        super(CCMultiblockEntities.T1_STARFORGE_MBE.get(), pos, state);
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
@@ -108,7 +110,7 @@ public class T1StarforgeMultiBlockEntity extends BlockEntity implements MenuProv
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.causalchaos.tier_1_starforge");
+        return Component.translatable("block.jolt9001.causalchaos.tier_1_starforge");
     }
 
     @Nullable
@@ -138,11 +140,11 @@ public class T1StarforgeMultiBlockEntity extends BlockEntity implements MenuProv
     private void craftItem() {
         Optional<RecipeHolder<StarforgeMultiblockRecipe>> recipe = getCurrentRecipe();
         ItemStack result = recipe.get().value().getResultItem(null);
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i <= 47; i++) {
             this.itemHandler.extractItem(INPUT_SLOTS[i], 1, false);
         }
         this.itemHandler.setStackInSlot(RESULT_SLOT, new ItemStack(result.getItem(), this.itemHandler.getStackInSlot(RESULT_SLOT).getCount() + result.getCount()));
-        this.itemHandler.setStackInSlot(FUEL_SLOT, new ItemStack(result.getItem()));
+        // this.itemHandler.setStackInSlot(FUEL_SLOT, new ItemStack(result.getItem()));
     }
 
     private boolean hasRecipe() {

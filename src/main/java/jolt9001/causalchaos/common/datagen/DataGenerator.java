@@ -2,6 +2,7 @@ package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.common.datagen.custom.*;
+import jolt9001.causalchaos.common.datagen.providers.WorldGenProvider;
 import jolt9001.causalchaos.common.datagen.tags.BlockTagGenerator;
 import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
 import net.minecraft.core.HolderLookup;
@@ -15,7 +16,6 @@ import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerator {
-
     @SubscribeEvent
     public static void generate(GatherDataEvent event) {
         net.minecraft.data.DataGenerator gen = event.getGenerator();
@@ -25,6 +25,7 @@ public class DataGenerator {
 
         // Server Side: Worldgen. Recipes, Advancements, Loot Tables, Tags
             // Worldgen
+        // gen.addProvider(event.includeServer(), new WorldGenProvider(out, prov));
             // Recipes
         gen.addProvider(event.includeServer(), new CraftingGenerator(out));
         gen.addProvider(event.includeServer(), new StarforgeAloneGenerator(out));
