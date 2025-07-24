@@ -4,128 +4,101 @@ import jolt9001.causalchaos.CausalChaos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 public class CCCreativeModeTabs {
-    public static final DeferredRegister CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CausalChaos.MODID);
-
-    public static void register(IEventBus eventBus) {
-        CREATIVE_TABS.register(eventBus);
-    }
-
-
-    static DeferredRegister<CreativeModeTab> TABS;
+    public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CausalChaos.MODID);
 
     public static final RegistryObject<CreativeModeTab> BLOCKS = TABS.register("blocks", () -> CreativeModeTab.builder()
-            .title(Component.translatable("item_group." + CausalChaos.MODID + ".blocks"))
             .icon(() -> new ItemStack(CCBlocks.COBALT_ORE.get()))
-            .displayItems((params, output) -> {
-                output.accept(CCBlocks.ANTHRACITE_ORE.get());
-                output.accept(CCBlocks.ANTHRACITE_BLOCK.get());
-                output.accept(CCBlocks.MAGNETITE_ORE.get());
-                output.accept(CCBlocks.MAGNETITE_BLOCK.get());
-                output.accept(CCBlocks.COBALT_ORE.get());
-                output.accept(CCBlocks.DEEPSLATE_COBALT_ORE.get());
-                output.accept(CCBlocks.RAW_COBALT_BLOCK.get());
-                output.accept(CCBlocks.COBALT_BLOCK.get());
-                output.accept(CCBlocks.IRIDIUM_ORE.get());
-                output.accept(CCBlocks.DEEPSLATE_IRIDIUM_ORE.get());
-                output.accept(CCBlocks.RAW_IRIDIUM_BLOCK.get());
-                output.accept(CCBlocks.IRIDIUM_BLOCK.get());
-                output.accept(CCBlocks.NEODYMIUM_ORE.get());
-                output.accept(CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get());
-                output.accept(CCBlocks.RAW_NEODYMIUM_BLOCK.get());
-                output.accept(CCBlocks.NEODYMIUM_BLOCK.get());
-                output.accept(CCBlocks.PALLADIUM_ORE.get());
-                output.accept(CCBlocks.DEEPSLATE_PALLADIUM_ORE.get());
-                output.accept(CCBlocks.RAW_PALLADIUM_BLOCK.get());
-                output.accept(CCBlocks.PALLADIUM_BLOCK.get());
-                output.accept(CCBlocks.PERPLEXIUM_BLOCK.get());
-                output.accept(CCBlocks.THUNDERSTEEL_BLOCK.get());
-                output.accept(CCBlocks.TITANIUM_ORE.get());
-                output.accept(CCBlocks.DEEPSLATE_TITANIUM_ORE.get());
-                output.accept(CCBlocks.RAW_TITANIUM_BLOCK.get());
-                output.accept(CCBlocks.TITANIUM_BLOCK.get());
-                output.accept(CCBlocks.TUNGSTEN_ORE.get());
-                output.accept(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get());
-                output.accept(CCBlocks.RAW_TUNGSTEN_BLOCK.get());
-                output.accept(CCBlocks.TUNGSTEN_BLOCK.get());
-                output.accept(CCBlocks.REALMWEAVE_BLOCK.get());
-                output.accept(CCBlocks.QUANTUM_FABRIC.get());
-                output.accept(CCBlocks.DIMENSIONAL_ANCHOR.get());
-                output.accept(CCBlocks.WORMHOLE_STABILIZER.get());
-                output.accept(CCBlocks.FUSION_CORE.get());
-                output.accept(CCBlocks.T0_STARFORGE.get());
-                output.accept(CCBlocks.T1_STARFORGE.get());
-                output.accept(CCBlocks.T2_STARFORGE.get());
-                output.accept(CCBlocks.T3_STARFORGE.get());
-                output.accept(CCBlocks.T1_HEAT_SINK.get());
-                output.accept(CCBlocks.T2_HEAT_SINK.get());
-                output.accept(CCBlocks.T3_HEAT_SINK.get());
-                output.accept(CCBlocks.T1_ELECTROMAGNET.get());
-                output.accept(CCBlocks.T2_ELECTROMAGNET.get());
-                output.accept(CCBlocks.T3_ELECTROMAGNET.get());
-                output.accept(CCBlocks.T1_HOPPER.get());
-                output.accept(CCBlocks.T2_HOPPER.get());
-                output.accept(CCBlocks.T3_HOPPER.get());
-                output.accept(CCBlocks.T1_S_HOPPER.get());
-                output.accept(CCBlocks.T2_S_HOPPER.get());
-                output.accept(CCBlocks.T3_S_HOPPER.get());
-                output.accept(CCBlocks.T1_CORE_SHIELDING.get());
-                output.accept(CCBlocks.T2_CORE_SHIELDING.get());
-                output.accept(CCBlocks.T3_CORE_SHIELDING.get());
+            .title(Component.translatable("item_group." + CausalChaos.MODID + ".blocks"))
+            .displayItems((pParameters, pOutput) -> {
+                for(RegistryObject<Block> block : CCBlocks.BLOCKS.getEntries()) {
+                    pOutput.accept(block.get());
+                }
+                /*
+                pOutput.accept(CCBlocks.ANTHRACITE_ORE.get());
+                pOutput.accept(CCBlocks.ANTHRACITE_BLOCK.get());
+                pOutput.accept(CCBlocks.MAGNETITE_ORE.get());
+                pOutput.accept(CCBlocks.MAGNETITE_BLOCK.get());
+                pOutput.accept(CCBlocks.COBALT_ORE.get());
+                pOutput.accept(CCBlocks.DEEPSLATE_COBALT_ORE.get());
+                pOutput.accept(CCBlocks.RAW_COBALT_BLOCK.get());
+                pOutput.accept(CCBlocks.COBALT_BLOCK.get());
+                pOutput.accept(CCBlocks.IRIDIUM_ORE.get());
+                pOutput.accept(CCBlocks.DEEPSLATE_IRIDIUM_ORE.get());
+                pOutput.accept(CCBlocks.RAW_IRIDIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.IRIDIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.NEODYMIUM_ORE.get());
+                pOutput.accept(CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get());
+                pOutput.accept(CCBlocks.RAW_NEODYMIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.NEODYMIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.PALLADIUM_ORE.get());
+                pOutput.accept(CCBlocks.DEEPSLATE_PALLADIUM_ORE.get());
+                pOutput.accept(CCBlocks.RAW_PALLADIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.PALLADIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.PERPLEXIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.THUNDERSTEEL_BLOCK.get());
+                pOutput.accept(CCBlocks.TITANIUM_ORE.get());
+                pOutput.accept(CCBlocks.DEEPSLATE_TITANIUM_ORE.get());
+                pOutput.accept(CCBlocks.RAW_TITANIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.TITANIUM_BLOCK.get());
+                pOutput.accept(CCBlocks.TUNGSTEN_ORE.get());
+                pOutput.accept(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get());
+                pOutput.accept(CCBlocks.RAW_TUNGSTEN_BLOCK.get());
+                pOutput.accept(CCBlocks.TUNGSTEN_BLOCK.get());
+                pOutput.accept(CCBlocks.REALMWEAVE_BLOCK.get());
+                pOutput.accept(CCBlocks.QUANTUM_FABRIC.get());
+                pOutput.accept(CCBlocks.DIMENSIONAL_ANCHOR.get());
+                pOutput.accept(CCBlocks.WORMHOLE_STABILIZER.get());
+                pOutput.accept(CCBlocks.FUSION_CORE.get());
+                pOutput.accept(CCBlocks.T0_STARFORGE.get());
+                pOutput.accept(CCBlocks.T1_STARFORGE.get());
+                pOutput.accept(CCBlocks.T2_STARFORGE.get());
+                pOutput.accept(CCBlocks.T3_STARFORGE.get());
+                pOutput.accept(CCBlocks.T1_HEAT_SINK.get());
+                pOutput.accept(CCBlocks.T2_HEAT_SINK.get());
+                pOutput.accept(CCBlocks.T3_HEAT_SINK.get());
+                pOutput.accept(CCBlocks.T1_ELECTROMAGNET.get());
+                pOutput.accept(CCBlocks.T2_ELECTROMAGNET.get());
+                pOutput.accept(CCBlocks.T3_ELECTROMAGNET.get());
+                pOutput.accept(CCBlocks.T1_HOPPER.get());
+                pOutput.accept(CCBlocks.T2_HOPPER.get());
+                pOutput.accept(CCBlocks.T3_HOPPER.get());
+                pOutput.accept(CCBlocks.T1_S_HOPPER.get());
+                pOutput.accept(CCBlocks.T2_S_HOPPER.get());
+                pOutput.accept(CCBlocks.T3_S_HOPPER.get());
+                pOutput.accept(CCBlocks.T1_CORE_SHIELDING.get());
+                pOutput.accept(CCBlocks.T2_CORE_SHIELDING.get());
+                pOutput.accept(CCBlocks.T3_CORE_SHIELDING.get());
+                */
             }).build());
+
     public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("items", () -> CreativeModeTab.builder()
-            // Set name of tab to display
-            .title(Component.translatable("item_group." + CausalChaos.MODID + ".items"))
             // Set icon of creative tab
             .icon(() -> new ItemStack(CCItems.CAUSALITY_CRYSTAL.get()))
-            // Add default items to tab
-            .displayItems((params, output) -> {
-                output.accept(CCItems.JOURNAL.get());
-                output.accept(CCItems.CAUSALITY_CRYSTAL.get());
-                output.accept(CCItems.ANTHRACITE.get());
-                output.accept(CCItems.MAGNETITE.get());
-                output.accept(CCItems.RAW_COBALT.get());
-                output.accept(CCItems.COBALT_NUGGET.get());
-                output.accept(CCItems.COBALT_INGOT.get());
-                output.accept(CCItems.RAW_IRIDIUM.get());
-                output.accept(CCItems.IRIDIUM_NUGGET.get());
-                output.accept(CCItems.IRIDIUM_INGOT.get());
-                output.accept(CCItems.RAW_NEODYMIUM.get());
-                output.accept(CCItems.NEODYMIUM_NUGGET.get());
-                output.accept(CCItems.NEODYMIUM_INGOT.get());
-                output.accept(CCItems.RAW_PALLADIUM.get());
-                output.accept(CCItems.PALLADIUM_NUGGET.get());
-                output.accept(CCItems.PALLADIUM_INGOT.get());
-                output.accept(CCItems.PERPLEXIUM_NUGGET.get());
-                output.accept(CCItems.PERPLEXIUM_INGOT.get());
-                output.accept(CCItems.THUNDERSTEEL_UPGRADE.get());
-                output.accept(CCItems.THUNDERSTEEL_NUGGET.get());
-                output.accept(CCItems.THUNDERSTEEL_INGOT.get());
-                output.accept(CCItems.RAW_TITANIUM.get());
-                output.accept(CCItems.TITANIUM_NUGGET.get());
-                output.accept(CCItems.TITANIUM_INGOT.get());
-                output.accept(CCItems.RAW_TUNGSTEN.get());
-                output.accept(CCItems.TUNGSTEN_NUGGET.get());
-                output.accept(CCItems.TUNGSTEN_INGOT.get());
-                output.accept(CCItems.QUANTUM_SIGIL.get());
-                output.accept(CCItems.RIFT_TOKEN.get());
-                output.accept(CCItems.STABLE_RIFT_TOKEN.get());
-                output.accept(CCItems.ABYSS_STRING.get());
-                output.accept(CCItems.TIME_CRYSTAL.get());
-                output.accept(CCItems.VOID_FABRIC.get());
-                output.accept(CCItems.WORLD_THREAD.get());
-                output.accept(CCItems.REALM_SEED.get());
+            // Set name of tab to display
+            .title(Component.translatable("item_group." + CausalChaos.MODID + ".items"))
+            // Add items to tab
+            .displayItems((features, output) -> {
+                for (RegistryObject<Item> item : CCItems.ITEMS.getEntries()) {
+                    output.accept(item.get());
+                }
             }).build()
     );
     public static final RegistryObject<CreativeModeTab> EQUIPMENT = TABS.register("equipment", () -> CreativeModeTab.builder()
-            .title(Component.translatable("item_group." + CausalChaos.MODID + ".equipment"))
             .icon(() -> new ItemStack(CCItems.COBALT_SWORD.get()))
-            .displayItems((params, output) -> {
+            .title(Component.translatable("item_group." + CausalChaos.MODID + ".equipment"))
+            .displayItems((features, output) -> {
+                for (RegistryObject<Item> item : CCItems.EQUIPMENT.getEntries()) {
+                    output.accept(item.get());
+                }
+                /*
                 output.accept(CCItems.COBALT_AXE.get());
                 output.accept(CCItems.COBALT_HOE.get());
                 output.accept(CCItems.COBALT_PICKAXE.get());
@@ -252,8 +225,12 @@ public class CCCreativeModeTabs {
                 output.accept(CCItems.WHITE_THUNDER.get());
                 output.accept(CCItems.OBLIVION_CROSSBOW.get());
                 output.accept(CCItems.WORLD_THREAD_BOLT.get());
+                */
             }).build());
 
+    public static void register(IEventBus eventBus) {
+        TABS.register(eventBus);
+    }
 /*
     @SubscribeEvent
     public void buildContents(BuildCreativeModeTabContentsEvent event) {

@@ -66,8 +66,13 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
     public static final TagKey<Item> ARMORS_PERPLEXIUM = makeForgeTag("armors/perplexium");
     public static final TagKey<Item> ARMORS_INFUSED_THUNDERSTEEL = makeForgeTag("armors/infused_thundersteel");
 
+    // Bulk Tags
+    public static final TagKey<Item> ALL_EQUIPMENT = makeForgeTag("all_equip");
+    public static final TagKey<Item> NON_EQUIPMENT = makeForgeTag("non-equip");
+
     // Portal activator
     public static final TagKey<Item> PORTAL_ACTIVATOR = create("portal/activator");
+
 
     public static final TagKey<Item> WIP = create("wip");
     public static final TagKey<Item> NYI = create("nyi");
@@ -159,6 +164,69 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
                 CCItems.INFUSED_THUNDERSTEEL_AXE.get(), CCItems.INFUSED_THUNDERSTEEL_HOE.get(),
                 CCItems.INFUSED_THUNDERSTEEL_PICKAXE.get(), CCItems.INFUSED_THUNDERSTEEL_SHOVEL.get(),
                 CCItems.INFUSED_THUNDERSTEEL_SWORD.get());
+
+        tag(ALL_EQUIPMENT).add(
+                CCItems.COBALT_AXE.get(), CCItems.INFUSED_THUNDERSTEEL_AXE.get(), CCItems.IRIDIUM_AXE.get(),
+                CCItems.NEODYMIUM_AXE.get(), CCItems.PALLADIUM_AXE.get(), CCItems.PERPLEXIUM_AXE.get(),
+                CCItems.THUNDERSTEEL_AXE.get(), CCItems.TITANIUM_AXE.get(), CCItems.TUNGSTEN_AXE.get(),
+                CCItems.COBALT_BOOTS.get(), CCItems.INFUSED_THUNDERSTEEL_BOOTS.get(), CCItems.IRIDIUM_BOOTS.get(),
+                CCItems.NEODYMIUM_BOOTS.get(), CCItems.PALLADIUM_BOOTS.get(), CCItems.PERPLEXIUM_BOOTS.get(),
+                CCItems.THUNDERSTEEL_BOOTS.get(), CCItems.TITANIUM_BOOTS.get(), CCItems.TUNGSTEN_BOOTS.get(),
+                CCItems.COBALT_CHESTPLATE.get(), CCItems.INFUSED_THUNDERSTEEL_CHESTPLATE.get(),
+                CCItems.IRIDIUM_CHESTPLATE.get(), CCItems.NEODYMIUM_CHESTPLATE.get(),
+                CCItems.PALLADIUM_CHESTPLATE.get(), CCItems.PERPLEXIUM_CHESTPLATE.get(),
+                CCItems.THUNDERSTEEL_CHESTPLATE.get(), CCItems.TITANIUM_CHESTPLATE.get(),
+                CCItems.TUNGSTEN_CHESTPLATE.get(), CCItems.COBALT_HELMET.get(), CCItems.INFUSED_THUNDERSTEEL_HELMET.get(),
+                CCItems.IRIDIUM_HELMET.get(), CCItems.NEODYMIUM_HELMET.get(), CCItems.PALLADIUM_HELMET.get(),
+                CCItems.PERPLEXIUM_HELMET.get(), CCItems.THUNDERSTEEL_HELMET.get(), CCItems.TITANIUM_HELMET.get(),
+                CCItems.TUNGSTEN_HELMET.get(), CCItems.COBALT_HOE.get(), CCItems.INFUSED_THUNDERSTEEL_HOE.get(),
+                CCItems.IRIDIUM_HOE.get(), CCItems.NEODYMIUM_HOE.get(), CCItems.PALLADIUM_HOE.get(), CCItems.PERPLEXIUM_HOE.get(),
+                CCItems.THUNDERSTEEL_HOE.get(), CCItems.TITANIUM_HOE.get(), CCItems.TUNGSTEN_HOE.get(),
+                CCItems.COBALT_HELMET.get(), CCItems.INFUSED_THUNDERSTEEL_HELMET.get(), CCItems.IRIDIUM_HELMET.get(),
+                CCItems.NEODYMIUM_HELMET.get(), CCItems.PALLADIUM_HELMET.get(), CCItems.PERPLEXIUM_HELMET.get(),
+                CCItems.THUNDERSTEEL_HELMET.get(), CCItems.TITANIUM_HELMET.get(), CCItems.TUNGSTEN_HELMET.get(),
+                CCItems.COBALT_LEGGINGS.get(), CCItems.INFUSED_THUNDERSTEEL_LEGGINGS.get(),
+                CCItems.IRIDIUM_LEGGINGS.get(), CCItems.NEODYMIUM_LEGGINGS.get(), CCItems.PALLADIUM_LEGGINGS.get(),
+                CCItems.PERPLEXIUM_LEGGINGS.get(), CCItems.THUNDERSTEEL_LEGGINGS.get(), CCItems.TITANIUM_LEGGINGS.get(),
+                CCItems.TUNGSTEN_LEGGINGS.get(), CCItems.COBALT_PICKAXE.get(), CCItems.INFUSED_THUNDERSTEEL_PICKAXE.get(),
+                CCItems.IRIDIUM_PICKAXE.get(), CCItems.NEODYMIUM_PICKAXE.get(), CCItems.PALLADIUM_PICKAXE.get(),
+                CCItems.PERPLEXIUM_PICKAXE.get(), CCItems.THUNDERSTEEL_PICKAXE.get(), CCItems.TITANIUM_PICKAXE.get(),
+                CCItems.TUNGSTEN_PICKAXE.get(), CCItems.COBALT_SHOVEL.get(), CCItems.INFUSED_THUNDERSTEEL_SHOVEL.get(),
+                CCItems.IRIDIUM_SHOVEL.get(), CCItems.NEODYMIUM_SHOVEL.get(), CCItems.PALLADIUM_SHOVEL.get(),
+                CCItems.PERPLEXIUM_SHOVEL.get(), CCItems.THUNDERSTEEL_SHOVEL.get(), CCItems.TITANIUM_SHOVEL.get(),
+                CCItems.TUNGSTEN_SHOVEL.get(), CCItems.COBALT_SWORD.get(), CCItems.INFUSED_THUNDERSTEEL_SWORD.get(),
+                CCItems.IRIDIUM_SWORD.get(), CCItems.NEODYMIUM_SWORD.get(), CCItems.PALLADIUM_SWORD.get(),
+                CCItems.PERPLEXIUM_SWORD.get(), CCItems.THUNDERSTEEL_SWORD.get(), CCItems.TITANIUM_SWORD.get(),
+                CCItems.TUNGSTEN_SWORD.get(), CCItems.PELLUCID_KATANA.get(), CCItems.DIAPHANOUS_SHURIKEN.get(),
+                CCItems.SANGUINE_SHORTSWORD.get(), CCItems.GUIDED_NANOSPEAR.get(), CCItems.INFALLIBLE_BAYONET.get(),
+                CCItems.PINPOINT_REVOLVER.get(), CCItems.AIMBOT_45.get(), CCItems.GALLANT_SHASHKA.get(),
+                CCItems.NIGHTMARE_BOW.get(), CCItems.TREPIDOUS_ARROW.get(), CCItems.BESPATTERED_WARHAMMER.get(),
+                CCItems.PRISMATIC_GRENADE.get(), CCItems.OSCILLATING_TRIDENT.get(), CCItems.ENTROPIC_SHORTBOW.get(),
+                CCItems.VIBRATING_ARROW.get(), CCItems.UMBRAL_GUISARME.get(), CCItems.TWILIGHT_JAVELIN.get(),
+                CCItems.COLLAPSAR_CLAYMORE.get(), CCItems.RELATIVISTIC_RAYGUN.get(), CCItems.HALLUCINOGENIC_BRACERS.get(),
+                CCItems.PSYCHOTIC_LONGBOW.get(), CCItems.DELIRIUM_ARROW.get(), CCItems.CADUCEUS_GLAIVE.get(),
+                CCItems.VAMPIRIC_CHAKRAM.get(), CCItems.INSTINCTUAL_SCYTHE.get(), CCItems.ARDENT_TOMAHAWK.get(),
+                CCItems.ILLUSORY_SPEAR.get(), CCItems.PHRENIC_DART.get(), CCItems.DIABLO_GAUNTLETS.get(),
+                CCItems.BRIMSTONE_FLAMETHROWER.get(), CCItems.BRIMSTONE_CANISTER.get(), CCItems.WORLDLINE_RAPIER.get(),
+                CCItems.SNAPSHOT_RIFLE.get(), CCItems.CHRONAL_BULLET.get(), CCItems.REPULSOR_SABER.get(),
+                CCItems.SUPERRADIANT_DAGGER.get(), CCItems.ELECTRON_STAFF.get(), CCItems.SPARK_LAUNCHERS.get(),
+                CCItems.TERAVOLT_CANNON.get(), CCItems.SUPERLUMINAL_SLUG.get(), CCItems.WHITE_THUNDER.get(),
+                CCItems.OBLIVION_CROSSBOW.get(), CCItems.WORLD_THREAD_BOLT.get()
+        );
+        tag(NON_EQUIPMENT).add(
+                CCItems.JOURNAL.get(), CCItems.CAUSALITY_CRYSTAL.get(), CCItems.ANTHRACITE.get(),
+                CCItems.MAGNETITE.get(), CCItems.RAW_COBALT.get(), CCItems.COBALT_NUGGET.get(),
+                CCItems.COBALT_INGOT.get(), CCItems.RAW_IRIDIUM.get(), CCItems.IRIDIUM_NUGGET.get(),
+                CCItems.IRIDIUM_INGOT.get(), CCItems.RAW_NEODYMIUM.get(), CCItems.NEODYMIUM_NUGGET.get(),
+                CCItems.NEODYMIUM_INGOT.get(), CCItems.RAW_PALLADIUM.get(), CCItems.PALLADIUM_NUGGET.get(),
+                CCItems.PALLADIUM_INGOT.get(), CCItems.PERPLEXIUM_NUGGET.get(), CCItems.PERPLEXIUM_INGOT.get(),
+                CCItems.THUNDERSTEEL_UPGRADE.get(), CCItems.THUNDERSTEEL_NUGGET.get(), CCItems.THUNDERSTEEL_INGOT.get(),
+                CCItems.RAW_TITANIUM.get(), CCItems.TITANIUM_NUGGET.get(), CCItems.TITANIUM_INGOT.get(),
+                CCItems.RAW_TUNGSTEN.get(), CCItems.TUNGSTEN_NUGGET.get(), CCItems.TUNGSTEN_INGOT.get(),
+                CCItems.QUANTUM_SIGIL.get(), CCItems.RIFT_TOKEN.get(), CCItems.STABLE_RIFT_TOKEN.get(),
+                CCItems.ABYSS_STRING.get(), CCItems.TIME_CRYSTAL.get(), CCItems.VOID_FABRIC.get(),
+                CCItems.WORLD_THREAD.get(), CCItems.REALM_SEED.get()
+        );
 
 
         tag(PORTAL_ACTIVATOR).add(CCItems.STABLE_RIFT_TOKEN.get());
