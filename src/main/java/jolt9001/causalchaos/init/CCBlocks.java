@@ -92,7 +92,8 @@ public final class CCBlocks {
 
     // Portal Block
     public static final RegistryObject<Block> TRANSCENDENT_GATEWAY = registerBlock("transcendent_gateway",
-            () -> new TranscendentPortalBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().strength(-1.0f).sound(SoundType.GLASS).lightLevel(CCBlocks::lightLevel15).pushReaction(PushReaction.BLOCK).forceSolidOn()));
+            () -> new TranscendentPortalBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().strength(-1.0f)
+                    .sound(SoundType.GLASS).lightLevel(CCBlocks::lightLevel15).pushReaction(PushReaction.BLOCK).forceSolidOn()));
 
     // Resource
     public static final RegistryObject<Block> ANTHRACITE_BLOCK = registerBlock("anthracite_block",

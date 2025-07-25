@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:raw_materials/palladium"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "causalchaos:raw_palladium_block"
+  }
+}

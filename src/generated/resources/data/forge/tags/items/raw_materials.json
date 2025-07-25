@@ -1,0 +1,12 @@
+{
+  "values": [
+    "#forge:raw_materials/anthracite",
+    "#forge:raw_materials/cobalt",
+    "#forge:raw_materials/iridium",
+    "#forge:raw_materials/neodymium",
+    "#forge:raw_materials/palladium",
+    "#forge:raw_materials/titanium",
+    "#forge:raw_materials/tungsten",
+    "#forge:raw_materials/magnetite"
+  ]
+}

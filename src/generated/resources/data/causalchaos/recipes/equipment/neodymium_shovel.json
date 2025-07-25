@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "tag": "forge:ingots/neodymium"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "#",
+    "X",
+    "X"
+  ],
+  "result": {
+    "item": "causalchaos:neodymium_shovel"
+  },
+  "show_notification": true
+}

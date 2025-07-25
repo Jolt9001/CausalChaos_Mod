@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "tag": "forge:ingots/thundersteel"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "##",
+    "#X",
+    " X"
+  ],
+  "result": {
+    "item": "causalchaos:thundersteel_axe"
+  },
+  "show_notification": true
+}

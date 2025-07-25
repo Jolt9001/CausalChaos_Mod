@@ -1,12 +1,11 @@
 {
   "values": [
-    "causalchaos:cobalt_block",
-    "causalchaos:iridium_block",
-    "causalchaos:neodymium_block",
-    "causalchaos:palladium_block",
+    "#causalchaos:storage_blocks/cobalt",
+    "#causalchaos:storage_blocks/iridium",
+    "#causalchaos:storage_blocks/palladium",
+    "#causalchaos:storage_blocks/titanium",
+    "#causalchaos:storage_blocks/tungsten",
     "causalchaos:perplexium_block",
-    "causalchaos:thundersteel_block",
-    "causalchaos:titanium_block",
-    "causalchaos:tungsten_block"
+    "causalchaos:thundersteel_block"
   ]
 }

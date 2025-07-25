@@ -1,0 +1,13 @@
+{
+  "values": [
+    "causalchaos:electromagnet1",
+    "causalchaos:hopper1",
+    "causalchaos:s_hopper1",
+    "causalchaos:electromagnet2",
+    "causalchaos:hopper2",
+    "causalchaos:s_hopper2",
+    "causalchaos:electromagnet3",
+    "causalchaos:hopper3",
+    "causalchaos:s_hopper3"
+  ]
+}

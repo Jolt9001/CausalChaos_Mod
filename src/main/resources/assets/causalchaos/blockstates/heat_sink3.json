@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "causalchaos:block/heat_sink3"
+    }
+  }
+}

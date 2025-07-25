@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "causalchaos:starforge1"
+    },
+    "t": {
+      "item": "causalchaos:thundersteel_ingot"
+    },
+    "w": {
+      "item": "causalchaos:tungsten_ingot"
+    }
+  },
+  "pattern": [
+    "ttt",
+    "tst",
+    "www"
+  ],
+  "result": {
+    "item": "causalchaos:starforge2"
+  },
+  "show_notification": true
+}

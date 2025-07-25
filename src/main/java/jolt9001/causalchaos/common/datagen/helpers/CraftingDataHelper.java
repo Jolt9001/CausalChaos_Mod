@@ -126,6 +126,7 @@ public abstract class CraftingDataHelper extends RecipeProvider {
                 .save(out, locEquip(name));
     }
 
+    /*
     protected final void infusedThundersteel(RecipeOutput out, String name, Item base, Item result) {
         SmithingTransformRecipeBuilder
                 .smithing(Ingredient.of(CCItems.THUNDERSTEEL_UPGRADE.get()),
@@ -137,6 +138,8 @@ public abstract class CraftingDataHelper extends RecipeProvider {
         SmithingTrimRecipeBuilder.smithingTrim(Ingredient.of(template), Ingredient.of(base), Ingredient.of(addition), RecipeCategory.MISC)
                 .save(out, locEquip(name));
     }
+
+     */
 
     protected final ResourceLocation locEquip(String name) {
         return CausalChaos.prefix("equipment/" + name);

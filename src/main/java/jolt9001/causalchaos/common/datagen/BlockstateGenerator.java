@@ -20,6 +20,7 @@ public class BlockstateGenerator extends BlockModelBuilders {
 
     @Override
     protected void registerStatesAndModels() {
+        /*
         // Ores
         simpleBlock(CCBlocks.ANTHRACITE_ORE.get());
         simpleBlock(CCBlocks.MAGNETITE_ORE.get());
@@ -41,6 +42,7 @@ public class BlockstateGenerator extends BlockModelBuilders {
         simpleBlock(CCBlocks.REALMWEAVE_BLOCK.get());
 
         // Resource Storage
+
         simpleBlock(CCBlocks.RAW_COBALT_BLOCK.get());
         simpleBlock(CCBlocks.RAW_IRIDIUM_BLOCK.get());
         simpleBlock(CCBlocks.RAW_NEODYMIUM_BLOCK.get());
@@ -66,5 +68,6 @@ public class BlockstateGenerator extends BlockModelBuilders {
         simpleBlock(CCBlocks.T3_STARFORGE.get());
         simpleBlock(CCBlocks.DIMENSIONAL_ANCHOR.get());
         simpleBlock(CCBlocks.WORMHOLE_STABILIZER.get());
+        */
     }
 }

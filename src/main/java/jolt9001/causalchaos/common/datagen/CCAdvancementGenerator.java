@@ -33,7 +33,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         Advancement.Builder builder = Advancement.Builder.advancement();
 
         // Level Data
-        LevelData levelData = ObfuscationReflectionHelper.getPrivateValue(ServerLevel.class, null, "field_237386_d_");
+        // LevelData levelData = ObfuscationReflectionHelper.getPrivateValue(ServerLevel.class, null, "field_237386_d_");
 
         // Root
         var root = builder
@@ -174,8 +174,8 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.jolt9001.causalchaos.perplexium_tool.desc", "Obtain a Perplexium tool or weapon and bask in your awesomeness."),
                         null, FrameType.TASK, true, true, false)
                 .parent(obtainPerplexium)
-                .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM)))
-                .save(consumer, "jolt9001.causalchaos:perplexium_armor");
+                .addCriterion("perplexium_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM)))
+                .save(consumer, "jolt9001.causalchaos:perplexium_tool");
         var villageHousing25 = builder; // "Superhuman City" Prereq: anchorEncounter
         var villagerGift = builder; // "Thank You!" Prereq: anchorEncounter
         var superbossVillage = builder; // "Supreme Sanctuary" Prereq: Jolt
@@ -260,10 +260,10 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         false
                 )
                 .parent(root)
-                .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
-                .addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
+                .addCriterion("get_crystal_hardcore", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
+                //.addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
                 .save(consumer, "jolt9001.causalchaos:get_crystal_hardcore");
-
+/*
         LivingEntity entity = null;
         LivingDeathEvent event = new LivingDeathEvent(entity, null);
         var hardcoreDeath = builder
@@ -275,6 +275,8 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .parent(getCrystalHardcore)
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
                 .save(consumer, "jolt9001.causalchaos:hardcore_death");
+
+ */
         var hardcoreDLDefeat = builder; // "Last Stand" Prereq: getCrystalHardcore
         var perfectSuperboss = builder; // "Memento Mori" Prereq: getCrystalHardcore + TPPortalActivate
         var day100 = builder; /// "Indomitable Spirit" Prereq: getCrystalHardcore
@@ -298,6 +300,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var FPJoltDeath = builder; // "Instant Karma" Prereq: Jolt
         var playerLostMind = builder; // "Straitjacket" Prereq: enterTPlain
         var superweaponOnVanillaMob = builder; // "Unnecessary" Prereq: Tsuna
+/*
         var badRNG = builder
                 .display(
                         (ItemLike)IconGenerator.NAT1,
@@ -305,9 +308,9 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.jolt9001.causalchaos.badRNG.desc", "RNG hates you."),
                         null, FrameType.TASK,true, true, false)
                 // .parent(TPPortalActivate)
-                /* Add criteria that allows for hit detecion from RNG-based attacks */
+                // Add criteria that allows for hit detecion from RNG-based attacks
                 .save(consumer, "jolt9001.causalchaos:badRNG"); // "Rolled a 1" Prereq: TPPortalActivate
-
+ */
             // Hidden Challenges
         var chaosBossRush = builder; // "Unlimited" Prereq: chaosCompletion
         var chaosBossRushHardcore = builder; // "Boundless" Prereq: chaosCompletionHardcore

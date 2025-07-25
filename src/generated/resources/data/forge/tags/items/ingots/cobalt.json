@@ -1,6 +1,5 @@
 {
-    "replace": false,
-    "values": [
-        "causalchaos:cobalt_ingot"
-    ]
+  "values": [
+    "causalchaos:cobalt_ingot"
+  ]
 }

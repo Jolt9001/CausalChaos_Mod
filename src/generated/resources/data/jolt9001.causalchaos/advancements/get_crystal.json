@@ -1,0 +1,55 @@
+{
+  "parent": "jolt9001.causalchaos:root",
+  "criteria": {
+    "get_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:causality_crystal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "achievement.jolt9001.causalchaos.crystal_get.desc",
+      "with": [
+        "Obtain a Causality Crystal."
+      ]
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "causalchaos:causality_crystal"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "achievement.jolt9001.causalchaos.crystal_get",
+      "with": [
+        "Ooh, Shiny!"
+      ]
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ],
+    [
+      "get_crystal"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "jolt9001.causalchaos:gameplay/causal_journal"
+    ]
+  },
+  "sends_telemetry_event": true
+}

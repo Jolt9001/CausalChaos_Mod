@@ -1,0 +1,85 @@
+{
+  "parent": "jolt9001.causalchaos:get_starforge",
+  "criteria": {
+    "get_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:causality_crystal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_starforge": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:starforge0"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_thundersteel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:thundersteel_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_get.desc",
+      "with": [
+        "Obtain Thundersteel."
+      ]
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "causalchaos:thundersteel_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_get",
+      "with": [
+        "Ultimate alloy"
+      ]
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ],
+    [
+      "get_crystal"
+    ],
+    [
+      "get_starforge"
+    ],
+    [
+      "get_thundersteel"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "jolt9001.causalchaos:gameplay/causal_journal"
+    ]
+  },
+  "sends_telemetry_event": true
+}

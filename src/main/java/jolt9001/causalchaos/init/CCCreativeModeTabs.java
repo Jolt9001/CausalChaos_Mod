@@ -18,10 +18,6 @@ public class CCCreativeModeTabs {
             .icon(() -> new ItemStack(CCBlocks.COBALT_ORE.get()))
             .title(Component.translatable("item_group." + CausalChaos.MODID + ".blocks"))
             .displayItems((pParameters, pOutput) -> {
-                for(RegistryObject<Block> block : CCBlocks.BLOCKS.getEntries()) {
-                    pOutput.accept(block.get());
-                }
-                /*
                 pOutput.accept(CCBlocks.ANTHRACITE_ORE.get());
                 pOutput.accept(CCBlocks.ANTHRACITE_BLOCK.get());
                 pOutput.accept(CCBlocks.MAGNETITE_ORE.get());
@@ -76,7 +72,6 @@ public class CCCreativeModeTabs {
                 pOutput.accept(CCBlocks.T1_CORE_SHIELDING.get());
                 pOutput.accept(CCBlocks.T2_CORE_SHIELDING.get());
                 pOutput.accept(CCBlocks.T3_CORE_SHIELDING.get());
-                */
             }).build());
 
     public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("items", () -> CreativeModeTab.builder()
@@ -86,9 +81,41 @@ public class CCCreativeModeTabs {
             .title(Component.translatable("item_group." + CausalChaos.MODID + ".items"))
             // Add items to tab
             .displayItems((features, output) -> {
-                for (RegistryObject<Item> item : CCItems.ITEMS.getEntries()) {
-                    output.accept(item.get());
-                }
+                output.accept(CCItems.JOURNAL.get());
+                output.accept(CCItems.CAUSALITY_CRYSTAL.get());
+                output.accept(CCItems.COBALT_INGOT.get());
+                output.accept(CCItems.IRIDIUM_INGOT.get());
+                output.accept(CCItems.NEODYMIUM_INGOT.get());
+                output.accept(CCItems.PALLADIUM_INGOT.get());
+                output.accept(CCItems.PERPLEXIUM_INGOT.get());
+                output.accept(CCItems.THUNDERSTEEL_INGOT.get());
+                output.accept(CCItems.TITANIUM_INGOT.get());
+                output.accept(CCItems.TUNGSTEN_INGOT.get());
+                output.accept(CCItems.COBALT_NUGGET.get());
+                output.accept(CCItems.IRIDIUM_NUGGET.get());
+                output.accept(CCItems.NEODYMIUM_NUGGET.get());
+                output.accept(CCItems.PALLADIUM_NUGGET.get());
+                output.accept(CCItems.PERPLEXIUM_NUGGET.get());
+                output.accept(CCItems.THUNDERSTEEL_NUGGET.get());
+                output.accept(CCItems.TITANIUM_NUGGET.get());
+                output.accept(CCItems.TUNGSTEN_NUGGET.get());
+                output.accept(CCItems.RAW_COBALT.get());
+                output.accept(CCItems.RAW_IRIDIUM.get());
+                output.accept(CCItems.RAW_NEODYMIUM.get());
+                output.accept(CCItems.RAW_PALLADIUM.get());
+                output.accept(CCItems.RAW_TITANIUM.get());
+                output.accept(CCItems.RAW_TUNGSTEN.get());
+                output.accept(CCItems.ANTHRACITE.get());
+                output.accept(CCItems.MAGNETITE.get());
+                output.accept(CCItems.QUANTUM_SIGIL.get());
+                output.accept(CCItems.RIFT_TOKEN.get());
+                output.accept(CCItems.STABLE_RIFT_TOKEN.get());
+                output.accept(CCItems.ABYSS_STRING.get());
+                output.accept(CCItems.TIME_CRYSTAL.get());
+                output.accept(CCItems.VOID_FABRIC.get());
+                output.accept(CCItems.WORLD_THREAD.get());
+                output.accept(CCItems.REALM_SEED.get());
+                output.accept(CCItems.THUNDERSTEEL_UPGRADE.get());
             }).build()
     );
     public static final RegistryObject<CreativeModeTab> EQUIPMENT = TABS.register("equipment", () -> CreativeModeTab.builder()

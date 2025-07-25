@@ -20,7 +20,7 @@ public class CraftingGenerator extends CraftingDataHelper {
     protected void buildRecipes(RecipeOutput out) {
         blockCompressionRecipes(out);
         equipmentRecipes(out);
-        smithingRecipes(out);
+        // smithingRecipes(out);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T0_STARFORGE.get())
                 .pattern("nnn")
@@ -207,7 +207,7 @@ public class CraftingGenerator extends CraftingDataHelper {
         compressedBlock(out, "raw_titanium_block", CCBlocks.RAW_TITANIUM_BLOCK, ItemTagGenerator.RAW_MATERIALS_TITANIUM);
         compressedBlock(out, "raw_tungsten_block", CCBlocks.RAW_TUNGSTEN_BLOCK, ItemTagGenerator.RAW_MATERIALS_TUNGSTEN);
     }
-
+/*
     private void smithingRecipes(RecipeOutput out) {
         infusedThundersteel(out, "infused_thundersteel_axe", CCItems.THUNDERSTEEL_AXE.get(), CCItems.INFUSED_THUNDERSTEEL_AXE.get());
         infusedThundersteel(out, "infused_thundersteel_hoe", CCItems.THUNDERSTEEL_HOE.get(), CCItems.INFUSED_THUNDERSTEEL_HOE.get());
@@ -219,6 +219,8 @@ public class CraftingGenerator extends CraftingDataHelper {
         infusedThundersteel(out, "infused_thundersteel_leggings", CCItems.THUNDERSTEEL_LEGGINGS.get(), CCItems.INFUSED_THUNDERSTEEL_LEGGINGS.get());
         infusedThundersteel(out, "infused_thundersteel_chestplate", CCItems.THUNDERSTEEL_CHESTPLATE.get(), CCItems.INFUSED_THUNDERSTEEL_CHESTPLATE.get());
     }
+
+ */
 
     private void cookingRecipe(RecipeOutput out) {
 

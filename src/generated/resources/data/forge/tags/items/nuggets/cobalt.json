@@ -1,6 +1,5 @@
 {
-    "replace": false,
-    "values": [
-        "causalchaos:cobalt_nugget"
-    ]
+  "values": [
+    "causalchaos:cobalt_nugget"
+  ]
 }

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:raw_materials/titanium"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "causalchaos:raw_titanium_block"
+  }
+}

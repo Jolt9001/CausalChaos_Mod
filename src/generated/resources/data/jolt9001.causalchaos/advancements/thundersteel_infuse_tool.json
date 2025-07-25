@@ -1,0 +1,127 @@
+{
+  "parent": "jolt9001.causalchaos:get_perplexium",
+  "criteria": {
+    "get_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:causality_crystal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_perplexium": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:perplexium_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_starforge": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:starforge0"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "get_thundersteel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:thundersteel_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "thundersteel_infuse_armor": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:armors/infused_thundersteel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "thundersteel_infuse_tool": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:tools/infused_thundersteel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_tool.desc",
+      "with": [
+        "Upgrade a Thundersteel tool with Perplexium."
+      ]
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "causalchaos:infused_thundersteel_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_tool",
+      "with": [
+        "Barely Good Enough"
+      ]
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ],
+    [
+      "get_crystal"
+    ],
+    [
+      "get_starforge"
+    ],
+    [
+      "get_thundersteel"
+    ],
+    [
+      "get_perplexium"
+    ],
+    [
+      "thundersteel_infuse_armor"
+    ],
+    [
+      "thundersteel_infuse_tool"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "jolt9001.causalchaos:gameplay/causal_journal"
+    ]
+  },
+  "sends_telemetry_event": true
+}

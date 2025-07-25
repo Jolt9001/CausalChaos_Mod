@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "tag": "forge:ingots/cobalt"
+    },
+    "X": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "##",
+    " X",
+    " X"
+  ],
+  "result": {
+    "item": "causalchaos:cobalt_hoe"
+  },
+  "show_notification": true
+}

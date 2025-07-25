@@ -28,12 +28,12 @@ public class DataGenerator {
         // gen.addProvider(event.includeServer(), new WorldGenProvider(out, prov));
             // Recipes
         gen.addProvider(event.includeServer(), new CraftingGenerator(out));
-        gen.addProvider(event.includeServer(), new StarforgeAloneGenerator(out));
-        gen.addProvider(event.includeServer(), new StarforgeMultiblockGenerator(out));
+        // gen.addProvider(event.includeServer(), new StarforgeAloneGenerator(out));
+        // gen.addProvider(event.includeServer(), new StarforgeMultiblockGenerator(out));
             // Advancements
         gen.addProvider(event.includeServer(), new CCAdvancementProvider(out, prov, help));
             // Loot Tables
-        gen.addProvider(event.includeServer(), new LootGenerator(out/*, prov*/));
+        // gen.addProvider(event.includeServer(), new LootGenerator(out/*, prov*/));
             // Tags
         BlockTagGenerator blocktags = new BlockTagGenerator(out, prov, help);
         gen.addProvider(event.includeServer(), blocktags);

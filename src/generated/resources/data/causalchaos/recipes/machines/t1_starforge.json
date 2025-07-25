@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "s": {
+      "item": "causalchaos:starforge0"
+    },
+    "w": {
+      "item": "causalchaos:tungsten_ingot"
+    }
+  },
+  "pattern": [
+    "www",
+    "wsw",
+    "nnn"
+  ],
+  "result": {
+    "item": "causalchaos:starforge1"
+  },
+  "show_notification": true
+}

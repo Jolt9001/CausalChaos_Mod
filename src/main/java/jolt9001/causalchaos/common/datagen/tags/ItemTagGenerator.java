@@ -46,18 +46,6 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
     public static final TagKey<Item> TITANIUM_INGOTS = makeForgeTag("ingots/titanium");
     public static final TagKey<Item> TUNGSTEN_INGOTS = makeForgeTag("ingots/tungsten");
 
-    // Storage Blocks
-    public static final TagKey<Item> STORAGE_BLOCKS_ANTHRACITE = makeForgeTag("storage_blocks/anthracite");
-    public static final TagKey<Item> STORAGE_BLOCKS_MAGNETITE = makeForgeTag("storage_blocks/magnetite");
-    public static final TagKey<Item> STORAGE_BLOCKS_COBALT = makeForgeTag("storage_blocks/cobalt");
-    public static final TagKey<Item> STORAGE_BLOCKS_IRIDIUM = makeForgeTag("storage_blocks/iridium");
-    public static final TagKey<Item> STORAGE_BLOCKS_NEODYMIUM = makeForgeTag("storage_blocks/neodymium");
-    public static final TagKey<Item> STORAGE_BLOCKS_PALLADIUM = makeForgeTag("storage_blocks/palladium");
-    public static final TagKey<Item> STORAGE_BLOCKS_PERPLEXIUM = makeForgeTag("storage_blocks/perplexium");
-    public static final TagKey<Item> STORAGE_BLOCKS_THUNDERSTEEL = makeForgeTag("storage_blocks/thundersteel");
-    public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = makeForgeTag("storage_blocks/titanium");
-    public static final TagKey<Item> STORAGE_BLOCKS_TUNGSTEN = makeForgeTag("storage_blocks/tungsten");
-
     // Tools
     public static final TagKey<Item> TOOLS_PERPLEXIUM = makeForgeTag("tools/perplexium");
     public static final TagKey<Item> TOOLS_INFUSED_THUNDERSTEEL = makeForgeTag("tools/infused_thundersteel");
@@ -84,18 +72,40 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
     protected void addTags(HolderLookup.Provider prov) {
         super.addTags(prov);
         // Materials
+        tag(RAW_MATERIALS_ANTHRACITE).add(CCItems.ANTHRACITE.get());
+        tag(RAW_MATERIALS_MAGNETITE).add(CCItems.MAGNETITE.get());
+        tag(RAW_MATERIALS_COBALT).add(CCItems.RAW_COBALT.get());
+        tag(RAW_MATERIALS_IRIDIUM).add(CCItems.RAW_IRIDIUM.get());
+        tag(RAW_MATERIALS_NEODYMIUM).add(CCItems.RAW_NEODYMIUM.get());
+        tag(RAW_MATERIALS_PALLADIUM).add(CCItems.RAW_PALLADIUM.get());
+        tag(RAW_MATERIALS_TITANIUM).add(CCItems.RAW_TITANIUM.get());
+        tag(RAW_MATERIALS_TUNGSTEN).add(CCItems.RAW_TUNGSTEN.get());
         tag(Tags.Items.RAW_MATERIALS)
                 .addTag(RAW_MATERIALS_ANTHRACITE).addTag(RAW_MATERIALS_COBALT).addTag(RAW_MATERIALS_IRIDIUM)
                 .addTag(RAW_MATERIALS_NEODYMIUM).addTag(RAW_MATERIALS_PALLADIUM).addTag(RAW_MATERIALS_TITANIUM)
-                .addTag(RAW_MATERIALS_TUNGSTEN);
-        tag(Tags.Items.STORAGE_BLOCKS)
-                .addTag(STORAGE_BLOCKS_ANTHRACITE).addTag(STORAGE_BLOCKS_MAGNETITE).addTag(STORAGE_BLOCKS_COBALT).addTag(STORAGE_BLOCKS_IRIDIUM)
-                .addTag(STORAGE_BLOCKS_NEODYMIUM).addTag(STORAGE_BLOCKS_PALLADIUM).addTag(STORAGE_BLOCKS_PERPLEXIUM)
-                .addTag(STORAGE_BLOCKS_THUNDERSTEEL).addTag(STORAGE_BLOCKS_TITANIUM).addTag(STORAGE_BLOCKS_TUNGSTEN);
+                .addTag(RAW_MATERIALS_TUNGSTEN).addTag(RAW_MATERIALS_MAGNETITE);
+
+        tag(COBALT_NUGGETS).add(CCItems.COBALT_NUGGET.get());
+        tag(IRIDIUM_NUGGETS).add(CCItems.IRIDIUM_NUGGET.get());
+        tag(NEODYMIUM_NUGGETS).add(CCItems.NEODYMIUM_NUGGET.get());
+        tag(PALLADIUM_NUGGETS).add(CCItems.PALLADIUM_NUGGET.get());
+        tag(PERPLEXIUM_NUGGETS).add(CCItems.PERPLEXIUM_NUGGET.get());
+        tag(THUNDERSTEEL_NUGGETS).add(CCItems.THUNDERSTEEL_NUGGET.get());
+        tag(TITANIUM_NUGGETS).add(CCItems.TITANIUM_NUGGET.get());
+        tag(TUNGSTEN_NUGGETS).add(CCItems.TUNGSTEN_NUGGET.get());
         tag(Tags.Items.NUGGETS)
                 .addTag(COBALT_NUGGETS).addTag(IRIDIUM_NUGGETS).addTag(NEODYMIUM_NUGGETS).addTag(PALLADIUM_NUGGETS)
                 .addTag(PERPLEXIUM_NUGGETS).addTag(THUNDERSTEEL_NUGGETS).addTag(TITANIUM_NUGGETS)
                 .addTag(TUNGSTEN_NUGGETS);
+
+        tag(COBALT_INGOTS).add(CCItems.COBALT_INGOT.get());
+        tag(IRIDIUM_INGOTS).add(CCItems.IRIDIUM_INGOT.get());
+        tag(NEODYMIUM_INGOTS).add(CCItems.NEODYMIUM_INGOT.get());
+        tag(PALLADIUM_INGOTS).add(CCItems.PALLADIUM_INGOT.get());
+        tag(PERPLEXIUM_INGOTS).add(CCItems.PERPLEXIUM_INGOT.get());
+        tag(THUNDERSTEEL_INGOTS).add(CCItems.THUNDERSTEEL_INGOT.get());
+        tag(TITANIUM_INGOTS).add(CCItems.TITANIUM_INGOT.get());
+        tag(TUNGSTEN_INGOTS).add(CCItems.TUNGSTEN_INGOT.get());
         tag(Tags.Items.INGOTS)
                 .addTag(COBALT_INGOTS).addTag(IRIDIUM_INGOTS).addTag(NEODYMIUM_INGOTS).addTag(PALLADIUM_INGOTS)
                 .addTag(PERPLEXIUM_INGOTS).addTag(THUNDERSTEEL_INGOTS).addTag(TITANIUM_INGOTS).addTag(TUNGSTEN_INGOTS);
@@ -228,6 +238,22 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
                 CCItems.WORLD_THREAD.get(), CCItems.REALM_SEED.get()
         );
 
+        this.tag(ItemTags.TRIMMABLE_ARMOR).add(
+                CCItems.COBALT_BOOTS.get(), CCItems.INFUSED_THUNDERSTEEL_BOOTS.get(), CCItems.IRIDIUM_BOOTS.get(),
+                CCItems.NEODYMIUM_BOOTS.get(), CCItems.PALLADIUM_BOOTS.get(), CCItems.PERPLEXIUM_BOOTS.get(),
+                CCItems.THUNDERSTEEL_BOOTS.get(), CCItems.TITANIUM_BOOTS.get(), CCItems.TUNGSTEN_BOOTS.get(),
+                CCItems.COBALT_CHESTPLATE.get(), CCItems.INFUSED_THUNDERSTEEL_CHESTPLATE.get(),
+                CCItems.IRIDIUM_CHESTPLATE.get(), CCItems.NEODYMIUM_CHESTPLATE.get(),
+                CCItems.PALLADIUM_CHESTPLATE.get(), CCItems.PERPLEXIUM_CHESTPLATE.get(),
+                CCItems.THUNDERSTEEL_CHESTPLATE.get(), CCItems.TITANIUM_CHESTPLATE.get(),
+                CCItems.TUNGSTEN_CHESTPLATE.get(), CCItems.COBALT_HELMET.get(), CCItems.INFUSED_THUNDERSTEEL_HELMET.get(),
+                CCItems.IRIDIUM_HELMET.get(), CCItems.NEODYMIUM_HELMET.get(), CCItems.PALLADIUM_HELMET.get(),
+                CCItems.PERPLEXIUM_HELMET.get(), CCItems.THUNDERSTEEL_HELMET.get(), CCItems.TITANIUM_HELMET.get(),
+                CCItems.TUNGSTEN_HELMET.get(), CCItems.COBALT_LEGGINGS.get(), CCItems.INFUSED_THUNDERSTEEL_LEGGINGS.get(),
+                CCItems.IRIDIUM_LEGGINGS.get(), CCItems.NEODYMIUM_LEGGINGS.get(), CCItems.PALLADIUM_LEGGINGS.get(),
+                CCItems.PERPLEXIUM_LEGGINGS.get(), CCItems.THUNDERSTEEL_LEGGINGS.get(), CCItems.TITANIUM_LEGGINGS.get(),
+                CCItems.TUNGSTEN_LEGGINGS.get()
+        );
 
         tag(PORTAL_ACTIVATOR).add(CCItems.STABLE_RIFT_TOKEN.get());
     }

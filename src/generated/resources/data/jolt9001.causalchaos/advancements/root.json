@@ -1,0 +1,39 @@
+{
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "achievement.jolt9001.causalchaos.root.desc",
+      "with": [
+        "It might be a good idea to hold on to this."
+      ]
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "causalchaos:causal_journal"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "achievement.jolt9001.causalchaos.root",
+      "with": [
+        "Causal Chaos"
+      ]
+    }
+  },
+  "requirements": [
+    [
+      "tick"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "jolt9001.causalchaos:gameplay/causal_journal"
+    ]
+  },
+  "sends_telemetry_event": true
+}

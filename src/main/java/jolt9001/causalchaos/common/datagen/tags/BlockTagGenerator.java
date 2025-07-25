@@ -195,6 +195,7 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
         tag(BlockTags.MINEABLE_WITH_SHOVEL);
 
         // Portal
+        tag(TRANSCENDENT_PORTAL).add(CCBlocks.TRANSCENDENT_GATEWAY.get());
         tag(BlockTags.PORTALS).addTag(TRANSCENDENT_PORTAL);
 
     }

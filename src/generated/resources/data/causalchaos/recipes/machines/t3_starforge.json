@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "causalchaos:perplexium_ingot"
+    },
+    "s": {
+      "item": "causalchaos:starforge2"
+    },
+    "t": {
+      "item": "causalchaos:thundersteel_ingot"
+    }
+  },
+  "pattern": [
+    "ppp",
+    "psp",
+    "ttt"
+  ],
+  "result": {
+    "item": "causalchaos:starforge3"
+  },
+  "show_notification": true
+}

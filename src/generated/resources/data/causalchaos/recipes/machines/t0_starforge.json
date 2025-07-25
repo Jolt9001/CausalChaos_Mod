@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:blast_furnace"
+    },
+    "f": {
+      "item": "minecraft:iron_ingot"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "nnn",
+    "nbn",
+    "fff"
+  ],
+  "result": {
+    "item": "causalchaos:starforge0"
+  },
+  "show_notification": true
+}

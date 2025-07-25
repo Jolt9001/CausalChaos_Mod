@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "causalchaos:block/magnetite_ore"
+    }
+  }
+}

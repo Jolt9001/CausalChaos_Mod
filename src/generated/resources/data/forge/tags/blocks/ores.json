@@ -1,0 +1,12 @@
+{
+  "values": [
+    "causalchaos:anthracite_ore",
+    "causalchaos:magnetite_ore",
+    "#causalchaos:ores/cobalt",
+    "#causalchaos:ores/iridium",
+    "#causalchaos:ores/neodymium",
+    "#causalchaos:ores/palladium",
+    "#causalchaos:ores/titanium",
+    "#causalchaos:ores/tungsten"
+  ]
+}
