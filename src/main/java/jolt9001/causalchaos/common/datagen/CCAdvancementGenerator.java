@@ -1,5 +1,6 @@
 package jolt9001.causalchaos.common.datagen;
 
+import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.common.advancements.HardcoreCheckTrigger;
 import jolt9001.causalchaos.common.advancements.HardcoreDeathTrigger;
 import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
@@ -15,11 +16,14 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.LevelData;
 
 import jolt9001.causalchaos.init.CCItems;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class CCAdvancementGenerator implements ForgeAdvancementProvider.AdvancementGenerator {
@@ -58,10 +62,10 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.crystal_get"),
                         Component.translatable("achievement.causalchaos.crystal_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                .parent(root)
+                //.parent(root)
+                .addCriterion("root", this.advancementTrigger(root))
                 .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
                 .save(consumer, "jolt9001.causalchaos:get_crystal");
-
         var dashStrike = builder; // "I Am Speed" Prereq: getCrystalDefault
         var dodge = builder; // "Can't Touch This" Prereq: getCrystalDefault
         var dangerSense = builder; // "Spidey Sense" Prereq: getCrystalDefault
@@ -122,7 +126,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.starforge_get"),
                         Component.translatable("achievement.causalchaos.starforge_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                //.parent(loopEscape)
+                //.addCriterion("escape_loop", this.advancementTrigger(loopEscape))
                 .addCriterion("get_starforge", InventoryChangeTrigger.TriggerInstance.hasItems(CCBlocks.T0_STARFORGE.get()))
                 .save(consumer, "jolt9001.causalchaos:get_starforge");
         var obtainThundersteel = builder
@@ -131,7 +135,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.thundersteel_get"),
                         Component.translatable("achievement.causalchaos.thundersteel_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                .parent(obtainStarforge)
+                .addCriterion("get_starforge", this.advancementTrigger(obtainStarforge))
                 .addCriterion("get_thundersteel", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.THUNDERSTEEL_INGOT.get()))
                 .save(consumer, "jolt9001.causalchaos:get_thundersteel");
         var obtainPerplexium = builder
@@ -140,7 +144,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.perplexium_get"),
                         Component.translatable("achievement.causalchaos.perplexium_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                .parent(obtainThundersteel)
+                .addCriterion("get_thundersteel", this.advancementTrigger(obtainThundersteel))
                 .addCriterion("get_perplexium", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.PERPLEXIUM_INGOT.get()))
                 .save(consumer, "jolt9001.causalchaos:get_perplexium");
         var infusedThundersteelArmor = builder
@@ -149,7 +153,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_armor"),
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_armor.desc"),
                         null, FrameType.TASK, true, true, false)
-                .parent(obtainPerplexium)
+                .addCriterion("get_perplexium", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("thundersteel_infuse_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_INFUSED_THUNDERSTEEL)))
                 .save(consumer, "jolt9001.causalchaos:thundersteel_infuse_armor");
         var infusedThundersteelTool = builder
@@ -158,7 +162,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_tool"),
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_tool.desc"),
                         null, FrameType.TASK, true, true, false)
-                .parent(obtainPerplexium)
+                .addCriterion("get_perplexium", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("thundersteel_infuse_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_INFUSED_THUNDERSTEEL)))
                 .save(consumer, "jolt9001.causalchaos:thundersteel_infuse_tool");
         var purePerplexiumArmor = builder
@@ -167,7 +171,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.perplexium_armor"),
                         Component.translatable("achievement.causalchaos.perplexium_armor.desc"),
                         null, FrameType.TASK, true, true, false)
-                .parent(obtainPerplexium)
+                .addCriterion("get_perplexium", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_PERPLEXIUM)))
                 .save(consumer, "jolt9001.causalchaos:perplexium_armor");
         var purePerplexiumTool = builder
@@ -176,7 +180,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.perplexium_tool"),
                         Component.translatable("achievement.causalchaos.perplexium_tool.desc"),
                         null, FrameType.TASK, true, true, false)
-                .parent(obtainPerplexium)
+                .addCriterion("get_perplexium", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("perplexium_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM)))
                 .save(consumer, "jolt9001.causalchaos:perplexium_tool");
         var villageHousing25 = builder; // "Superhuman City" Prereq: anchorEncounter
@@ -249,6 +253,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var CFPJolt = builder; // "Extradimensional Menace" Prereq: CJolt, bossRush
 
         // Hardcore
+        /*
         var getCrystalHardcore = builder
                 .display(
                         CCItems.CAUSALITY_CRYSTAL.get(),
@@ -260,11 +265,10 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         true,
                         false
                 )
-                .parent(root)
+                .parent(getCrystalDefault)
                 .addCriterion("get_crystal_hardcore", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
-                //.addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
+                .addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
                 .save(consumer, "jolt9001.causalchaos:get_crystal_hardcore");
-/*
         LivingEntity entity = null;
         LivingDeathEvent event = new LivingDeathEvent(entity, null);
         var hardcoreDeath = builder
@@ -273,10 +277,9 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.hardcore_death", "Resuscitation"),
                         Component.translatable("achievement.causalchaos.hardcore_death.desc"),
                         null, FrameType.GOAL, true, true, false)
-                .parent(getCrystalHardcore)
+                .addCriterion("get_crystal_hardcore", this.advancementTrigger(getCrystalHardcore))
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
                 .save(consumer, "jolt9001.causalchaos:hardcore_death");
-
  */
         var hardcoreDLDefeat = builder; // "Last Stand" Prereq: getCrystalHardcore
         var perfectSuperboss = builder; // "Memento Mori" Prereq: getCrystalHardcore + TPPortalActivate
@@ -308,12 +311,19 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.superboss_bad_rng"),
                         Component.translatable("achievement.causalchaos.superboss_bad_rng.desc"),
                         null, FrameType.TASK,true, true, false)
-                // .parent(TPPortalActivate)
+                .addCriterion("tp_portal_activate", this.advancementTrigger(TPPortalActivate))
                 // Add criteria that allows for hit detecion from RNG-based attacks
                 .save(consumer, "jolt9001.causalchaos:badRNG"); // "Rolled a 1" Prereq: TPPortalActivate
  */
             // Hidden Challenges
         var chaosBossRush = builder; // "Unlimited" Prereq: chaosCompletion
         var chaosBossRushHardcore = builder; // "Boundless" Prereq: chaosCompletionHardcore
+    }
+    private Criterion<PlayerTrigger.TriggerInstance> advancementTrigger(AdvancementHolder advancement) {
+        return this.advancementTrigger(advancement.id().getPath());
+    }
+
+    private Criterion<PlayerTrigger.TriggerInstance> advancementTrigger(String name) {
+        return CriteriaTriggers.TICK.createCriterion(new PlayerTrigger.TriggerInstance(Optional.of(ContextAwarePredicate.create(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().subPredicate(PlayerPredicate.Builder.player().checkAdvancementDone(CausalChaos.prefix(name), true).build())).build()))));
     }
 }

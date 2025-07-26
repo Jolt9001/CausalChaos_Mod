@@ -76,10 +76,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_tool.desc",
-      "with": [
-        "Upgrade a Thundersteel tool with Perplexium."
-      ]
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_tool.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -89,10 +86,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_tool",
-      "with": [
-        "Barely Good Enough"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_tool"
     }
   },
   "requirements": [

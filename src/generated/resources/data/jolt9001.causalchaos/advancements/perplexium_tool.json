@@ -96,10 +96,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.perplexium_tool.desc",
-      "with": [
-        "Obtain a Perplexium tool or weapon and bask in your awesomeness."
-      ]
+      "translate": "achievement.jolt9001.causalchaos.perplexium_tool.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -109,10 +106,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.perplexium_tool",
-      "with": [
-        "Unlimited Power!"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.perplexium_tool"
     }
   },
   "requirements": [

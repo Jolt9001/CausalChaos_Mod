@@ -56,10 +56,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.perplexium_get.desc",
-      "with": [
-        "Obtain Perplexium."
-      ]
+      "translate": "achievement.jolt9001.causalchaos.perplexium_get.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -68,10 +65,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.perplexium_get",
-      "with": [
-        "Cheap Imitation"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.perplexium_get"
     }
   },
   "requirements": [

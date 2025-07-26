@@ -20,10 +20,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.crystal_get.desc",
-      "with": [
-        "Obtain a Causality Crystal."
-      ]
+      "translate": "achievement.jolt9001.causalchaos.crystal_get.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -32,10 +29,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.crystal_get",
-      "with": [
-        "Ooh, Shiny!"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.crystal_get"
     }
   },
   "requirements": [

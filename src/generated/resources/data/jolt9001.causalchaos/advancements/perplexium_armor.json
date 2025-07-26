@@ -86,10 +86,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.perplexium_armor.desc",
-      "with": [
-        "Obtain a piece of Perplexium armor and become nigh Invin-"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.perplexium_armor.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -99,10 +96,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.perplexium_armor",
-      "with": [
-        "Title Card"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.perplexium_armor"
     }
   },
   "requirements": [

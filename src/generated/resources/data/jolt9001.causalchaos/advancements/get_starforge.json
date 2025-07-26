@@ -32,10 +32,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.starforge_get.desc",
-      "with": [
-        "Craft a Starforge."
-      ]
+      "translate": "achievement.jolt9001.causalchaos.starforge_get.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -44,10 +41,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.starforge_get",
-      "with": [
-        "Crystal Catalyst"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.starforge_get"
     }
   },
   "requirements": [

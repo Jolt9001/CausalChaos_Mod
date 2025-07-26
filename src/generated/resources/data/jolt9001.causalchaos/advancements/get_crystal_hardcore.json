@@ -24,94 +24,11 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "get_perplexium": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:perplexium_ingot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "get_starforge": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:starforge0"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "get_thundersteel": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:thundersteel_ingot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "perplexium_armor": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:armors/perplexium"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "perplexium_tool": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:tools/perplexium"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "thundersteel_infuse_armor": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:armors/infused_thundersteel"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "thundersteel_infuse_tool": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:tools/infused_thundersteel"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "tick": {
-      "trigger": "minecraft:tick"
-    }
   },
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.crystal_get.desc",
-      "with": [
-        "Obtain a Causality Crystal in Hardcore Mode."
-      ]
+      "translate": "achievement.causalchaos.crystal_get_hardcore.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -120,48 +37,9 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.crystal_get",
-      "with": [
-        "YOLO"
-      ]
+      "translate": "achievement.causalchaos.crystal_get)hardcore"
     }
-  },
-  "requirements": [
-    [
-      "tick"
-    ],
-    [
-      "get_crystal"
-    ],
-    [
-      "get_starforge"
-    ],
-    [
-      "get_thundersteel"
-    ],
-    [
-      "get_perplexium"
-    ],
-    [
-      "thundersteel_infuse_armor"
-    ],
-    [
-      "thundersteel_infuse_tool"
-    ],
-    [
-      "perplexium_armor"
-    ],
-    [
-      "perplexium_tool"
-    ],
-    [
-      "get_crystal_hardcore"
-    ]
-  ],
-  "rewards": {
-    "loot": [
-      "jolt9001.causalchaos:gameplay/causal_journal"
-    ]
+  }
   },
   "sends_telemetry_event": true
 }

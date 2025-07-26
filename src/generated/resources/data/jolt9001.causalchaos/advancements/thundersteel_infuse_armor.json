@@ -66,10 +66,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_armor.desc",
-      "with": [
-        "Upgrade a piece of Thundersteel armor with Perplexium."
-      ]
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_armor.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -79,10 +76,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_armor",
-      "with": [
-        "Upgrades, People, Upgrades!"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_armor"
     }
   },
   "requirements": [

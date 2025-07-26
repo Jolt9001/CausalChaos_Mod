@@ -44,10 +44,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.thundersteel_get.desc",
-      "with": [
-        "Obtain Thundersteel."
-      ]
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_get.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -56,10 +53,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.thundersteel_get",
-      "with": [
-        "Ultimate alloy"
-      ]
+      "translate": "achievement.jolt9001.causalchaos.thundersteel_get"
     }
   },
   "requirements": [
