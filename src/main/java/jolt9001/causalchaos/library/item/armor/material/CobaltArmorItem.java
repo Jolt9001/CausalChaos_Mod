@@ -20,4 +20,22 @@ public class CobaltArmorItem extends ArmorItem {
             return CausalChaos.ARMOR_DIR + "cobalt_layer_1.png";
         }
     }
+    /*
+        @Override
+	public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+		consumer.accept(ArmorRender.INSTANCE);
+	}
+
+    private static final class ArmorRender implements IClientItemExtensions {
+        private static final ArmorRender INSTANCE = new ArmorRender();
+
+        @Override
+        public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity living, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> model) {
+            EntityModelSet models = Minecraft.getInstance().getEntityModels();
+            ModelPart root = models.bakeLayer(slot == EquipmentSlot.LEGS ? CCModelLayers.COBALT_ARMOR_INNER : CCModelLayers.COBALT_ARMOR_OUTER);
+            return new FieryArmorModel(root);
+        }
+    }
+
+     */
 }

@@ -31,7 +31,6 @@ public class CraftingGenerator extends CraftingDataHelper {
                 .define('f', Items.IRON_INGOT)
                 .unlockedBy("has_item", has(Blocks.BLAST_FURNACE))
                 .save(out, CausalChaos.prefix("machines/t0_starforge"));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T1_STARFORGE.get())
                 .pattern("www")
                 .pattern("wsw")
@@ -41,7 +40,6 @@ public class CraftingGenerator extends CraftingDataHelper {
                 .define('n', Items.NETHERITE_INGOT)
                 .unlockedBy("has_item", has(CCBlocks.T0_STARFORGE.get()))
                 .save(out, CausalChaos.prefix("machines/t1_starforge"));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T2_STARFORGE.get())
                 .pattern("ttt")
                 .pattern("tst")
@@ -51,7 +49,6 @@ public class CraftingGenerator extends CraftingDataHelper {
                 .define('w', CCItems.TUNGSTEN_INGOT.get())
                 .unlockedBy("has_item", has(CCBlocks.T1_STARFORGE.get()))
                 .save(out, CausalChaos.prefix("machines/t2_starforge"));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T3_STARFORGE.get())
                 .pattern("ppp")
                 .pattern("psp")
@@ -61,16 +58,58 @@ public class CraftingGenerator extends CraftingDataHelper {
                 .define('t', CCItems.THUNDERSTEEL_INGOT.get())
                 .unlockedBy("has_item", has(CCBlocks.T2_STARFORGE.get()))
                 .save(out, CausalChaos.prefix("machines/t3_starforge"));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, CCBlocks.QUANTUM_FABRIC.get())
                 .pattern("ptp")
                 .pattern("tct")
                 .pattern("ptp")
                 .define('p', CCItems.PERPLEXIUM_NUGGET.get())
                 .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('c', CCItems.CAUSALITY_CRYSTAL.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, CCItems.QUANTUM_SIGIL.get())
+                .pattern("ntn")
+                .pattern("tct")
+                .pattern("ntn")
+                .define('n', Items.NETHERITE_INGOT)
+                .define('t', CCItems.TIME_CRYSTAL.get())
+                .define('c', CCItems.CAUSALITY_CRYSTAL.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CCItems.RIFT_TOKEN.get())
+                .pattern("tct")
+                .pattern("cqc")
+                .pattern("tct")
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('c', CCItems.TIME_CRYSTAL.get())
+                .define('q', CCItems.QUANTUM_SIGIL.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CCItems.VOID_FABRIC.get())
+                .pattern("aaa")
+                .pattern("aaa")
+                .pattern("aaa")
+                .define('a', CCItems.ABYSS_STRING.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CCItems.STABLE_RIFT_TOKEN.get())
+                .pattern("vvv")
+                .pattern("vrv")
+                .pattern("vvv")
+                .define('v', CCItems.VOID_FABRIC.get())
+                .define('r', CCItems.RIFT_TOKEN.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.REALMWEAVE_BLOCK.get())
+                .pattern("aa")
+                .pattern("aa")
+                .define('a', CCItems.ABYSS_STRING.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, CCBlocks.DIMENSIONAL_ANCHOR.get())
+                .pattern(" k ")
+                .pattern("trt")
+                .pattern("sss")
+                .define('k', CCItems.RIFT_TOKEN.get())
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('r', CCItems.REALM_SEED.get())
+                .define('s', Blocks.SMOOTH_STONE);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.WORMHOLE_STABILIZER.get())
+                .pattern(" r ")
+                .pattern("pcp")
+                .pattern(" d ")
+                .define('r', CCItems.STABLE_RIFT_TOKEN.get())
+                .define('p', CCItems.PERPLEXIUM_INGOT.get())
                 .define('c', CCItems.CAUSALITY_CRYSTAL.get())
-                ;
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, CCItems.QUANTUM_SIGIL.get());
+                .define('d', CCBlocks.DIMENSIONAL_ANCHOR.get());
     }
 
     private void equipmentRecipes(RecipeOutput out) {

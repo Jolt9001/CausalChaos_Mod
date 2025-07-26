@@ -295,11 +295,9 @@ public class ItemModelGenerator extends ItemModelProvider {
         trimmedArmorItem(CCItems.TUNGSTEN_BOOTS);
     }
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
-        final String MODID = CausalChaos.MODID; // Change this to your mod id
-
+        final String MODID = CausalChaos.MODID;
         if(itemRegistryObject.get() instanceof ArmorItem armorItem) {
             trimMaterials.entrySet().forEach(entry -> {
-
                 ResourceKey<TrimMaterial> trimMaterial = entry.getKey();
                 float trimValue = entry.getValue();
 
@@ -311,12 +309,12 @@ public class ItemModelGenerator extends ItemModelProvider {
                     default -> "";
                 };
 
-                String armorItemPath = "item/" + armorItem;
-                String trimPath = "trims/items/" + armorType + "_trim_" + trimMaterial.location().getPath();
-                String currentTrimName = armorItemPath + "_" + trimMaterial.location().getPath() + "_trim";
-                ResourceLocation armorItemResLoc = new ResourceLocation(MODID, armorItemPath);
+                String armorItemPath = "item/" + armorItem; // e.g. item/cobalt_boots
+                String trimPath = "trims/items/" + armorType + "_trim_" + trimMaterial.location().getPath(); // e.g. trims/items/boots_trim_iron
+                String currentTrimName = armorItemPath + "_" + trimMaterial.location().getPath() + "_trim"; // e.g. item/cobalt_boots_iron_trim
+                ResourceLocation armorItemResLoc = new ResourceLocation(MODID, armorItemPath); // e.g. causalchaos/item/cobalt_boots
                 ResourceLocation trimResLoc = new ResourceLocation(trimPath); // minecraft namespace
-                ResourceLocation trimNameResLoc = new ResourceLocation(MODID, currentTrimName);
+                ResourceLocation trimNameResLoc = new ResourceLocation(MODID, currentTrimName); // e.g. causalchaos/item/cobalt_boots_iron_trim
 
                 // This is used for making the ExistingFileHelper acknowledge that this texture exist, so this will
                 // avoid an IllegalArgumentException
@@ -329,14 +327,11 @@ public class ItemModelGenerator extends ItemModelProvider {
                         .texture("layer1", trimResLoc);
 
                 // Non-trimmed armorItem file (normal variant)
-                this.withExistingParent(itemRegistryObject.getId().getPath(),
-                                mcLoc("item/generated"))
+                this.withExistingParent(itemRegistryObject.getId().getPath(), mcLoc("item/generated"))
                         .override()
                         .model(new ModelFile.UncheckedModelFile(trimNameResLoc))
                         .predicate(mcLoc("trim_type"), trimValue).end()
-                        .texture("layer0",
-                                new ResourceLocation(MODID,
-                                        "item/" + itemRegistryObject.getId().getPath()));
+                        .texture("layer0", new ResourceLocation(MODID, "item/" + itemRegistryObject.getId().getPath()));
             });
         }
     }

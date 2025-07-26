@@ -166,7 +166,7 @@ public final class CCItems {
 
     // Material Armor
         // Helmets
-    public static final RegistryObject<Item> COBALT_HELMET = EQUIPMENT.register("cobalt_helmet", () -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_HELMET = EQUIPMENT.register("cobalt_helmet", () -> new ArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_HELMET = EQUIPMENT.register("infused_thundersteel_helmet", () -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> IRIDIUM_HELMET = EQUIPMENT.register("iridium_helmet", () -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> NEODYMIUM_HELMET = EQUIPMENT.register("neodymium_helmet", () -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -177,7 +177,7 @@ public final class CCItems {
     public static final RegistryObject<Item> TUNGSTEN_HELMET = EQUIPMENT.register("tungsten_helmet", () -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.HELMET, new Item.Properties()));
 
         // Chestplates
-    public static final RegistryObject<Item> COBALT_CHESTPLATE = EQUIPMENT.register("cobalt_chestplate", () -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_CHESTPLATE = EQUIPMENT.register("cobalt_chestplate", () -> new ArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_CHESTPLATE = EQUIPMENT.register("infused_thundersteel_chestplate", () -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> IRIDIUM_CHESTPLATE = EQUIPMENT.register("iridium_chestplate", () -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> NEODYMIUM_CHESTPLATE = EQUIPMENT.register("neodymium_chestplate", () -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
@@ -187,7 +187,7 @@ public final class CCItems {
     public static final RegistryObject<Item> TITANIUM_CHESTPLATE = EQUIPMENT.register("titanium_chestplate", () -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> TUNGSTEN_CHESTPLATE = EQUIPMENT.register("tungsten_chestplate", () -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
         // Leggings
-    public static final RegistryObject<Item> COBALT_LEGGINGS = EQUIPMENT.register("cobalt_leggings", () -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_LEGGINGS = EQUIPMENT.register("cobalt_leggings", () -> new ArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_LEGGINGS = EQUIPMENT.register("infused_thundersteel_leggings", () -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> IRIDIUM_LEGGINGS = EQUIPMENT.register("iridium_leggings", () -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> NEODYMIUM_LEGGINGS = EQUIPMENT.register("neodymium_leggings", () -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
@@ -197,7 +197,7 @@ public final class CCItems {
     public static final RegistryObject<Item> TITANIUM_LEGGINGS = EQUIPMENT.register("titanium_leggings", () -> new TitaniumArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> TUNGSTEN_LEGGINGS = EQUIPMENT.register("tungsten_leggings", () -> new TungstenArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.LEGGINGS, new Item.Properties()));
         // Boots
-    public static final RegistryObject<Item> COBALT_BOOTS = EQUIPMENT.register("cobalt_boots", () -> new CobaltArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> COBALT_BOOTS = EQUIPMENT.register("cobalt_boots", () -> new ArmorItem(CCArmorMaterial.ARMOR_COBALT, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> INFUSED_THUNDERSTEEL_BOOTS = EQUIPMENT.register("infused_thundersteel_boots", () -> new InfusedThundersteelArmorItem(CCArmorMaterial.ARMOR_INFUSED_THUNDERSTEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> IRIDIUM_BOOTS = EQUIPMENT.register("iridium_boots", () -> new IridiumArmorItem(CCArmorMaterial.ARMOR_IRIDIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> NEODYMIUM_BOOTS = EQUIPMENT.register("neodymium_boots", () -> new NeodymiumArmorItem(CCArmorMaterial.ARMOR_NEODYMIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
