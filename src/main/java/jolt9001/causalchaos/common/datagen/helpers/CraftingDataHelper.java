@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
@@ -26,7 +27,22 @@ public abstract class CraftingDataHelper extends RecipeProvider {
                 .unlockedBy("has_item", has(ingredient))
                 .save(out, CausalChaos.prefix("compressed_blocks/" + name));
     }
-    protected final void reverseCompressedBlock(RecipeOutput out, String name, Supplier<? extends Block> result, TagKey<Item> ingredient) {
+    protected final void ingotCraft(RecipeOutput out, String name, Supplier<? extends Item> result, TagKey<Item> ingredient) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result.get())
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .define('#', ingredient)
+                .unlockedBy("has_item", has(ingredient))
+                .save(out, CausalChaos.prefix("compressed_blocks/" + name));
+    }
+    protected final void reverseIngotCraft(RecipeOutput out, String name, Supplier<? extends Item> result, TagKey<Item> ingredient) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result.get(), 9)
+                .requires(ingredient)
+                .unlockedBy("has_item", has(ingredient))
+                .save(out, CausalChaos.prefix("compressed_blocks/reversed/" + name));
+    }
+    protected final void reverseCompressedBlock(RecipeOutput out, String name, Supplier<? extends Item> result, TagKey<Item> ingredient) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result.get(), 9)
                 .requires(ingredient)
                 .unlockedBy("has_item", has(ingredient))

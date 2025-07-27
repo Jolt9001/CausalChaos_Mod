@@ -1,6 +1,100 @@
 {
-  "parent": "jolt9001.causalchaos:get_perplexium",
   "criteria": {
+    "adv_perplexium_0": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "advancements": {
+                  "causalchaos:get_perplexium": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tick"
+    },
+    "adv_perplexium_1": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "advancements": {
+                  "causalchaos:get_perplexium": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tick"
+    },
+    "adv_root_0": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "advancements": {
+                  "causalchaos:root": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tick"
+    },
+    "adv_starforge_0": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "advancements": {
+                  "causalchaos:get_starforge": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tick"
+    },
+    "adv_thundersteel": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "advancements": {
+                  "causalchaos:get_thundersteel": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tick"
+    },
     "get_crystal": {
       "conditions": {
         "items": [
@@ -76,7 +170,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_tool.desc"
+      "translate": "achievement.causalchaos.thundersteel_infuse_tool.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -86,12 +180,15 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.thundersteel_infuse_tool"
+      "translate": "achievement.causalchaos.thundersteel_infuse_tool"
     }
   },
   "requirements": [
     [
       "tick"
+    ],
+    [
+      "adv_root_0"
     ],
     [
       "get_crystal"
@@ -100,13 +197,25 @@
       "get_starforge"
     ],
     [
+      "adv_starforge_0"
+    ],
+    [
       "get_thundersteel"
+    ],
+    [
+      "adv_thundersteel"
     ],
     [
       "get_perplexium"
     ],
     [
+      "adv_perplexium_0"
+    ],
+    [
       "thundersteel_infuse_armor"
+    ],
+    [
+      "adv_perplexium_1"
     ],
     [
       "thundersteel_infuse_tool"

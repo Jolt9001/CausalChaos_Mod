@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:ingots/tungsten"
+      "tag": "causalchaos:storage_blocks/tungsten"
     }
   ],
   "result": {
     "count": 9,
-    "item": "causalchaos:tungsten_block"
+    "item": "causalchaos:tungsten_ingot"
   }
 }

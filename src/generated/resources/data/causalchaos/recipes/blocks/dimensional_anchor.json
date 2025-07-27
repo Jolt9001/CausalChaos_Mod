@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "k": {
+      "item": "causalchaos:rift_token"
+    },
+    "r": {
+      "item": "causalchaos:realm_seed"
+    },
+    "s": {
+      "item": "minecraft:smooth_stone"
+    },
+    "t": {
+      "item": "causalchaos:thundersteel_ingot"
+    }
+  },
+  "pattern": [
+    " k ",
+    "trt",
+    "sss"
+  ],
+  "result": {
+    "item": "causalchaos:dimensional_anchor"
+  },
+  "show_notification": true
+}

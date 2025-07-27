@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/neodymium"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "causalchaos:neodymium_nugget"
+  }
+}

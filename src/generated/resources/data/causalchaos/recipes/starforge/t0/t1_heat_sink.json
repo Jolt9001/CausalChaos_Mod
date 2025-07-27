@@ -1,9 +1,0 @@
-{
-  "type": "causalchaos:forging_tier0",
-  "pattern": [
-    "w n w",
-    "  w  ",
-    "w n w"
-  ],
-  "result": "causalchaos:t1_heat_sink"
-}

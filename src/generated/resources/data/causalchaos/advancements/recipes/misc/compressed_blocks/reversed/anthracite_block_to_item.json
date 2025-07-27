@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:raw_materials/anthracite"
+            "tag": "causalchaos:storage_blocks/anthracite"
           }
         ]
       },

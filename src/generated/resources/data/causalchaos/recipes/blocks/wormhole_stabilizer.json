@@ -1,25 +1,27 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "  r  ",
-    "p c p",
-    "  d  "
-  ],
+  "category": "misc",
   "key": {
-    "r": {
-      "item": "causalchaos:stable_rift_token"
-    },
-    "p": {
-      "item": "causalchaos:perplexium_ingot"
-    },
     "c": {
       "item": "causalchaos:causality_crystal"
     },
     "d": {
       "item": "causalchaos:dimensional_anchor"
+    },
+    "p": {
+      "item": "causalchaos:perplexium_ingot"
+    },
+    "r": {
+      "item": "causalchaos:stable_rift_token"
     }
   },
+  "pattern": [
+    " r ",
+    "pcp",
+    " d "
+  ],
   "result": {
     "item": "causalchaos:wormhole_stabilizer"
-  }
+  },
+  "show_notification": true
 }

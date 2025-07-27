@@ -36,6 +36,8 @@ public class CCEntities {
     public static final RegistryObject<EntityType<LeviathanSkywyrm>> LEVIATHAN_SKYWYRM = make(CCEntityNames.LEVIATHAN_SKYWYRM, LeviathanSkywyrm::new, MobCategory.MONSTER, 0f, 0f, 0x0a0000, 0x00008b);
     // Superbosses
         // Battle
+    public static final RegistryObject<EntityType<TsunaNpc>> TSUNA_BOSS = make(CCEntityNames.TSUNA_BOSS, TsunaNpc::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+
         // NPC
     public static final RegistryObject<EntityType<TsunaNpc>> TSUNA_NPC = make(CCEntityNames.TSUNA_NPC, TsunaNpc::new, MobCategory.MISC, 0.5f, 1.75f, 0x0a0000, 0x00008b);
 

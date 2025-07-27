@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:ingots/iridium"
+      "tag": "causalchaos:storage_blocks/iridium"
     }
   ],
   "result": {
     "count": 9,
-    "item": "causalchaos:iridium_block"
+    "item": "causalchaos:iridium_ingot"
   }
 }

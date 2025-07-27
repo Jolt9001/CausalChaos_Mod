@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "causalchaos:sigils",
-  "pattern": [
-    "w t w",
-    "t c t",
-    "w t w"
-  ],
+  "category": "equipment",
   "key": {
-    "w": {
-      "item": "causalchaos:tungsten_ingot"
+    "c": {
+      "item": "causalchaos:causality_crystal"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
     },
     "t": {
       "item": "causalchaos:time_crystal"
-    },
-    "c": {
-      "item": "causalchaos:causality_crystal"
     }
   },
+  "pattern": [
+    "ntn",
+    "tct",
+    "ntn"
+  ],
   "result": {
     "item": "causalchaos:quantum_sigil"
-  }
+  },
+  "show_notification": true
 }

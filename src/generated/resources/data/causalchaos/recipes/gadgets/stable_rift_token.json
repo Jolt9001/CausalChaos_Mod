@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "r": {
+      "item": "causalchaos:rift_token"
+    },
+    "v": {
+      "item": "causalchaos:void_fabric"
+    }
+  },
+  "pattern": [
+    "vvv",
+    "vrv",
+    "vvv"
+  ],
+  "result": {
+    "item": "causalchaos:stable_rift_token"
+  },
+  "show_notification": true
+}

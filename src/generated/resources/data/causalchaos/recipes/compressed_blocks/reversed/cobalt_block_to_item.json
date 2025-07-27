@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:ingots/cobalt"
+      "tag": "causalchaos:storage_blocks/cobalt"
     }
   ],
   "result": {
     "count": 9,
-    "item": "causalchaos:cobalt_block"
+    "item": "causalchaos:cobalt_ingot"
   }
 }

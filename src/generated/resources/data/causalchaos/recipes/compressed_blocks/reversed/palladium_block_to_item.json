@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:ingots/palladium"
+      "tag": "causalchaos:storage_blocks/palladium"
     }
   ],
   "result": {
     "count": 9,
-    "item": "causalchaos:palladium_block"
+    "item": "causalchaos:palladium_ingot"
   }
 }

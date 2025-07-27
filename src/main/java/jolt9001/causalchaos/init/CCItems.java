@@ -2,8 +2,9 @@ package jolt9001.causalchaos.init;
 
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.library.item.CausalityCrystalItem;
+import jolt9001.causalchaos.library.item.FuelItem;
+import jolt9001.causalchaos.library.item.armor.supermaterial.*;
 import jolt9001.causalchaos.library.item.enums.CCArmorMaterial;
-import jolt9001.causalchaos.library.item.armor.material.*;
 import jolt9001.causalchaos.library.item.tool.material.axe.*;
 import jolt9001.causalchaos.library.item.tool.material.hoe.*;
 import jolt9001.causalchaos.library.item.tool.material.pickaxe.*;
@@ -51,7 +52,7 @@ public final class CCItems {
     public static final RegistryObject<Item> RAW_PALLADIUM = ITEMS.register("raw_palladium", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_TITANIUM = ITEMS.register("raw_titanium", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_TUNGSTEN = ITEMS.register("raw_tungsten", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ANTHRACITE = ITEMS.register("anthracite", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ANTHRACITE = ITEMS.register("anthracite", () -> new FuelItem(new Item.Properties(), 400));
     public static final RegistryObject<Item> MAGNETITE = ITEMS.register("magnetite", () -> new Item(new Item.Properties()));
 
     // Tools
@@ -207,11 +208,83 @@ public final class CCItems {
     public static final RegistryObject<Item> TITANIUM_BOOTS = EQUIPMENT.register("titanium_boots", () -> new /*Titanium*/ArmorItem(CCArmorMaterial.ARMOR_TITANIUM, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> TUNGSTEN_BOOTS = EQUIPMENT.register("tungsten_boots", () -> new /*Tungsten*/ArmorItem(CCArmorMaterial.ARMOR_TUNGSTEN, ArmorItem.Type.BOOTS, new Item.Properties()));
 
+    // Special Equipment
+    public static final RegistryObject<Item> PERFECTED_ELYTRA = EQUIPMENT.register("perfected_elytra", () -> new ElytraItem(new Item.Properties()));
+
     // Super armor
         // Helmets
+    public static final RegistryObject<Item> HYPERDIAMOND_CRYSTAL_HELMET = EQUIPMENT.register("hyperdiamond_crystal_crystal_helmet", () -> new HyperdiamondCrystalArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> CRIMSON_COAGULANT_HELMET = EQUIPMENT.register("crimson_coagulant_helmet", () -> new CrimsonCoagulantArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> DEADLY_PRECISION_HELMET = EQUIPMENT.register("deadly_precision_helmet", () -> new DeadlyPrecisionArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> SUBJUGATED_HORROR_HELMET = EQUIPMENT.register("subjugated_horror_helmet", () -> new SubjugatedHorrorArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> DRACONIC_RAINBOW_HELMET = EQUIPMENT.register("draconic_rainbow_helmet", () -> new DraconicRainbowArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> ZERO_POINT_HELMET = EQUIPMENT.register("zero_point_helmet", () -> new ZeroPointArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> SHADOW_WARD_HELMET = EQUIPMENT.register("shadow_ward_helmet", () -> new ShadowWardArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> STELLAR_SINGULARITY_HELMET = EQUIPMENT.register("stellar_singularity_helmet", () -> new StellarSingularityArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> LUNATIC_ASYLUM_HELMET = EQUIPMENT.register("lunatic_asylum_helmet", () -> new LunaticAsylumArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> POSTMODERN_CLERIC_HELMET = EQUIPMENT.register("postmodern_cleric_helmet", () -> new PostmodernClericArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> CONDENSED_EMOTION_HELMET = EQUIPMENT.register("condensed_emotion_helmet", () -> new CondensedEmotionArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> COGNITIVE_BARRIER_HELMET = EQUIPMENT.register("cognitive_barrier_helmet", () -> new CognitiveBarrierArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> DEMONIC_GUARDIAN_HELMET = EQUIPMENT.register("demonic_guardian_helmet", () -> new DemonicGuardianArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> TEMPORAL_VALKYRIE_HELMET = EQUIPMENT.register("temporal_valkyrie_helmet", () -> new TemporalValkyrieArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> DARK_ENERGY_HELMET = EQUIPMENT.register("dark_energy_helmet", () -> new DarkEnergyArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> LIVING_THUNDER_HELMET = EQUIPMENT.register("living_thunder_helmet", () -> new LivingThunderArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> QUANTUM_FOAM_HELMET = EQUIPMENT.register("quantum_foam_helmet", () -> new QuantumFoamArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.HELMET, new Item.Properties()));
         // Chestplates
+    public static final RegistryObject<Item> HYPERDIAMOND_CRYSTAL_CHESTPLATE = EQUIPMENT.register("hyperdiamond_crystal_crystal_chestplate", () -> new HyperdiamondCrystalArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> CRIMSON_COAGULANT_CHESTPLATE = EQUIPMENT.register("crimson_coagulant_chestplate", () -> new CrimsonCoagulantArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> DEADLY_PRECISION_HCHESTPLATE = EQUIPMENT.register("deadly_precision_chestplate", () -> new DeadlyPrecisionArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> SUBJUGATED_HORROR_CHESTPLATE= EQUIPMENT.register("subjugated_horror_chestplate", () -> new SubjugatedHorrorArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> DRACONIC_RAINBOW_CHESTPLATE = EQUIPMENT.register("draconic_rainbow_chestplate", () -> new DraconicRainbowArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> ZERO_POINT_CHESTPLATE = EQUIPMENT.register("zero_point_chestplate", () -> new ZeroPointArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> SHADOW_WARD_CHESTPLATE = EQUIPMENT.register("shadow_ward_chestplate", () -> new ShadowWardArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> STELLAR_SINGULARITY_CHESTPLATE = EQUIPMENT.register("stellar_singularity_chestplate", () -> new StellarSingularityArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> LUNATIC_ASYLUM_CHESTPLATE = EQUIPMENT.register("lunatic_asylum_chestplate", () -> new LunaticAsylumArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> POSTMODERN_CLERIC_CHESTPLATE = EQUIPMENT.register("postmodern_cleric_chestplate", () -> new PostmodernClericArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> CONDENSED_EMOTION_CHESTPLATE = EQUIPMENT.register("condensed_emotion_chestplate", () -> new CondensedEmotionArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> COGNITIVE_BARRIER_CHESTPLATE = EQUIPMENT.register("cognitive_barrier_chestplate", () -> new CognitiveBarrierArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> DEMONIC_GUARDIAN_CHESTPLATE = EQUIPMENT.register("demonic_guardian_chestplate", () -> new DemonicGuardianArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> TEMPORAL_VALKYRIE_CHESTPLATE = EQUIPMENT.register("temporal_valkyrie_chestplate", () -> new TemporalValkyrieArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> DARK_ENERGY_CHESTPLATE = EQUIPMENT.register("dark_energy_chestplate", () -> new DarkEnergyArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> LIVING_THUNDER_CHESTPLATE = EQUIPMENT.register("living_thunder_chestplate", () -> new LivingThunderArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> QUANTUM_FOAM_CHESTPLATE = EQUIPMENT.register("quantum_foam_chestplate", () -> new QuantumFoamArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
         // Leggings
+    public static final RegistryObject<Item> HYPERDIAMOND_CRYSTAL_LEGGINGS = EQUIPMENT.register("hyperdiamond_crystal_crystal_leggings", () -> new HyperdiamondCrystalArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> CRIMSON_COAGULANT_LEGGINGS = EQUIPMENT.register("crimson_coagulant_leggings", () -> new CrimsonCoagulantArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> DEADLY_PRECISION_LEGGINGS = EQUIPMENT.register("deadly_precision_leggings", () -> new DeadlyPrecisionArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> SUBJUGATED_HORROR_LEGGINGS = EQUIPMENT.register("subjugated_horror_leggings", () -> new SubjugatedHorrorArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> DRACONIC_RAINBOW_LEGGINGS = EQUIPMENT.register("draconic_rainbow_leggings", () -> new DraconicRainbowArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> ZERO_POINT_LEGGINGS = EQUIPMENT.register("zero_point_leggings", () -> new ZeroPointArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> SHADOW_WARD_LEGGINGS = EQUIPMENT.register("shadow_ward_leggings", () -> new ShadowWardArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> STELLAR_SINGULARITY_LEGGINGS = EQUIPMENT.register("stellar_singularity_leggings", () -> new StellarSingularityArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> LUNATIC_ASYLUM_LEGGINGS = EQUIPMENT.register("lunatic_asylum_leggings", () -> new LunaticAsylumArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> POSTMODERN_CLERIC_LEGGINGS = EQUIPMENT.register("postmodern_cleric_leggings", () -> new PostmodernClericArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> CONDENSED_EMOTION_LEGGINGS = EQUIPMENT.register("condensed_emotion_leggings", () -> new CondensedEmotionArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> COGNITIVE_BARRIER_LEGGINGS = EQUIPMENT.register("cognitive_barrier_leggings", () -> new CognitiveBarrierArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> DEMONIC_GUARDIAN_LEGGINGS = EQUIPMENT.register("demonic_guardian_leggings", () -> new DemonicGuardianArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> TEMPORAL_VALKYRIE_LEGGINGS = EQUIPMENT.register("temporal_valkyrie_leggings", () -> new TemporalValkyrieArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> DARK_ENERGY_LEGGINGS = EQUIPMENT.register("dark_energy_leggings", () -> new DarkEnergyArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> LIVING_THUNDER_LEGGINGS = EQUIPMENT.register("living_thunder_leggings", () -> new LivingThunderArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> QUANTUM_FOAM_LEGGINGS = EQUIPMENT.register("quantum_foam_leggings", () -> new QuantumFoamArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
         // Boots
+    public static final RegistryObject<Item> HYPERDIAMOND_CRYSTAL_BOOTS = EQUIPMENT.register("hyperdiamond_crystal_crystal_boots", () -> new HyperdiamondCrystalArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> CRIMSON_COAGULANT_BOOTS = EQUIPMENT.register("crimson_coagulant_boots", () -> new CrimsonCoagulantArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> DEADLY_PRECISION_BOOTS = EQUIPMENT.register("deadly_precision_boots", () -> new DeadlyPrecisionArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> SUBJUGATED_HORROR_BOOTS = EQUIPMENT.register("subjugated_horror_boots", () -> new SubjugatedHorrorArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> DRACONIC_RAINBOW_BOOTS = EQUIPMENT.register("draconic_rainbow_boots", () -> new DraconicRainbowArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> ZERO_POINT_BOOTS = EQUIPMENT.register("zero_point_boots", () -> new ZeroPointArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> SHADOW_WARD_BOOTS = EQUIPMENT.register("shadow_ward_boots", () -> new ShadowWardArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> STELLAR_SINGULARITY_BOOTS = EQUIPMENT.register("stellar_singularity_boots", () -> new StellarSingularityArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> LUNATIC_ASYLUM_BOOTS = EQUIPMENT.register("lunatic_asylum_boots", () -> new LunaticAsylumArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> POSTMODERN_CLERIC_BOOTS = EQUIPMENT.register("postmodern_cleric_boots", () -> new PostmodernClericArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> CONDENSED_EMOTION_BOOTS = EQUIPMENT.register("condensed_emotion_boots", () -> new CondensedEmotionArmorItem( CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> COGNITIVE_BARRIER_BOOTS = EQUIPMENT.register("cognitive_barrier_boots", () -> new CognitiveBarrierArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> DEMONIC_GUARDIAN_BOOTS = EQUIPMENT.register("demonic_guardian_boots", () -> new DemonicGuardianArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> TEMPORAL_VALKYRIE_BOOTS = EQUIPMENT.register("temporal_valkyrie_boots", () -> new TemporalValkyrieArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> DARK_ENERGY_BOOTS = EQUIPMENT.register("dark_energy_boots", () -> new DarkEnergyArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> LIVING_THUNDER_BOOTS = EQUIPMENT.register("living_thunder_boots", () -> new LivingThunderArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> QUANTUM_FOAM_BOOTS = EQUIPMENT.register("quantum_foam_boots", () -> new QuantumFoamArmorItem(CCArmorMaterial.ARMOR_SUPERMATERIAL, ArmorItem.Type.BOOTS, new Item.Properties()));
+
     // Gadgets
     public static final RegistryObject<Item> QUANTUM_SIGIL = ITEMS.register("quantum_sigil", () -> new Item(new Item.Properties())); // Used to summon the Demon Lord boss
     public static final RegistryObject<Item> RIFT_TOKEN = ITEMS.register("rift_token", () -> new Item(new Item.Properties()));

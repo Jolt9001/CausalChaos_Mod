@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:ingots/perplexium"
+      "tag": "causalchaos:storage_blocks/perplexium"
     }
   ],
   "result": {
     "count": 9,
-    "item": "causalchaos:perplexium_block"
+    "item": "causalchaos:perplexium_ingot"
   }
 }

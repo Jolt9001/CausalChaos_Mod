@@ -426,7 +426,7 @@
     "item.causalchaos.thundersteel_hoe": "Thundersteel Hoe",
     "item.causalchaos.thundersteel_ingot": "Thundersteel Ingot",
     "item.causalchaos.thundersteel_leggings": "Thundersteel Leggings",
-    "item.causalchaos.thundersteel_nugget": "Thundersteel Nugget",
+    "item.causalchaos.thundersteel_nugget": "Thundersteel Pellet",
     "item.causalchaos.thundersteel_pickaxe": "Thundersteel Pickaxe",
     "item.causalchaos.thundersteel_shovel": "Thundersteel Shovel",
     "item.causalchaos.thundersteel_sword": "Thundersteel Sword",
@@ -463,5 +463,9 @@
     "item.causalchaos.white_thunder": "White Thunder",
     "item.causalchaos.world_thread": "World Thread",
     "item.causalchaos.world_thread_bolt": "World Thread Bolt",
-    "item.causalchaos.worldline_rapier": "Worldline Rapier"
+    "item.causalchaos.worldline_rapier": "Worldline Rapier",
+
+    "item_group.causalchaos.blocks": "Causal Chaos Blocks",
+    "item_group.causalchaos.equipment": "Causal Chaos Equipment",
+    "item_group.causalchaos.items": "Causal Chaos Items"
 }

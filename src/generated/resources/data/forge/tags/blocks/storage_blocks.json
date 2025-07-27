@@ -14,7 +14,7 @@
     "#causalchaos:storage_blocks/raw_palladium",
     "#causalchaos:storage_blocks/raw_titanium",
     "#causalchaos:storage_blocks/raw_tungsten",
-    "causalchaos:perplexium_block",
-    "causalchaos:thundersteel_block"
+    "#causalchaos:storage_blocks/thundersteel",
+    "#causalchaos:storage_blocks/perplexium"
   ]
 }

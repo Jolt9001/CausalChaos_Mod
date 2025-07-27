@@ -2,7 +2,6 @@
     "type": "minecraft:block",
     "pools": [
         {
-            "rolls": 1.0,
             "bonus_rolls": 0.0,
             "entries": [
                 {
@@ -31,7 +30,7 @@
                             "type": "minecraft:item",
                             "functions": [
                                 {
-                                    "function": "minecrarft:apply_bonus",
+                                    "function": "minecraft:apply_bonus",
                                     "enchantment": "minecraft:fortune",
                                     "formula": "minecraft:ore_drops"
                                 },
@@ -43,7 +42,9 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "rolls": 1.0
         }
-    ]
+    ],
+    "random_sequence": "causalchaos:blocks/cobalt_ore"
 }

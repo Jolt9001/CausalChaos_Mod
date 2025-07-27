@@ -2,10 +2,12 @@ package jolt9001.causalchaos.common.datagen.tags;
 
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.common.datagen.tags.compat.ModdedItemTagGenerator;
+import jolt9001.causalchaos.init.CCBlocks;
 import jolt9001.causalchaos.init.CCItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -45,6 +47,25 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
     public static final TagKey<Item> THUNDERSTEEL_INGOTS = makeForgeTag("ingots/thundersteel");
     public static final TagKey<Item> TITANIUM_INGOTS = makeForgeTag("ingots/titanium");
     public static final TagKey<Item> TUNGSTEN_INGOTS = makeForgeTag("ingots/tungsten");
+
+    // Storage blocks
+    public static final TagKey<Item> STORAGE_RAW_COBALT = ItemTags.create(CausalChaos.prefix("storage_blocks/raw_cobalt"));
+    public static final TagKey<Item> STORAGE_RAW_IRIDIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/raw_iridium"));
+    public static final TagKey<Item> STORAGE_RAW_NEODYMIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/raw_neodymium"));
+    public static final TagKey<Item> STORAGE_RAW_PALLADIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/raw_palladium"));
+    public static final TagKey<Item> STORAGE_RAW_TITANIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/raw_titanium"));
+    public static final TagKey<Item> STORAGE_RAW_TUNGSTEN = ItemTags.create(CausalChaos.prefix("storage_blocks/raw_tungsten"));
+
+    public static final TagKey<Item> STORAGE_BLOCKS_ANTHRACITE = ItemTags.create(CausalChaos.prefix("storage_blocks/anthracite"));
+    public static final TagKey<Item> STORAGE_BLOCKS_MAGNETITE = ItemTags.create(CausalChaos.prefix("storage_blocks/magnetite"));
+    public static final TagKey<Item> STORAGE_BLOCKS_COBALT = ItemTags.create(CausalChaos.prefix("storage_blocks/cobalt"));
+    public static final TagKey<Item> STORAGE_BLOCKS_IRIDIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/iridium"));
+    public static final TagKey<Item> STORAGE_BLOCKS_NEODYMIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/neodymium"));
+    public static final TagKey<Item> STORAGE_BLOCKS_PALLADIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/palladium"));
+    public static final TagKey<Item> STORAGE_BLOCKS_PERPLEXIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/perplexium"));
+    public static final TagKey<Item> STORAGE_BLOCKS_THUNDERSTEEL = ItemTags.create(CausalChaos.prefix("storage_blocks/thundersteel"));
+    public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = ItemTags.create(CausalChaos.prefix("storage_blocks/titanium"));
+    public static final TagKey<Item> STORAGE_BLOCKS_TUNGSTEN = ItemTags.create(CausalChaos.prefix("storage_blocks/tungsten"));
 
     // Tools
     public static final TagKey<Item> TOOLS_PERPLEXIUM = makeForgeTag("tools/perplexium");
@@ -109,6 +130,24 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
         tag(Tags.Items.INGOTS)
                 .addTag(COBALT_INGOTS).addTag(IRIDIUM_INGOTS).addTag(NEODYMIUM_INGOTS).addTag(PALLADIUM_INGOTS)
                 .addTag(PERPLEXIUM_INGOTS).addTag(THUNDERSTEEL_INGOTS).addTag(TITANIUM_INGOTS).addTag(TUNGSTEN_INGOTS);
+
+        tag(STORAGE_BLOCKS_ANTHRACITE).add(CCBlocks.ANTHRACITE_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_MAGNETITE).add(CCBlocks.MAGNETITE_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_COBALT).add(CCBlocks.COBALT_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_IRIDIUM).add(CCBlocks.IRIDIUM_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_NEODYMIUM).add(CCBlocks.NEODYMIUM_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_PALLADIUM).add(CCBlocks.PALLADIUM_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_PERPLEXIUM).add(CCBlocks.PERPLEXIUM_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_THUNDERSTEEL).add(CCBlocks.THUNDERSTEEL_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_TITANIUM).add(CCBlocks.TITANIUM_BLOCK.get().asItem());
+        tag(STORAGE_BLOCKS_TUNGSTEN).add(CCBlocks.TUNGSTEN_BLOCK.get().asItem());
+
+        tag(STORAGE_RAW_COBALT).add(CCBlocks.RAW_COBALT_BLOCK.get().asItem());
+        tag(STORAGE_RAW_IRIDIUM).add(CCBlocks.RAW_IRIDIUM_BLOCK.get().asItem());
+        tag(STORAGE_RAW_NEODYMIUM).add(CCBlocks.RAW_NEODYMIUM_BLOCK.get().asItem());
+        tag(STORAGE_RAW_PALLADIUM).add(CCBlocks.RAW_PALLADIUM_BLOCK.get().asItem());
+        tag(STORAGE_RAW_TITANIUM).add(CCBlocks.RAW_TITANIUM_BLOCK.get().asItem());
+        tag(STORAGE_RAW_TUNGSTEN).add(CCBlocks.RAW_TUNGSTEN_BLOCK.get().asItem());
 
         // Armor
         tag(Tags.Items.ARMORS_BOOTS).add(

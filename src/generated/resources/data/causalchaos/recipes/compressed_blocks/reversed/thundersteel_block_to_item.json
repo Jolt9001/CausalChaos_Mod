@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:ingots/thundersteel"
+      "tag": "causalchaos:storage_blocks/thundersteel"
     }
   ],
   "result": {
     "count": 9,
-    "item": "causalchaos:thundersteel_block"
+    "item": "causalchaos:thundersteel_ingot"
   }
 }

@@ -21,6 +21,8 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
     public static final TagKey<Block> STORAGE_BLOCKS_IRIDIUM = BlockTags.create(CausalChaos.prefix("storage_blocks/iridium"));
     public static final TagKey<Block> STORAGE_BLOCKS_NEODYMIUM = BlockTags.create(CausalChaos.prefix("storage_blocks/neodymium"));
     public static final TagKey<Block> STORAGE_BLOCKS_PALLADIUM = BlockTags.create(CausalChaos.prefix("storage_blocks/palladium"));
+    public static final TagKey<Block> STORAGE_BLOCKS_PERPLEXIUM = BlockTags.create(CausalChaos.prefix("storage_blocks/perplexium"));
+    public static final TagKey<Block> STORAGE_BLOCKS_THUNDERSTEEL = BlockTags.create(CausalChaos.prefix("storage_blocks/thundersteel"));
     public static final TagKey<Block> STORAGE_BLOCKS_TITANIUM = BlockTags.create(CausalChaos.prefix("storage_blocks/titanium"));
     public static final TagKey<Block> STORAGE_BLOCKS_TUNGSTEN = BlockTags.create(CausalChaos.prefix("storage_blocks/tungsten"));
 
@@ -85,13 +87,14 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
         tag(STORAGE_BLOCKS_IRIDIUM).add(CCBlocks.IRIDIUM_BLOCK.get());
         tag(STORAGE_BLOCKS_NEODYMIUM).add(CCBlocks.NEODYMIUM_BLOCK.get());
         tag(STORAGE_BLOCKS_PALLADIUM).add(CCBlocks.PALLADIUM_BLOCK.get());
+        tag(STORAGE_BLOCKS_PERPLEXIUM).add(CCBlocks.PERPLEXIUM_BLOCK.get());
+        tag(STORAGE_BLOCKS_THUNDERSTEEL).add(CCBlocks.THUNDERSTEEL_BLOCK.get());
         tag(STORAGE_BLOCKS_TITANIUM).add(CCBlocks.TITANIUM_BLOCK.get());
         tag(STORAGE_BLOCKS_TUNGSTEN).add(CCBlocks.TUNGSTEN_BLOCK.get());
         tag(BlockTags.BEACON_BASE_BLOCKS).addTags(
                 STORAGE_BLOCKS_COBALT, STORAGE_BLOCKS_IRIDIUM, STORAGE_BLOCKS_PALLADIUM, STORAGE_BLOCKS_TITANIUM,
-                STORAGE_BLOCKS_TUNGSTEN
+                STORAGE_BLOCKS_TUNGSTEN, STORAGE_BLOCKS_THUNDERSTEEL, STORAGE_BLOCKS_PERPLEXIUM
         );
-        tag(BlockTags.BEACON_BASE_BLOCKS).add(CCBlocks.PERPLEXIUM_BLOCK.get(), CCBlocks.THUNDERSTEEL_BLOCK.get());
 
         tag(STORAGE_RAW_COBALT).add(CCBlocks.RAW_COBALT_BLOCK.get());
         tag(STORAGE_RAW_IRIDIUM).add(CCBlocks.RAW_IRIDIUM_BLOCK.get());
@@ -103,9 +106,8 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
                 STORAGE_BLOCKS_ANTHRACITE, STORAGE_BLOCKS_MAGNETITE, STORAGE_BLOCKS_COBALT, STORAGE_BLOCKS_IRIDIUM,
                 STORAGE_BLOCKS_NEODYMIUM, STORAGE_BLOCKS_PALLADIUM, STORAGE_BLOCKS_TITANIUM, STORAGE_BLOCKS_TUNGSTEN, STORAGE_RAW_COBALT,
                 STORAGE_RAW_IRIDIUM, STORAGE_RAW_NEODYMIUM, STORAGE_RAW_PALLADIUM, STORAGE_RAW_TITANIUM,
-                STORAGE_RAW_TUNGSTEN
+                STORAGE_RAW_TUNGSTEN, STORAGE_BLOCKS_THUNDERSTEEL, STORAGE_BLOCKS_PERPLEXIUM
         );
-        tag(Tags.Blocks.STORAGE_BLOCKS).add(CCBlocks.PERPLEXIUM_BLOCK.get(), CCBlocks.THUNDERSTEEL_BLOCK.get());
 
         // Ores
         tag(ORES_ANTHRACITE).add(CCBlocks.ANTHRACITE_ORE.get());

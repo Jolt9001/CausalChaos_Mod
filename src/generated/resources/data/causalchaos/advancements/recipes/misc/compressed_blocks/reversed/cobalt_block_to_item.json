@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:ingots/cobalt"
+            "tag": "causalchaos:storage_blocks/cobalt"
           }
         ]
       },

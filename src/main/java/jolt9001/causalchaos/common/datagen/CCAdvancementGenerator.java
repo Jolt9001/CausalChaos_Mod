@@ -62,45 +62,44 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.crystal_get"),
                         Component.translatable("achievement.causalchaos.crystal_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                //.parent(root)
-                .addCriterion("root", this.advancementTrigger(root))
+                .addCriterion("adv_root_0", this.advancementTrigger(root))
                 .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
                 .save(consumer, "jolt9001.causalchaos:get_crystal");
-        var dashStrike = builder; // "I Am Speed" Prereq: getCrystalDefault
-        var dodge = builder; // "Can't Touch This" Prereq: getCrystalDefault
-        var dangerSense = builder; // "Spidey Sense" Prereq: getCrystalDefault
+        var dashStrike = builder; // "I Am Speed" Prereq: "adv_crystal_default_0", getCrystalDefault
+        var dodge = builder; // "Can't Touch This" Prereq: "adv_crystal_default_1", getCrystalDefault
+        var dangerSense = builder; // "Spidey Sense" Prereq: "adv_crystal_default_2", getCrystalDefault
 
         // Ability
-        var standInHitbox = builder; // "Danger Zone" Prereq: dangerSense
-        var QTEFail = builder; // "You Blinked" Prereq: standInHitbox
-        var perfectDodge = builder; // "Saw It Coming" Prereq: standInHitbox, dodge
-        var lightningDodge = builder; // "Lightning-Fast Reaction" Prereq: perfectDodge
-        var killCreeperWhileExploding = builder; // "Allahu Akbar" Prereq: perfectDodge
+        var standInHitbox = builder; // "Danger Zone" Prereq: "adv_danger_sense_0", dangerSense
+        var QTEFail = builder; // "You Blinked" Prereq: "adv_in_hitbox_0", standInHitbox
+        var perfectDodge = builder; // "Saw It Coming" Prereq: "adv_in_hitbox_1", standInHitbox, dodge
+        var lightningDodge = builder; // "Lightning-Fast Reaction" Prereq: "adv_perfect_dodge_0", perfectDodge
+        var killCreeperWhileExploding = builder; // "Allahu Akbar" Prereq: "adv_perfect_dodge_1", perfectDodge
 
-        var mastery1 = builder; // "Sidekick" Prereq: getCrystalDefault
-        var mastery2 = builder; // "Fledgling" Prereq: mastery1
-        var mastery3 = builder; // "Hero" Prereq: mastery2, timeLoopActivate
-        var mastery4 = builder; // "Superhero" Prereq: mastery3, loopEscape
-        var mastery5 = builder; // "Limitless" Prereq: mastery4, EnterTPlain
+        var mastery1 = builder; // "Sidekick" Prereq: "adv_crystal_default_3", getCrystalDefault
+        var mastery2 = builder; // "Fledgling" Prereq: "adv_lvl1_0", mastery1
+        var mastery3 = builder; // "Hero" Prereq: "adv_lvl2_0" - mastery2 . "adv_loop_active_0", timeLoopActivate
+        var mastery4 = builder; // "Superhero" Prereq: "adv_lvl3_0", mastery3 . "adv_escape_loop_0", loopEscape
+        var mastery5 = builder; // "Limitless" Prereq: "adv_lvl4_0", mastery4 . "adv_enter_tp_0" EnterTPlain
 
         // Bosses (Demon Lord, Worldeater, Leviathan Skywyrm)
             // generic
-        var heroDeath = builder; // "Selfless Sacrifice" Prereq: QTEFail
+        var heroDeath = builder; // "Selfless Sacrifice" Prereq: "adv_fail_qte_1", QTEFail
 
             // Demon Lord
-        var fightDL1 = builder; // "Great Destroyer" Prereq: getCrystalDefault
-        var fightDL2 = builder; // "Déjà vu" Prereq: fightDL1
-        var tripleDLPerfectDodge = builder; // "Chronal Duelist" Prereq: fightDL2
-        var DLFlurryCounter = builder; // "Temporal Mastermind" Prereq: fightDL2
-        var bossDLDeathless = builder; // "Eternal Survivor" Prereq: fightDL1
-        var soloDL = builder; // "Impossible Odds" Prereq: fightDL1
+        var fightDL1 = builder; // "Great Destroyer" Prereq: "adv_crystal_default_4", getCrystalDefault
+        var fightDL2 = builder; // "Déjà vu" Prereq: "adv_dl1_0", "adv_dl1_0", fightDL1
+        var tripleDLPerfectDodge = builder; // "Chronal Duelist" Prereq: "adv_dl2_0", fightDL2
+        var DLFlurryCounter = builder; // "Temporal Mastermind" Prereq: "adv_dl2_1", fightDL2
+        var bossDLDeathless = builder; // "Eternal Survivor" Prereq: "adv_dl1_1", fightDL1
+        var soloDL = builder; // "Impossible Odds" Prereq: "adv_dl1_2", fightDL1
         var anchorDeathlessDL = builder; // "True Hero" Prereq: anchorEncounter
 
             // Worldeater
         var worldeaterEncounter = builder; // "Horrific Monstrosity" Prereq: enterLimbo
         var worldeaterDefeat = builder; // "Satiated Hunger" Prereq: worldeaterEncounter
         var worldeaterLoss = builder; // "Unexisted" Prereq: worldeaterEncounter
-        var worldeaterMax = builder; // "Not Afraid Anymore" Prereq: CFPJolt, worldeaterEncounter
+        var worldeaterMax = builder; // "Not Afraid Anymore" Prereq: CFPJolt . worldeaterEncounter
 
             // Leviathan Skywyrm
         var skywyrmEncounter = builder;
@@ -108,16 +107,16 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var skywyrmLoss = builder;
 
         // Early Game (Time Loop)
-        var timeLoopActivate = builder; // "Future Vision?" Prereq: fightDL1
-        var anchorEncounter = builder; // "Timeless Bond" Prereq: getCrystalDefault
+        var timeLoopActivate = builder; // "Future Vision?" Prereq: "adv_dl1_2", fightDL1
+        var anchorEncounter = builder; // "Timeless Bond" Prereq: "adv_crystal_default_5", getCrystalDefault
         var anchorDeath = builder; // "Apocalypse" Prereq: anchorEncounter
         var anchorProtect = builder; // "The Fifteen" Prereq: anchorEncounter
-        var twistedEncounter = builder; // "Twisted Children" Prereq:getCrystalDefault
-        var riftwalkerKill = builder; // "Released From Suffering" getCrystalDefault
+        var twistedEncounter = builder; // "Twisted Children" Prereq: "adv_crystal_default_6", getCrystalDefault
+        var riftwalkerKill = builder; // "Released From Suffering" "adv_crystal_default_7", getCrystalDefault
 
         // MidGame (Advancements specific to the timeframe between the ending of the time loop and the crafting of the Starforge)
-        var loopEscape = builder; // "Shattered Dimension" Prereq: fightDL2
-        var quantumSigil = builder; // "Monstrous Resurrection" Prereq: fightDL2, riftwalkerKill
+        var loopEscape = builder; // "Shattered Dimension" Prereq: "adv_dl2_2", fightDL2
+        var quantumSigil = builder; // "Monstrous Resurrection" Prereq: "adv_dl2_3", fightDL2 . riftwalkerKill
 
         // Endgame (post time loop)
         var obtainStarforge = builder
@@ -126,7 +125,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.starforge_get"),
                         Component.translatable("achievement.causalchaos.starforge_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                //.addCriterion("escape_loop", this.advancementTrigger(loopEscape))
+                //.addCriterion("adv_escape_loop_1", this.advancementTrigger(loopEscape))
                 .addCriterion("get_starforge", InventoryChangeTrigger.TriggerInstance.hasItems(CCBlocks.T0_STARFORGE.get()))
                 .save(consumer, "jolt9001.causalchaos:get_starforge");
         var obtainThundersteel = builder
@@ -135,7 +134,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.thundersteel_get"),
                         Component.translatable("achievement.causalchaos.thundersteel_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("get_starforge", this.advancementTrigger(obtainStarforge))
+                .addCriterion("adv_starforge_0", this.advancementTrigger(obtainStarforge))
                 .addCriterion("get_thundersteel", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.THUNDERSTEEL_INGOT.get()))
                 .save(consumer, "jolt9001.causalchaos:get_thundersteel");
         var obtainPerplexium = builder
@@ -144,7 +143,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.perplexium_get"),
                         Component.translatable("achievement.causalchaos.perplexium_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("get_thundersteel", this.advancementTrigger(obtainThundersteel))
+                .addCriterion("adv_thundersteel", this.advancementTrigger(obtainThundersteel))
                 .addCriterion("get_perplexium", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.PERPLEXIUM_INGOT.get()))
                 .save(consumer, "jolt9001.causalchaos:get_perplexium");
         var infusedThundersteelArmor = builder
@@ -153,7 +152,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_armor"),
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_armor.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("get_perplexium", this.advancementTrigger(obtainPerplexium))
+                .addCriterion("adv_perplexium_0", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("thundersteel_infuse_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_INFUSED_THUNDERSTEEL)))
                 .save(consumer, "jolt9001.causalchaos:thundersteel_infuse_armor");
         var infusedThundersteelTool = builder
@@ -162,7 +161,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_tool"),
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_tool.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("get_perplexium", this.advancementTrigger(obtainPerplexium))
+                .addCriterion("adv_perplexium_1", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("thundersteel_infuse_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_INFUSED_THUNDERSTEEL)))
                 .save(consumer, "jolt9001.causalchaos:thundersteel_infuse_tool");
         var purePerplexiumArmor = builder
@@ -171,7 +170,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.perplexium_armor"),
                         Component.translatable("achievement.causalchaos.perplexium_armor.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("get_perplexium", this.advancementTrigger(obtainPerplexium))
+                .addCriterion("adv_perplexium_2", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_PERPLEXIUM)))
                 .save(consumer, "jolt9001.causalchaos:perplexium_armor");
         var purePerplexiumTool = builder
@@ -180,7 +179,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.perplexium_tool"),
                         Component.translatable("achievement.causalchaos.perplexium_tool.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("get_perplexium", this.advancementTrigger(obtainPerplexium))
+                .addCriterion("adv_perplexium_3", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("perplexium_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM)))
                 .save(consumer, "jolt9001.causalchaos:perplexium_tool");
         var villageHousing25 = builder; // "Superhuman City" Prereq: anchorEncounter
@@ -204,7 +203,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
             //Transcendent's Plain
         var TPPortalEnter = builder; // "Gateway to the Infinite" Prereq: getPerplexium
         var EnterTPlain = builder; // "Preeminence" Prereq: Tsuna
-        var chaosModeKill = builder; // "Chronicles of Chaos"
+        var chaosModeKill = builder; // "Chronicles of Chaos" Prereq:
 
             // Realm Tears + Parallel Universes
         var enterRiftwalkerRealmTear = builder; // "Where Am I Now?"
@@ -259,16 +258,13 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         CCItems.CAUSALITY_CRYSTAL.get(),
                         Component.translatable("achievement.causalchaos.hardcore_crystal_get"),
                         Component.translatable("achievement.causalchaos.hardcore_crystal_get.desc"),
-                        null,
-                        FrameType.TASK,
-                        true,
-                        true,
-                        false
+                        null, FrameType.TASK, true, true, false
                 )
                 .parent(getCrystalDefault)
-                .addCriterion("get_crystal_hardcore", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
+                // .addCriterion("get_crystal_hardcore", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
                 .addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
                 .save(consumer, "jolt9001.causalchaos:get_crystal_hardcore");
+
         LivingEntity entity = null;
         LivingDeathEvent event = new LivingDeathEvent(entity, null);
         var hardcoreDeath = builder
@@ -277,7 +273,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.hardcore_death", "Resuscitation"),
                         Component.translatable("achievement.causalchaos.hardcore_death.desc"),
                         null, FrameType.GOAL, true, true, false)
-                .addCriterion("get_crystal_hardcore", this.advancementTrigger(getCrystalHardcore))
+                .addCriterion("adv_crystal_hardcore0", this.advancementTrigger(getCrystalHardcore))
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
                 .save(consumer, "jolt9001.causalchaos:hardcore_death");
  */
@@ -287,7 +283,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var halfHeartSuperboss = builder; // "Not Even Close" Prereq: getCrystalHardcore + TPPortalActivate
 
         // Journal Completion
-        var journal25 = builder; // "Bare Minimum" Prereq: root
+        var journal25 = builder; // "Bare Minimum" Prereq: "adv_root_1", root
         var journal50 = builder; // "You Actually Studied?" Prereq: journal25
         var journal75 = builder; // "Salutatorian" Prereq: journal50
         var journal100 = builder; // "Valedictorian" journal75

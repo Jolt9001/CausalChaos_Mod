@@ -5,7 +5,7 @@
     "#causalchaos:storage_blocks/palladium",
     "#causalchaos:storage_blocks/titanium",
     "#causalchaos:storage_blocks/tungsten",
-    "causalchaos:perplexium_block",
-    "causalchaos:thundersteel_block"
+    "#causalchaos:storage_blocks/thundersteel",
+    "#causalchaos:storage_blocks/perplexium"
   ]
 }

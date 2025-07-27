@@ -1,22 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "p t p",
-    "t c t",
-    "p t p"
-  ],
+  "category": "building",
   "key": {
+    "c": {
+      "item": "causalchaos:causality_crystal"
+    },
     "p": {
       "item": "causalchaos:perplexium_nugget"
     },
     "t": {
       "item": "causalchaos:thundersteel_ingot"
-    },
-    "c": {
-      "item": "causalchaos:causality_crystal"
     }
   },
+  "pattern": [
+    "ptp",
+    "tct",
+    "ptp"
+  ],
   "result": {
     "item": "causalchaos:quantum_fabric"
-  }
+  },
+  "show_notification": true
 }

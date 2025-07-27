@@ -7,7 +7,7 @@
   "display": {
     "announce_to_chat": false,
     "description": {
-      "translate": "achievement.jolt9001.causalchaos.root.desc"
+      "translate": "achievement.causalchaos.root.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -16,7 +16,7 @@
     },
     "show_toast": false,
     "title": {
-      "translate": "achievement.jolt9001.causalchaos.root"
+      "translate": "achievement.causalchaos.root"
     }
   },
   "requirements": [

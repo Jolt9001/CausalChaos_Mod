@@ -1,4 +1,4 @@
-// 1.20.2	2025-07-24T18:02:14.8896081	Tags for minecraft:block mod id causalchaos
+// 1.20.2	2025-07-27T16:37:40.9726721	Tags for minecraft:block mod id causalchaos
 67a64b854d43da819e11aeeccca7118cbc566829 data/causalchaos/tags/blocks/machines/core_shields.json
 68106979eac1d87caf394bd9842046d157d9d71c data/causalchaos/tags/blocks/machines/dimensional_anchor.json
 f8041a2920ee848ec47d1ed4f18cfaac005c91af data/causalchaos/tags/blocks/machines/electromagnets.json
@@ -27,20 +27,22 @@ c67d9d491279d238e3caf7521ed969852d5952f2 data/causalchaos/tags/blocks/storage_bl
 d94c06087e2204bb03347f704b328a2fd3f2eae1 data/causalchaos/tags/blocks/storage_blocks/magnetite.json
 58330b558d37eaeb2b157499299dd3972a7a70e2 data/causalchaos/tags/blocks/storage_blocks/neodymium.json
 7df9901809043918d068a2f3b0793fdfeaa4406b data/causalchaos/tags/blocks/storage_blocks/palladium.json
+a82798b9cfb2b517b936a9c175e26140e7a6bad1 data/causalchaos/tags/blocks/storage_blocks/perplexium.json
 2c44287c746aae06503f2b99e3adbbfd438c4e6f data/causalchaos/tags/blocks/storage_blocks/raw_cobalt.json
 d5b60416de489a3907b15ad17e02ada387e6bdf3 data/causalchaos/tags/blocks/storage_blocks/raw_iridium.json
 b01bc3a6cebdb8cd3c274a44ed6b681c3c48e232 data/causalchaos/tags/blocks/storage_blocks/raw_neodymium.json
 c1874aaae6c4e65d8c97367b847336fed9a58424 data/causalchaos/tags/blocks/storage_blocks/raw_palladium.json
 321d1d61faeb0b231696626a46d58888a5a42a1f data/causalchaos/tags/blocks/storage_blocks/raw_titanium.json
 677dd72465fbd143a5bb8879bc24753272ad9048 data/causalchaos/tags/blocks/storage_blocks/raw_tungsten.json
+72fe3741f5828a6287e92023972c13524627512f data/causalchaos/tags/blocks/storage_blocks/thundersteel.json
 0b17c82652d05ec45425dc4d9d5d5f021540ef51 data/causalchaos/tags/blocks/storage_blocks/titanium.json
 ab0a0497502f328ff68927b8b33edc62ec832b5f data/causalchaos/tags/blocks/storage_blocks/tungsten.json
 10621363d2a086683252414599e43e1c0fbb0b25 data/causalchaos/tags/blocks/transcendent_portal_block.json
 ac015557ae1ce0d2dcf8d4185b39180730f2185e data/forge/tags/blocks/needs_netherite_tool.json
 215a912f59ab7b53600654ac02d6bb0fbec41e48 data/forge/tags/blocks/ores.json
 8b6989ba4e6edcacade90a72c57430413a7a83cf data/forge/tags/blocks/ore_rates/singular.json
-d0dd4933d0d9908b5af2058d1205e061a88fea45 data/forge/tags/blocks/storage_blocks.json
-b084d1b11a65a83dc2b45a61b0777b32cd45581c data/minecraft/tags/blocks/beacon_base_blocks.json
+f6ae7c4739880f8a807988dab3a5c774a3be3e35 data/forge/tags/blocks/storage_blocks.json
+fdf1f852f9985ee2785447e00e1735530e5a3fda data/minecraft/tags/blocks/beacon_base_blocks.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/axe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/hoe.json
 aaaeefab0e302f3a7381bc9f6e3cdd3a962ad12c data/minecraft/tags/blocks/mineable/pickaxe.json

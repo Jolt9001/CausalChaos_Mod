@@ -31,7 +31,7 @@
               "type": "minecraft:item",
               "functions": [
                 {
-                  "function": "minecrarft:apply_bonus",
+                  "function": "minecraft:apply_bonus",
                   "enchantment": "minecraft:fortune",
                   "formula": "minecraft:ore_drops"
                 },
@@ -45,5 +45,6 @@
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "causalchaos:blocks/neodymium_ore"
 }

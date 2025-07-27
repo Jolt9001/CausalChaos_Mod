@@ -34,7 +34,10 @@ public enum CCArmorMaterial implements ArmorMaterial {
     ARMOR_INFUSED_THUNDERSTEEL("infused_thundersteel", 150, new int[] { 3, 6, 8, 3 }, 15,
             SoundEvents.ARMOR_EQUIP_NETHERITE, 12F, 2.0F, null),
     ARMOR_PERPLEXIUM("perplexium", 200, new int[] { 3, 6, 8, 3 }, 15,
-            SoundEvents.ARMOR_EQUIP_DIAMOND, 18F, 3.0F, () -> Ingredient.of(CCItems.PERPLEXIUM_INGOT.get()));
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 18F, 3.0F, () -> Ingredient.of(CCItems.PERPLEXIUM_INGOT.get())),
+    // And now we're breaking minecraft... This is the best material in the mod. Temp because each supermaterial set is unique.
+    ARMOR_SUPERMATERIAL("supermaterial", Integer.MAX_VALUE, new int[] {3, 6, 8, 3}, 0,
+            SoundEvents.ARMOR_EQUIP_GENERIC, 25F, 5.0F, null);
 
     private final String name;
     private final int durabilityMult;

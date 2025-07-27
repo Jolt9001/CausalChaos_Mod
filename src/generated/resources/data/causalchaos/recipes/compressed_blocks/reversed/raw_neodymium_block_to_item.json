@@ -3,11 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:raw_materials/neodymium"
+      "tag": "causalchaos:storage_blocks/raw_neodymium"
     }
   ],
   "result": {
     "count": 9,
-    "item": "causalchaos:raw_neodymium_block"
+    "item": "causalchaos:raw_neodymium"
   }
 }
