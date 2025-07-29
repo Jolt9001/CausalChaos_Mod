@@ -2,7 +2,7 @@ package jolt9001.causalchaos.library.portal;
 
 import jolt9001.causalchaos.CCConfig;
 import jolt9001.causalchaos.init.CCSounds;
-import jolt9001.causalchaos.library.worldgen.registration.CCGenerationSettings;
+import jolt9001.causalchaos.library.worldgen.CCGenerationSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;

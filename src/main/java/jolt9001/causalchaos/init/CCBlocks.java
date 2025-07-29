@@ -117,7 +117,7 @@ public final class CCBlocks {
     public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILE_SLAB = registerBlock("cracked_transcendent_stone_tile_slab", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_SLAB)));
     public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILE_STAIRS = registerBlock("cracked_transcendent_stone_tile_stairs", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_STAIRS)));
     public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILE_WALL = registerBlock("cracked_transcendent_stone_tile_wall", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_WALL)));
-*/
+    */
     // Portal Block
     public static final RegistryObject<Block> TRANSCENDENT_GATEWAY = registerBlock("transcendent_gateway",
             () -> new TranscendentPortalBlock(BlockBehaviour.Properties.of().noLootTable().noCollission().randomTicks().strength(-1.0f)
