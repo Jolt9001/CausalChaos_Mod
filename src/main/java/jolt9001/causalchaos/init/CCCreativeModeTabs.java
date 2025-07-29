@@ -72,6 +72,35 @@ public class CCCreativeModeTabs {
                 pOutput.accept(CCBlocks.T1_CORE_SHIELDING.get());
                 pOutput.accept(CCBlocks.T2_CORE_SHIELDING.get());
                 pOutput.accept(CCBlocks.T3_CORE_SHIELDING.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_SLAB.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_STAIRS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_WALL.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_COBBLESTONE.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_COBBLESTONE_SLAB.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_COBBLESTONE_STAIRS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_COBBLESTONE_WALL.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_SMOOTH_STONE.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_SMOOTH_STONE_SLAB.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_SMOOTH_STONE_STAIRS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_SMOOTH_STONE_WALL.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_BRICKS.get());
+                pOutput.accept(CCBlocks.CHISELED_TRANSCENDENT_STONE_BRICKS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_BRICK_SLAB.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_BRICK_STAIRS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_BRICK_WALL.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICKS.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_SLAB.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_STAIRS.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_WALL.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_TILES.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_TILE_SLAB.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_TILE_STAIRS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_STONE_TILE_WALL.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILES.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_SLAB.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_STAIRS.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_WALL.get());
             }).build());
 
     public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("items", () -> CreativeModeTab.builder()
