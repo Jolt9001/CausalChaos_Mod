@@ -3,7 +3,7 @@ package jolt9001.causalchaos.library.portal;
 import com.google.common.collect.Maps;
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.init.CCBlocks;
-import jolt9001.causalchaos.library.world.registration.CCGenerationSettings;
+import jolt9001.causalchaos.library.worldgen.registration.CCGenerationSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;

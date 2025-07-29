@@ -2,7 +2,7 @@ package jolt9001.causalchaos.library.portal;
 
 import jolt9001.causalchaos.CCConfig;
 import jolt9001.causalchaos.init.CCSounds;
-import jolt9001.causalchaos.library.world.registration.CCGenerationSettings;
+import jolt9001.causalchaos.library.worldgen.registration.CCGenerationSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -30,9 +30,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.apache.commons.lang3.mutable.MutableInt;
-
-import java.util.Map;
 
 public class TranscendentPortalBlock extends Block {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;

@@ -29,13 +29,15 @@ public class DataGenerators {
             // Advancements
         gen.addProvider(event.includeServer(), new CCAdvancementProvider(out, prov, help));
             // Loot Tables
-        // gen.addProvider(event.includeServer(), new CCLootTableProvider(out));
+        gen.addProvider(event.includeServer(), CCLootTableProvider.create(out));
             // Tags
         BlockTagGenerator blocktags = new BlockTagGenerator(out, prov, help);
         gen.addProvider(event.includeServer(), blocktags);
         gen.addProvider(event.includeServer(), new ItemTagGenerator(out, prov, blocktags.contentsGetter(), help));
         // Client side: Sounds, Block/Item Models, Particles
             // Sounds
+        // gen.addProvider(event.includeClient(), new CCSoundProvider(out, help));
+            // BlockStates
         gen.addProvider(event.includeClient(), new BlockstateGenerator(out, help));
             // Models
         gen.addProvider(event.includeClient(), new CCItemModelProvider(out, help));

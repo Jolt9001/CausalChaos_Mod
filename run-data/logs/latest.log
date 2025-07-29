@@ -1,32 +1,34 @@
-[27Jul2025 16:43:17.437] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 8, --assetsDir, C:\Users\Owner\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 48.1.0, --fml.mcVersion, 1.20.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230921.100330, --mod, causalchaos, --all, --output, C:\Users\Owner\Documents\NetBeansProjects\CausalChaos_Mod\src\generated\resources, --existing, C:\Users\Owner\Documents\NetBeansProjects\CausalChaos_Mod\src\main\resources]
-[27Jul2025 16:43:17.440] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.10+7
-[27Jul2025 16:43:17.444] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.1.1 starting: java version 17.0.10 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
-[27Jul2025 16:43:17.586] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
-[27Jul2025 16:43:17.657] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Owner/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23127!/ Service=ModLauncher Env=UNKNOWN
-[27Jul2025 16:43:17.968] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.2-48.1.0\7a8d252b70bac3cde4ec0e82bd816fe0212551d\fmlcore-1.20.2-48.1.0.jar is missing mods.toml file
-[27Jul2025 16:43:17.980] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.2-48.1.0\d034c6f69f1f1cf324bdd7bbc66896e67990bbef\javafmllanguage-1.20.2-48.1.0.jar is missing mods.toml file
-[27Jul2025 16:43:17.991] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.2-48.1.0\ac35e86aee5633ea200ae1607b4ca48b24cd845\lowcodelanguage-1.20.2-48.1.0.jar is missing mods.toml file
-[27Jul2025 16:43:18.002] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.2-48.1.0\7ddb9ee7a72eb906db86ca9490f35be1789c2813\mclanguage-1.20.2-48.1.0.jar is missing mods.toml file
-[27Jul2025 16:43:18.087] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[27Jul2025 16:43:20.322] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\Owner\.gradle\caches\forge_gradle\assets, --assetIndex, 8, --mod, causalchaos, --all, --output, C:\Users\Owner\Documents\NetBeansProjects\CausalChaos_Mod\src\generated\resources, --existing, C:\Users\Owner\Documents\NetBeansProjects\CausalChaos_Mod\src\main\resources]
-[27Jul2025 16:43:25.585] [modloading-worker-0/INFO] [jolt9001.causalchaos.CausalChaos/]: Loading Causal Chaos...
-[27Jul2025 16:43:25.586] [modloading-worker-0/INFO] [jolt9001.causalchaos.CausalChaos/]: Me when the mod startup
-[27Jul2025 16:43:25.621] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 48.1.0, for MC 1.20.2 with MCP 20230921.100330
-[27Jul2025 16:43:25.626] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v48.1.0 Initialized
-[27Jul2025 16:43:26.389] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [causalchaos]
-[27Jul2025 16:43:26.465] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Owner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.2-48.1.0_mapped_parchment_2023.10.08-1.20.2/forge-1.20.2-48.1.0_mapped_parchment_2023.10.08-1.20.2.jar%23188!/assets/.mcassetsroot' uses unexpected schema
-[27Jul2025 16:43:26.465] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Owner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.2-48.1.0_mapped_parchment_2023.10.08-1.20.2/forge-1.20.2-48.1.0_mapped_parchment_2023.10.08-1.20.2.jar%23188!/data/.mcassetsroot' uses unexpected schema
-[27Jul2025 16:43:26.804] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[27Jul2025 16:43:27.187] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 379 ms
-[27Jul2025 16:43:27.188] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Advancements
-[27Jul2025 16:43:27.486] [main/INFO] [net.minecraft.data.DataGenerator/]: Advancements finished after 297 ms
-[27Jul2025 16:43:27.486] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id causalchaos
-[27Jul2025 16:43:27.503] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id causalchaos finished after 16 ms
-[27Jul2025 16:43:27.503] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id causalchaos
-[27Jul2025 16:43:27.514] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id causalchaos finished after 10 ms
-[27Jul2025 16:43:27.514] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: causalchaos
-[27Jul2025 16:43:27.514] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: causalchaos finished after 0 ms
-[27Jul2025 16:43:27.515] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: causalchaos
-[27Jul2025 16:43:28.035] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: causalchaos finished after 520 ms
-[27Jul2025 16:43:28.035] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 1231 ms
-[27Jul2025 16:43:28.243] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 781, old count: 775, new count: 782, removed stale: 0, written: 6
+[29Jul2025 11:29:45.920] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forge_userdev_data, --assetIndex, 8, --assetsDir, C:\Users\Owner\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 48.1.0, --fml.mcVersion, 1.20.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230921.100330, --mod, causalchaos, --all, --output, C:\Users\Owner\Documents\NetBeansProjects\CausalChaos_Mod\src\generated\resources, --existing, C:\Users\Owner\Documents\NetBeansProjects\CausalChaos_Mod\src\main\resources]
+[29Jul2025 11:29:45.923] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 17.0.10+7
+[29Jul2025 11:29:45.925] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.1.1 starting: java version 17.0.10 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[29Jul2025 11:29:46.051] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forge_userdev_data
+[29Jul2025 11:29:46.108] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Owner/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23127!/ Service=ModLauncher Env=UNKNOWN
+[29Jul2025 11:29:46.432] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.2-48.1.0\7a8d252b70bac3cde4ec0e82bd816fe0212551d\fmlcore-1.20.2-48.1.0.jar is missing mods.toml file
+[29Jul2025 11:29:46.444] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.2-48.1.0\d034c6f69f1f1cf324bdd7bbc66896e67990bbef\javafmllanguage-1.20.2-48.1.0.jar is missing mods.toml file
+[29Jul2025 11:29:46.455] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.2-48.1.0\ac35e86aee5633ea200ae1607b4ca48b24cd845\lowcodelanguage-1.20.2-48.1.0.jar is missing mods.toml file
+[29Jul2025 11:29:46.465] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.2-48.1.0\7ddb9ee7a72eb906db86ca9490f35be1789c2813\mclanguage-1.20.2-48.1.0.jar is missing mods.toml file
+[29Jul2025 11:29:46.536] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[29Jul2025 11:29:48.815] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forge_userdev_data' with arguments [--gameDir, ., --assetsDir, C:\Users\Owner\.gradle\caches\forge_gradle\assets, --assetIndex, 8, --mod, causalchaos, --all, --output, C:\Users\Owner\Documents\NetBeansProjects\CausalChaos_Mod\src\generated\resources, --existing, C:\Users\Owner\Documents\NetBeansProjects\CausalChaos_Mod\src\main\resources]
+[29Jul2025 11:29:53.682] [modloading-worker-0/INFO] [jolt9001.causalchaos.CausalChaos/]: Loading Causal Chaos...
+[29Jul2025 11:29:53.683] [modloading-worker-0/INFO] [jolt9001.causalchaos.CausalChaos/]: Me when the mod startup
+[29Jul2025 11:29:53.705] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 48.1.0, for MC 1.20.2 with MCP 20230921.100330
+[29Jul2025 11:29:53.709] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v48.1.0 Initialized
+[29Jul2025 11:29:54.171] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [causalchaos]
+[29Jul2025 11:29:54.222] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Owner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.2-48.1.0_mapped_parchment_2023.10.08-1.20.2/forge-1.20.2-48.1.0_mapped_parchment_2023.10.08-1.20.2.jar%23188!/assets/.mcassetsroot' uses unexpected schema
+[29Jul2025 11:29:54.222] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Owner/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.2-48.1.0_mapped_parchment_2023.10.08-1.20.2/forge-1.20.2-48.1.0_mapped_parchment_2023.10.08-1.20.2.jar%23188!/data/.mcassetsroot' uses unexpected schema
+[29Jul2025 11:29:54.405] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[29Jul2025 11:29:54.482] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 76 ms
+[29Jul2025 11:29:54.482] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Advancements
+[29Jul2025 11:29:54.615] [main/INFO] [net.minecraft.data.DataGenerator/]: Advancements finished after 132 ms
+[29Jul2025 11:29:54.615] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[29Jul2025 11:29:54.672] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 56 ms
+[29Jul2025 11:29:54.672] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id causalchaos
+[29Jul2025 11:29:54.686] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id causalchaos finished after 13 ms
+[29Jul2025 11:29:54.686] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id causalchaos
+[29Jul2025 11:29:54.694] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id causalchaos finished after 7 ms
+[29Jul2025 11:29:54.694] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: causalchaos
+[29Jul2025 11:29:54.694] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: causalchaos finished after 0 ms
+[29Jul2025 11:29:54.694] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: causalchaos
+[29Jul2025 11:29:55.160] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: causalchaos finished after 465 ms
+[29Jul2025 11:29:55.160] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 755 ms
+[29Jul2025 11:29:55.374] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 847, old count: 781, new count: 836, removed stale: 12, written: 54

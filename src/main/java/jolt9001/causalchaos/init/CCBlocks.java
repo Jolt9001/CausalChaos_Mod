@@ -69,29 +69,58 @@ public final class CCBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE).strength(3f)
                     .requiresCorrectToolForDrops(), ConstantInt.of(0)));
 
-    // Raw ore blocks
-    public static final RegistryObject<Block> RAW_COBALT_BLOCK = registerBlock("raw_cobalt_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistryObject<Block> RAW_IRIDIUM_BLOCK = registerBlock("raw_iridium_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistryObject<Block> RAW_NEODYMIUM_BLOCK = registerBlock("raw_neodymium_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistryObject<Block> RAW_PALLADIUM_BLOCK = registerBlock("raw_palladium_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistryObject<Block> RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistryObject<Block> RAW_TUNGSTEN_BLOCK = registerBlock("raw_tungsten_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-
     // Terrain Blocks
     public static final RegistryObject<Block> REALMWEAVE_BLOCK = registerBlock("realmweave_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
-    public static final RegistryObject<Block> QUANTUM_FABRIC = registerBlock("quantum_fabric",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+/*
+    public static final RegistryObject<Block> TRANSCENDENT_SOIL = registerBlock("transcendent_dirt_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
+    public static final RegistryObject<Block> TRANSCENDENT_TURF = registerBlock("transcendent_grass_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE = registerBlock("transcendent_stone_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+*/
+    // Decoration Blocks
+    public static final RegistryObject<Block> QUANTUM_FABRIC = registerBlock("quantum_fabric", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+/*
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_SLAB = registerBlock("transcendent_stone_slab", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_SLAB)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_STAIRS = registerBlock("transcendent_stone_stairs", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_WALL = registerBlock("transcendent_stone_wall", () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
 
+    public static final RegistryObject<Block> TRANSCENDENT_SMOOTH_STONE = registerBlock("transcendent_smooth_stone_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE)));
+    public static final RegistryObject<Block> TRANSCENDENT_SMOOTH_STONE_SLAB = registerBlock("transcendent_smooth_stone_slab", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE_SLAB)));
+    public static final RegistryObject<Block> TRANSCENDENT_SMOOTH_STONE_STAIRS = registerBlock("transcendent_smooth_stone_stairs", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)));
+    public static final RegistryObject<Block> TRANSCENDENT_SMOOTH_STONE_WALL = registerBlock("transcendent_smooth_stone_wall", () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
+
+    public static final RegistryObject<Block> TRANSCENDENT_COBBLESTONE = registerBlock("transcendent_cobblestone_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE)));
+    public static final RegistryObject<Block> TRANSCENDENT_COBBLESTONE_SLAB = registerBlock("transcendent_cobblestone_slab", () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_SLAB)));
+    public static final RegistryObject<Block> TRANSCENDENT_COBBLESTONE_STAIRS = registerBlock("transcendent_cobblestone_stairs", () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_STAIRS)));
+    public static final RegistryObject<Block> TRANSCENDENT_COBBLESTONE_WALL = registerBlock("transcendent_cobblestone_wall", () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
+
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_BRICKS = registerBlock("transcendent_stone_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_BRICK_SLAB = registerBlock("transcendent_stone_brick_slab", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_SLAB)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_BRICK_STAIRS = registerBlock("transcendent_stone_brick_stairs", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_SLAB)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_BRICK_WALL = registerBlock("transcendent_stone_brick_wall", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_WALL)));
+    public static final RegistryObject<Block> CHISELED_TRANSCENDENT_STONE_BRICKS = registerBlock("chiseled_transcendent_stone_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CHISELED_STONE_BRICKS)));
+
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_BRICKS = registerBlock("cracked_transcendent_stone_bricks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRACKED_STONE_BRICKS)));
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_BRICK_SLAB = registerBlock("cracked_transcendent_stone_brick_slab", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_SLAB)));
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_BRICK_STAIRS = registerBlock("cracked_transcendent_stone_brick_stairs", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_SLAB)));
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_BRICK_WALL = registerBlock("cracked_transcendent_stone_brick_wall", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_WALL)));
+
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_TILES = registerBlock("transcendent_stone_tiles", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILES)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_TILE_SLAB = registerBlock("transcendent_stone_tile_slab", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_SLAB)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_TILE_STAIRS = registerBlock("transcendent_stone_tile_stairs", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_STAIRS)));
+    public static final RegistryObject<Block> TRANSCENDENT_STONE_TILE_WALL = registerBlock("transcendent_stone_tile_wall", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_WALL)));
+
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILES = registerBlock("cracked_transcendent_stone_tiles", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRACKED_DEEPSLATE_TILES)));
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILE_SLAB = registerBlock("cracked_transcendent_stone_tile_slab", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_SLAB)));
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILE_STAIRS = registerBlock("cracked_transcendent_stone_tile_stairs", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_STAIRS)));
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILE_WALL = registerBlock("cracked_transcendent_stone_tile_wall", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_WALL)));
+*/
     // Portal Block
     public static final RegistryObject<Block> TRANSCENDENT_GATEWAY = registerBlock("transcendent_gateway",
-            () -> new TranscendentPortalBlock(BlockBehaviour.Properties.of().noCollission().randomTicks().strength(-1.0f)
+            () -> new TranscendentPortalBlock(BlockBehaviour.Properties.of().noLootTable().noCollission().randomTicks().strength(-1.0f)
                     .sound(SoundType.GLASS).lightLevel(CCBlocks::lightLevel15).pushReaction(PushReaction.BLOCK).forceSolidOn()));
 
     // Resource
@@ -114,6 +143,19 @@ public final class CCBlocks {
     public static final RegistryObject<Block> TITANIUM_BLOCK = registerBlock("titanium_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> TUNGSTEN_BLOCK = registerBlock("tungsten_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> RAW_COBALT_BLOCK = registerBlock("raw_cobalt_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> RAW_IRIDIUM_BLOCK = registerBlock("raw_iridium_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> RAW_NEODYMIUM_BLOCK = registerBlock("raw_neodymium_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> RAW_PALLADIUM_BLOCK = registerBlock("raw_palladium_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> RAW_TITANIUM_BLOCK = registerBlock("raw_titanium_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> RAW_TUNGSTEN_BLOCK = registerBlock("raw_tungsten_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     // Machine

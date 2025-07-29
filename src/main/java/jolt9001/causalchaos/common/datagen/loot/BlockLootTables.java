@@ -14,6 +14,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 import java.util.Set;
@@ -44,8 +45,13 @@ public class BlockLootTables extends BlockLootSubProvider {
 
         this.add(CCBlocks.REALMWEAVE_BLOCK.get(), block -> createOreDrops(CCBlocks.REALMWEAVE_BLOCK.get(), CCItems.ABYSS_STRING.get()));
 
+        // Decoration Blocks
+        this.dropSelf(CCBlocks.QUANTUM_FABRIC.get());
+
+
         // Resource blocks
         this.dropSelf(CCBlocks.ANTHRACITE_BLOCK.get());
+        this.dropSelf(CCBlocks.MAGNETITE_BLOCK.get());
         this.dropSelf(CCBlocks.COBALT_BLOCK.get());
         this.dropSelf(CCBlocks.IRIDIUM_BLOCK.get());
         this.dropSelf(CCBlocks.NEODYMIUM_BLOCK.get());
@@ -55,11 +61,34 @@ public class BlockLootTables extends BlockLootSubProvider {
         this.dropSelf(CCBlocks.TITANIUM_BLOCK.get());
         this.dropSelf(CCBlocks.TUNGSTEN_BLOCK.get());
 
+        this.dropSelf(CCBlocks.RAW_COBALT_BLOCK.get());
+        this.dropSelf(CCBlocks.RAW_IRIDIUM_BLOCK.get());
+        this.dropSelf(CCBlocks.RAW_NEODYMIUM_BLOCK.get());
+        this.dropSelf(CCBlocks.RAW_PALLADIUM_BLOCK.get());
+        this.dropSelf(CCBlocks.RAW_TITANIUM_BLOCK.get());
+        this.dropSelf(CCBlocks.RAW_TUNGSTEN_BLOCK.get());
+
         // Machines
+        this.dropSelf(CCBlocks.FUSION_CORE.get());
         this.dropSelf(CCBlocks.T0_STARFORGE.get());
+        this.dropSelf(CCBlocks.T1_CORE_SHIELDING.get());
+        this.dropSelf(CCBlocks.T1_ELECTROMAGNET.get());
+        this.dropSelf(CCBlocks.T1_HEAT_SINK.get());
+        this.dropSelf(CCBlocks.T1_HOPPER.get());
         this.dropSelf(CCBlocks.T1_STARFORGE.get());
+        this.dropSelf(CCBlocks.T1_S_HOPPER.get());
+        this.dropSelf(CCBlocks.T2_CORE_SHIELDING.get());
+        this.dropSelf(CCBlocks.T2_ELECTROMAGNET.get());
+        this.dropSelf(CCBlocks.T2_HEAT_SINK.get());
+        this.dropSelf(CCBlocks.T2_HOPPER.get());
         this.dropSelf(CCBlocks.T2_STARFORGE.get());
+        this.dropSelf(CCBlocks.T2_S_HOPPER.get());
+        this.dropSelf(CCBlocks.T3_CORE_SHIELDING.get());
+        this.dropSelf(CCBlocks.T3_ELECTROMAGNET.get());
+        this.dropSelf(CCBlocks.T3_HEAT_SINK.get());
+        this.dropSelf(CCBlocks.T3_HOPPER.get());
         this.dropSelf(CCBlocks.T3_STARFORGE.get());
+        this.dropSelf(CCBlocks.T3_S_HOPPER.get());
 
         // Gadgets
         this.dropSelf(CCBlocks.DIMENSIONAL_ANCHOR.get());
@@ -70,5 +99,10 @@ public class BlockLootTables extends BlockLootSubProvider {
         return createSilkTouchDispatchTable(block,
                 this.applyExplosionDecay(block, LootItem.lootTableItem(item)
                         .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+    }
+
+    @Override
+    protected Iterable<Block> getKnownBlocks() {
+        return CCBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }
