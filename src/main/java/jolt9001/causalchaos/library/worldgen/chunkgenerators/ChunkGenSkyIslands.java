@@ -1,6 +1,6 @@
 package jolt9001.causalchaos.library.worldgen.chunkgenerators;
 
-public class SkyIslands {
+public class ChunkGenSkyIslands {
 
     /**
      * similar to the Aether mod

@@ -1,11 +1,16 @@
 package jolt9001.causalchaos.library.worldgen.registration;
 
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.library.worldgen.chunkgenerators.ChunkGenFinal;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.LevelStem;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class CCGenerationSettings {
     //@Deprecated
@@ -42,5 +47,15 @@ public class CCGenerationSettings {
     }
     public static boolean isParallelDestination(Level level) {
         return DIMENSION_PARALLEL.equals(level.dimension().location());
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public static boolean isFinalWorldOnClient(Level level) {
+        return CausalChaos.MODID.equals(Minecraft.getInstance().level.dimension().location().getNamespace()) || isFinalDestination(level);
+    }
+
+    // Checks if the world is *a* Twilight world on the Server side.
+    public static boolean usesFinalChunkGenerator(ServerLevel level) {
+        return level.getChunkSource().getGenerator() instanceof ChunkGenFinal;
     }
 }

@@ -1,6 +1,6 @@
 package jolt9001.causalchaos.library.worldgen.chunkgenerators;
 
-public class Limbo {
+public class ChunkGenLimbo {
     /**
      * similar generation to the Limbo dimension from DimensionalDoors
      * change the terrain gen a bit to avoid copying directly
