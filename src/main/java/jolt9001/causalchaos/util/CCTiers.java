@@ -42,35 +42,35 @@ public class CCTiers {
             new ForgeTier(4, 3207, 9, 5, 20,
                     BlockTags.create(CausalChaos.prefix("needs_iridium_tool")),
                     () -> Ingredient.of(CCItems.IRIDIUM_INGOT.get())),
-            CausalChaos.prefix("iridium"), List.of(Tiers.NETHERITE), List.of());
+            CausalChaos.prefix("iridium"), List.of(Tiers.NETHERITE), List.of(CCTiers.THUNDERSTEEL));
 
     public static final Tier TUNGSTEN = TierSortingRegistry.registerTier(
             new ForgeTier(4, 4096, 8, 5, 15,
                     BlockTags.create(CausalChaos.prefix("needs_tungsten_tool")),
                     () -> Ingredient.of(CCItems.TUNGSTEN_INGOT.get())),
-            CausalChaos.prefix("tungsten"), List.of(Tiers.NETHERITE), List.of());
+            CausalChaos.prefix("tungsten"), List.of(Tiers.NETHERITE), List.of(CCTiers.THUNDERSTEEL));
 
     public static final Tier THUNDERSTEEL = TierSortingRegistry.registerTier(
             new ForgeTier(4, 5137, 13,6, 13,
                     BlockTags.create(CausalChaos.prefix("needs_thundersteel_tool")),
                     () -> Ingredient.of(CCItems.THUNDERSTEEL_INGOT.get())),
-            CausalChaos.prefix("thundersteel"), List.of(Tiers.NETHERITE), List.of());
+            CausalChaos.prefix("thundersteel"), List.of(CCTiers.TUNGSTEN), List.of(CCTiers.INFUSED_THUNDERSTEEL));
 
     public static final Tier INFUSED_THUNDERSTEEL = TierSortingRegistry.registerTier(
             new ForgeTier(4, 10274,18,9, 15,
                     BlockTags.create(CausalChaos.prefix("needs_infused_thundersteel_tool")),
                     () -> Ingredient.of(CCItems.PERPLEXIUM_NUGGET.get())),
-            CausalChaos.prefix("infused_thundersteel"), List.of(Tiers.NETHERITE), List.of());
+            CausalChaos.prefix("infused_thundersteel"), List.of(CCTiers.THUNDERSTEEL), List.of(CCTiers.PERPLEXIUM));
 
     public static final Tier PERPLEXIUM = TierSortingRegistry.registerTier(
             new ForgeTier(4, 15411, 20, 11, 15,
                     BlockTags.create(CausalChaos.prefix("needs_perplexium_tool")),
                     () -> Ingredient.of(CCItems.PERPLEXIUM_INGOT.get())),
-            CausalChaos.prefix("perplexium"), List.of(Tiers.NETHERITE), List.of());
+            CausalChaos.prefix("perplexium"), List.of(CCTiers.INFUSED_THUNDERSTEEL), List.of(CCTiers.SUPERWEAPON));
 
     public static final Tier SUPERWEAPON = TierSortingRegistry.registerTier(
             new ForgeTier(5, Integer.MAX_VALUE, 20, 15, 0,
                     BlockTags.create(CausalChaos.prefix("needs_superweapon")),
                     Ingredient::of),
-            CausalChaos.prefix("superweapon"), List.of(), List.of());
+            CausalChaos.prefix("superweapon"), List.of(CCTiers.PERPLEXIUM), List.of());
 }
