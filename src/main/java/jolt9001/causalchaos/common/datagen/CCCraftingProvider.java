@@ -5,6 +5,8 @@ import jolt9001.causalchaos.common.datagen.helpers.CraftingDataHelper;
 import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
 import jolt9001.causalchaos.init.CCBlocks;
 import jolt9001.causalchaos.init.CCItems;
+import jolt9001.causalchaos.library.recipe.builders.StarforgeAloneRecipeBuilder.*;
+import jolt9001.causalchaos.library.recipe.builders.StarforgeMultiblockRecipeBuilder.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
@@ -128,6 +130,21 @@ public class CCCraftingProvider extends CraftingDataHelper {
                 .define('d', CCBlocks.DIMENSIONAL_ANCHOR.get())
                 .unlockedBy("has_item", has(CCBlocks.DIMENSIONAL_ANCHOR.get()))
                 .save(out, CausalChaos.prefix("blocks/wormhole_stabilizer"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CCBlocks.T1_S_HOPPER.get())
+                .requires(CCBlocks.T1_HOPPER.get())
+                .requires(Blocks.CHEST)
+                .unlockedBy("has_item", has(CCBlocks.T1_HOPPER.get()))
+                .save(out, CausalChaos.prefix("machines/t1_s_hopper"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CCBlocks.T2_S_HOPPER.get())
+                .requires(CCBlocks.T2_HOPPER.get())
+                .requires(Blocks.CHEST)
+                .unlockedBy("has_item", has(CCBlocks.T2_HOPPER.get()))
+                .save(out, CausalChaos.prefix("machines/t1_s_hopper"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CCBlocks.T3_S_HOPPER.get())
+                .requires(CCBlocks.T3_HOPPER.get())
+                .requires(Blocks.CHEST)
+                .unlockedBy("has_item", has(CCBlocks.T3_HOPPER.get()))
+                .save(out, CausalChaos.prefix("machines/t1_s_hopper"));
 /*
         StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_CORE_SHIELDING.get(), 10, 3)
                 .pattern("wiw")
@@ -136,8 +153,35 @@ public class CCCraftingProvider extends CraftingDataHelper {
                 .define('w', CCItems.TUNGSTEN_INGOT.get())
                 .define('i', CCItems.IRIDIUM_INGOT.get())
                 .define('n', Items.NETHERITE_INGOT)
+                .unlockedBy("has_item", has(CCItems.TUNGSTEN_INGOT.get()))
                 .save(out, CausalChaos.prefix("machines/t1_core_shield"));
-        StarforgeMultiblockShapedRecipeBuilder.shapedMulti(RecipeCategory.MISC, CCItems.THUNDERSTEEL_INGOT.get(), 10,3, 3)
+        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_ELECTROMAGNET.get(), 10, 3)
+                .pattern("nin")
+                .pattern("iri")
+                .pattern("nin")
+                .define('n', CCItems.NEODYMIUM_INGOT.get())
+                .define('i', CCItems.IRIDIUM_INGOT.get())
+                .define('r', Blocks.REDSTONE_BLOCK)
+                .unlockedBy("has_item", has(CCItems.IRIDIUM_INGOT.get()))
+                .save(out, CausalChaos.prefix(("machines/t1_electromagnet")));
+        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_HOPPER.get(), 10, 3)
+                .pattern("w w")
+                .pattern("nen")
+                .pattern(" w ")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('n', Items.NETHERITE_INGOT)
+                .define('e', CCBlocks.T1_ELECTROMAGNET.get())
+                .unlockedBy("has_item", has(CCBlocks.T1_ELECTROMAGNET.get()))
+                .save(out, CausalChaos.prefix("machines/t1_hopper"));
+        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_HEAT_SINK.get(), 10, 3)
+                .pattern("wnw")
+                .pattern(" w ")
+                .pattern("wnw")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('n', Items.NETHERITE_INGOT)
+                .unlockedBy("has_item", has(CCItems.TUNGSTEN_INGOT.get()))
+                .save(out, CausalChaos.prefix("machines/t1_heat_sink"));
+        StarforgeMultiblockShapedRecipeBuilder.shapedMulti(RecipeCategory.MISC, CCItems.THUNDERSTEEL_INGOT.get(), 10,3, 2, 1)
                 .pattern(" wfffw ")
                 .pattern("witctiw")
                 .pattern("ftppptf")
@@ -153,7 +197,24 @@ public class CCCraftingProvider extends CraftingDataHelper {
                 .define('p', CCItems.PALLADIUM_INGOT.get())
                 .define('n', CCItems.NEODYMIUM_INGOT.get())
                 .save(out, CausalChaos.prefix("items/thundersteel_ingot"));
- */
+        StarforgeMultiblockShapedRecipeBuilder.shapedMulti(RecipeCategory.MISC, CCItems.PERPLEXIUM_NUGGET.get(), 10,3, 3, 2)
+                .pattern(" wfffw ")
+                .pattern("witctiw")
+                .pattern("ftppptf")
+                .pattern("fcpnpcf")
+                .pattern("ftntntf")
+                .pattern("witctiw")
+                .pattern(" wfffw ")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('f', Items.IRON_INGOT)
+                .define('i', CCItems.IRIDIUM_INGOT.get())
+                .define('t', CCItems.TITANIUM_INGOT.get())
+                .define('c', CCItems.COBALT_INGOT.get())
+                .define('p', CCItems.PALLADIUM_INGOT.get())
+                .define('n', CCItems.NEODYMIUM_INGOT.get())
+                .save(out, CausalChaos.prefix("items/perplexium_nugget"));
+         */
+
     }
 
     private void equipmentRecipes(RecipeOutput out) {

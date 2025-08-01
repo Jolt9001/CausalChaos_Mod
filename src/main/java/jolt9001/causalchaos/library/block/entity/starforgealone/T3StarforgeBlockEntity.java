@@ -108,7 +108,7 @@ public class T3StarforgeBlockEntity extends BlockEntity implements MenuProvider 
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.jolt9001.causalchaos.tier_0_starforge");
+        return Component.translatable("block.causalchaos.starforge3");
     }
 
     @Nullable
@@ -120,7 +120,7 @@ public class T3StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
-        tag.putInt("t0_starforge.progress", progress);
+        tag.putInt("t3_starforge.progress", progress);
         super.saveAdditional(tag);
     }
 
@@ -128,7 +128,7 @@ public class T3StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     public void load(CompoundTag tag) {
         super.load(tag);
         itemHandler.deserializeNBT(tag.getCompound("inventory"));
-        progress = tag.getInt("t0_starforge.progress");
+        progress = tag.getInt("t3_starforge.progress");
     }
 
     public void tick(Level level1, BlockPos pos, BlockState state1) {

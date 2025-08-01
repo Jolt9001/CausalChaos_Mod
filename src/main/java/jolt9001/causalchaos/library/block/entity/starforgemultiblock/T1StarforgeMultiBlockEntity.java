@@ -110,8 +110,23 @@ public class T1StarforgeMultiBlockEntity extends BlockEntity implements MenuProv
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.jolt9001.causalchaos.tier_1_starforge");
+        return Component.translatable("block.causalchaos.starforge1");
     }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        tag.put("inventory", itemHandler.serializeNBT());
+        tag.putInt("t1_starforge.progress", progress);
+        super.saveAdditional(tag);
+    }
+
+    @Override
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        itemHandler.deserializeNBT(tag.getCompound("inventory"));
+        progress = tag.getInt("t1_starforge.progress");
+    }
+
 
     @Nullable
     @Override

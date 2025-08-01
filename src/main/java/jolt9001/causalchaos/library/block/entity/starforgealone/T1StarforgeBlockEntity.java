@@ -107,8 +107,9 @@ public class T1StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     @Override
+    @NotNull
     public Component getDisplayName() {
-        return Component.translatable("block.jolt9001.causalchaos.tier_1_starforge");
+        return Component.translatable("block.causalchaos.starforge1");
     }
 
     @Nullable
@@ -116,6 +117,21 @@ public class T1StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInv, Player player) {
         return new StarforgeAloneMenu(containerId, playerInv, this, this.data);
     }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        tag.put("inventory", itemHandler.serializeNBT());
+        tag.putInt("t1_starforge.progress", progress);
+        super.saveAdditional(tag);
+    }
+
+    @Override
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        itemHandler.deserializeNBT(tag.getCompound("inventory"));
+        progress = tag.getInt("t1_starforge.progress");
+    }
+
 
     public void tick(Level level1, BlockPos pos, BlockState state1) {
         if(hasRecipe()) {

@@ -108,7 +108,7 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.jolt9001.causalchaos.tier_0_starforge");
+        return Component.translatable("block.causalchaos.starforge0");
     }
 
     @Nullable

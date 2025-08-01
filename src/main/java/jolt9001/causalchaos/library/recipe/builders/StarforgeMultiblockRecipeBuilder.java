@@ -5,7 +5,6 @@ import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import jolt9001.causalchaos.init.CCRecipes;
-import jolt9001.causalchaos.library.recipe.recipes.AbstractStarforgeRecipe;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -15,12 +14,12 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.compress.utils.Lists;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.LinkedHashMap;
@@ -41,20 +40,22 @@ public class StarforgeMultiblockRecipeBuilder  {
         @Nullable
         private String group;
         private boolean showNotification = true;
+        private int tier;
 
-        public StarforgeMultiblockShapedRecipeBuilder(RecipeCategory category, Item result, int cookTime, float exp,  int count) {
+        public StarforgeMultiblockShapedRecipeBuilder(RecipeCategory category, Item result, int cookTime, float exp,  int count, int tier) {
             this.category = category;
             this.result = result.asItem();
             this.cookTime = cookTime;
             this.exp = exp;
             this.count = count;
+            this.tier = tier;
         }
 
-        public static StarforgeMultiblockShapedRecipeBuilder shapedSingle(RecipeCategory category, Item result, int cookTime, float exp) {
-            return shapedMulti(category, result, cookTime, exp, 1);
+        public static StarforgeMultiblockShapedRecipeBuilder shapedSingle(RecipeCategory category, Item result, int cookTime, float exp, int tier) {
+            return shapedMulti(category, result, cookTime, exp, 1, tier);
         }
-        public static StarforgeMultiblockShapedRecipeBuilder shapedMulti(RecipeCategory category, Item result, int cookTime, float exp, int count) {
-            return new StarforgeMultiblockShapedRecipeBuilder(category, result, cookTime, exp, count);
+        public static StarforgeMultiblockShapedRecipeBuilder shapedMulti(RecipeCategory category, Item result, int cookTime, float exp, int count, int tier) {
+            return new StarforgeMultiblockShapedRecipeBuilder(category, result, cookTime, exp, count, tier);
         }
 
         public StarforgeMultiblockShapedRecipeBuilder define(Character key, TagKey<Item> id) {
@@ -106,7 +107,7 @@ public class StarforgeMultiblockRecipeBuilder  {
             this.criteria.forEach(advancement$builder::addCriterion);
             finCons.accept(new ResultShaped(id, this.group, this.rows, this.count, this.result, this.exp, this.cookTime,
                     this.key, advancement$builder.build(id.withPrefix("recipes/" + this.category.getFolderName() + "/")),
-                    this.showNotification));
+                    this.showNotification, this.tier));
         }
 
         private void ensureValid(ResourceLocation id) {
@@ -148,9 +149,10 @@ public class StarforgeMultiblockRecipeBuilder  {
         private final Map<Character, Ingredient> key;
         private final AdvancementHolder advancement;
         private final boolean showNotification;
+        private final int tier;
 
         public ResultShaped(ResourceLocation id, String group, List<String> pattern, int count, Item result, float exp,
-                            int cookTime, Map<Character, Ingredient> key, AdvancementHolder advancement, boolean showNotification) {
+                            int cookTime, Map<Character, Ingredient> key, AdvancementHolder advancement, boolean showNotification, int tier) {
             this.id = id;
             this.group = group;
             this.result = result;
@@ -161,6 +163,7 @@ public class StarforgeMultiblockRecipeBuilder  {
             this.key = key;
             this.advancement = advancement;
             this.showNotification = showNotification;
+            this.tier = tier;
         }
 
         @Override
@@ -189,6 +192,7 @@ public class StarforgeMultiblockRecipeBuilder  {
             json.addProperty("experience", this.exp);
             json.addProperty("cookingtime", this.cookTime);
             json.addProperty("show_notification", this.showNotification);
+            json.addProperty("tier", this.tier);
         }
 
         @Override
@@ -218,21 +222,23 @@ public class StarforgeMultiblockRecipeBuilder  {
         private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
         @Nullable
         private String group;
+        private int tier;
 
-        public StarforgeMultiblockShapelessRecipeBuilder(RecipeCategory category, Item result, int cookTime, float exp, int count) {
+        public StarforgeMultiblockShapelessRecipeBuilder(RecipeCategory category, Item result, int cookTime, float exp, int count, int tier) {
             this.category = category;
             this.result = result.asItem();
             this.cookTime = cookTime;
             this.exp = exp;
             this.count = count;
+            this.tier = tier;
         }
 
-        public static StarforgeMultiblockShapelessRecipeBuilder shapelessSingle(RecipeCategory category, int cookTime, float exp, Item output) {
-            return shapelessMulti(category, output, cookTime, exp, 1);
+        public static StarforgeMultiblockShapelessRecipeBuilder shapelessSingle(RecipeCategory category, int cookTime, float exp, Item output, int tier) {
+            return shapelessMulti(category, output, cookTime, exp, 1, tier);
         }
 
-        public static StarforgeMultiblockShapelessRecipeBuilder shapelessMulti(RecipeCategory category, Item output, int cookTime, float exp, int count) {
-            return new StarforgeMultiblockShapelessRecipeBuilder(category, output, cookTime, exp, count);
+        public static StarforgeMultiblockShapelessRecipeBuilder shapelessMulti(RecipeCategory category, Item output, int cookTime, float exp, int count, int tier) {
+            return new StarforgeMultiblockShapelessRecipeBuilder(category, output, cookTime, exp, count, tier);
         }
 
         public StarforgeMultiblockShapelessRecipeBuilder requires(TagKey<Item> tag) {
@@ -277,7 +283,7 @@ public class StarforgeMultiblockRecipeBuilder  {
             this.criteria.forEach(advancement$builder::addCriterion);
             finRec.accept(new ResultShapeless(id, this.group, this.ingredients, this.result,
                     this.count, this.exp, this.cookTime,
-                    advancement$builder.build(id.withPrefix("recipes/" + this.category.getFolderName() + "/"))));
+                    advancement$builder.build(id.withPrefix("recipes/" + this.category.getFolderName() + "/")), this.tier));
         }
 
         private void ensureValid(ResourceLocation id) {
@@ -296,8 +302,9 @@ public class StarforgeMultiblockRecipeBuilder  {
         private final float exp;
         private final int cookTime;
         private final AdvancementHolder advancement;
+        private final int tier;
 
-        public ResultShapeless(ResourceLocation id, String group, List<Ingredient> ingredients, Item result, int count, float exp, int cookTime, AdvancementHolder advancement) {
+        public ResultShapeless(ResourceLocation id, String group, List<Ingredient> ingredients, Item result, int count, float exp, int cookTime, AdvancementHolder advancement, int tier) {
             this.id = id;
             this.group = group;
             this.result = result;
@@ -306,6 +313,7 @@ public class StarforgeMultiblockRecipeBuilder  {
             this.exp = exp;
             this.cookTime = cookTime;
             this.advancement = advancement;
+            this.tier = tier;
         }
         @Override
         public void serializeRecipeData(JsonObject json) {
@@ -332,13 +340,14 @@ public class StarforgeMultiblockRecipeBuilder  {
             }
             json.addProperty("experience", this.exp);
             json.addProperty("cookingtime", this.cookTime);
+            json.addProperty("tier", this.tier);
         }
 
         @Override
-        public RecipeSerializer<?> type() { return CCRecipes.STARFORGE_MULTIBLOCK_SERIALIZER.get(); }
+        public @NotNull RecipeSerializer<?> type() { return CCRecipes.STARFORGE_MULTIBLOCK_SERIALIZER.get(); }
 
         @Override
-        public ResourceLocation id() {
+        public @NotNull ResourceLocation id() {
             return this.id;
         }
 
