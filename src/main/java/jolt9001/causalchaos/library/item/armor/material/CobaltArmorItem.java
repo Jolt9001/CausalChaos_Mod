@@ -21,7 +21,7 @@ public class CobaltArmorItem extends ArmorItem {
         }
     }
     /*
-        @Override
+    @Override
 	public void initializeClient(Consumer<IClientItemExtensions> consumer) {
 		consumer.accept(ArmorRender.INSTANCE);
 	}
