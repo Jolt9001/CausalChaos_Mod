@@ -1,3 +1,6 @@
 {
-  "values": []
+  "values": [
+    "causalchaos:transcendent_dirt_block",
+    "causalchaos:transcendent_grass_block"
+  ]
 }

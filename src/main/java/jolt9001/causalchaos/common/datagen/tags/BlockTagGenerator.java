@@ -46,6 +46,10 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
     public static final TagKey<Block> ORES_ANTHRACITE = BlockTags.create(CausalChaos.prefix("ores/anthracite")); // Only spawns in Sky Island dimension
     public static final TagKey<Block> ORES_MAGNETITE = BlockTags.create(CausalChaos.prefix("ores/magnetite")); // Only spawns in Sky Island dimension
 
+    // Ore Replaceables
+    public static final TagKey<Block> FINAL_ORES_REPLACEABLES = BlockTags.create(CausalChaos.prefix("blocks/final_ores_replaceables")); // Transcendent's Plain ores
+    public static final TagKey<Block> REALMWEAVE_ORES_REPLACEABLES = BlockTags.create(CausalChaos.prefix("blocks/realmweave_ores_replaceables")); // Limbo ores
+
     // Starforge Machine Blocks
     public static final TagKey<Block> FUSION_CORE = BlockTags.create(CausalChaos.prefix("machines/fusion_core"));
     public static final TagKey<Block> STARFORGES = BlockTags.create(CausalChaos.prefix("machines/starforges"));
@@ -112,12 +116,12 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
         // Ores
         tag(ORES_ANTHRACITE).add(CCBlocks.ANTHRACITE_ORE.get());
         tag(ORES_MAGNETITE).add(CCBlocks.MAGNETITE_ORE.get());
-        tag(ORES_COBALT).add(CCBlocks.COBALT_ORE.get(), CCBlocks.DEEPSLATE_COBALT_ORE.get());
-        tag(ORES_IRIDIUM).add(CCBlocks.IRIDIUM_ORE.get(), CCBlocks.DEEPSLATE_IRIDIUM_ORE.get());
-        tag(ORES_NEODYMIUM).add(CCBlocks.NEODYMIUM_ORE.get(), CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get());
-        tag(ORES_PALLADIUM).add(CCBlocks.PALLADIUM_ORE.get(), CCBlocks.DEEPSLATE_PALLADIUM_ORE.get());
-        tag(ORES_TITANIUM).add(CCBlocks.TITANIUM_ORE.get(), CCBlocks.DEEPSLATE_TITANIUM_ORE.get());
-        tag(ORES_TUNGSTEN).add(CCBlocks.TUNGSTEN_ORE.get(), CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get());
+        tag(ORES_COBALT).add(CCBlocks.COBALT_ORE.get(), CCBlocks.DEEPSLATE_COBALT_ORE.get()/*, CCBlocks.TRANSCENDENT_COBALT_ORE.get()*/);
+        tag(ORES_IRIDIUM).add(CCBlocks.IRIDIUM_ORE.get(), CCBlocks.DEEPSLATE_IRIDIUM_ORE.get()/*, CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get()*/);
+        tag(ORES_NEODYMIUM).add(CCBlocks.NEODYMIUM_ORE.get(), CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get()/*, CCBlocks.TRANSCENDENT_NEODYMIUM_ORE.get()*/);
+        tag(ORES_PALLADIUM).add(CCBlocks.PALLADIUM_ORE.get(), CCBlocks.DEEPSLATE_PALLADIUM_ORE.get()/*, CCBlocks.TRANSCENDENT_PALLADIUM_ORE.get()*/);
+        tag(ORES_TITANIUM).add(CCBlocks.TITANIUM_ORE.get(), CCBlocks.DEEPSLATE_TITANIUM_ORE.get()/*, CCBlocks.TRANSCENDENT_TITANIUM_ORE.get()*/);
+        tag(ORES_TUNGSTEN).add(CCBlocks.TUNGSTEN_ORE.get(), CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get()/*, CCBlocks.TRANSCENDENT_TUNGSTEN_ORE.get()*/);
 
         // Starforge Blocks
         tag(FUSION_CORE).add(CCBlocks.FUSION_CORE.get());
@@ -192,13 +196,47 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
                 CCBlocks.T1_HOPPER.get(), CCBlocks.T2_HOPPER.get(), CCBlocks.T3_HOPPER.get(),
                 CCBlocks.T1_S_HOPPER.get(), CCBlocks.T2_S_HOPPER.get(), CCBlocks.T3_S_HOPPER.get(),
                 CCBlocks.T1_CORE_SHIELDING.get(), CCBlocks.T2_CORE_SHIELDING.get(), CCBlocks.T3_CORE_SHIELDING.get(),
-                CCBlocks.DIMENSIONAL_ANCHOR.get(), CCBlocks.WORMHOLE_STABILIZER.get(), CCBlocks.QUANTUM_FABRIC.get(), CCBlocks.REALMWEAVE_BLOCK.get()
+                CCBlocks.DIMENSIONAL_ANCHOR.get(), CCBlocks.WORMHOLE_STABILIZER.get(), CCBlocks.QUANTUM_FABRIC.get(), CCBlocks.REALMWEAVE_BLOCK.get(),
+                CCBlocks.TRANSCENDENT_STONE.get(), CCBlocks.TRANSCENDENT_COBBLESTONE.get(), CCBlocks.TRANSCENDENT_SMOOTH_STONE.get(),
+                CCBlocks.TRANSCENDENT_STONE_BRICKS.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICKS.get(), CCBlocks.CHISELED_TRANSCENDENT_STONE_BRICKS.get(),
+                CCBlocks.TRANSCENDENT_STONE_TILES.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_TILES.get(),
+                CCBlocks.TRANSCENDENT_STONE_SLAB.get(), CCBlocks.TRANSCENDENT_COBBLESTONE_SLAB.get(), CCBlocks.TRANSCENDENT_SMOOTH_STONE_SLAB.get(),
+                CCBlocks.TRANSCENDENT_STONE_BRICK_SLAB.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_SLAB.get(),
+                CCBlocks.TRANSCENDENT_STONE_TILE_SLAB.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_SLAB.get(),
+                CCBlocks.TRANSCENDENT_STONE_STAIRS.get(), CCBlocks.TRANSCENDENT_COBBLESTONE_STAIRS.get(), CCBlocks.TRANSCENDENT_SMOOTH_STONE_STAIRS.get(),
+                CCBlocks.TRANSCENDENT_STONE_BRICK_STAIRS.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_STAIRS.get(),
+                CCBlocks.TRANSCENDENT_STONE_TILE_STAIRS.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_STAIRS.get(),
+                CCBlocks.TRANSCENDENT_STONE_WALL.get(), CCBlocks.TRANSCENDENT_COBBLESTONE_WALL.get(), CCBlocks.TRANSCENDENT_SMOOTH_STONE_WALL.get(),
+                CCBlocks.TRANSCENDENT_STONE_BRICK_WALL.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_WALL.get(),
+                CCBlocks.TRANSCENDENT_STONE_TILE_WALL.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_WALL.get()
         );
-        tag(BlockTags.MINEABLE_WITH_SHOVEL);
+        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+                CCBlocks.TRANSCENDENT_SOIL.get(), CCBlocks.TRANSCENDENT_TURF.get()
+        );
 
         // Portal
         tag(TRANSCENDENT_PORTAL).add(CCBlocks.TRANSCENDENT_GATEWAY.get());
         tag(BlockTags.PORTALS).addTag(TRANSCENDENT_PORTAL);
 
+        // Terrain
+        tag(FINAL_ORES_REPLACEABLES).add(CCBlocks.TRANSCENDENT_STONE.get());
+        tag(REALMWEAVE_ORES_REPLACEABLES).add(CCBlocks.REALMWEAVE_BLOCK.get());
+
+        // Decorative
+        tag(BlockTags.SLABS).add(
+                CCBlocks.TRANSCENDENT_STONE_SLAB.get(), CCBlocks.TRANSCENDENT_COBBLESTONE_SLAB.get(), CCBlocks.TRANSCENDENT_SMOOTH_STONE_SLAB.get(),
+                CCBlocks.TRANSCENDENT_STONE_BRICK_SLAB.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_SLAB.get(),
+                CCBlocks.TRANSCENDENT_STONE_TILE_SLAB.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_SLAB.get()
+        );
+        tag(BlockTags.STAIRS).add(
+                CCBlocks.TRANSCENDENT_STONE_STAIRS.get(), CCBlocks.TRANSCENDENT_COBBLESTONE_STAIRS.get(), CCBlocks.TRANSCENDENT_SMOOTH_STONE_STAIRS.get(),
+                CCBlocks.TRANSCENDENT_STONE_BRICK_STAIRS.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_STAIRS.get(),
+                CCBlocks.TRANSCENDENT_STONE_TILE_STAIRS.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_STAIRS.get()
+        );
+        tag(BlockTags.WALLS).add(
+                CCBlocks.TRANSCENDENT_STONE_WALL.get(), CCBlocks.TRANSCENDENT_COBBLESTONE_WALL.get(), CCBlocks.TRANSCENDENT_SMOOTH_STONE_WALL.get(),
+                CCBlocks.TRANSCENDENT_STONE_BRICK_WALL.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_WALL.get(),
+                CCBlocks.TRANSCENDENT_STONE_TILE_WALL.get(), CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_WALL.get()
+        );
     }
 }

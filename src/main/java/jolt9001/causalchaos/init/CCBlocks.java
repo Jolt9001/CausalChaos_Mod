@@ -76,6 +76,28 @@ public final class CCBlocks {
     public static final RegistryObject<Block> TRANSCENDENT_STONE = registerBlock("transcendent_stone_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+    // Transcendent Stone Ores (NYI)
+    /*
+    public static final RegistryObject<Block> TRANSCENDENT_COBALT_ORE = registerBlock("transcendent_cobalt_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_STONE.get()).strength(3f)
+                    .requiresCorrectToolForDrops(), ConstantInt.of(0)));
+    public static final RegistryObject<Block> TRANSCENDENT_IRIDIUM_ORE = registerBlock("transcendent_iridium_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_STONE.get()).strength(3f)
+                    .requiresCorrectToolForDrops(), ConstantInt.of(0)));
+    public static final RegistryObject<Block> TRANSCENDENT_NEODYMIUM_ORE = registerBlock("transcendent_neodymium_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_STONE.get()).strength(3f)
+                    .requiresCorrectToolForDrops(), ConstantInt.of(0)));
+    public static final RegistryObject<Block> TRANSCENDENT_PALLADIUM_ORE = registerBlock("transcendent_palladium_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_STONE.get()).strength(3f)
+                    .requiresCorrectToolForDrops(), ConstantInt.of(0)));
+    public static final RegistryObject<Block> TRANSCENDENT_TITANIUM_ORE = registerBlock("transcendent_titanium_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_STONE.get()).strength(3f)
+                    .requiresCorrectToolForDrops(), ConstantInt.of(0)));
+    public static final RegistryObject<Block> TRANSCENDENT_TUNGSTEN_ORE = registerBlock("transcendent_tungsten_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_STONE.get()).strength(3f)
+                    .requiresCorrectToolForDrops(), ConstantInt.of(0)));
+     */
+
     // Decoration Blocks
     public static final RegistryObject<Block> QUANTUM_FABRIC = registerBlock("quantum_fabric", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
 

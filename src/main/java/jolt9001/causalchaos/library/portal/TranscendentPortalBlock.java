@@ -88,12 +88,12 @@ public class TranscendentPortalBlock extends Block {
             playerMP.setRespawnPosition(destinationKey, playerMP.blockPosition(), playerMP.getYRot(), true, false);
         }
     }
-
+/*
     @Override
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand) { // Animation
         int random = rand.nextInt(100);
-        // if (state.getValue(DISALLOW_RETURN) && random < 80) return;
+        if (state.getValue(DISALLOW_RETURN) && random < 80) return;
 
         if (random == 0) {
             level.playLocalSound(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, CCSounds.PORTAL_WHOOSH.get(), SoundSource.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
@@ -110,6 +110,8 @@ public class TranscendentPortalBlock extends Block {
             level.addParticle(ParticleTypes.PORTAL, xPos, yPos, zPos, xSpeed, ySpeed, zSpeed);
         }
     }
+ */
+
     @SuppressWarnings("deprecation")
     @Override
     public BlockState rotate(BlockState state, Rotation rotation) { // Portal rotation handler

@@ -4,7 +4,7 @@ import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.library.item.CausalityCrystalItem;
 import jolt9001.causalchaos.library.item.FuelItem;
 import jolt9001.causalchaos.library.item.armor.supermaterial.*;
-import jolt9001.causalchaos.library.item.enums.CCArmorMaterial;
+import jolt9001.causalchaos.library.enums.CCArmorMaterial;
 import jolt9001.causalchaos.library.item.tool.material.axe.*;
 import jolt9001.causalchaos.library.item.tool.material.hoe.*;
 import jolt9001.causalchaos.library.item.tool.material.pickaxe.*;

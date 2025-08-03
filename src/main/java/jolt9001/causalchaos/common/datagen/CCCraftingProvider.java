@@ -139,12 +139,12 @@ public class CCCraftingProvider extends CraftingDataHelper {
                 .requires(CCBlocks.T2_HOPPER.get())
                 .requires(Blocks.CHEST)
                 .unlockedBy("has_item", has(CCBlocks.T2_HOPPER.get()))
-                .save(out, CausalChaos.prefix("machines/t1_s_hopper"));
+                .save(out, CausalChaos.prefix("machines/t2_s_hopper"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, CCBlocks.T3_S_HOPPER.get())
                 .requires(CCBlocks.T3_HOPPER.get())
                 .requires(Blocks.CHEST)
                 .unlockedBy("has_item", has(CCBlocks.T3_HOPPER.get()))
-                .save(out, CausalChaos.prefix("machines/t1_s_hopper"));
+                .save(out, CausalChaos.prefix("machines/t3_s_hopper"));
 /*
         StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_CORE_SHIELDING.get(), 10, 3)
                 .pattern("wiw")

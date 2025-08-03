@@ -1,6 +1,7 @@
 package jolt9001.causalchaos.library.worldgen;
 
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.common.datagen.tags.BlockTagGenerator;
 import jolt9001.causalchaos.init.CCBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -32,11 +33,12 @@ public class CCConfiguedFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> TRANSCENDENT_TUNGSTEN_ORE_KEY = registerKey("transcendent_tungsten_ore");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SKY_ANTHRACITE_ORE_KEY = registerKey("anthracite_ore");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SKY_AMAGNETITE_ORE_KEY = registerKey("magnetite_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SKY_MAGNETITE_ORE_KEY = registerKey("magnetite_ore");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceable = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+        RuleTest finalReplaceables = new TagMatchTest(BlockTagGenerator.FINAL_ORES_REPLACEABLES);
 
         List<OreConfiguration.TargetBlockState> overworldCobaltOres = List.of(
                 OreConfiguration.target(stoneReplaceable, CCBlocks.COBALT_ORE.get().defaultBlockState()),
@@ -57,23 +59,33 @@ public class CCConfiguedFeatures {
                 OreConfiguration.target(stoneReplaceable, CCBlocks.TUNGSTEN_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get().defaultBlockState()));
 
-        register(context, OVERWORLD_COBALT_ORE_KEY, Feature.ORE, new OreConfiguration(overworldCobaltOres, 9));
-        register(context, OVERWORLD_IRIDIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldIridiumOres, 9));
+        /* ORES IN ORDER OF RARITY
+        Anthracite: 30 blobs per chunk in Sky Islands, blob size 17
+        Magnetite: 10 blobs per chunk in Sky Islands, blob size 9
+        Neodymium: 9 blobs per chunk, blob size 9 (Overworld); 18 blobs per chunk, blob size 13 (Transcendent's Plain)
+        Cobalt: 8 blobs per chunk, blob size 7 (Overworld); 17 blobs per chunk, blob size 11 (Transcendent's Plain)
+        Titanium: 7 blobs per chunk, blob size 6 (Overworld); 16 blobs per chunk, blob size 10 (Transcendent's Plain)
+        Tungsten: 5 blobs per chunk, blob size 6 (Overworld); 14 blobs per chunk, blob size 10 (Transcendent's Plain)
+        Palladium: 3 blobs per chunk in Overworld, blob size 5 (Overworld); 12 blobs per chunk, blob size 9 (Transcendent's Plain)
+        Iridium: 1 blob per chunk in Overworld, blob size 4 (Overworld); 10 blobs per chunk, blob size 8 (Transcendent's Plain)
+        */
+
         register(context, OVERWORLD_NEODYMIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldNeodymiumOres, 9));
-        register(context, OVERWORLD_PALLADIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldPalladiumOres, 9));
+        register(context, OVERWORLD_COBALT_ORE_KEY, Feature.ORE, new OreConfiguration(overworldCobaltOres, 7));
         register(context, OVERWORLD_TITANIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldTitaniumOres, 9));
-        register(context, OVERWORLD_TUNGSTEN_ORE_KEY, Feature.ORE, new OreConfiguration(overworldTungstenOres, 9));
-
-        register(context, SKY_AMAGNETITE_ORE_KEY, Feature.ORE, new OreConfiguration(stoneReplaceable, CCBlocks.ANTHRACITE_ORE.get().defaultBlockState(), 9));
-        register(context, SKY_AMAGNETITE_ORE_KEY, Feature.ORE, new OreConfiguration(stoneReplaceable, CCBlocks.MAGNETITE_ORE.get().defaultBlockState(), 9));
-
+        register(context, OVERWORLD_TUNGSTEN_ORE_KEY, Feature.ORE, new OreConfiguration(overworldTungstenOres, 6));
+        register(context, OVERWORLD_PALLADIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldPalladiumOres, 5));
+        register(context, OVERWORLD_IRIDIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldIridiumOres, 4));
 /*
-        register(context, TRANSCENDENT_COBALT_ORE_KEY, Feature.ORE, new OreConfiguration(overworldCobaltOres, 9));
-        register(context, TRANSCENDENT_IRIDIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldIridiumOres, 9));
-        register(context, TRANSCENDENT_NEODYMIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldNeodymiumOres, 9));
-        register(context, TRANSCENDENT_PALLADIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldPalladiumOres, 9));
-        register(context, TRANSCENDENT_TITANIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldTitaniumOres, 9));
-        register(context, TRANSCENDENT_TUNGSTEN_ORE_KEY, Feature.ORE, new OreConfiguration(overworldTungstenOres, 9));
+        register(context, SKY_ANTHRACITE_ORE_KEY, Feature.ORE, new OreConfiguration(stoneReplaceable, CCBlocks.ANTHRACITE_ORE.get().defaultBlockState(), 17));
+        register(context, SKY_MAGNETITE_ORE_KEY, Feature.ORE, new OreConfiguration(stoneReplaceable, CCBlocks.MAGNETITE_ORE.get().defaultBlockState(), 9));
+
+        register(context, TRANSCENDENT_NEODYMIUM_ORE_KEY, Feature.ORE, new OreConfiguration(finalReplaceables, CCBlocks.TRANSCENDENT_NEODYMIUM_ORE.get().defaultBlockState(), 13));
+        register(context, TRANSCENDENT_COBALT_ORE_KEY, Feature.ORE, new OreConfiguration(finalReplaceables, CCBlocks.TRANSCENDENT_COBALT_ORE.get().defaultBlockState(), 11));
+        register(context, TRANSCENDENT_TITANIUM_ORE_KEY, Feature.ORE, new OreConfiguration(finalReplaceables, CCBlocks.TRANSCENDENT_TITANIUM_ORE.get().defaultBlockState(), 10));
+        register(context, TRANSCENDENT_TUNGSTEN_ORE_KEY, Feature.ORE, new OreConfiguration(finalReplaceables, CCBlocks.TRANSCENDENT_TUNGSTEN_ORE.get().defaultBlockState(), 10));
+        register(context, TRANSCENDENT_PALLADIUM_ORE_KEY, Feature.ORE, new OreConfiguration(finalReplaceables, CCBlocks.TRANSCENDENT_PALLADIUM_ORE.get().defaultBlockState(), 9));
+        register(context, TRANSCENDENT_IRIDIUM_ORE_KEY, Feature.ORE, new OreConfiguration(finalReplaceables, CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get().defaultBlockState(), 8));
 
  */
     }

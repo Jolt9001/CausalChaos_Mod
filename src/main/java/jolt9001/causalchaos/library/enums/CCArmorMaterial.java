@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.item.enums;
+package jolt9001.causalchaos.library.enums;
 
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.init.CCItems;
@@ -17,10 +17,10 @@ public enum CCArmorMaterial implements ArmorMaterial {
             SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F, () -> Ingredient.of(CCItems.NEODYMIUM_INGOT.get())),
     ARMOR_PALLADIUM("palladium", 30, new int[] { 3, 6, 7, 3 }, 14,
             SoundEvents.ARMOR_EQUIP_IRON, 0F, 0.0F, () -> Ingredient.of(CCItems.PALLADIUM_INGOT.get())),
-    ARMOR_TITANIUM("titanium", 36, new int[] { 3, 6, 8, 3 }, 10,
-            SoundEvents.ARMOR_EQUIP_IRON, 1F, 0.0F, () -> Ingredient.of(CCItems.TITANIUM_INGOT.get())),
-    ARMOR_COBALT("cobalt", 43, new int[] { 3, 6, 8, 3 }, 30, SoundEvents.ARMOR_EQUIP_GOLD,
+    ARMOR_COBALT("cobalt", 36, new int[] { 3, 6, 8, 3 }, 30, SoundEvents.ARMOR_EQUIP_GOLD,
             2F, 0.0F, () -> Ingredient.of(CCItems.COBALT_INGOT.get())),
+    ARMOR_TITANIUM("titanium", 43, new int[] { 3, 6, 8, 3 }, 10,
+            SoundEvents.ARMOR_EQUIP_IRON, 1F, 0.0F, () -> Ingredient.of(CCItems.TITANIUM_INGOT.get())),
 
     /**
      * This is when stuff gets out of control... All the following armor sets are better than Netherite.
@@ -38,6 +38,16 @@ public enum CCArmorMaterial implements ArmorMaterial {
     // And now we're breaking minecraft... This is the best material in the mod. Temp because each supermaterial set is unique.
     ARMOR_SUPERMATERIAL("supermaterial", Integer.MAX_VALUE, new int[] {3, 6, 8, 3}, 0,
             SoundEvents.ARMOR_EQUIP_GENERIC, 25F, 5.0F, null);
+
+    /* BRINELL HARDNESS
+    Iron: 490 MPa (Comparison)
+    Neodymium: 265 MPa
+    Palladium: 37.2 MPa
+    Cobalt: 700 MPa
+    Titanium: 715 MPa
+    Iridium: 1670 MPa
+    Tungsten: 2570 MPa
+     */
 
     private final String name;
     private final int durabilityMult;

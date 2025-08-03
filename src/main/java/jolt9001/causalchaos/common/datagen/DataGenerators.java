@@ -23,7 +23,7 @@ public class DataGenerators {
 
         // Server Side: Worldgen. Recipes, Advancements, Loot Tables, Tags
             // Worldgen
-        // gen.addProvider(event.includeServer(), new WorldGenProvider(out, prov));
+        gen.addProvider(event.includeServer(), new CCWorldGenProvider(out, prov));
             // Recipes
         gen.addProvider(event.includeServer(), new CCCraftingProvider(out));
             // Advancements
