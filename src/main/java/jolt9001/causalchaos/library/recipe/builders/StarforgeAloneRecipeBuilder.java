@@ -226,11 +226,11 @@ public class StarforgeAloneRecipeBuilder {
             this.count = count;
         }
 
-        public StarforgeAloneShapelessRecipeBuilder shapelessSingle(RecipeCategory category, int cookTime, float exp, Item output) {
+        public static StarforgeAloneShapelessRecipeBuilder shapelessSingle(RecipeCategory category, int cookTime, float exp, Item output) {
             return shapelessMulti(category, output, cookTime, exp, 1);
         }
 
-        public StarforgeAloneShapelessRecipeBuilder shapelessMulti(RecipeCategory category, Item output, int cookTime, float exp, int count) {
+        public static StarforgeAloneShapelessRecipeBuilder shapelessMulti(RecipeCategory category, Item output, int cookTime, float exp, int count) {
             return new StarforgeAloneShapelessRecipeBuilder(category, output, cookTime, exp, count);
         }
 

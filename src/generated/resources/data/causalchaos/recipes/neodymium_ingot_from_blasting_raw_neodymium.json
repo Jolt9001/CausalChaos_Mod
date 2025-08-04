@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "neodyium",
+  "ingredient": {
+    "item": "causalchaos:raw_neodymium"
+  },
+  "result": "causalchaos:neodymium_ingot"
+}

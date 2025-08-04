@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_cobalt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:raw_cobalt"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "causalchaos:cobalt_ingot_from_blasting_raw_cobalt"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_cobalt"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "causalchaos:cobalt_ingot_from_blasting_raw_cobalt"
+    ]
+  },
+  "sends_telemetry_event": false
+}

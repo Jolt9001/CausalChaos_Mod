@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "neodyium",
+  "ingredient": {
+    "item": "causalchaos:deepslate_neodymium_ore"
+  },
+  "result": "causalchaos:neodymium_ingot"
+}

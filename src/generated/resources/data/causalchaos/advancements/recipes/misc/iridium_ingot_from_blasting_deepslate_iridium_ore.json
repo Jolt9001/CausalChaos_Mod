@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_iridium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:deepslate_iridium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "causalchaos:iridium_ingot_from_blasting_deepslate_iridium_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_deepslate_iridium_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "causalchaos:iridium_ingot_from_blasting_deepslate_iridium_ore"
+    ]
+  },
+  "sends_telemetry_event": false
+}

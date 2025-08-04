@@ -10,13 +10,34 @@ import jolt9001.causalchaos.library.recipe.builders.StarforgeMultiblockRecipeBui
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
+
+import java.util.List;
+import java.util.function.Consumer;
 
 public class CCCraftingProvider extends CraftingDataHelper {
     public CCCraftingProvider(PackOutput out) {
         super(out);
     }
+
+    private static final List<ItemLike> COBALT_SMELTABLES = List.of(CCItems.RAW_COBALT.get(), CCBlocks.COBALT_ORE.get(),
+            CCBlocks.DEEPSLATE_COBALT_ORE.get()/*, CCBlocks.TRANSCENDENT_COBALT_ORE.get()*/);
+    private static final List<ItemLike> IRIDIUM_SMELTABLES = List.of(CCItems.RAW_IRIDIUM.get(), CCBlocks.IRIDIUM_ORE.get(),
+            CCBlocks.DEEPSLATE_IRIDIUM_ORE.get()/*, CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get()*/); // BLASTING ONLY
+    private static final List<ItemLike> NEODYMIUM_SMELTABLES = List.of(CCItems.RAW_NEODYMIUM.get(), CCBlocks.NEODYMIUM_ORE.get(),
+            CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get()/*, CCBlocks.TRANSCENDENT_COBALT_ORE.get()*/);
+    private static final List<ItemLike> PALLADIUM_SMELTABLES = List.of(CCItems.RAW_PALLADIUM.get(), CCBlocks.PALLADIUM_ORE.get(),
+            CCBlocks.DEEPSLATE_PALLADIUM_ORE.get()/*, CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get()*/);
+    private static final List<ItemLike> TITANIUM_SMELTABLES = List.of(CCItems.RAW_TITANIUM.get(), CCBlocks.TITANIUM_ORE.get(),
+            CCBlocks.DEEPSLATE_TITANIUM_ORE.get()/*, CCBlocks.TRANSCENDENT_COBALT_ORE.get()*/);
+    private static final List<ItemLike> TUNGSTEN_SMELTABLES = List.of(CCItems.RAW_TUNGSTEN.get(), CCBlocks.TUNGSTEN_ORE.get(),
+            CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get()/*, CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get()*/); // BLASTING ONLY
+
 
     @Override
     protected void buildRecipes(RecipeOutput out) {
@@ -25,6 +46,17 @@ public class CCCraftingProvider extends CraftingDataHelper {
         // smithingRecipes(out);
         // starforgeAlone(out);
         // starforgeMultiblock(out);
+
+        oreSmelting(out, COBALT_SMELTABLES, RecipeCategory.MISC, CCItems.COBALT_INGOT.get(), 0.25f, 200, "cobalt");
+        oreBlasting(out, COBALT_SMELTABLES, RecipeCategory.MISC, CCItems.COBALT_INGOT.get(), 0.25f, 100, "cobalt");
+        oreBlasting(out, IRIDIUM_SMELTABLES, RecipeCategory.MISC, CCItems.IRIDIUM_INGOT.get(), 0.25f, 100, "iridium");
+        oreSmelting(out, NEODYMIUM_SMELTABLES, RecipeCategory.MISC, CCItems.NEODYMIUM_INGOT.get(), 0.25f, 200, "neodyium");
+        oreBlasting(out, NEODYMIUM_SMELTABLES, RecipeCategory.MISC, CCItems.NEODYMIUM_INGOT.get(), 0.25f, 100, "neodyium");
+        oreSmelting(out, PALLADIUM_SMELTABLES, RecipeCategory.MISC, CCItems.PALLADIUM_INGOT.get(), 0.25f, 200, "palladium");
+        oreBlasting(out, PALLADIUM_SMELTABLES, RecipeCategory.MISC, CCItems.PALLADIUM_INGOT.get(), 0.25f, 100, "palladium");
+        oreSmelting(out, TITANIUM_SMELTABLES, RecipeCategory.MISC, CCItems.TITANIUM_INGOT.get(), 0.25f, 200, "titanium");
+        oreBlasting(out, TITANIUM_SMELTABLES, RecipeCategory.MISC, CCItems.TITANIUM_INGOT.get(), 0.25f, 100, "titanium");
+        oreBlasting(out, TUNGSTEN_SMELTABLES, RecipeCategory.MISC, CCItems.TUNGSTEN_INGOT.get(), 0.25f, 100, "tungsten");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, CCBlocks.T0_STARFORGE.get())
                 .pattern("nnn")
@@ -146,6 +178,67 @@ public class CCCraftingProvider extends CraftingDataHelper {
                 .unlockedBy("has_item", has(CCBlocks.T3_HOPPER.get()))
                 .save(out, CausalChaos.prefix("machines/t3_s_hopper"));
 /*
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
+                .requires(CCItems.RAW_COBALT.get())
+                .save(out, CausalChaos.prefix("cobalt"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
+                .requires(CCBlocks.COBALT_ORE.get())
+                .save(out, CausalChaos.prefix("cobalt"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_COBALT_ORE.get())
+                .save(out, CausalChaos.prefix("cobalt"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get()).requires(CCBlocks.TRANSCENDENT_COBALT_ORE.get()).save(out, CausalChaos.prefix("cobalt"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
+                .requires(CCItems.RAW_IRIDIUM.get())
+                .save(out, CausalChaos.prefix("iridium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
+                .requires(CCBlocks.IRIDIUM_ORE.get())
+                .save(out, CausalChaos.prefix("iridium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_IRIDIUM_ORE.get())
+                .save(out, CausalChaos.prefix("iridium"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get()).save(out, CausalChaos.prefix("iridium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
+                .requires(CCItems.RAW_NEODYMIUM.get())
+                .save(out, CausalChaos.prefix("neodymium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
+                .requires(CCBlocks.NEODYMIUM_ORE.get())
+                .save(out, CausalChaos.prefix("neodymium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get())
+                .save(out, CausalChaos.prefix("neodymium"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_NEODYMIUM_ORE.get()).save(out, CausalChaos.prefix("neodymium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
+                .requires(CCItems.RAW_PALLADIUM.get())
+                .save(out, CausalChaos.prefix("palladium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
+                .requires(CCBlocks.PALLADIUM_ORE.get())
+                .save(out, CausalChaos.prefix("palladium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_PALLADIUM_ORE.get())
+                .save(out, CausalChaos.prefix("palladium"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_PALLADIUM_ORE.get()).save(out, CausalChaos.prefix("palladium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
+                .requires(CCItems.RAW_TITANIUM.get())
+                .save(out, CausalChaos.prefix("titanium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
+                .requires(CCBlocks.TITANIUM_ORE.get())
+                .save(out, CausalChaos.prefix("titanium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_TITANIUM_ORE.get())
+                .save(out, CausalChaos.prefix("titanium"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_TITANIUM_ORE.get()).save(out, CausalChaos.prefix("titanium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
+                .requires(CCItems.RAW_TUNGSTEN.get())
+                .save(out, CausalChaos.prefix("tungten"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
+                .requires(CCBlocks.TUNGSTEN_ORE.get())
+                .save(out, CausalChaos.prefix("tungten"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get())
+                .save(out, CausalChaos.prefix("tungten"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get()).requires(CCBlocks.TRANSCENDENT_TUNGSTEN_ORE.get()).save(out, CausalChaos.prefix("tungten"));
+
         StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_CORE_SHIELDING.get(), 10, 3)
                 .pattern("wiw")
                 .pattern("ini")
@@ -384,10 +477,22 @@ public class CCCraftingProvider extends CraftingDataHelper {
         infusedThundersteel(out, "infused_thundersteel_leggings", CCItems.THUNDERSTEEL_LEGGINGS.get(), CCItems.INFUSED_THUNDERSTEEL_LEGGINGS.get());
         infusedThundersteel(out, "infused_thundersteel_chestplate", CCItems.THUNDERSTEEL_CHESTPLATE.get(), CCItems.INFUSED_THUNDERSTEEL_CHESTPLATE.get());
     }
+*/
 
- */
+    protected static void oreSmelting(RecipeOutput out, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
+        oreCooking(out, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
+    }
 
-    private void cookingRecipe(RecipeOutput out) {
+    protected static void oreBlasting(RecipeOutput out, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+        oreCooking(out, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
+    }
 
+    protected static void oreCooking(RecipeOutput out, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+        for(ItemLike itemlike : pIngredients) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult,
+                            pExperience, pCookingTime, pCookingSerializer)
+                    .group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
+                    .save(out,  CausalChaos.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
+        }
     }
 }

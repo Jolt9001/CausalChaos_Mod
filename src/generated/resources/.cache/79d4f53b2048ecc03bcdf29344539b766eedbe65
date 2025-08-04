@@ -1,4 +1,6 @@
-// 1.20.2	2025-07-27T16:37:40.9726721	Tags for minecraft:block mod id causalchaos
+// 1.20.2	2025-08-03T16:13:58.0345933	Tags for minecraft:block mod id causalchaos
+696b0d02c2caed9ef13c5462514f69360f46eae3 data/causalchaos/tags/blocks/blocks/final_ores_replaceables.json
+8ad856520e82a68bc050ad80949e8ef30b45baaf data/causalchaos/tags/blocks/blocks/realmweave_ores_replaceables.json
 67a64b854d43da819e11aeeccca7118cbc566829 data/causalchaos/tags/blocks/machines/core_shields.json
 68106979eac1d87caf394bd9842046d157d9d71c data/causalchaos/tags/blocks/machines/dimensional_anchor.json
 f8041a2920ee848ec47d1ed4f18cfaac005c91af data/causalchaos/tags/blocks/machines/electromagnets.json
@@ -45,9 +47,12 @@ f6ae7c4739880f8a807988dab3a5c774a3be3e35 data/forge/tags/blocks/storage_blocks.j
 fdf1f852f9985ee2785447e00e1735530e5a3fda data/minecraft/tags/blocks/beacon_base_blocks.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/axe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/hoe.json
-aaaeefab0e302f3a7381bc9f6e3cdd3a962ad12c data/minecraft/tags/blocks/mineable/pickaxe.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/shovel.json
+a841be3745cf2ce168b18f9d2ef264e7abd41c4a data/minecraft/tags/blocks/mineable/pickaxe.json
+c39c261b55818ac6d595b2b0c6da9004d4b91b82 data/minecraft/tags/blocks/mineable/shovel.json
 ea9613586505a364b2fbcb82d4803d1ad4d6a8da data/minecraft/tags/blocks/needs_diamond_tool.json
 86350972654e922d44ef48b0e124c10946b6dbb1 data/minecraft/tags/blocks/needs_iron_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_stone_tool.json
 b4961bc1cf837a7be1c042b9d828e7fece45a7a3 data/minecraft/tags/blocks/portals.json
+fb76c52ce3392ec2221a7a8f746c3eb5b0d37b05 data/minecraft/tags/blocks/slabs.json
+60ab967c0536736743fd983d59adf94e9a7db7f4 data/minecraft/tags/blocks/stairs.json
+4bc4efc70e7ffd14f63fc940796d4cd43f148578 data/minecraft/tags/blocks/walls.json
