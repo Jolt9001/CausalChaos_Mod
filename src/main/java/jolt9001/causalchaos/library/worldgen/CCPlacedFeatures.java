@@ -41,7 +41,7 @@ public class CCPlacedFeatures {
         Titanium: 7 blobs per chunk, blob size 6 (Overworld); 16 blobs per chunk, blob size 10 (Transcendent's Plain)
         Tungsten: 5 blobs per chunk, blob size 6 (Overworld); 14 blobs per chunk, blob size 10 (Transcendent's Plain)
         Palladium: 3 blobs per chunk in Overworld, blob size 5 (Overworld); 12 blobs per chunk, blob size 9 (Transcendent's Plain)
-        Iridium: 1 blob per chunk in Overworld, blob size 4 (Overworld); 10 blobs per chunk, blob size 8 (Transcendent's Plain)
+        Iridium: 2 blobs per chunk in Overworld, blob size 4 (Overworld); 10 blobs per chunk, blob size 8 (Transcendent's Plain)
     */
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
@@ -63,7 +63,7 @@ public class CCPlacedFeatures {
                 CCOrePlacement.commonOrePlacement(3,
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(0))));
         register(context, OVERWORLD_IRIDIUM_ORE_PLACED_KEY, configuredFeatures.getOrThrow(CCConfiguedFeatures.OVERWORLD_IRIDIUM_ORE_KEY),
-                CCOrePlacement.commonOrePlacement(1,
+                CCOrePlacement.commonOrePlacement(2,
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-16))));
         // #(Uncomment when dimensions are created)
 /*
@@ -90,7 +90,7 @@ public class CCPlacedFeatures {
                 CCOrePlacement.commonOrePlacement(12,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
         register(context, TRANSCENDENT_IRIDIUM_ORE_PLACED_KEY, configuredFeatures.getOrThrow(CCConfiguedFeatures.TRANSCENDENT_IRIDIUM_ORE_KEY),
-                CCOrePlacement.commonOrePlacement(10,
+                CCOrePlacement.commonOrePlacement(11,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
 
  */
