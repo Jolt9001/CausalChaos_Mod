@@ -3,7 +3,8 @@ package jolt9001.causalchaos.init;
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.library.entities.CCEntityNames;
 import jolt9001.causalchaos.library.entities.custom.boss.*;
-import jolt9001.causalchaos.library.entities.custom.superboss.hostile.*;
+import jolt9001.causalchaos.library.entities.custom.superboss.hostile.chaos.*;
+import jolt9001.causalchaos.library.entities.custom.superboss.hostile.normal.*;
 import jolt9001.causalchaos.library.entities.custom.superboss.npc.*;
 import jolt9001.causalchaos.library.entities.custom.monsters.*;
 import net.minecraft.resources.ResourceLocation;
@@ -52,8 +53,26 @@ public class CCEntities {
     public static final RegistryObject<EntityType<RexBoss>> REX_BOSS = make(CCEntityNames.REX_BOSS, RexBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
     public static final RegistryObject<EntityType<JoltBoss>> JOLT_BOSS = make(CCEntityNames.JOLT_BOSS, JoltBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
     public static final RegistryObject<EntityType<FPJoltBoss>> FPJOLT_BOSS = make(CCEntityNames.FPJOLT_BOSS, FPJoltBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+        // Chaos Mode
+    public static final RegistryObject<EntityType<ChaosTsunaBoss>> C_TSUNA_BOSS = make(CCEntityNames.TSUNA_BOSS, ChaosTsunaBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosKaiBoss>> C_KAI_BOSS = make(CCEntityNames.KAI_BOSS, ChaosKaiBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosTerryBoss>> C_TERRY_BOSS = make(CCEntityNames.TERRY_BOSS, ChaosTerryBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosLyadovaBoss>> C_LYADOVA_BOSS = make(CCEntityNames.LYADOVA_BOSS, ChaosLyadovaBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosAellaBoss>> C_AELLA_BOSS = make(CCEntityNames.AELLA_BOSS, ChaosAellaBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosJackBoss>> C_JACK_BOSS = make(CCEntityNames.JACK_BOSS, ChaosJackBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosXantheaBoss>> C_XANTHEA_BOSS = make(CCEntityNames.XANTHEA_BOSS, ChaosXantheaBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosWillBoss>> C_WILL_BOSS = make(CCEntityNames.WILL_BOSS, ChaosWillBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosMatthueBoss>> C_MATTHUE_BOSS = make(CCEntityNames.MATTHUE_BOSS, ChaosMatthueBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosAllineBoss>> C_ALLINE_BOSS = make(CCEntityNames.ALLINE_BOSS, ChaosAllineBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosMadelineBoss>> C_MADELINE_BOSS = make(CCEntityNames.MADELINE_BOSS, ChaosMadelineBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosEmilyBoss>> C_EMILY_BOSS = make(CCEntityNames.EMILY_BOSS, ChaosEmilyBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosAdrianBoss>> C_ADRIAN_BOSS = make(CCEntityNames.ADRIAN_BOSS, ChaosAdrianBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosAndreaBoss>> C_ANDREA_BOSS = make(CCEntityNames.ANDREA_BOSS, ChaosAndreaBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosRexBoss>> C_REX_BOSS = make(CCEntityNames.REX_BOSS, ChaosRexBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosJoltBoss>> C_JOLT_BOSS = make(CCEntityNames.JOLT_BOSS, ChaosJoltBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
+    public static final RegistryObject<EntityType<ChaosFPJoltBoss>> C_FPJOLT_BOSS = make(CCEntityNames.FPJOLT_BOSS, ChaosFPJoltBoss::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
 
-        // NPC
+    // NPC
     public static final RegistryObject<EntityType<TsunaNpc>> TSUNA_NPC = make(CCEntityNames.TSUNA_NPC, TsunaNpc::new, MobCategory.MISC, 0.5f, 1.75f, 0x0a0000, 0x00008b);
     public static final RegistryObject<EntityType<KaiNpc>> KAI_NPC = make(CCEntityNames.KAI_NPC, KaiNpc::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);
     public static final RegistryObject<EntityType<TerryNpc>> TERRY_NPC = make(CCEntityNames.TERRY_NPC, TerryNpc::new, MobCategory.MONSTER, 0.5f, 1.75f, 0x0a0000, 0x00008b);

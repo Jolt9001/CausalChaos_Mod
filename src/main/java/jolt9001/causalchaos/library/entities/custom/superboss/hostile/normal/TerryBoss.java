@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.entities.custom.superboss.hostile;
+package jolt9001.causalchaos.library.entities.custom.superboss.hostile.normal;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Monster;
