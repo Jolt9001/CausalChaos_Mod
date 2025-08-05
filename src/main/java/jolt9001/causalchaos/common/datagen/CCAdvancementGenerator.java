@@ -5,6 +5,9 @@ import jolt9001.causalchaos.common.advancements.HardcoreCheckTrigger;
 import jolt9001.causalchaos.common.advancements.HardcoreDeathTrigger;
 import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
 import jolt9001.causalchaos.init.CCBlocks;
+import jolt9001.causalchaos.init.CCEntities;
+import jolt9001.causalchaos.init.CCStructures;
+import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
@@ -93,13 +96,29 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var DLFlurryCounter = builder; // "Temporal Mastermind" Prereq: "adv_dl2_1", fightDL2
         var bossDLDeathless = builder; // "Eternal Survivor" Prereq: "adv_dl1_1", fightDL1
         var soloDL = builder; // "Impossible Odds" Prereq: "adv_dl1_2", fightDL1
-        var anchorDeathlessDL = builder; // "True Hero" Prereq: anchorEncounter
+        var anchorDeathlessDL = builder; // "True Hero" Prereq: "adv_anchor_find_0", anchorEncounter
 
             // Worldeater
-        var worldeaterEncounter = builder; // "Horrific Monstrosity" Prereq: enterLimbo
-        var worldeaterDefeat = builder; // "Satiated Hunger" Prereq: worldeaterEncounter
-        var worldeaterLoss = builder; // "Unexisted" Prereq: worldeaterEncounter
-        var worldeaterMax = builder; // "Not Afraid Anymore" Prereq: CFPJolt . worldeaterEncounter
+        var worldeaterEncounter = builder; // "Horrific Monstrosity" Prereq: "adv_enter_limbo_0", enterLimbo
+        var worldeaterDefeat = builder
+                .display(
+                        CCBlocks.REALMWEAVE_BLOCK.get(),
+                        Component.translatable("achievement.causalchaos.worldeater_win"),
+                        Component.translatable("achievement.causalchaos.worldeater_win.desc"),
+                        null, FrameType.TASK, true, true, false)
+                //.addCriterion("adv_worldeater_0", this.advancementTrigger(worldeaterEncounter))
+                .addCriterion("worldeater_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.WORLDEATER.get())))
+                .save(consumer, "jolt9001.causalchaos:worldeater_win");; // "Satiated Hunger" Prereq: "adv_worldeater_0", worldeaterEncounter
+        var worldeaterLoss = builder
+                .display(
+                        CCBlocks.REALMWEAVE_BLOCK.get(),
+                        Component.translatable("achievement.causalchaos.worldeater_loss"),
+                        Component.translatable("achievement.causalchaos.worldeater_loss.desc"),
+                        null, FrameType.TASK, true, true, false)
+                //.addCriterion("adv_worldeater_1", this.advancementTrigger(worldeaterEncounter))
+                .addCriterion("die_to_worleater", KilledTrigger.TriggerInstance.entityKilledPlayer(EntityPredicate.Builder.entity().of(CCEntities.WORLDEATER.get())))
+                .save(consumer, "jolt9001.causalchaos:worldeater_loss"); // "Unexisted" Prereq: "adv_worldeater_1", worldeaterEncounter
+        var worldeaterMax = builder; // "Not Afraid Anymore" Prereq: "adv_cfpjolt_0", CFPJolt . "adv_worldeater_2" worldeaterEncounter
 
             // Leviathan Skywyrm
         var skywyrmEncounter = builder;
@@ -109,23 +128,45 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         // Early Game (Time Loop)
         var timeLoopActivate = builder; // "Future Vision?" Prereq: "adv_dl1_2", fightDL1
         var anchorEncounter = builder; // "Timeless Bond" Prereq: "adv_crystal_default_5", getCrystalDefault
-        var anchorDeath = builder; // "Apocalypse" Prereq: anchorEncounter
-        var anchorProtect = builder; // "The Fifteen" Prereq: anchorEncounter
+        var anchorDeath = builder; // "Apocalypse" Prereq: "adv_anchor_find_1", anchorEncounter
+        var anchorProtect = builder; // "The Fifteen" Prereq: "adv_anchor_find_2", anchorEncounter
         var twistedEncounter = builder; // "Twisted Children" Prereq: "adv_crystal_default_6", getCrystalDefault
-        var riftwalkerKill = builder; // "Released From Suffering" "adv_crystal_default_7", getCrystalDefault
+        var riftwalkerKill = builder.display(
+                        CCItems.WORLD_THREAD.get(),
+                        Component.translatable("achievement.causalchaos.riftwalker_kill"),
+                        Component.translatable("achievement.causalchaos.riftwalker_kill.desc"),
+                        null, FrameType.TASK, true, true, false)
+                .addCriterion("riftwalker_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.RIFTWALKER_SCOUT.get())))
+                .addCriterion("adv_crystal_default_7", this.advancementTrigger(getCrystalDefault))
+                .save(consumer, "jolt9001.causalchaos:riftwalker_kill"); // "Released From Suffering" Prereq: "adv_crystal_default_7", getCrystalDefault
 
-        // MidGame (Advancements specific to the timeframe between the ending of the time loop and the crafting of the Starforge)
-        var loopEscape = builder; // "Shattered Dimension" Prereq: "adv_dl2_2", fightDL2
-        var quantumSigil = builder; // "Monstrous Resurrection" Prereq: "adv_dl2_3", fightDL2 . riftwalkerKill
-
-        // Endgame (post time loop)
+        // MidGame (Advancements specific to the timeframe between the ending of the time loop and entering Transcendent's Plain)
+        var loopEscape = builder
+                .display(
+                        CCItems.WORLD_THREAD.get(),
+                        Component.translatable("achievement.causalchaos.dl_win"),
+                        Component.translatable("achievement.causalchaos.dl_win.desc"),
+                        null, FrameType.TASK, true, true, false)
+                .addCriterion("dl_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.DEMON_LORD.get())))
+                //.addCriterion("adv_dl2_2", this.advancementTrigger(fightDL2))
+                .save(consumer, "jolt9001.causalchaos:dl_win"); // "Shattered Dimension" Prereq: "adv_dl2_2", fightDL2
+        var quantumSigil = builder
+                .display(
+                        CCItems.QUANTUM_SIGIL.get(),
+                        Component.translatable("achievement.causalchaos.quantum_sigil"),
+                        Component.translatable("achievement.causalchaos.quantum_sigil.desc"),
+                        null, FrameType.TASK, true, true, false)
+                .addCriterion("has_quantum_sigil", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.QUANTUM_SIGIL.get()))
+                //.addCriterion("adv_dl2_3", this.advancementTrigger(fightDL2))
+                //.addCriterion("adv_riftwalker_kill_0", this.advancementTrigger(riftwalkerKill))
+                .save(consumer, "jolt9001.causalchaos:quantum_sigil");
         var obtainStarforge = builder
                 .display(
                         CCBlocks.T0_STARFORGE.get(),
                         Component.translatable("achievement.causalchaos.starforge_get"),
                         Component.translatable("achievement.causalchaos.starforge_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                //.addCriterion("adv_escape_loop_1", this.advancementTrigger(loopEscape))
+                .addCriterion("adv_escape_loop_1", this.advancementTrigger(loopEscape))
                 .addCriterion("get_starforge", InventoryChangeTrigger.TriggerInstance.hasItems(CCBlocks.T0_STARFORGE.get()))
                 .save(consumer, "jolt9001.causalchaos:get_starforge");
         var obtainThundersteel = builder
@@ -182,74 +223,94 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("adv_perplexium_3", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("perplexium_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM)))
                 .save(consumer, "jolt9001.causalchaos:perplexium_tool");
-        var villageHousing25 = builder; // "Superhuman City" Prereq: anchorEncounter
-        var villagerGift = builder; // "Thank You!" Prereq: anchorEncounter
-        var superbossVillage = builder; // "Supreme Sanctuary" Prereq: Jolt
-        var realityGlitch = builder; // "Butterfly Effect" Prereq: stableRiftToken
+
+        // Endgame (post Starforge)
+        var villageHousing25 = builder; // "Superhuman City" Prereq: "adv_anchor_find_3", anchorEncounter
+        var villagerGift = builder; // "Thank You!" Prereq: "adv_anchor_find_4", anchorEncounter
+        var superbossVillage = builder; // "Supreme Sanctuary" Prereq: "adv_jolt_0", Jolt
+        var realityGlitch = builder; // "Butterfly Effect" Prereq: "adv_stable_rt_0", stableRiftToken
 
         // Dimensions
             // Sky Islands
-        var enterSkylands = builder; // "Not The Aether" Prereq: mastery3
-        var findStorm = builder;
-        var perfectElytra = builder;
+        var enterSkylands = builder; // "Not The Aether" Prereq: "adv_lvl3_1", mastery3 . "adv_loop_escape_0", loopEscape
+        var findStorm = builder; //
+        var perfectElytra = builder; //
 
             // Limbo
-        var enterLimbo = builder; // "Oh No..." Prereq: EnterRiftwalkerRealmTear
-        var limboDeath = builder; // "Ỷ̷͈̟Õ̵̪U̶̺̥̐ ̴͉̬́̂C̵̱̉͆A̸̝̔͒Ǹ̸̦̤͝'̴̝͗T̴͉͗ ̵̘̣͌E̸͔̹̿̐S̴͇̠̽C̸̩̦̑A̵͍̗̅P̵̻̓Ė̴̲" Prereq: enterLimbo
-        var limboEscape = builder; // "Freedom, For Now..." Prereq: enterLimbo
-        var stableRiftToken = builder; // "Dimensional Mastery" Prereq: limboEscape
-        var limboPortal = builder; // "Self-Imprisonment" Prereq: stableRiftToken
+        var enterLimbo = builder; // "Oh No..." Prereq: "adv_realm_tear_rw_0", EnterRiftwalkerRealmTear
+        var limboDeath = builder; // "Ỷ̷͈̟Õ̵̪U̶̺̥̐ ̴͉̬́̂C̵̱̉͆A̸̝̔͒Ǹ̸̦̤͝'̴̝͗T̴͉͗ ̵̘̣͌E̸͔̹̿̐S̴͇̠̽C̸̩̦̑A̵͍̗̅P̵̻̓Ė̴̲" Prereq: "adv_enter_limbo_1", enterLimbo
+        var limboEscape = builder; // "Freedom, For Now..." Prereq: "adv_enter_limbo_2", enterLimbo
+        var stableRiftToken = builder; // "Dimensional Mastery" Prereq: "adv_limbo_escape_0", limboEscape
+        var limboPortal = builder; // "Self-Imprisonment" Prereq: adv_stable_rt_1", stableRiftToken
 
             //Transcendent's Plain
-        var TPPortalEnter = builder; // "Gateway to the Infinite" Prereq: getPerplexium
-        var EnterTPlain = builder; // "Preeminence" Prereq: Tsuna
-        var chaosModeKill = builder; // "Chronicles of Chaos" Prereq:
+        var TPPortalEnter = builder
+                .display(
+                        CCBlocks.QUANTUM_FABRIC.get(),
+                        Component.translatable("achievement.causalchaos.tp_portal"),
+                        Component.translatable("achievement.causalchaos.tp_portal.desc"),
+                        null, FrameType.TASK, true, true, false)
+                .addCriterion("adv_perplexium_4", this.advancementTrigger(obtainPerplexium))
+                .addCriterion("portal_enter", ChangeDimensionTrigger.TriggerInstance.changedDimension())
+                .save(consumer, "jolt9001.causalchaos:tpportal_enter"); // "Gateway to the Infinite" Prereq: "adv_perplexium_4", getPerplexium
+        var EnterTPlain = builder
+                .display(
+                        CCItems.CRYSTAL_KEY.get(),
+                        Component.translatable("achievement.causalchaos.tp_enter"),
+                        Component.translatable("achievement.causalchaos.tp_enter.desc"),
+                        null, FrameType.TASK, true, true, false)
+                //.addCriterion("adv_tsuna_0", this.advancementTrigger(Tsuna))
+                .addCriterion("leave_portal_cage", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(
+                        LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(CCBlocks.WARP_PAD.get())),
+                        ItemPredicate.Builder.item().of(CCItems.CRYSTAL_KEY.get())))
+                .save(consumer, "jolt9001.causalchaos:enter_tplain"); // "Preeminence" Prereq: "adv_tsuna_0", Tsuna
+        var chaosModeKill = builder; // "Chronicles of Chaos" Prereq: "adv_fpjolt_0", FPJolt
 
             // Realm Tears + Parallel Universes
         var enterRiftwalkerRealmTear = builder; // "Where Am I Now?"
-        var enterPlayerRealmTear = builder; // "Not in Kansas Anymore" Prereq: enterRiftwalerRealmTear
-        var permanentRealmTear = builder; // "Breezeblocks" Prereq: enterPlayerRealmTear
-        var dimensionalAnchor = builder; // "No Place Like Home" Prereq: permanentRealmTear
-        var parallelDemonLord = builder; // "Interdimensional Savior" Prereq: enterRiftwalkerRealmTear
+        var enterPlayerRealmTear = builder; // "Not in Kansas Anymore" Prereq: "adv_realm_tear_rw_1", enterRiftwalerRealmTear
+        var permanentRealmTear = builder; // "Breezeblocks" Prereq: "adv_realm_tear_pl_0", enterPlayerRealmTear
+        var dimensionalAnchor = builder; // "No Place Like Home" Prereq: "adv_realm_tear_perm_0", permanentRealmTear
+        var parallelDemonLord = builder; // "Interdimensional Savior" Prereq: "adv_realm_tear_rw_1", enterRiftwalkerRealmTear
 
         // Superbosses
             // Normal Mode
-        var Tsuna = builder; // "Diamonds are Not Forever" Prereq: TPPortalActivate
-        var Kai = builder; // "Caught Red Handed" Prereq: enterTPlain
-        var Terry = builder; // "Cheaters Never Prosper" Prereq: enterTPlain
-        var Lyadova = builder; // "Phobophobia" Prereq: enterTPlain
-        var Aella = builder; // "Captivating Chromaticity" Prereq: enterTPlain
-        var Jack = builder; // "Entropic Reversion" Prereq: enterTPlain
-        var Xanthea = builder; // "Blackest Day" Prereq: enterTPlain
-        var Will = builder; // "Faster Than Light" Prereq: enterTPlain
-        var Matthue = builder; // "Are You Insane?" Prereq: enterTPlain
-        var Alline = builder; // "Questionable Cleric" Prereq: enterTPlain
-        var Madeline = builder; // "Someone Else's Shoes" Prereq: enterTPlain
-        var Emily = builder; // "Cerebral Invader" Prereq: enterTPlain
-        var Adrian = builder; // "Heart of Gold" Prereq: enterTPlain
-        var Andrea = builder; // "Angel of Time" Prereq: enterTPlain
-        var Christian = builder; // "Perpetual Energy" Prereq: enterTPlain
-        var Jolt = builder; // "Thunderstruck" Prereq: enterTPlain
-        var FPJolt = builder; // "The Origin" Prereq: Jolt
+        var Tsuna = builder; // "Diamonds are Not Forever" Prereq: "adv_tp_portal_0", TPPortalActivate
+        var Kai = builder; // "Caught Red Handed" Prereq: "adv_enter_tp_1", enterTPlain
+        var Terry = builder; // "Cheaters Never Prosper" Prereq: "adv_enter_tp_2", enterTPlain
+        var Lyadova = builder; // "Phobophobia" Prereq: "adv_enter_tp_3", enterTPlain
+        var Aella = builder; // "Captivating Chromaticity" Prereq: "adv_enter_tp_4", enterTPlain
+        var Jack = builder; // "Entropic Reversion" Prereq: "adv_enter_tp_5", enterTPlain
+        var Xanthea = builder; // "Blackest Day" Prereq: "adv_enter_tp_6", enterTPlain
+        var Will = builder; // "Faster Than Light" Prereq: "adv_enter_tp_7", enterTPlain
+        var Matthue = builder; // "Are You Insane?" Prereq: "adv_enter_tp_8", enterTPlain
+        var Alline = builder; // "Questionable Cleric" Prereq: "adv_enter_tp_9", enterTPlain
+        var Madeline = builder; // "Someone Else's Shoes" Prereq: "adv_enter_tp_10", enterTPlain
+        var Emily = builder; // "Cerebral Invader" Prereq: "adv_enter_tp_11", enterTPlain
+        var Adrian = builder; // "Heart of Gold" Prereq: "adv_enter_tp_12", enterTPlain
+        var Andrea = builder; // "Angel of Time" Prereq: "adv_enter_tp_13", enterTPlain
+        var Christian = builder; // "Perpetual Energy" Prereq: "adv_enter_tp_14", enterTPlain
+        var Jolt = builder; // "Thunderstruck" Prereq: "adv_enter_tp_15", enterTPlain
+        var FPJolt = builder; // "The Origin" Prereq: "adv_jolt_1", Jolt
 
             // Chaos Mode
-        var CTsuna = builder; // "Unbreakable" Prereq: bossRush
-        var CKai = builder; // "Big Brother" Prereq: bossRush
-        var CTerry = builder; // "High Noon" Prereq: bossRush
-        var CLyadova = builder; // "Terrifying Conqueror" Prereq: bossRush
-        var CAella = builder; // "Artist's Block" Prereq: bossRush
-        var CJack = builder; // "Rogue Planet" Prereq: bossRush
-        var CXanthea = builder; // "Umbral Curse" Prereq: bossRush
-        var CWill = builder; // "Historical Protector" Prereq: bossRush
-        var CMatthue = builder; // "Psychological Degradation" Prereq: bossRush
-        var CAlline = builder; // "Discriminitory Hypocrites" Prereq:  bossRush
-        var CMadeline = builder; // "Schadenfreude" Prereq: bossRush
-        var CEmily = builder; // "Eye of Providence" Prereq: bossRush
-        var CAdrian = builder; // "Patient Man's Rage" Prereq: bossRush
-        var CAndrea = builder; // "Temporal Valkyrie" Prereq: bossRush
-        var CChristian = builder; // "Megalomania" Prereq: bossRush
-        var CJolt = builder; // "Singularity Point" Prereq: bossRush
-        var CFPJolt = builder; // "Extradimensional Menace" Prereq: CJolt, bossRush
+        var CTsuna = builder; // "Unbreakable" Prereq: "adv_boss_rush_0", bossRush
+        var CKai = builder; // "Big Brother" Prereq: "adv_boss_rush_1", bossRush
+        var CTerry = builder; // "High Noon" Prereq: "adv_boss_rush_2", bossRush
+        var CLyadova = builder; // "Terrifying Conqueror" Prereq: "adv_boss_rush_3", bossRush
+        var CAella = builder; // "Artist's Block" Prereq: "adv_boss_rush_4", bossRush
+        var CJack = builder; // "Rogue Planet" Prereq: "adv_boss_rush_5", bossRush
+        var CXanthea = builder; // "Umbral Curse" Prereq: "adv_boss_rush_6", bossRush
+        var CWill = builder; // "Historical Protector" Prereq: "adv_boss_rush_7", bossRush
+        var CMatthue = builder; // "Psychological Degradation" Prereq: "adv_boss_rush_8", bossRush
+        var CAlline = builder; // "Discriminitory Hypocrites" Prereq: "adv_boss_rush_9", bossRush
+        var CMadeline = builder; // "Schadenfreude" Prereq: "adv_boss_rush_10", bossRush
+        var CEmily = builder; // "Eye of Providence" Prereq: "adv_boss_rush_11", bossRush
+        var CAdrian = builder; // "Patient Man's Rage" Prereq: "adv_boss_rush_12", bossRush
+        var CAndrea = builder; // "Temporal Valkyrie" Prereq: "adv_boss_rush_13", bossRush
+        var CChristian = builder; // "Megalomania" Prereq: "adv_boss_rush_14", bossRush
+        var CJolt = builder; // "Singularity Point" Prereq: "adv_boss_rush_15", bossRush
+        var CFPJolt = builder; // "Extradimensional Menace" Prereq: "adv_cjolt_0", CJolt . bossRush
 
         // Hardcore
         /*
@@ -260,8 +321,8 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.hardcore_crystal_get.desc"),
                         null, FrameType.TASK, true, true, false
                 )
-                .parent(getCrystalDefault)
-                // .addCriterion("get_crystal_hardcore", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
+                .addCriterion("adv_crystal_default_8", this.advancementTrigger(getCrystalDefault))
+                .addCriterion("get_crystal_hardcore", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
                 .addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
                 .save(consumer, "jolt9001.causalchaos:get_crystal_hardcore");
 
@@ -269,37 +330,37 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         LivingDeathEvent event = new LivingDeathEvent(entity, null);
         var hardcoreDeath = builder
                 .display(
-                        (ItemLike) IconGenerator.RESUSCITATION_ICON,
-                        Component.translatable("achievement.causalchaos.hardcore_death", "Resuscitation"),
+                        (ItemLike) IconGenerator.RESUSCITATION_ICON, // Particle Effect
+                        Component.translatable("achievement.causalchaos.hardcore_death"),
                         Component.translatable("achievement.causalchaos.hardcore_death.desc"),
                         null, FrameType.GOAL, true, true, false)
-                .addCriterion("adv_crystal_hardcore0", this.advancementTrigger(getCrystalHardcore))
+                .addCriterion("adv_crystal_hardcore_0", this.advancementTrigger(getCrystalHardcore))
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
                 .save(consumer, "jolt9001.causalchaos:hardcore_death");
  */
-        var hardcoreDLDefeat = builder; // "Last Stand" Prereq: getCrystalHardcore
-        var perfectSuperboss = builder; // "Memento Mori" Prereq: getCrystalHardcore + TPPortalActivate
-        var day100 = builder; /// "Indomitable Spirit" Prereq: getCrystalHardcore
-        var halfHeartSuperboss = builder; // "Not Even Close" Prereq: getCrystalHardcore + TPPortalActivate
+        var hardcoreDLDefeat = builder; // "Last Stand" Prereq: "adv_crystal_hardcore_1", getCrystalHardcore
+        var perfectSuperboss = builder; // "Memento Mori" Prereq: "adv_crystal_hardcore_2", getCrystalHardcore . "adv_tp_portal_1", TPPortalActivate
+        var day100 = builder; /// "Indomitable Spirit" Prereq: "adv_crystal_hardcore_3", getCrystalHardcore
+        var halfHeartSuperboss = builder; // "Not Even Close" Prereq: "adv_crystal_hardcore_4", getCrystalHardcore . "adv_tp_portal_2", TPPortalActivate
 
         // Journal Completion
         var journal25 = builder; // "Bare Minimum" Prereq: "adv_root_1", root
-        var journal50 = builder; // "You Actually Studied?" Prereq: journal25
-        var journal75 = builder; // "Salutatorian" Prereq: journal50
-        var journal100 = builder; // "Valedictorian" journal75
+        var journal50 = builder; // "You Actually Studied?" Prereq: "adv_journal25", journal25
+        var journal75 = builder; // "Salutatorian" Prereq: "adv_journal50", journal50
+        var journal100 = builder; // "Valedictorian" "adv_journal75", journal75
 
         // Challenges and Funnies
             // Challenges
         var bossRush = builder; // "Manhunt" Prereq: Tsuna, Kai, Terry, Lyadova, Aella, Jack, Xanthea, Will, Matthue, Alline, Madeline, Emily, Adrian, Andrea, Christian, Jolt, FPJolt
         var chaosCompletion = builder; // "Masochistic Persistence" Prereq: CTsuna, CKai, CTerry, CLyadova, CAella, CJack, CXanthea, CWill, CMatthue, CAlline, CMadeline, CEmily, CAdrian, CAndrea, CChristian, CJolt, CFPJolt
-        var bossRushHardcore = builder; // "Hardcore Hitman" Prereq: hardcoreDLdefeat, (same as bossRush)
+        var bossRushHardcore = builder; // "Hardcore Hitman" Prereq: "adv_hard_DL_win_0", hardcoreDLdefeat, (same as bossRush)
         var chaosCompletionHardcore = builder; // "Perfected Flagellation"  Prereq: bossRushHardcore, (same as chaosCompletion)
 
             // Funnies
-        var blackHoleTP = builder; // "Wormhole'd" Prereq: enterTPlain
-        var FPJoltDeath = builder; // "Instant Karma" Prereq: Jolt
-        var playerLostMind = builder; // "Straitjacket" Prereq: enterTPlain
-        var superweaponOnVanillaMob = builder; // "Unnecessary" Prereq: Tsuna
+        var blackHoleTP = builder; // "Wormhole'd" Prereq: "adv_enter_tp_16", enterTPlain
+        var FPJoltDeath = builder; // "Instant Karma" Prereq: "adv_jolt_2", Jolt
+        var playerLostMind = builder; // "Straitjacket" Prereq: "adv_enter_tp_17", enterTPlain
+        var superweaponOnVanillaMob = builder; // "Unnecessary" Prereq: "adv_tsuna_2", Tsuna
 /*
         var badRNG = builder
                 .display(
@@ -307,9 +368,9 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.superboss_bad_rng"),
                         Component.translatable("achievement.causalchaos.superboss_bad_rng.desc"),
                         null, FrameType.TASK,true, true, false)
-                .addCriterion("tp_portal_activate", this.advancementTrigger(TPPortalActivate))
+                .addCriterion("adv_tp_portal_3", this.advancementTrigger(TPPortalActivate))
                 // Add criteria that allows for hit detecion from RNG-based attacks
-                .save(consumer, "jolt9001.causalchaos:badRNG"); // "Rolled a 1" Prereq: TPPortalActivate
+                .save(consumer, "jolt9001.causalchaos:badRNG");
  */
             // Hidden Challenges
         var chaosBossRush = builder; // "Unlimited" Prereq: chaosCompletion

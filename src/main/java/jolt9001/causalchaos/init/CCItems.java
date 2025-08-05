@@ -289,13 +289,52 @@ public final class CCItems {
     public static final RegistryObject<Item> QUANTUM_SIGIL = ITEMS.register("quantum_sigil", () -> new Item(new Item.Properties())); // Used to summon the Demon Lord boss
     public static final RegistryObject<Item> RIFT_TOKEN = ITEMS.register("rift_token", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> STABLE_RIFT_TOKEN = ITEMS.register("stable_rift_token", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTAL_KEY = ITEMS.register("crystal_key", () -> new Item(new Item.Properties()));
 
     // Crafting ingredients
+    public static final RegistryObject<Item> VOID_FABRIC = ITEMS.register("void_fabric", () -> new Item(new Item.Properties())); // Crafted from nine Abyss String
+
+    // Mob drops
     public static final RegistryObject<Item> ABYSS_STRING = ITEMS.register("abyss_string", () -> new Item(new Item.Properties())); // Dropped from Riftwalkers (all types)
     public static final RegistryObject<Item> TIME_CRYSTAL = ITEMS.register("time_crystal", () -> new Item(new Item.Properties())); // Drops from Demon Lord, Superbosses, and Riftwalkers
-    public static final RegistryObject<Item> VOID_FABRIC = ITEMS.register("void_fabric", () -> new Item(new Item.Properties())); // Crafted from nine Abyss String
     public static final RegistryObject<Item> WORLD_THREAD = ITEMS.register("world_thread", () -> new Item(new Item.Properties())); // Drops from powerful Riftwalkers and the Worldeater
     public static final RegistryObject<Item> REALM_SEED = ITEMS.register("realm_seed", () -> new Item(new Item.Properties())); // Crafted with Void Fabric, Time Crystals, and a World Thread
+
+    // Boss Drops
+        // Tsuna
+    public static final RegistryObject<Item> HYPERDIAMOND = ITEMS.register("hyperdiamond", () -> new Item(new Item.Properties()));
+        // Kai
+    public static final RegistryObject<Item> VAMPIRE_BLOOD = ITEMS.register("vampire_blood", () -> new Item(new Item.Properties()));
+        // Terry drop
+
+        // Lyadova drop
+
+        // Aella drop
+    public static final RegistryObject<Item> LUMINOUS_DRAGON_SCALE = ITEMS.register("luminous_dragon_scale", () -> new Item(new Item.Properties()));
+        // Jack Drop
+
+        // Xanthea drop
+    public static final RegistryObject<Item> GIALISKIAS = ITEMS.register("gialiskias", () -> new Item(new Item.Properties()));
+        // Will drop
+
+        // Matthue drop
+
+        // Alline drop
+
+        // Madeline drop
+
+        // Emily drop
+
+        // Adrian drop
+
+        // Andrea drop
+
+        // Rex drop
+
+        // Jolt drop
+
+        // FP Jolt drop
+
 
     // Smithing Templates
     public static final RegistryObject<Item> THUNDERSTEEL_UPGRADE = ITEMS.register("thundersteel_upgrade_smithing_template", () -> new Item(new Item.Properties()));

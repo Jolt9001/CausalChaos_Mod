@@ -76,6 +76,17 @@ public final class CCBlocks {
     public static final RegistryObject<Block> TRANSCENDENT_STONE = registerBlock("transcendent_stone_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
+    // Environmental blocks
+        // Skourainei Biome
+    public static final RegistryObject<Block> EVENOS_LOG = registerBlock("evenos_log",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> EVENOS_PLANKS = registerBlock("evenos_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final RegistryObject<Block> EVENOS_LEAVES = registerBlock("evenos_leaves",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
+    public static final RegistryObject<Block> EVENOS_SAPLING = registerBlock("evenos_sapling",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
+
     // Transcendent Stone Ores (NYI)
     /*
     public static final RegistryObject<Block> TRANSCENDENT_COBALT_ORE = registerBlock("transcendent_cobalt_ore",
@@ -100,6 +111,7 @@ public final class CCBlocks {
 
     // Decoration Blocks
     public static final RegistryObject<Block> QUANTUM_FABRIC = registerBlock("quantum_fabric", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));
+    public static final RegistryObject<Block> WARP_PAD = registerBlock("warp_pad", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CYAN_CARPET)));
 
     public static final RegistryObject<Block> TRANSCENDENT_STONE_SLAB = registerBlock("transcendent_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_SLAB)));
     public static final RegistryObject<Block> TRANSCENDENT_STONE_STAIRS = registerBlock("transcendent_stone_stairs", () -> new StairBlock(() -> CCBlocks.TRANSCENDENT_STONE.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)));
