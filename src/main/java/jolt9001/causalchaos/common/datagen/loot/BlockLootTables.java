@@ -48,6 +48,8 @@ public class BlockLootTables extends BlockLootSubProvider {
         this.add(CCBlocks.TRANSCENDENT_TURF.get(), block -> createGrassDrops(CCBlocks.TRANSCENDENT_TURF.get()));
         this.dropSelf(CCBlocks.TRANSCENDENT_SOIL.get());
         this.add(CCBlocks.TRANSCENDENT_STONE.get(), block -> createSingleItemTableWithSilkTouch(CCBlocks.TRANSCENDENT_STONE.get(), CCBlocks.TRANSCENDENT_COBBLESTONE.get()));
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE.get(), block -> createSingleItemTableWithSilkTouch(CCBlocks.TRANSCENDENT_DEEPSTONE.get(), CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE.get()));
+
 
         // Decoration Blocks
         this.dropSelf(CCBlocks.QUANTUM_FABRIC.get());
@@ -60,6 +62,14 @@ public class BlockLootTables extends BlockLootSubProvider {
         this.dropSelf(CCBlocks.TRANSCENDENT_STONE_TILES.get());
         this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILES.get());
 
+        this.dropSelf(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE.get());
+        this.dropSelf(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE.get());
+        this.dropSelf(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICKS.get());
+        this.dropSelf(CCBlocks.CHISELED_TRANSCENDENT_DEEPSTONE_BRICKS.get());
+        this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICKS.get());
+        this.dropSelf(CCBlocks.TRANSCENDENT_DEEPSTONE_TILES.get());
+        this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILES.get());
+
         this.add(CCBlocks.TRANSCENDENT_STONE_SLAB.get(), block -> createSlabItemTable(CCBlocks.TRANSCENDENT_STONE_SLAB.get()));
         this.add(CCBlocks.TRANSCENDENT_SMOOTH_STONE_SLAB.get(), block -> createSlabItemTable(CCBlocks.TRANSCENDENT_SMOOTH_STONE_SLAB.get()));
         this.add(CCBlocks.TRANSCENDENT_COBBLESTONE_SLAB.get(), block -> createSlabItemTable(CCBlocks.TRANSCENDENT_COBBLESTONE_SLAB.get()));
@@ -67,6 +77,14 @@ public class BlockLootTables extends BlockLootSubProvider {
         this.add(CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_SLAB.get(), block -> createSlabItemTable(CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_SLAB.get()));
         this.add(CCBlocks.TRANSCENDENT_STONE_TILE_SLAB.get(), block -> createSlabItemTable(CCBlocks.TRANSCENDENT_STONE_TILE_SLAB.get()));
         this.add(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_SLAB.get(), block -> createSlabItemTable(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_SLAB.get()));
+
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_SLAB.get(), block -> createSlabItemTable(CCBlocks.TRANSCENDENT_DEEPSTONE_SLAB.get()));
+        this.add(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE_SLAB.get(), block -> createSlabItemTable(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE_SLAB.get()));
+        this.add(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE_SLAB.get(), block -> createSlabItemTable(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE_SLAB.get()));
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICK_SLAB.get(), block -> createSlabItemTable(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICK_SLAB.get()));
+        this.add(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICK_SLAB.get(), block -> createSlabItemTable(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICK_SLAB.get()));
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_TILE_SLAB.get(), block -> createSlabItemTable(CCBlocks.TRANSCENDENT_DEEPSTONE_TILE_SLAB.get()));
+        this.add(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILE_SLAB.get(), block -> createSlabItemTable(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILE_SLAB.get()));
 
         this.dropSelf(CCBlocks.TRANSCENDENT_STONE_STAIRS.get());
         this.dropSelf(CCBlocks.TRANSCENDENT_SMOOTH_STONE_STAIRS.get());
@@ -76,6 +94,14 @@ public class BlockLootTables extends BlockLootSubProvider {
         this.dropSelf(CCBlocks.TRANSCENDENT_STONE_TILE_STAIRS.get());
         this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_STAIRS.get());
 
+        this.dropSelf(CCBlocks.TRANSCENDENT_DEEPSTONE_STAIRS.get());
+        this.dropSelf(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE_STAIRS.get());
+        this.dropSelf(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE_STAIRS.get());
+        this.dropSelf(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICK_STAIRS.get());
+        this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICK_STAIRS.get());
+        this.dropSelf(CCBlocks.TRANSCENDENT_DEEPSTONE_TILE_STAIRS.get());
+        this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILE_STAIRS.get());
+
         this.dropSelf(CCBlocks.TRANSCENDENT_STONE_WALL.get());
         this.dropSelf(CCBlocks.TRANSCENDENT_SMOOTH_STONE_WALL.get());
         this.dropSelf(CCBlocks.TRANSCENDENT_COBBLESTONE_WALL.get());
@@ -83,6 +109,14 @@ public class BlockLootTables extends BlockLootSubProvider {
         this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_WALL.get());
         this.dropSelf(CCBlocks.TRANSCENDENT_STONE_TILE_WALL.get());
         this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_WALL.get());
+
+        this.dropSelf(CCBlocks.TRANSCENDENT_DEEPSTONE_WALL.get());
+        this.dropSelf(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE_WALL.get());
+        this.dropSelf(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE_WALL.get());
+        this.dropSelf(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICK_WALL.get());
+        this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICK_WALL.get());
+        this.dropSelf(CCBlocks.TRANSCENDENT_DEEPSTONE_TILE_WALL.get());
+        this.dropSelf(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILE_WALL.get());
 
         // Resource blocks
         this.dropSelf(CCBlocks.ANTHRACITE_BLOCK.get());
@@ -128,6 +162,7 @@ public class BlockLootTables extends BlockLootSubProvider {
         // Gadgets
         this.dropSelf(CCBlocks.DIMENSIONAL_ANCHOR.get());
         this.dropSelf(CCBlocks.WORMHOLE_STABILIZER.get());
+        this.dropSelf(CCBlocks.WARP_PAD.get());
     }
 
     protected LootTable.Builder createOreDrops(Block block, Item item) {

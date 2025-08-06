@@ -162,6 +162,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_quantum_sigil": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "causalchaos:quantum_sigil"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "perplexium_armor": {
       "conditions": {
         "items": [
@@ -221,6 +233,9 @@
     ],
     [
       "get_crystal"
+    ],
+    [
+      "has_quantum_sigil"
     ],
     [
       "get_starforge"

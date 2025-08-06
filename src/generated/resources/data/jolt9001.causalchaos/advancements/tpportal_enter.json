@@ -76,6 +76,25 @@
       },
       "trigger": "minecraft:tick"
     },
+    "adv_perplexium_4": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type_specific": {
+                "type": "player",
+                "advancements": {
+                  "causalchaos:get_perplexium": true
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tick"
+    },
     "adv_root_0": {
       "conditions": {
         "player": [
@@ -213,6 +232,9 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "portal_enter": {
+      "trigger": "minecraft:changed_dimension"
+    },
     "thundersteel_infuse_armor": {
       "conditions": {
         "items": [
@@ -240,17 +262,16 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.causalchaos.perplexium_tool.desc"
+      "translate": "achievement.causalchaos.tp_portal.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "causalchaos:perplexium_sword",
-      "nbt": "{Damage:0}"
+      "item": "causalchaos:quantum_fabric"
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.causalchaos.perplexium_tool"
+      "translate": "achievement.causalchaos.tp_portal"
     }
   },
   "requirements": [
@@ -304,6 +325,12 @@
     ],
     [
       "perplexium_tool"
+    ],
+    [
+      "adv_perplexium_4"
+    ],
+    [
+      "portal_enter"
     ]
   ],
   "rewards": {

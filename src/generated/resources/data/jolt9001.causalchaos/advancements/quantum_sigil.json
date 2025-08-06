@@ -19,55 +19,12 @@
       },
       "trigger": "minecraft:tick"
     },
-    "adv_starforge_0": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type_specific": {
-                "type": "player",
-                "advancements": {
-                  "causalchaos:get_starforge": true
-                }
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:tick"
-    },
     "get_crystal": {
       "conditions": {
         "items": [
           {
             "items": [
               "causalchaos:causality_crystal"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "get_starforge": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:starforge0"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "get_thundersteel": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:thundersteel_ingot"
             ]
           }
         ]
@@ -93,16 +50,16 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "achievement.causalchaos.thundersteel_get.desc"
+      "translate": "achievement.causalchaos.quantum_sigil.desc"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "causalchaos:thundersteel_ingot"
+      "item": "causalchaos:quantum_sigil"
     },
     "show_toast": true,
     "title": {
-      "translate": "achievement.causalchaos.thundersteel_get"
+      "translate": "achievement.causalchaos.quantum_sigil"
     }
   },
   "requirements": [
@@ -117,15 +74,6 @@
     ],
     [
       "has_quantum_sigil"
-    ],
-    [
-      "get_starforge"
-    ],
-    [
-      "adv_starforge_0"
-    ],
-    [
-      "get_thundersteel"
     ]
   ],
   "rewards": {

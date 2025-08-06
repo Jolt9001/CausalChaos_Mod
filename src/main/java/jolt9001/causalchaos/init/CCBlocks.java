@@ -78,8 +78,9 @@ public final class CCBlocks {
     public static final RegistryObject<Block> TRANSCENDENT_DEEPSTONE = registerBlock("transcendent_deepstone_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
-    // Environmental blocks
+    // Environmental blocks (NYI)
         // Skourainei Biome
+    /*
     public static final RegistryObject<Block> EVENOS_LOG = registerBlock("evenos_log",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
     public static final RegistryObject<Block> EVENOS_PLANKS = registerBlock("evenos_planks",
@@ -88,6 +89,8 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
     public static final RegistryObject<Block> EVENOS_SAPLING = registerBlock("evenos_sapling",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
+
+     */
 
     // Transcendent Stone Ores (NYI)
     /*
@@ -192,7 +195,7 @@ public final class CCBlocks {
     public static final RegistryObject<Block> TRANSCENDENT_DEEPSTONE_TILES = registerBlock("transcendent_deepstone_tiles", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> TRANSCENDENT_DEEPSTONE_TILE_SLAB = registerBlock("transcendent_deepstone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_SLAB)));
     public static final RegistryObject<Block> TRANSCENDENT_DEEPSTONE_TILE_STAIRS = registerBlock("transcendent_deepstone_tile_stairs", () -> new StairBlock(() -> CCBlocks.TRANSCENDENT_DEEPSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)));
-    public static final RegistryObject<Block> TRANSCENDENT_DEEPSTONE_TILE_WALL = registerBlock("transcendent_deepstone_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
+    public static final RegistryObject<Block> TRANSCENDENT_DEEPSTONE_TILE_WALL = registerBlock("transcendent_deepstone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
 
     public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILES = registerBlock("cracked_transcendent_stone_tiles", () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRACKED_DEEPSLATE_TILES)));
     public static final RegistryObject<Block> CRACKED_TRANSCENDENT_STONE_TILE_SLAB = registerBlock("cracked_transcendent_stone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_SLAB)));
@@ -202,7 +205,7 @@ public final class CCBlocks {
     public static final RegistryObject<Block> CRACKED_TRANSCENDENT_DEEPSTONE_TILES = registerBlock("cracked_transcendent_deepstone_tiles", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> CRACKED_TRANSCENDENT_DEEPSTONE_TILE_SLAB = registerBlock("cracked_transcendent_deepstone_tile_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_SLAB)));
     public static final RegistryObject<Block> CRACKED_TRANSCENDENT_DEEPSTONE_TILE_STAIRS = registerBlock("cracked_transcendent_deepstone_tile_stairs", () -> new StairBlock(() -> CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILES.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)));
-    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_DEEPSTONE_TILE_WALL = registerBlock("cracked_transcendent_deepstone_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
+    public static final RegistryObject<Block> CRACKED_TRANSCENDENT_DEEPSTONE_TILE_WALL = registerBlock("cracked_transcendent_deepstone_tile_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
 
     // Portal Block
     public static final RegistryObject<Block> TRANSCENDENT_GATEWAY = registerBlock("transcendent_gateway",

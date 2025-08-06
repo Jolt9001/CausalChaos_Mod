@@ -76,14 +76,29 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var standInHitbox = builder; // "Danger Zone" Prereq: "adv_danger_sense_0", dangerSense
         var QTEFail = builder; // "You Blinked" Prereq: "adv_in_hitbox_0", standInHitbox
         var perfectDodge = builder; // "Saw It Coming" Prereq: "adv_in_hitbox_1", standInHitbox, dodge
-        var lightningDodge = builder; // "Lightning-Fast Reaction" Prereq: "adv_perfect_dodge_0", perfectDodge
-        var killCreeperWhileExploding = builder; // "Allahu Akbar" Prereq: "adv_perfect_dodge_1", perfectDodge
+        var parry = builder; // "Denied"
+        var perfectParry = builder; // "Damage Reflection"
 
-        var mastery1 = builder; // "Sidekick" Prereq: "adv_crystal_default_3", getCrystalDefault
-        var mastery2 = builder; // "Fledgling" Prereq: "adv_lvl1_0", mastery1
-        var mastery3 = builder; // "Hero" Prereq: "adv_lvl2_0" - mastery2 . "adv_loop_active_0", timeLoopActivate
-        var mastery4 = builder; // "Superhero" Prereq: "adv_lvl3_0", mastery3 . "adv_escape_loop_0", loopEscape
-        var mastery5 = builder; // "Limitless" Prereq: "adv_lvl4_0", mastery4 . "adv_enter_tp_0" EnterTPlain
+        // Ability Mastery - Based on experience factor of Causality Crystal
+        /*
+        Dash: 1 xp
+        Dash Strike: 3 xp
+        Dodge: 5 xp
+        Danger Sense: 1 xp
+        Hitbox detection: 3xp
+        Perfect Dodge: 10 xp
+        Parry: 10 xp
+        Perfect Parry: 20 xp
+        Flight: 1 xp per second
+        Elytra flight: 3 xp per second
+        Use weapon ability: 5-15 xp per use
+        Total xp needed for max level: 3,975
+        */
+        var mastery1 = builder; // "Sidekick" Prereq: "adv_crystal_default_3", getCrystalDefault                    50 xp
+        var mastery2 = builder; // "Fledgling" Prereq: "adv_lvl1_0", mastery1                                       125 xp
+        var mastery3 = builder; // "Hero" Prereq: "adv_lvl2_0" - mastery2 . "adv_loop_active_0", timeLoopActivate   350 xp
+        var mastery4 = builder; // "Superhero" Prereq: "adv_lvl3_0", mastery3 . "adv_escape_loop_0", loopEscape     950 xp
+        var mastery5 = builder; // "Limitless" Prereq: "adv_lvl4_0", mastery4 . "adv_enter_tp_0" EnterTPlain        2500 xp
 
         // Bosses (Demon Lord, Worldeater, Leviathan Skywyrm)
             // generic
@@ -100,24 +115,24 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
 
             // Worldeater
         var worldeaterEncounter = builder; // "Horrific Monstrosity" Prereq: "adv_enter_limbo_0", enterLimbo
-        var worldeaterDefeat = builder
+        var worldeaterDefeat = builder/*
                 .display(
                         CCBlocks.REALMWEAVE_BLOCK.get(),
                         Component.translatable("achievement.causalchaos.worldeater_win"),
                         Component.translatable("achievement.causalchaos.worldeater_win.desc"),
                         null, FrameType.TASK, true, true, false)
                 //.addCriterion("adv_worldeater_0", this.advancementTrigger(worldeaterEncounter))
-                .addCriterion("worldeater_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.WORLDEATER.get())))
-                .save(consumer, "jolt9001.causalchaos:worldeater_win");; // "Satiated Hunger" Prereq: "adv_worldeater_0", worldeaterEncounter
-        var worldeaterLoss = builder
+                //.addCriterion("worldeater_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.WORLDEATER.get())))
+                .save(consumer, "jolt9001.causalchaos:worldeater_win")*/; // "Satiated Hunger" Prereq: "adv_worldeater_0", worldeaterEncounter
+        var worldeaterLoss = builder/*
                 .display(
                         CCBlocks.REALMWEAVE_BLOCK.get(),
                         Component.translatable("achievement.causalchaos.worldeater_loss"),
                         Component.translatable("achievement.causalchaos.worldeater_loss.desc"),
                         null, FrameType.TASK, true, true, false)
-                //.addCriterion("adv_worldeater_1", this.advancementTrigger(worldeaterEncounter))
+                .addCriterion("adv_worldeater_1", this.advancementTrigger(worldeaterEncounter))
                 .addCriterion("die_to_worleater", KilledTrigger.TriggerInstance.entityKilledPlayer(EntityPredicate.Builder.entity().of(CCEntities.WORLDEATER.get())))
-                .save(consumer, "jolt9001.causalchaos:worldeater_loss"); // "Unexisted" Prereq: "adv_worldeater_1", worldeaterEncounter
+                .save(consumer, "jolt9001.causalchaos:worldeater_loss")*/; // "Unexisted" Prereq: "adv_worldeater_1", worldeaterEncounter
         var worldeaterMax = builder; // "Not Afraid Anymore" Prereq: "adv_cfpjolt_0", CFPJolt . "adv_worldeater_2" worldeaterEncounter
 
             // Leviathan Skywyrm
@@ -131,17 +146,17 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var anchorDeath = builder; // "Apocalypse" Prereq: "adv_anchor_find_1", anchorEncounter
         var anchorProtect = builder; // "The Fifteen" Prereq: "adv_anchor_find_2", anchorEncounter
         var twistedEncounter = builder; // "Twisted Children" Prereq: "adv_crystal_default_6", getCrystalDefault
-        var riftwalkerKill = builder.display(
+        var riftwalkerKill = builder/*.display(
                         CCItems.WORLD_THREAD.get(),
                         Component.translatable("achievement.causalchaos.riftwalker_kill"),
                         Component.translatable("achievement.causalchaos.riftwalker_kill.desc"),
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("riftwalker_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.RIFTWALKER_SCOUT.get())))
                 .addCriterion("adv_crystal_default_7", this.advancementTrigger(getCrystalDefault))
-                .save(consumer, "jolt9001.causalchaos:riftwalker_kill"); // "Released From Suffering" Prereq: "adv_crystal_default_7", getCrystalDefault
+                .save(consumer, "jolt9001.causalchaos:riftwalker_kill")*/; // "Released From Suffering" Prereq: "adv_crystal_default_7", getCrystalDefault
 
         // MidGame (Advancements specific to the timeframe between the ending of the time loop and entering Transcendent's Plain)
-        var loopEscape = builder
+        var loopEscape = builder/*
                 .display(
                         CCItems.WORLD_THREAD.get(),
                         Component.translatable("achievement.causalchaos.dl_win"),
@@ -149,7 +164,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("dl_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.DEMON_LORD.get())))
                 //.addCriterion("adv_dl2_2", this.advancementTrigger(fightDL2))
-                .save(consumer, "jolt9001.causalchaos:dl_win"); // "Shattered Dimension" Prereq: "adv_dl2_2", fightDL2
+                .save(consumer, "jolt9001.causalchaos:dl_win")*/; // "Shattered Dimension" Prereq: "adv_dl2_2", fightDL2
         var quantumSigil = builder
                 .display(
                         CCItems.QUANTUM_SIGIL.get(),
@@ -166,7 +181,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.starforge_get"),
                         Component.translatable("achievement.causalchaos.starforge_get.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("adv_escape_loop_1", this.advancementTrigger(loopEscape))
+                //.addCriterion("adv_escape_loop_1", this.advancementTrigger(loopEscape))
                 .addCriterion("get_starforge", InventoryChangeTrigger.TriggerInstance.hasItems(CCBlocks.T0_STARFORGE.get()))
                 .save(consumer, "jolt9001.causalchaos:get_starforge");
         var obtainThundersteel = builder
@@ -357,10 +372,12 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var chaosCompletionHardcore = builder; // "Perfected Flagellation"  Prereq: bossRushHardcore, (same as chaosCompletion)
 
             // Funnies
-        var blackHoleTP = builder; // "Wormhole'd" Prereq: "adv_enter_tp_16", enterTPlain
-        var FPJoltDeath = builder; // "Instant Karma" Prereq: "adv_jolt_2", Jolt
-        var playerLostMind = builder; // "Straitjacket" Prereq: "adv_enter_tp_17", enterTPlain
+        var lightningDodge = builder; // "Lightning-Fast Reaction" Prereq: "adv_perfect_dodge_0", perfectDodge
+        var killCreeperWhileExploding = builder; // "Allahu Akbar" Prereq: "adv_perfect_dodge_1", perfectDodge
         var superweaponOnVanillaMob = builder; // "Unnecessary" Prereq: "adv_tsuna_2", Tsuna
+        var blackHoleTP = builder; // "Wormhole'd" Prereq: "adv_enter_tp_16", enterTPlain
+        var playerLostMind = builder; // "Straitjacket" Prereq: "adv_enter_tp_17", enterTPlain
+        var FPJoltDeath = builder; // "Instant Karma" Prereq: "adv_jolt_2", Jolt
 /*
         var badRNG = builder
                 .display(
@@ -369,7 +386,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.superboss_bad_rng.desc"),
                         null, FrameType.TASK,true, true, false)
                 .addCriterion("adv_tp_portal_3", this.advancementTrigger(TPPortalActivate))
-                // Add criteria that allows for hit detecion from RNG-based attacks
+                // Add criteria that allows for hit detecion from RNG-based attacks such as Aella's Prismatic Grenades
                 .save(consumer, "jolt9001.causalchaos:badRNG");
  */
             // Hidden Challenges

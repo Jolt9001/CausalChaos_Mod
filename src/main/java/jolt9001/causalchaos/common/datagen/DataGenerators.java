@@ -38,7 +38,7 @@ public class DataGenerators {
             // Sounds
         // gen.addProvider(event.includeClient(), new CCSoundProvider(out, help));
             // BlockStates
-        gen.addProvider(event.includeClient(), new BlockstateGenerator(out, help));
+        gen.addProvider(event.includeClient(), new CCBlockStateProvider(out, help));
             // Models
         gen.addProvider(event.includeClient(), new CCItemModelProvider(out, help));
             // Particles
