@@ -101,6 +101,35 @@ public class CCCreativeModeTabs {
                 pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_SLAB.get());
                 pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_STAIRS.get());
                 pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_WALL.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_SLAB.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_STAIRS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_WALL.get());
+                pOutput.accept(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE.get());
+                pOutput.accept(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE_SLAB.get());
+                pOutput.accept(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE_STAIRS.get());
+                pOutput.accept(CCBlocks.COBBLED_TRANSCENDENT_DEEPSTONE_WALL.get());
+                pOutput.accept(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE.get());
+                pOutput.accept(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE_SLAB.get());
+                pOutput.accept(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE_STAIRS.get());
+                pOutput.accept(CCBlocks.POLISHED_TRANSCENDENT_DEEPSTONE_WALL.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICKS.get());
+                pOutput.accept(CCBlocks.CHISELED_TRANSCENDENT_DEEPSTONE_BRICKS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICK_SLAB.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICK_STAIRS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_BRICK_WALL.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICKS.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICK_SLAB.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICK_STAIRS.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_BRICK_WALL.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_TILES.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_TILE_SLAB.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_TILE_STAIRS.get());
+                pOutput.accept(CCBlocks.TRANSCENDENT_DEEPSTONE_TILE_WALL.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILES.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILE_SLAB.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILE_STAIRS.get());
+                pOutput.accept(CCBlocks.CRACKED_TRANSCENDENT_DEEPSTONE_TILE_WALL.get());
             }).build());
 
     public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("items", () -> CreativeModeTab.builder()
