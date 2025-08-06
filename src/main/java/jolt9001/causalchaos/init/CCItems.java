@@ -306,7 +306,7 @@ public final class CCItems {
         // Kai
     public static final RegistryObject<Item> VAMPIRE_BLOOD = ITEMS.register("vampire_blood", () -> new Item(new Item.Properties()));
         // Terry drop
-
+    public static final RegistryObject<Item> WYVERN_CLAW = ITEMS.register("wyvern_claw", () -> new Item(new Item.Properties()));
         // Lyadova drop
 
         // Aella drop
