@@ -139,9 +139,9 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
             if (hasProgressFinished()) {
                 craftItem();
                 resetProgress();
-            } else {
-                resetProgress();
             }
+        } else {
+            resetProgress();
         }
     }
 

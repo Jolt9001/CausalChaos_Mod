@@ -18,8 +18,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class StarforgeAloneMenu extends AbstractContainerMenu {
-
-    public BlockEntity blockEntity = null;
+    public BlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
@@ -31,7 +30,7 @@ public class StarforgeAloneMenu extends AbstractContainerMenu {
 
     public StarforgeAloneMenu(int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(CCMenuTypes.STARFORGE_ALONE_MENU.get(), containerId);
-        checkContainerSize(inv, 10);
+        checkContainerSize(inv, 11);
         tier = StarforgeBlock.getTier();
         switch (tier) {
             case 0 -> blockEntity = ((T0StarforgeBlockEntity) entity);
@@ -57,7 +56,7 @@ public class StarforgeAloneMenu extends AbstractContainerMenu {
         addDataSlots(data);
     }
 
-    public boolean isLit() {
+    public boolean isCrafting() {
         return data.get(0) > 0;
     }
 
@@ -144,7 +143,7 @@ public class StarforgeAloneMenu extends AbstractContainerMenu {
                 return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                         player, CCBlocks.T3_STARFORGE.get());
             }
-            default -> throw new IllegalStateException("Invalid tier:  " + tier);
+            default -> throw new IllegalStateException("Invalid tier: " + tier);
         }
     }
 

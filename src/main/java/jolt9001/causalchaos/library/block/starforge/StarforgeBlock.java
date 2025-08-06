@@ -9,6 +9,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -20,7 +21,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class StarforgeBlock extends AbstractFurnaceBlock {
+public class StarforgeBlock extends BaseEntityBlock {
     protected static boolean isMultiblock;
     protected static int tier;
 
@@ -45,10 +46,12 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
         super(properties);
         //this.registerDefaultState(this.defaultBlockState().setValue(ACTIVE, false).setValue());
     }
+
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
+
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
@@ -141,6 +144,7 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
         }
     }
 
+    @Nullable
     public BlockEntity newMultiblockEntity(BlockPos pos, BlockState state) {
         if (isMultiblock) {
             return switch (tier) {
@@ -181,7 +185,6 @@ public class StarforgeBlock extends AbstractFurnaceBlock {
         }
     }
 
-    @Override
     protected void openContainer(Level level, BlockPos pos, Player player) {
         if (!level.isClientSide()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);

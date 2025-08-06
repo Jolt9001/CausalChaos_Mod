@@ -69,7 +69,7 @@ public class CausalChaos {
         CCItems.register(modEventBus);
 
 
-        //CCBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
+        CCBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
         //CCMultiblockEntities.MULTIBLOCK_ENTITY_TYPES.register(modEventBus);
 
         //CCMenuTypes.register(modEventBus);
@@ -79,7 +79,6 @@ public class CausalChaos {
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
-        //odEventBus.addListener(this::addCreative);
 
         // Config a = new Config();
 
@@ -101,20 +100,6 @@ public class CausalChaos {
 
         CCConfig.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
-
-    /*
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTab() == CCCreativeModeTabs.BLOCKS.get()) {
-            for (RegistryObject<Block> block : CCBlocks.BLOCKS.getEntries()) {
-                event.accept(block.get());
-            }
-        } else if (event.getTab() == CCCreativeModeTabs.EQUIPMENT.get()) {
-            for (RegistryObject<Item> item : ) {
-
-            }
-        }
-    }
-    */
 
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

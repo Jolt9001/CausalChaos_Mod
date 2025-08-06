@@ -43,8 +43,6 @@ public class CCBlockStateProvider extends BlockStateProvider {
         fullBlock(CCBlocks.TRANSCENDENT_SOIL);
         fullBlock(CCBlocks.TRANSCENDENT_STONE);
 
-
-
         // Decorative
         fullBlock(CCBlocks.QUANTUM_FABRIC);
 
@@ -79,8 +77,6 @@ public class CCBlockStateProvider extends BlockStateProvider {
         wall(CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICK_WALL, CCBlocks.CRACKED_TRANSCENDENT_STONE_BRICKS);
         wall(CCBlocks.TRANSCENDENT_STONE_TILE_WALL, CCBlocks.TRANSCENDENT_STONE_TILES);
         wall(CCBlocks.CRACKED_TRANSCENDENT_STONE_TILE_WALL, CCBlocks.CRACKED_TRANSCENDENT_STONE_TILES);
-
-
 
         // Resource Storage
         fullBlock(CCBlocks.RAW_COBALT_BLOCK);
@@ -125,6 +121,7 @@ public class CCBlockStateProvider extends BlockStateProvider {
         // Gadgets
         //blockWithItem(CCBlocks.DIMENSIONAL_ANCHOR);
         //blockWithItem(CCBlocks.WORMHOLE_STABILIZER);
+        //blockWithItem(CCBlocks.WARP_PAD);
          */
     }
 

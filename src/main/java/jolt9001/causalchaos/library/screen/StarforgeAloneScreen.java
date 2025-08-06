@@ -40,13 +40,13 @@ public class StarforgeAloneScreen extends AbstractContainerScreen<StarforgeAlone
     }
 
     private void renderProgressArrow(GuiGraphics guiGraphics, int x, int y) { // 139, 72
-        if(menu.isLit()) {
+        if(menu.isCrafting()) {
             guiGraphics.blit(TEXTURE, x + 139, y + 72, 204, 14, menu.getScaledProgress(), 17);
         }
     }
 
     private void renderBurnRemainderGraphic(GuiGraphics guiGraphics, int x, int y) { // 140, 110
-        if (menu.isLit()) {
+        if (menu.isCrafting()) {
             guiGraphics.blit(TEXTURE, x + 140, y + 110, 204, 0, 8, menu.getBurnRemainder());
         }
     }
