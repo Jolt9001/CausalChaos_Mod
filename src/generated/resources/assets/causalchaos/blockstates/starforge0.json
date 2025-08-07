@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=east": [
+      {
+        "model": "causalchaos:block/starforge0",
+        "y": 270
+      }
+    ],
+    "facing=north": [
+      {
+        "model": "causalchaos:block/starforge0",
+        "y": 180
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "causalchaos:block/starforge0"
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "causalchaos:block/starforge0",
+        "y": 90
+      }
+    ]
+  }
+}

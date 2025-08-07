@@ -1,6 +1,7 @@
 package jolt9001.causalchaos.init;
 
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.library.block.starforge.StarforgeBlock;
 import jolt9001.causalchaos.library.portal.TranscendentPortalBlock;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -249,13 +250,13 @@ public final class CCBlocks {
 
     // Machine
     public static final RegistryObject<Block> T0_STARFORGE = registerBlock("starforge0",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new StarforgeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion(), 0));
     public static final RegistryObject<Block> T1_STARFORGE = registerBlock("starforge1",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new StarforgeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion(), 1));
     public static final RegistryObject<Block> T2_STARFORGE = registerBlock("starforge2",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new StarforgeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion(), 2));
     public static final RegistryObject<Block> T3_STARFORGE = registerBlock("starforge3",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new StarforgeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion(), 3));
 
     public static final RegistryObject<Block> DIMENSIONAL_ANCHOR = registerBlock("dimensional_anchor",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "causalchaos:block/starforge0_top",
+    "east": "causalchaos:block/starforge0_side",
+    "north": "causalchaos:block/starforge0_front_on",
+    "particle": "causalchaos:block/starforge0_front_on",
+    "south": "causalchaos:block/starforge0_side",
+    "up": "causalchaos:block/starforge0_top",
+    "west": "causalchaos:block/starforge0_side"
+  }
+}

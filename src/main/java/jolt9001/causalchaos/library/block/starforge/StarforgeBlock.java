@@ -4,21 +4,23 @@ import jolt9001.causalchaos.init.CCBlockEntities;
 import jolt9001.causalchaos.library.block.entity.starforgealone.*;
 import jolt9001.causalchaos.library.block.entity.starforgemultiblock.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AbstractFurnaceBlock;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 public class StarforgeBlock extends BaseEntityBlock {
@@ -27,6 +29,7 @@ public class StarforgeBlock extends BaseEntityBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
+    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
     // public static final BooleanProperty IN_STRUCTURE;
 
     public static int getTier() {
@@ -42,14 +45,27 @@ public class StarforgeBlock extends BaseEntityBlock {
         isMultiblock = check;
     }
 
-    protected StarforgeBlock(Properties properties) {
+    public StarforgeBlock(Properties properties, int tier) {
         super(properties);
-        //this.registerDefaultState(this.defaultBlockState().setValue(ACTIVE, false).setValue());
+        setTier(tier);
+        this.registerDefaultState(this.defaultBlockState().setValue(ACTIVE, false).setValue(FACING, Direction.NORTH));
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext collision) {
+        return SHAPE;
     }
 
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder){
+        super.createBlockStateDefinition(builder);
+        builder.add(FACING);
+        builder.add(ACTIVE);
     }
 
     @Override
@@ -131,7 +147,7 @@ public class StarforgeBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         if (!isMultiblock) {
-            return switch (tier) {
+            return switch (getTier()) {
                 case 0 -> new T0StarforgeBlockEntity(pos, state);
                 case 1 -> new T1StarforgeBlockEntity(pos, state);
                 case 2 -> new T2StarforgeBlockEntity(pos, state);
@@ -146,17 +162,12 @@ public class StarforgeBlock extends BaseEntityBlock {
 
     @Nullable
     public BlockEntity newMultiblockEntity(BlockPos pos, BlockState state) {
-        if (isMultiblock) {
-            return switch (tier) {
-                case 1 -> new T1StarforgeMultiBlockEntity(pos, state);
-                case 2 -> new T2StarforgeMultiBlockEntity(pos, state);
-                case 3 -> new T3StarforgeMultiBlockEntity(pos, state);
-                default -> null;
-            };
-        } else {
-            newBlockEntity(pos, state);
-            return null;
-        }
+        return switch (getTier()) {
+            case 1 -> new T1StarforgeMultiBlockEntity(pos, state);
+            case 2 -> new T2StarforgeMultiBlockEntity(pos, state);
+            case 3 -> new T3StarforgeMultiBlockEntity(pos, state);
+            default -> null;
+        };
     }
 
     @Override
@@ -164,7 +175,7 @@ public class StarforgeBlock extends BaseEntityBlock {
         if (level.isClientSide()) {
             return null;
         }
-        switch (tier) {
+        switch (getTier()) {
             case 0 -> {
                 return createTickerHelper(blockEntityType, CCBlockEntities.T0_STARFORGE_BE.get(),
                         (level1, pos, state1, blockEntity) -> blockEntity.tick(level1, pos, state1)/*T0StarforgeBlockEntity::serverTick*/);
@@ -188,7 +199,20 @@ public class StarforgeBlock extends BaseEntityBlock {
     protected void openContainer(Level level, BlockPos pos, Player player) {
         if (!level.isClientSide()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (!getIsMultiblock()) {
+            if (getIsMultiblock()) {
+                if (blockEntity instanceof T1StarforgeMultiBlockEntity t1StarforgeMultiBlockEntity) {
+                    setTier(1);
+                    player.openMenu(t1StarforgeMultiBlockEntity);
+                } else if (blockEntity instanceof T2StarforgeMultiBlockEntity t2StarforgeMultiblockEntity) {
+                    setTier(2);
+                    player.openMenu(t2StarforgeMultiblockEntity);
+                } else if (blockEntity instanceof T3StarforgeMultiBlockEntity t3StarforgeMultiBlockEntity) {
+                    setTier(3);
+                    player.openMenu(t3StarforgeMultiBlockEntity);
+                } else {
+                    throw new IllegalStateException("Container provider is missing.");
+                }
+            } else {
                 if (blockEntity instanceof T0StarforgeBlockEntity t0StarforgeBlockEntity) {
                     setTier(0);
                     player.openMenu(t0StarforgeBlockEntity);
@@ -201,19 +225,6 @@ public class StarforgeBlock extends BaseEntityBlock {
                 } else if (blockEntity instanceof T3StarforgeBlockEntity t3StarforgeBlockEntity) {
                     setTier(3);
                     player.openMenu(t3StarforgeBlockEntity);
-                } else {
-                    throw new IllegalStateException("Container provider is missing.");
-                }
-            } else {
-                if (blockEntity instanceof T1StarforgeMultiBlockEntity t1StarforgeMultiBlockEntity) {
-                    setTier(1);
-                    player.openMenu(t1StarforgeMultiBlockEntity);
-                } else if (blockEntity instanceof T2StarforgeMultiBlockEntity t2StarforgeMultiblockEntity) {
-                    setTier(2);
-                    player.openMenu(t2StarforgeMultiblockEntity);
-                } else if (blockEntity instanceof T3StarforgeMultiBlockEntity t3StarforgeMultiBlockEntity) {
-                    setTier(3);
-                    player.openMenu(t3StarforgeMultiBlockEntity);
                 } else {
                     throw new IllegalStateException("Container provider is missing.");
                 }
@@ -242,7 +253,7 @@ public class StarforgeBlock extends BaseEntityBlock {
      */
     public static boolean checkMultiblock(Level level, BlockPos pos) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
-        return switch (tier) {
+        return switch (getTier()) {
             case 1 -> blockEntity instanceof T1StarforgeMultiBlockEntity;
             case 2 -> blockEntity instanceof T2StarforgeMultiBlockEntity;
             case 3 -> blockEntity instanceof T3StarforgeMultiBlockEntity;

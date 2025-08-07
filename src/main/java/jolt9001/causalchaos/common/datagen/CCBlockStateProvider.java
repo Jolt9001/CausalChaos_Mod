@@ -2,14 +2,20 @@ package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.init.CCBlocks;
+import jolt9001.causalchaos.library.block.starforge.StarforgeBlock;
+import net.minecraft.core.Direction.*;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
+
+import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
 public class CCBlockStateProvider extends BlockStateProvider {
     public CCBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -18,10 +24,10 @@ public class CCBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        /*
+
         // Ores
-        fullBlock(CCBlocks.ANTHRACITE_ORE);
-        fullBlock(CCBlocks.MAGNETITE_ORE);
+        //fullBlock(CCBlocks.ANTHRACITE_ORE);
+        //fullBlock(CCBlocks.MAGNETITE_ORE);
         fullBlock(CCBlocks.COBALT_ORE);
         fullBlock(CCBlocks.IRIDIUM_ORE);
         fullBlock(CCBlocks.NEODYMIUM_ORE);
@@ -36,7 +42,7 @@ public class CCBlockStateProvider extends BlockStateProvider {
         fullBlock(CCBlocks.DEEPSLATE_PALLADIUM_ORE);
         fullBlock(CCBlocks.DEEPSLATE_TITANIUM_ORE);
         fullBlock(CCBlocks.DEEPSLATE_TUNGSTEN_ORE);
-
+ /*
         // Terrain Blocks
         fullBlock(CCBlocks.REALMWEAVE_BLOCK);
         bottomTop(CCBlocks.TRANSCENDENT_TURF);
@@ -85,9 +91,9 @@ public class CCBlockStateProvider extends BlockStateProvider {
         fullBlock(CCBlocks.RAW_PALLADIUM_BLOCK);
         fullBlock(CCBlocks.RAW_TITANIUM_BLOCK);
         fullBlock(CCBlocks.RAW_TUNGSTEN_BLOCK);
-
-        fullBlock(CCBlocks.ANTHRACITE_BLOCK);
-        fullBlock(CCBlocks.MAGNETITE_BLOCK);
+*/
+        //fullBlock(CCBlocks.ANTHRACITE_BLOCK);
+        //fullBlock(CCBlocks.MAGNETITE_BLOCK);
         fullBlock(CCBlocks.COBALT_BLOCK);
         fullBlock(CCBlocks.IRIDIUM_BLOCK);
         fullBlock(CCBlocks.NEODYMIUM_BLOCK);
@@ -102,6 +108,7 @@ public class CCBlockStateProvider extends BlockStateProvider {
         starforgeBlock(CCBlocks.T1_STARFORGE);
         starforgeBlock(CCBlocks.T2_STARFORGE);
         starforgeBlock(CCBlocks.T3_STARFORGE);
+/*
         columnBlocks(CCBlocks.T1_ELECTROMAGNET);
         columnBlocks(CCBlocks.T2_ELECTROMAGNET);
         columnBlocks(CCBlocks.T3_ELECTROMAGNET);
@@ -141,36 +148,55 @@ public class CCBlockStateProvider extends BlockStateProvider {
         // Needs Top, Bottom, Side, and Front.
         var offModel = models().cube(
                 modelPath(blockRegistryObject),
-                blockRegistryObject.getId().withSuffix("_bottom"),
-                blockRegistryObject.getId().withSuffix("_top"),
-                blockRegistryObject.getId().withSuffix("_front"),
-                blockRegistryObject.getId().withSuffix("_side"),
-                blockRegistryObject.getId().withSuffix("_side"),
-                blockRegistryObject.getId().withSuffix("_side"))
-                .texture("particle", blockRegistryObject.getId().withSuffix("_front"));
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_top"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_top"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_front"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_side"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_side"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_side"))
+                .texture("particle", blockRegistryObject.getId().withPrefix("block/").withSuffix("_front"));
         var onModel = models().cube(
                 modelPath(blockRegistryObject) + "_on",
-                blockRegistryObject.getId().withSuffix("_bottom"),
-                blockRegistryObject.getId().withSuffix("_top"),
-                blockRegistryObject.getId().withSuffix("_front_on"),
-                blockRegistryObject.getId().withSuffix("_side"),
-                blockRegistryObject.getId().withSuffix("_side"),
-                blockRegistryObject.getId().withSuffix("_side"))
-                .texture("particle", blockRegistryObject.getId().withSuffix("_front_on"));
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_top"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_top"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_front_on"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_side"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_side"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_side"))
+                .texture("particle", blockRegistryObject.getId().withPrefix("block/").withSuffix("_front_on"));
+        this.getVariantBuilder(blockRegistryObject.get())
+                .forAllStates(state ->
+                        ConfiguredModel.builder()
+                                .modelFile(offModel)
+                                .rotationY((int) state.getValue(HORIZONTAL_FACING).toYRot())
+                                //.nextModel()
+                                //.modelFile(onModel)
+                                //.rotationY((int) state.getValue(HORIZONTAL_FACING).toYRot())
+                                .build());
+        /*
+        this.getVariantBuilder(blockRegistryObject.get())
+                .partialState()
+                .with(AXIS, Axis.Y)
+                .modelForState()
+                .modelFile(onModel)
+                .nextModel()
+                .modelFile(offModel)
+                .build();
+ */
     }
     private void columnBlocks(RegistryObject<Block> blockRegistryObject) {
         var model = models().cubeColumn(
                 modelPath(blockRegistryObject),
-                blockRegistryObject.getId().withSuffix("_side"),
-                blockRegistryObject.getId().withSuffix("_end")
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_side"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_end")
         );
     }
     private void bottomTop(RegistryObject<Block> blockRegistryObject){
         var model = models().cubeBottomTop(
                 modelPath(blockRegistryObject),
-                blockRegistryObject.getId().withSuffix("_side"),
-                blockRegistryObject.getId().withSuffix("_bottom"),
-                blockRegistryObject.getId().withSuffix("_top")
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_side"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_bottom"),
+                blockRegistryObject.getId().withPrefix("block/").withSuffix("_top")
         );
     }
     private String modelPath(RegistryObject<Block> block) {

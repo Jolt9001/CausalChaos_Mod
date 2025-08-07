@@ -1,20 +1,21 @@
 package jolt9001.causalchaos.library.portal;
 
 import jolt9001.causalchaos.CCConfig;
-import jolt9001.causalchaos.init.CCSounds;
-import jolt9001.causalchaos.library.worldgen.registration.CCGenerationSettings;
+import jolt9001.causalchaos.library.worldgen.dimension.CCDimensions;
+import jolt9001.causalchaos.library.worldgen.portal.CCFinalTeleporter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -26,12 +27,42 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class TranscendentPortalBlock extends Block {
+    public TranscendentPortalBlock(Properties pProperties) {
+        super(pProperties);
+    }
+
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pPlayer.canChangeDimensions()) {
+            handleKaupenPortal(pPlayer, pPos);
+            return InteractionResult.SUCCESS;
+        } else {
+            return InteractionResult.CONSUME;
+        }
+    }
+
+    private void handleKaupenPortal(Entity player, BlockPos pPos) {
+        if (player.level() instanceof ServerLevel serverlevel) {
+            MinecraftServer minecraftserver = serverlevel.getServer();
+            ResourceKey<Level> resourcekey = player.level().dimension() == CCDimensions.FINAL_LEVEL_KEY ?
+                    Level.OVERWORLD : CCDimensions.FINAL_LEVEL_KEY;
+
+            ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
+            if (portalDimension != null && !player.isPassenger()) {
+                if(resourcekey == CCDimensions.FINAL_LEVEL_KEY) {
+                    player.changeDimension(portalDimension, new CCFinalTeleporter(pPos, true));
+                } else {
+                    player.changeDimension(portalDimension, new CCFinalTeleporter(pPos, false));
+                }
+            }
+        }
+    }
+    /*
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
     protected static final VoxelShape X_AXIS_AABB = Block.box(0.0, 0.0, 6.0, 16.0, 16.0, 10.0);
     protected static final VoxelShape Z_AXIS_AABB = Block.box(6.0, 0.0, 0.0, 10.0, 16.0, 16.0);
@@ -51,6 +82,7 @@ public class TranscendentPortalBlock extends Block {
  * [CODE COPY] - {@link Entity handleInsidePortal(BlockPos)}<br>
  * [CODE COPY] - {@link Entity handleNetherPortal()}.<br><br>
  */
+    /*
     @SuppressWarnings("deprecation")
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) { // Portal checks for when an entity is inside the portal
@@ -69,9 +101,9 @@ public class TranscendentPortalBlock extends Block {
         if (cachedOriginDimension == null){
             cachedOriginDimension = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(CCConfig.COMMON_CONFIG.originDimension.get()));
         }
-        return !entity.getCommandSenderWorld().dimension().location().equals(CCGenerationSettings.DIMENSION_FINAL)
+        return !entity.getCommandSenderWorld().dimension().location().equals(CCDimensions.DIMENSION_FINAL)
                 ? cachedOriginDimension // Return dimension
-                : CCGenerationSettings.DIMENSION_KEY_FINAL; // Destination dimension
+                : CCDimensions.FINAL_LEVEL_KEY; // Destination dimension
     }
 
     public static void attemptSendEntity(Entity entity) { // Teleportation Handler
@@ -84,7 +116,7 @@ public class TranscendentPortalBlock extends Block {
 
         entity.changeDimension(destinationLevel, new TranscendentPortalForcer(destinationLevel));
 
-        if (destinationKey == CCGenerationSettings.DIMENSION_KEY_FINAL && entity instanceof ServerPlayer playerMP) {
+        if (destinationKey == CCDimensions.FINAL_LEVEL_KEY && entity instanceof ServerPlayer playerMP) {
             playerMP.setRespawnPosition(destinationKey, playerMP.blockPosition(), playerMP.getYRot(), true, false);
         }
     }
@@ -111,7 +143,7 @@ public class TranscendentPortalBlock extends Block {
         }
     }
  */
-
+/*
     @SuppressWarnings("deprecation")
     @Override
     public BlockState rotate(BlockState state, Rotation rotation) { // Portal rotation handler
@@ -145,4 +177,5 @@ public class TranscendentPortalBlock extends Block {
     public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
         return ItemStack.EMPTY;
     }
+ */
 }
