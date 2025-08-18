@@ -9,14 +9,17 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class StarforgeMultiblockScreen extends AbstractContainerScreen<StarforgeMultiblockMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(CausalChaos.MODID, "textures/gui/starforge_multiblock.png");
-    private static int tier;
+    private int tier;
 
     public StarforgeMultiblockScreen(StarforgeMultiblockMenu menu, Inventory inv, Component comp) {
         super(menu, inv, comp);
-        tier = StarforgeBlock.getTier();
+        StarforgeBlock instance = new StarforgeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion(), 0);
+        tier = instance.getTier();
     }
 
     @Override

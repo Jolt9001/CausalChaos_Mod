@@ -52,4 +52,22 @@ public class CCEntityNames {
     public static final ResourceLocation ANDREA_NPC = CausalChaos.prefix("andrea_npc");
     public static final ResourceLocation REX_NPC = CausalChaos.prefix("rex_npc");
     public static final ResourceLocation JOLT_NPC = CausalChaos.prefix("jolt_npc");
+        // chaos
+    public static final ResourceLocation C_TSUNA_BOSS = CausalChaos.prefix("c_tsuna_boss");
+    public static final ResourceLocation C_KAI_BOSS = CausalChaos.prefix("c_kai_boss");
+    public static final ResourceLocation C_TERRY_BOSS = CausalChaos.prefix("c_terry_boss");
+    public static final ResourceLocation C_LYADOVA_BOSS = CausalChaos.prefix("c_lyandova_boss");
+    public static final ResourceLocation C_AELLA_BOSS = CausalChaos.prefix("c_aella_boss");
+    public static final ResourceLocation C_JACK_BOSS = CausalChaos.prefix("c_jack_boss");
+    public static final ResourceLocation C_XANTHEA_BOSS = CausalChaos.prefix("c_xanthea_boss");
+    public static final ResourceLocation C_WILL_BOSS = CausalChaos.prefix("c_will_boss");
+    public static final ResourceLocation C_MATTHUE_BOSS = CausalChaos.prefix("c_matthue_boss");
+    public static final ResourceLocation C_ALLINE_BOSS = CausalChaos.prefix("c_alline_boss");
+    public static final ResourceLocation C_MADELINE_BOSS = CausalChaos.prefix("c_madeline_boss");
+    public static final ResourceLocation C_EMILY_BOSS = CausalChaos.prefix("c_emily_boss");
+    public static final ResourceLocation C_ADRIAN_BOSS = CausalChaos.prefix("c_adrian_boss");
+    public static final ResourceLocation C_ANDREA_BOSS = CausalChaos.prefix("c_andrea_boss");
+    public static final ResourceLocation C_REX_BOSS = CausalChaos.prefix("c_rex_boss");
+    public static final ResourceLocation C_JOLT_BOSS = CausalChaos.prefix("c_jolt_boss");
+    public static final ResourceLocation C_FPJOLT_BOSS = CausalChaos.prefix("c_fpjolt_boss");
 }

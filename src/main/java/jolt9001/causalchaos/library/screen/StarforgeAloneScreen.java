@@ -2,26 +2,34 @@ package jolt9001.causalchaos.library.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.init.CCMenuTypes;
 import jolt9001.causalchaos.library.block.starforge.StarforgeBlock;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class StarforgeAloneScreen extends AbstractContainerScreen<StarforgeAloneMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(CausalChaos.MODID, "textures/gui/starforge_alone.png");
-    private static int tier;
+    private static final ResourceLocation TEXTURE = new ResourceLocation(CausalChaos.MODID, "textures/gui/machines/starforge_alone.png");
 
-    public StarforgeAloneScreen(StarforgeAloneMenu menu, Inventory inv, Component comp) {
-        super(menu, inv, comp);
-        tier = StarforgeBlock.getTier();
+    protected int tier;
+
+    public StarforgeAloneScreen(StarforgeAloneMenu menu, Inventory inv, Component title) {
+        super(menu, inv, title);
+        this.tier = menu.tier;
     }
 
     @Override
     public void init() {
         super.init();
+        this.inventoryLabelY = 146 - 33;
+        this.titleLabelY = 6-33;
     }
 
     @Override
@@ -30,9 +38,9 @@ public class StarforgeAloneScreen extends AbstractContainerScreen<StarforgeAlone
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        int y = (height - imageHeight) / 2 - 33;
 
-        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        guiGraphics.blit(TEXTURE, x, y, 0, 0, 203, 239); // width: 203px, height: 239px
 
         renderTierIndicator(guiGraphics, x, y, tier);
         renderProgressArrow(guiGraphics, x, y);
@@ -53,10 +61,10 @@ public class StarforgeAloneScreen extends AbstractContainerScreen<StarforgeAlone
 
     private void renderTierIndicator(GuiGraphics guiGraphics, int x, int y, int tier) {
         switch (tier) {
-            case 0 -> guiGraphics.blitSprite(TEXTURE, x + 186, y + 19, 204, 31, 11);
-            case 1 -> guiGraphics.blitSprite(TEXTURE, x + 186, y + 19, 204, 42, 11);
-            case 2 -> guiGraphics.blitSprite(TEXTURE, x + 186, y + 19, 204, 53, 11);
-            case 3 -> guiGraphics.blitSprite(TEXTURE, x + 186, y + 19, 204, 64, 11);
+            case 0 -> guiGraphics.blit(TEXTURE, x + 186, y + 19, 204, 31, 9, 11);
+            case 1 -> guiGraphics.blit(TEXTURE, x + 186, y + 19, 204, 42, 9, 11);
+            case 2 -> guiGraphics.blit(TEXTURE, x + 186, y + 19, 204, 53, 9, 11);
+            case 3 -> guiGraphics.blit(TEXTURE, x + 186, y + 19, 204, 64, 9, 11);
         }
     }
 

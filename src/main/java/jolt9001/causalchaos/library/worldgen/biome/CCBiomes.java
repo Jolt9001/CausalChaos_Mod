@@ -13,6 +13,8 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
+import static jolt9001.causalchaos.library.worldgen.biome.biomegen.PerfectPlains.*;
+
 public class CCBiomes {
     // Test Biome
     public static final ResourceKey<Biome> TEST_BIOME = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "test_biome"));
@@ -51,6 +53,7 @@ public class CCBiomes {
 
     public static void boostrap(BootstapContext<Biome> context) {
         context.register(TEST_BIOME, testBiome(context));
+        //context.register(PERFECT_PLAINS, perfectPlainsBiome(context));
     }
 
     public static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {

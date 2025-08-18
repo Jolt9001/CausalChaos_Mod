@@ -4,8 +4,10 @@ import com.mojang.logging.LogUtils;
 
 import jolt9001.causalchaos.init.*;
 
+import jolt9001.causalchaos.library.screen.StarforgeAloneScreen;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -72,7 +74,7 @@ public class CausalChaos {
         CCBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
         //CCMultiblockEntities.MULTIBLOCK_ENTITY_TYPES.register(modEventBus);
 
-        //CCMenuTypes.register(modEventBus);
+        CCMenuTypes.register(modEventBus);
 
         CCRecipes.register(modEventBus);
 
@@ -119,7 +121,7 @@ public class CausalChaos {
             LOGGER.info("Me when the client setup");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
-            //MenuScreens.register(CCMenuTypes.STARFORGE_ALONE_MENU.get(), StarforgeAloneScreen::new);
+            MenuScreens.register(CCMenuTypes.STARFORGE_ALONE_MENU.get(), StarforgeAloneScreen::new);
             //MenuScreens.register(CCMenuTypes.STARFORGE_MULTIBLOCK_MENU.get(), StarforgeMultiblockScreen::new);
         }
     }

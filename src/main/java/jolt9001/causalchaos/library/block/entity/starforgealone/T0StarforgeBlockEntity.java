@@ -73,7 +73,7 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
             }
             @Override
             public int getCount() {
-                return 2;
+                return 11;
             }
         };
     }

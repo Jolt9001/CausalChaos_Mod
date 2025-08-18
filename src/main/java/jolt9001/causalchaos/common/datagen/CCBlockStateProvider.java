@@ -2,10 +2,7 @@ package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.init.CCBlocks;
-import jolt9001.causalchaos.library.block.starforge.StarforgeBlock;
-import net.minecraft.core.Direction.*;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;

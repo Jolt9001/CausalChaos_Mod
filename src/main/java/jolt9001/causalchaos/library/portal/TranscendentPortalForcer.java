@@ -144,7 +144,7 @@ public class TranscendentPortalForcer implements ITeleporter {
     }
 
     public void makePortal(Entity entity, ServerLevel level, Vec3 pos) {
-        // TranscendentPortalShape portal = this.isPortal()
+        //TranscendentPortalShape portal = this.isPortal();
     }
 
     static class PortalPosition {

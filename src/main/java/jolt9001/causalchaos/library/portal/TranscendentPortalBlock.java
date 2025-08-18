@@ -1,20 +1,15 @@
 package jolt9001.causalchaos.library.portal;
 
-import jolt9001.causalchaos.CCConfig;
 import jolt9001.causalchaos.library.worldgen.dimension.CCDimensions;
 import jolt9001.causalchaos.library.worldgen.portal.CCFinalTeleporter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -32,21 +27,26 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TranscendentPortalBlock extends Block {
+    //public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
+    //protected static final VoxelShape X_AXIS_AABB = Block.box(0.0, 0.0, 6.0, 16.0, 16.0, 10.0);
+    //protected static final VoxelShape Z_AXIS_AABB = Block.box(6.0, 0.0, 0.0, 10.0, 16.0, 16.0);
+
     public TranscendentPortalBlock(Properties pProperties) {
         super(pProperties);
+        //this.registerDefaultState(this.getStateDefinition().any().setValue(AXIS, Direction.Axis.X));
     }
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pPlayer.canChangeDimensions()) {
-            handleKaupenPortal(pPlayer, pPos);
+            handleFinalPortal(pPlayer, pPos);
             return InteractionResult.SUCCESS;
         } else {
             return InteractionResult.CONSUME;
         }
     }
 
-    private void handleKaupenPortal(Entity player, BlockPos pPos) {
+    private void handleFinalPortal(Entity player, BlockPos pPos) {
         if (player.level() instanceof ServerLevel serverlevel) {
             MinecraftServer minecraftserver = serverlevel.getServer();
             ResourceKey<Level> resourcekey = player.level().dimension() == CCDimensions.FINAL_LEVEL_KEY ?
@@ -63,16 +63,9 @@ public class TranscendentPortalBlock extends Block {
         }
     }
     /*
-    public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
-    protected static final VoxelShape X_AXIS_AABB = Block.box(0.0, 0.0, 6.0, 16.0, 16.0, 10.0);
-    protected static final VoxelShape Z_AXIS_AABB = Block.box(6.0, 0.0, 0.0, 10.0, 16.0, 16.0);
 
     private static ResourceKey<Level> cachedOriginDimension;
 
-    public TranscendentPortalBlock(Properties properties) {
-        super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(AXIS, Direction.Axis.X));
-    }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AXIS);

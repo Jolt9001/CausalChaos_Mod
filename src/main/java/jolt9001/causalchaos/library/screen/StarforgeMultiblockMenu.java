@@ -10,16 +10,22 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class StarforgeMultiblockMenu extends AbstractContainerMenu {
-    public BlockEntity blockEntity = null;
+    public T1StarforgeMultiBlockEntity blockEntity1;
+    public T2StarforgeMultiBlockEntity blockEntity2;
+    public T3StarforgeMultiBlockEntity blockEntity3;
     private final Level level;
     private final ContainerData data;
 
-    public static int tier;
+    StarforgeBlock instance = new StarforgeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion(), 0);
+    public int tier = instance.getTier();
+
     public StarforgeMultiblockMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
         this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(11));
     }
@@ -27,11 +33,47 @@ public class StarforgeMultiblockMenu extends AbstractContainerMenu {
     public StarforgeMultiblockMenu(int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(CCMenuTypes.STARFORGE_MULTIBLOCK_MENU.get(), containerId);
         checkContainerSize(inv, 10);
-        tier = StarforgeBlock.getTier();
         switch (tier) {
-            case 1 -> blockEntity = ((T1StarforgeMultiBlockEntity) entity);
-            case 2 -> blockEntity = ((T2StarforgeMultiBlockEntity) entity);
-            case 3 -> blockEntity = ((T3StarforgeMultiBlockEntity) entity);
+            case 1 -> {
+                blockEntity1 = ((T1StarforgeMultiBlockEntity) entity);
+                this.blockEntity1.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
+                    int k = 0;
+                    for (int i = 0; i < 7; ++i) {
+                        for (int j = 0; j < 7; ++j){ // x = 44, y = 53
+                            this.addSlot(new SlotItemHandler(iItemHandler, k, 44 + i * 18, 53 + j * 18));
+                            k++;
+                        }
+                    }
+                    this.addSlot(new SlotItemHandler(iItemHandler, k, 176, 72));
+                });
+            }
+            case 2 -> {
+                blockEntity2 = ((T2StarforgeMultiBlockEntity) entity);
+                this.blockEntity2.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
+                    int k = 0;
+                    for (int i = 0; i < 7; ++i) {
+                        for (int j = 0; j < 7; ++j){ // x = 44, y = 53
+                            this.addSlot(new SlotItemHandler(iItemHandler, k, 44 + i * 18, 53 + j * 18));
+                            k++;
+                        }
+                    }
+                    this.addSlot(new SlotItemHandler(iItemHandler, k, 176, 72));
+                });
+            }
+            case 3 -> {
+                blockEntity3 = ((T3StarforgeMultiBlockEntity) entity);
+                this.blockEntity3.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
+                    int k = 0;
+                    for (int i = 0; i < 7; ++i) {
+                        for (int j = 0; j < 7; ++j){ // x = 44, y = 53
+                            this.addSlot(new SlotItemHandler(iItemHandler, k, 44 + i * 18, 53 + j * 18));
+                            k++;
+                        }
+                    }
+                    this.addSlot(new SlotItemHandler(iItemHandler, k, 176, 72));
+                });
+            }
+            default -> throw new IllegalStateException("Invalid tier value: " + tier);
         }
 
         this.level = inv.player.level();
@@ -39,15 +81,6 @@ public class StarforgeMultiblockMenu extends AbstractContainerMenu {
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
-
-        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            for (int i = 0; i < 2; ++i) {
-                for (int j = 0; j < 9; ++j){ // x = 44, y = 53
-                    this.addSlot(new SlotItemHandler(iItemHandler, i + j, 44 + i * 18, 53 + j * 18));
-                }
-            }
-        });
-
         addDataSlots(data);
     }
 
@@ -72,11 +105,11 @@ public class StarforgeMultiblockMenu extends AbstractContainerMenu {
     /**
      * CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
      * must assign a slot number to each of the slots used by the GUI.
-     * For this container, we can see both the tile inventory's slots as well as the player inventory slots and the hotbar.
+     * For this container, we can see both the tile inventory's slots, the player inventory slots, and the hotbar.
      * Each time we add a Slot to the container, it automatically increases the slotIndex, which means
      *  0 - 8 = hotbar slots (which will map to the InventoryPlayer slot numbers 0 - 8)
      * 9 - 35 = player inventory slots (which map to the InventoryPlayer slot numbers 9 - 35)
-     *  36 - 44 = TileInventory slots, which map to our TileEntity slot numbers 0 - 8)
+     *  36 - 86 = TileInventory slots, which map to our TileEntity slot numbers 0 - 50)
      */
     private static final int HOTBAR_SLOT_COUNT = 9;
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
@@ -123,15 +156,15 @@ public class StarforgeMultiblockMenu extends AbstractContainerMenu {
     public boolean stillValid(Player player) {
         switch (tier) {
             case 1 -> {
-                return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                return stillValid(ContainerLevelAccess.create(level, blockEntity1.getBlockPos()),
                         player, CCBlocks.T1_STARFORGE.get());
             }
             case 2 -> {
-                return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                return stillValid(ContainerLevelAccess.create(level, blockEntity2.getBlockPos()),
                         player, CCBlocks.T2_STARFORGE.get());
             }
             case 3 -> {
-                return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
+                return stillValid(ContainerLevelAccess.create(level, blockEntity3.getBlockPos()),
                         player, CCBlocks.T3_STARFORGE.get());
             }
             default -> throw new IllegalStateException("Invalid tier:  " + tier);
