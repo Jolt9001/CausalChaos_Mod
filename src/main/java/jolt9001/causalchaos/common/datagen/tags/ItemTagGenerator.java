@@ -82,6 +82,8 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
     // Portal activator
     public static final TagKey<Item> PORTAL_ACTIVATOR = create("portal/activator");
 
+    // Fuel
+    public static final TagKey<Item> STARGORGE_FUEL = create("starforge_fuel");
 
     public static final TagKey<Item> WIP = create("wip");
     public static final TagKey<Item> NYI = create("nyi");
@@ -148,6 +150,12 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
         tag(STORAGE_RAW_PALLADIUM).add(CCBlocks.RAW_PALLADIUM_BLOCK.get().asItem());
         tag(STORAGE_RAW_TITANIUM).add(CCBlocks.RAW_TITANIUM_BLOCK.get().asItem());
         tag(STORAGE_RAW_TUNGSTEN).add(CCBlocks.RAW_TUNGSTEN_BLOCK.get().asItem());
+        tag(Tags.Items.STORAGE_BLOCKS)
+                .addTag(STORAGE_BLOCKS_ANTHRACITE).addTag(STORAGE_BLOCKS_MAGNETITE).addTag(STORAGE_BLOCKS_COBALT)
+                .addTag(STORAGE_BLOCKS_IRIDIUM).addTag(STORAGE_BLOCKS_PALLADIUM).addTag(STORAGE_BLOCKS_PALLADIUM)
+                .addTag(STORAGE_BLOCKS_PERPLEXIUM).addTag(STORAGE_BLOCKS_THUNDERSTEEL).addTag(STORAGE_BLOCKS_TITANIUM)
+                .addTag(STORAGE_BLOCKS_TUNGSTEN).addTag(STORAGE_RAW_COBALT).addTag(STORAGE_RAW_IRIDIUM).addTag(STORAGE_RAW_NEODYMIUM)
+                .addTag(STORAGE_RAW_PALLADIUM).addTag(STORAGE_RAW_TITANIUM).addTag(STORAGE_RAW_TUNGSTEN);
 
         // Armor
         tag(Tags.Items.ARMORS_BOOTS).add(
@@ -295,6 +303,8 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
         );
 
         tag(PORTAL_ACTIVATOR).add(CCItems.STABLE_RIFT_TOKEN.get());
+
+        tag(STARGORGE_FUEL).add(CCItems.ANTHRACITE.get(), CCBlocks.ANTHRACITE_BLOCK.get().asItem());
     }
 
     public static TagKey<Item> create(String tagName) {
