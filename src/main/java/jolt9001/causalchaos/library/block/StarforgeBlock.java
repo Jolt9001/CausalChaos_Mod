@@ -1,21 +1,16 @@
-package jolt9001.causalchaos.library.block.starforge;
+package jolt9001.causalchaos.library.block;
 
-import io.netty.buffer.ByteBuf;
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.init.CCBlockEntities;
 import jolt9001.causalchaos.init.CCMultiblockEntities;
 import jolt9001.causalchaos.library.block.entity.starforgealone.*;
 import jolt9001.causalchaos.library.block.entity.starforgemultiblock.*;
-import jolt9001.causalchaos.library.screen.StarforgeAloneMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -36,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 public class StarforgeBlock extends BaseEntityBlock {
     protected boolean isMultiblock = false;
     protected int tier = 0;
+
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
@@ -59,7 +55,8 @@ public class StarforgeBlock extends BaseEntityBlock {
     public StarforgeBlock(Properties properties, int tier) {
         super(properties);
         setTier(tier);
-        this.registerDefaultState(this.defaultBlockState().setValue(ACTIVE, false).setValue(FACING, Direction.NORTH).setValue(TIER, 0));
+        this.registerDefaultState(this.defaultBlockState().setValue(ACTIVE, false).setValue(FACING, Direction.NORTH)
+                .setValue(TIER, 0));
     }
 
     @Override
@@ -73,12 +70,24 @@ public class StarforgeBlock extends BaseEntityBlock {
     }
 
     @Override
+    public BlockState rotate(BlockState state, Rotation rot) {
+        return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
+    }
+    @Override
+    public BlockState mirror(BlockState state, Mirror mirror) {
+        return state.rotate(mirror.getRotation(state.getValue(FACING)));
+    }
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        return this.defaultBlockState().setValue(FACING, ctx.getHorizontalDirection());
+    }
+
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder){
         super.createBlockStateDefinition(builder);
-        builder.add(FACING);
-        builder.add(ACTIVE);
-        builder.add(TIER);
+        builder.add(FACING, ACTIVE, TIER);
     }
+
 
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
@@ -94,7 +103,8 @@ public class StarforgeBlock extends BaseEntityBlock {
                 } else if (blockEntity instanceof T3StarforgeBlockEntity) {
                     ((T3StarforgeBlockEntity) blockEntity).drops();
                 }
-            /*} else {
+                /*
+            } else {
                 if (blockEntity instanceof T1StarforgeMultiBlockEntity) {
                     ((T1StarforgeMultiBlockEntity) blockEntity).drops();
                 } else if (blockEntity instanceof T2StarforgeMultiBlockEntity) {
@@ -103,7 +113,8 @@ public class StarforgeBlock extends BaseEntityBlock {
                     ((T3StarforgeMultiBlockEntity) blockEntity).drops();
                 }
             }
-             */
+
+                 */
         }
         super.onRemove(state, level, pos, newState, isMoving);
     }
@@ -113,7 +124,7 @@ public class StarforgeBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (!getIsMultiblock()) {
+            if (!isMultiblock) {
                 if (blockEntity instanceof T0StarforgeBlockEntity) {
                     IForgeServerPlayer serverPlayer = (IForgeServerPlayer) player;
                     serverPlayer.openMenu(state.getMenuProvider(level, pos), pos);
@@ -267,6 +278,8 @@ public class StarforgeBlock extends BaseEntityBlock {
      */
     public boolean checkMultiblock(Level level, BlockPos pos) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
+
+
         return switch (getTier()) {
             case 1 -> blockEntity instanceof T1StarforgeMultiBlockEntity;
             case 2 -> blockEntity instanceof T2StarforgeMultiBlockEntity;

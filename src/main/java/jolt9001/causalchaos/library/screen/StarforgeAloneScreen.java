@@ -2,18 +2,12 @@ package jolt9001.causalchaos.library.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.init.CCMenuTypes;
-import jolt9001.causalchaos.library.block.starforge.StarforgeBlock;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class StarforgeAloneScreen extends AbstractContainerScreen<StarforgeAloneMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(CausalChaos.MODID, "textures/gui/machines/starforge_alone.png");

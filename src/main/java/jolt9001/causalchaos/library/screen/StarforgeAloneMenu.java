@@ -1,9 +1,6 @@
 package jolt9001.causalchaos.library.screen;
 
-import io.netty.buffer.ByteBuf;
-import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.init.CCMenuTypes;
-import jolt9001.causalchaos.library.block.starforge.StarforgeBlock;
 import jolt9001.causalchaos.library.block.entity.starforgealone.T0StarforgeBlockEntity;
 import jolt9001.causalchaos.library.block.entity.starforgealone.T1StarforgeBlockEntity;
 import jolt9001.causalchaos.library.block.entity.starforgealone.T2StarforgeBlockEntity;
