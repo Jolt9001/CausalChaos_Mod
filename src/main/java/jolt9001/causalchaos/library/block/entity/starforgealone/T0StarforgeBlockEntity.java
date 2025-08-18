@@ -52,6 +52,8 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 78;
+    private int litTime;
+    private int litDuration;
 
     public T0StarforgeBlockEntity(BlockPos pos, BlockState state){
         super(CCBlockEntities.T0_STARFORGE_BE.get(), pos, state);
@@ -61,6 +63,8 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
                 return switch (index) {
                     case 0 -> T0StarforgeBlockEntity.this.progress;
                     case 1 -> T0StarforgeBlockEntity.this.maxProgress;
+                    case 2 -> T0StarforgeBlockEntity.this.litTime;
+                    case 3 -> T0StarforgeBlockEntity.this.litDuration;
                     default ->  0;
                 };
             }
@@ -69,6 +73,8 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
                 switch (index) {
                     case 0 -> T0StarforgeBlockEntity.this.progress = value;
                     case 1 -> T0StarforgeBlockEntity.this.maxProgress = value;
+                    case 2 -> T0StarforgeBlockEntity.this.litTime = value;
+                    case 3 -> T0StarforgeBlockEntity.this.litDuration = value;
                 }
             }
             @Override
@@ -121,14 +127,17 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     protected void saveAdditional(CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("t0_starforge.progress", progress);
+        tag.putInt("LitTime", litTime);
         super.saveAdditional(tag);
     }
 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        itemHandler.deserializeNBT(tag.getCompound("inventory"));
-        progress = tag.getInt("t0_starforge.progress");
+        this.itemHandler.deserializeNBT(tag.getCompound("inventory"));
+        this.progress = tag.getInt("t0_starforge.progress");
+        this.litTime = tag.getInt("LitTime");
+        this.litDuration = tag.getInt("LitDuration");
     }
 
     public void tick(Level level1, BlockPos pos, BlockState state1) {
@@ -174,6 +183,9 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
             inv.setItem(i, this.itemHandler.getStackInSlot(i));
         }
         return this.level.getRecipeManager().getRecipeFor(StarforgeAloneRecipe.Type.INSTANCE, inv, level);
+    }
+    public boolean isLit() {
+        return this.litTime > 0;
     }
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
