@@ -177,137 +177,6 @@ public class CCCraftingProvider extends CraftingDataHelper {
                 .requires(Blocks.CHEST)
                 .unlockedBy("has_item", has(CCBlocks.T3_HOPPER.get()))
                 .save(out, CausalChaos.prefix("machines/t3_s_hopper"));
-/*
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
-                .requires(CCItems.RAW_COBALT.get())
-                .save(out, CausalChaos.prefix("cobalt"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
-                .requires(CCBlocks.COBALT_ORE.get())
-                .save(out, CausalChaos.prefix("cobalt"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
-                .requires(CCBlocks.DEEPSLATE_COBALT_ORE.get())
-                .save(out, CausalChaos.prefix("cobalt"));
-        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get()).requires(CCBlocks.TRANSCENDENT_COBALT_ORE.get()).save(out, CausalChaos.prefix("cobalt"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
-                .requires(CCItems.RAW_IRIDIUM.get())
-                .save(out, CausalChaos.prefix("iridium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
-                .requires(CCBlocks.IRIDIUM_ORE.get())
-                .save(out, CausalChaos.prefix("iridium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
-                .requires(CCBlocks.DEEPSLATE_IRIDIUM_ORE.get())
-                .save(out, CausalChaos.prefix("iridium"));
-        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get()).save(out, CausalChaos.prefix("iridium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
-                .requires(CCItems.RAW_NEODYMIUM.get())
-                .save(out, CausalChaos.prefix("neodymium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
-                .requires(CCBlocks.NEODYMIUM_ORE.get())
-                .save(out, CausalChaos.prefix("neodymium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
-                .requires(CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get())
-                .save(out, CausalChaos.prefix("neodymium"));
-        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_NEODYMIUM_ORE.get()).save(out, CausalChaos.prefix("neodymium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
-                .requires(CCItems.RAW_PALLADIUM.get())
-                .save(out, CausalChaos.prefix("palladium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
-                .requires(CCBlocks.PALLADIUM_ORE.get())
-                .save(out, CausalChaos.prefix("palladium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
-                .requires(CCBlocks.DEEPSLATE_PALLADIUM_ORE.get())
-                .save(out, CausalChaos.prefix("palladium"));
-        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_PALLADIUM_ORE.get()).save(out, CausalChaos.prefix("palladium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
-                .requires(CCItems.RAW_TITANIUM.get())
-                .save(out, CausalChaos.prefix("titanium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
-                .requires(CCBlocks.TITANIUM_ORE.get())
-                .save(out, CausalChaos.prefix("titanium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
-                .requires(CCBlocks.DEEPSLATE_TITANIUM_ORE.get())
-                .save(out, CausalChaos.prefix("titanium"));
-        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_TITANIUM_ORE.get()).save(out, CausalChaos.prefix("titanium"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
-                .requires(CCItems.RAW_TUNGSTEN.get())
-                .save(out, CausalChaos.prefix("tungten"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
-                .requires(CCBlocks.TUNGSTEN_ORE.get())
-                .save(out, CausalChaos.prefix("tungten"));
-        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
-                .requires(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get())
-                .save(out, CausalChaos.prefix("tungten"));
-        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get()).requires(CCBlocks.TRANSCENDENT_TUNGSTEN_ORE.get()).save(out, CausalChaos.prefix("tungten"));
-
-        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_CORE_SHIELDING.get(), 10, 3)
-                .pattern("wiw")
-                .pattern("ini")
-                .pattern("wiw")
-                .define('w', CCItems.TUNGSTEN_INGOT.get())
-                .define('i', CCItems.IRIDIUM_INGOT.get())
-                .define('n', Items.NETHERITE_INGOT)
-                .unlockedBy("has_item", has(CCItems.TUNGSTEN_INGOT.get()))
-                .save(out, CausalChaos.prefix("machines/t1_core_shield"));
-        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_ELECTROMAGNET.get(), 10, 3)
-                .pattern("nin")
-                .pattern("iri")
-                .pattern("nin")
-                .define('n', CCItems.NEODYMIUM_INGOT.get())
-                .define('i', CCItems.IRIDIUM_INGOT.get())
-                .define('r', Blocks.REDSTONE_BLOCK)
-                .unlockedBy("has_item", has(CCItems.IRIDIUM_INGOT.get()))
-                .save(out, CausalChaos.prefix(("machines/t1_electromagnet")));
-        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_HOPPER.get(), 10, 3)
-                .pattern("w w")
-                .pattern("nen")
-                .pattern(" w ")
-                .define('w', CCItems.TUNGSTEN_INGOT.get())
-                .define('n', Items.NETHERITE_INGOT)
-                .define('e', CCBlocks.T1_ELECTROMAGNET.get())
-                .unlockedBy("has_item", has(CCBlocks.T1_ELECTROMAGNET.get()))
-                .save(out, CausalChaos.prefix("machines/t1_hopper"));
-        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_HEAT_SINK.get(), 10, 3)
-                .pattern("wnw")
-                .pattern(" w ")
-                .pattern("wnw")
-                .define('w', CCItems.TUNGSTEN_INGOT.get())
-                .define('n', Items.NETHERITE_INGOT)
-                .unlockedBy("has_item", has(CCItems.TUNGSTEN_INGOT.get()))
-                .save(out, CausalChaos.prefix("machines/t1_heat_sink"));
-        StarforgeMultiblockShapedRecipeBuilder.shapedMulti(RecipeCategory.MISC, CCItems.THUNDERSTEEL_INGOT.get(), 10,3, 2, 1)
-                .pattern(" wfffw ")
-                .pattern("witctiw")
-                .pattern("ftppptf")
-                .pattern("fcpnpcf")
-                .pattern("ftntntf")
-                .pattern("witctiw")
-                .pattern(" wfffw ")
-                .define('w', CCItems.TUNGSTEN_INGOT.get())
-                .define('f', Items.IRON_INGOT)
-                .define('i', CCItems.IRIDIUM_INGOT.get())
-                .define('t', CCItems.TITANIUM_INGOT.get())
-                .define('c', CCItems.COBALT_INGOT.get())
-                .define('p', CCItems.PALLADIUM_INGOT.get())
-                .define('n', CCItems.NEODYMIUM_INGOT.get())
-                .save(out, CausalChaos.prefix("items/thundersteel_ingot"));
-        StarforgeMultiblockShapedRecipeBuilder.shapedMulti(RecipeCategory.MISC, CCItems.PERPLEXIUM_NUGGET.get(), 10,3, 3, 2)
-                .pattern(" wfffw ")
-                .pattern("witctiw")
-                .pattern("ftppptf")
-                .pattern("fcpnpcf")
-                .pattern("ftntntf")
-                .pattern("witctiw")
-                .pattern(" wfffw ")
-                .define('w', CCItems.TUNGSTEN_INGOT.get())
-                .define('f', Items.IRON_INGOT)
-                .define('i', CCItems.IRIDIUM_INGOT.get())
-                .define('t', CCItems.TITANIUM_INGOT.get())
-                .define('c', CCItems.COBALT_INGOT.get())
-                .define('p', CCItems.PALLADIUM_INGOT.get())
-                .define('n', CCItems.NEODYMIUM_INGOT.get())
-                .save(out, CausalChaos.prefix("items/perplexium_nugget"));
-         */
-
     }
 
     private void equipmentRecipes(RecipeOutput out) {
@@ -464,6 +333,244 @@ public class CCCraftingProvider extends CraftingDataHelper {
         reverseIngotCraft(out, "titanium_ingot", CCItems.TITANIUM_NUGGET, ItemTagGenerator.TITANIUM_INGOTS);
         reverseIngotCraft(out, "tungsten_ingot", CCItems.TUNGSTEN_NUGGET, ItemTagGenerator.TUNGSTEN_INGOTS);
 
+    }
+
+    private void starforgeAlone(RecipeOutput out) {
+        // Shapeless Recipes
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
+                .requires(CCItems.RAW_COBALT.get())
+                .save(out, CausalChaos.prefix("cobalt"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
+                .requires(CCBlocks.COBALT_ORE.get())
+                .save(out, CausalChaos.prefix("cobalt"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_COBALT_ORE.get())
+                .save(out, CausalChaos.prefix("cobalt"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.COBALT_INGOT.get()).requires(CCBlocks.TRANSCENDENT_COBALT_ORE.get()).save(out, CausalChaos.prefix("cobalt"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
+                .requires(CCItems.RAW_IRIDIUM.get())
+                .save(out, CausalChaos.prefix("iridium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
+                .requires(CCBlocks.IRIDIUM_ORE.get())
+                .save(out, CausalChaos.prefix("iridium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_IRIDIUM_ORE.get())
+                .save(out, CausalChaos.prefix("iridium"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.IRIDIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get()).save(out, CausalChaos.prefix("iridium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
+                .requires(CCItems.RAW_NEODYMIUM.get())
+                .save(out, CausalChaos.prefix("neodymium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
+                .requires(CCBlocks.NEODYMIUM_ORE.get())
+                .save(out, CausalChaos.prefix("neodymium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_NEODYMIUM_ORE.get())
+                .save(out, CausalChaos.prefix("neodymium"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.NEODYMIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_NEODYMIUM_ORE.get()).save(out, CausalChaos.prefix("neodymium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
+                .requires(CCItems.RAW_PALLADIUM.get())
+                .save(out, CausalChaos.prefix("palladium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
+                .requires(CCBlocks.PALLADIUM_ORE.get())
+                .save(out, CausalChaos.prefix("palladium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_PALLADIUM_ORE.get())
+                .save(out, CausalChaos.prefix("palladium"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.PALLADIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_PALLADIUM_ORE.get()).save(out, CausalChaos.prefix("palladium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
+                .requires(CCItems.RAW_TITANIUM.get())
+                .save(out, CausalChaos.prefix("titanium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
+                .requires(CCBlocks.TITANIUM_ORE.get())
+                .save(out, CausalChaos.prefix("titanium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_TITANIUM_ORE.get())
+                .save(out, CausalChaos.prefix("titanium"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TITANIUM_INGOT.get()).requires(CCBlocks.TRANSCENDENT_TITANIUM_ORE.get()).save(out, CausalChaos.prefix("titanium"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
+                .requires(CCItems.RAW_TUNGSTEN.get())
+                .save(out, CausalChaos.prefix("tungten"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
+                .requires(CCBlocks.TUNGSTEN_ORE.get())
+                .save(out, CausalChaos.prefix("tungten"));
+        StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get())
+                .requires(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get())
+                .save(out, CausalChaos.prefix("tungten"));
+        //StarforgeAloneShapelessRecipeBuilder.shapelessSingle(RecipeCategory.MISC,100, 10,  CCItems.TUNGSTEN_INGOT.get()).requires(CCBlocks.TRANSCENDENT_TUNGSTEN_ORE.get()).save(out, CausalChaos.prefix("tungten"));
+
+        // Shaped Recipes
+        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_CORE_SHIELDING.get(), 10, 3)
+                .pattern("wiw")
+                .pattern("ini")
+                .pattern("wiw")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('i', CCItems.IRIDIUM_INGOT.get())
+                .define('n', Items.NETHERITE_INGOT)
+                .unlockedBy("has_item", has(CCItems.TUNGSTEN_INGOT.get()))
+                .save(out, CausalChaos.prefix("machines/t1_core_shield"));
+        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_ELECTROMAGNET.get(), 10, 3)
+                .pattern("nin")
+                .pattern("iri")
+                .pattern("nin")
+                .define('n', CCItems.NEODYMIUM_INGOT.get())
+                .define('i', CCItems.IRIDIUM_INGOT.get())
+                .define('r', Blocks.REDSTONE_BLOCK)
+                .unlockedBy("has_item", has(CCItems.IRIDIUM_INGOT.get()))
+                .save(out, CausalChaos.prefix(("machines/t1_electromagnet")));
+        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_HOPPER.get(), 10, 3)
+                .pattern("w w")
+                .pattern("nen")
+                .pattern(" w ")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('n', Items.NETHERITE_INGOT)
+                .define('e', CCBlocks.T1_ELECTROMAGNET.get())
+                .unlockedBy("has_item", has(CCBlocks.T1_ELECTROMAGNET.get()))
+                .save(out, CausalChaos.prefix("machines/t1_hopper"));
+        StarforgeAloneShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T1_HEAT_SINK.get(), 10, 3)
+                .pattern("wnw")
+                .pattern(" w ")
+                .pattern("wnw")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('n', Items.NETHERITE_INGOT)
+                .unlockedBy("has_item", has(CCItems.TUNGSTEN_INGOT.get()))
+                .save(out, CausalChaos.prefix("machines/t1_heat_sink"));
+    }
+    private void starforgeMultiblock(RecipeOutput out) {
+        // Tier 1
+        StarforgeMultiblockShapedRecipeBuilder.shapedMulti(RecipeCategory.MISC, CCItems.THUNDERSTEEL_INGOT.get(), 10,3, 2, 1)
+                .pattern(" wfffw ")
+                .pattern("witctiw")
+                .pattern("ftppptf")
+                .pattern("fcpnpcf")
+                .pattern("ftntntf")
+                .pattern("witctiw")
+                .pattern(" wfffw ")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('f', Items.IRON_INGOT)
+                .define('i', CCItems.IRIDIUM_INGOT.get())
+                .define('t', CCItems.TITANIUM_INGOT.get())
+                .define('c', CCItems.COBALT_INGOT.get())
+                .define('p', CCItems.PALLADIUM_INGOT.get())
+                .define('n', CCItems.NEODYMIUM_INGOT.get())
+                .save(out, CausalChaos.prefix("items/thundersteel_ingot"));
+        StarforgeMultiblockShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T2_CORE_SHIELDING.get().asItem(), 10, 3, 1)
+                .pattern("       ")
+                .pattern(" tthtt ")
+                .pattern("  wnw  ")
+                .pattern(" tnhnt ")
+                .pattern("  wnw  ")
+                .pattern(" tthtt ")
+                .pattern("       ")
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('h', CCBlocks.T1_HEAT_SINK.get())
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('n', Items.NETHERITE_INGOT);
+        StarforgeMultiblockShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T2_ELECTROMAGNET.get().asItem(), 10, 3, 1)
+                .pattern("       ")
+                .pattern(" rntnr ")
+                .pattern(" entne ")
+                .pattern(" entne ")
+                .pattern(" entne ")
+                .pattern(" rntnr ")
+                .pattern("       ")
+                .define('r', Blocks.REDSTONE_BLOCK)
+                .define('n', CCItems.NEODYMIUM_INGOT.get())
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('e', CCBlocks.T1_ELECTROMAGNET.get());
+        StarforgeMultiblockShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T2_HOPPER.get().asItem(), 10, 3, 1)
+                .pattern("       ")
+                .pattern(" t   t ")
+                .pattern(" ta at ")
+                .pattern("  tet  ")
+                .pattern("  tat  ")
+                .pattern("   t   ")
+                .pattern("       ")
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('a', CCBlocks.T1_HOPPER.get())
+                .define('e', CCBlocks.T2_ELECTROMAGNET.get());
+        StarforgeMultiblockShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T2_HEAT_SINK.get().asItem(), 10, 3, 1)
+                .pattern("       ")
+                .pattern(" ttwtt ")
+                .pattern(" tctct ")
+                .pattern(" wtntw ")
+                .pattern(" tctct ")
+                .pattern(" ttwtt ")
+                .pattern("       ")
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('c', CCBlocks.T1_CORE_SHIELDING.get())
+                .define('n', Items.NETHERITE_INGOT);
+
+        // Tier 2
+        StarforgeMultiblockShapedRecipeBuilder.shapedMulti(RecipeCategory.MISC, CCItems.PERPLEXIUM_NUGGET.get(), 10,3, 3, 2)
+                .pattern(" wfffw ")
+                .pattern("witctiw")
+                .pattern("ftppptf")
+                .pattern("fcpnpcf")
+                .pattern("ftntntf")
+                .pattern("witctiw")
+                .pattern(" wfffw ")
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('f', Items.IRON_INGOT)
+                .define('i', CCItems.IRIDIUM_INGOT.get())
+                .define('t', CCItems.TITANIUM_INGOT.get())
+                .define('c', CCItems.COBALT_INGOT.get())
+                .define('p', CCItems.PALLADIUM_INGOT.get())
+                .define('n', CCItems.NEODYMIUM_INGOT.get())
+                .save(out, CausalChaos.prefix("items/perplexium_nugget"));
+        StarforgeMultiblockShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T3_HEAT_SINK.get().asItem(), 10, 3, 2)
+                .pattern("  tpt  ")
+                .pattern("ppphppp")
+                .pattern("  tpt  ")
+                .pattern("ppphppp")
+                .pattern("  tpt  ")
+                .pattern("ppphppp")
+                .pattern("  tpt  ")
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('p', CCItems.PERPLEXIUM_NUGGET.get())
+                .define('h', CCBlocks.T2_HEAT_SINK.get());
+        StarforgeMultiblockShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T3_CORE_SHIELDING.get().asItem(), 10, 3, 2)
+                .pattern("ittwtti")
+                .pattern("tnptpnt")
+                .pattern("tpcpcpt")
+                .pattern("wtpnptw")
+                .pattern("tpcpcpt")
+                .pattern("tnptpnt")
+                .pattern("ittwtti")
+                .define('i', CCItems.IRIDIUM_INGOT.get())
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('w', CCItems.TUNGSTEN_INGOT.get())
+                .define('n', Blocks.NETHERITE_BLOCK)
+                .define('p', CCItems.PERPLEXIUM_NUGGET.get())
+                .define('c', CCBlocks.T2_CORE_SHIELDING.get());
+        StarforgeMultiblockShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T3_ELECTROMAGNET.get().asItem(), 10, 3, 2)
+                .pattern("rntgtnr")
+                .pattern("entgtne")
+                .pattern("entptne")
+                .pattern("entptne")
+                .pattern("entptne")
+                .pattern("entgtne")
+                .pattern("rntgtnr")
+                .define('r', Blocks.REDSTONE_BLOCK)
+                .define('n', CCItems.NEODYMIUM_INGOT.get())
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('g', CCItems.PERPLEXIUM_NUGGET.get())
+                .define('e', CCBlocks.T2_ELECTROMAGNET.get())
+                .define('p', CCItems.PERPLEXIUM_INGOT.get());
+        StarforgeMultiblockShapedRecipeBuilder.shapedSingle(RecipeCategory.MISC, CCBlocks.T3_HOPPER.get().asItem(), 10, 3, 2)
+                .pattern("pt   tp")
+                .pattern("pa   ap")
+                .pattern(" pt tp ")
+                .pattern(" paeap ")
+                .pattern("  ptp  ")
+                .pattern("  pap  ")
+                .pattern("   p   ")
+                .define('p', CCItems.PERPLEXIUM_NUGGET.get())
+                .define('t', CCItems.THUNDERSTEEL_INGOT.get())
+                .define('a', CCBlocks.T2_HOPPER.get())
+                .define('e', CCBlocks.T3_ELECTROMAGNET.get());
+
+        // Tier 3
     }
 /*
     private void smithingRecipes(RecipeOutput out) {

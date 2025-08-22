@@ -2,10 +2,13 @@ package jolt9001.causalchaos;
 
 import com.mojang.logging.LogUtils;
 
+import jolt9001.causalchaos.abilities.base.Parry;
 import jolt9001.causalchaos.init.*;
 
 import jolt9001.causalchaos.library.screen.StarforgeAloneScreen;
+import jolt9001.causalchaos.library.worldgen.biome.CCTerrablender;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.resources.ResourceLocation;
@@ -16,6 +19,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -76,7 +80,9 @@ public class CausalChaos {
 
         CCMenuTypes.register(modEventBus);
 
+
         CCRecipes.register(modEventBus);
+        //CCTerrablender.registerBiomes();
 
         modEventBus.addListener(this::commonSetup);
 
@@ -123,6 +129,7 @@ public class CausalChaos {
 
             MenuScreens.register(CCMenuTypes.STARFORGE_ALONE_MENU.get(), StarforgeAloneScreen::new);
             //MenuScreens.register(CCMenuTypes.STARFORGE_MULTIBLOCK_MENU.get(), StarforgeMultiblockScreen::new);
+
         }
     }
     /*

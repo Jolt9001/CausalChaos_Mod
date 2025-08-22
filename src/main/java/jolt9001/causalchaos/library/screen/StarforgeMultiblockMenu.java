@@ -2,7 +2,7 @@ package jolt9001.causalchaos.library.screen;
 
 import jolt9001.causalchaos.init.CCBlocks;
 import jolt9001.causalchaos.init.CCMenuTypes;
-import jolt9001.causalchaos.library.block.StarforgeBlock;
+import jolt9001.causalchaos.library.block.starforge.StarforgeBlock;
 import jolt9001.causalchaos.library.block.entity.starforgemultiblock.*;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;

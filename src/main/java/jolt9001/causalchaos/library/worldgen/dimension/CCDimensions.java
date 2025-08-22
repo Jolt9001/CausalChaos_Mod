@@ -26,9 +26,8 @@ public class CCDimensions {
     public static final int SEALEVEL = 0;
 
     // Sky Islands
-    public static final ResourceLocation DIMENSION_SKY = CausalChaos.prefix("sky");
-    public static final ResourceKey<LevelStem> WORLDGEN_KEY_SKY = ResourceKey.create(Registries.LEVEL_STEM, DIMENSION_SKY);
-    public static final ResourceKey<Level> DIMENSION_KEY_SKY = ResourceKey.create(Registries.DIMENSION, DIMENSION_SKY);
+    public static final ResourceKey<LevelStem> SKY_KEY = ResourceKey.create(Registries.LEVEL_STEM, new ResourceLocation(CausalChaos.MODID, "sky"));
+    public static final ResourceKey<Level> SKY_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(CausalChaos.MODID, "sky"));
     public static final ResourceKey<DimensionType> SKY_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "sky_dim_type"));
 
     // Limbo
@@ -38,10 +37,9 @@ public class CCDimensions {
     public static final ResourceKey<DimensionType> LIMBO_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "limbo_dim_type"));
 
     // Transcendent's Plain
-    public static final ResourceLocation DIMENSION_FINAL = CausalChaos.prefix("final");
-    public static final ResourceKey<LevelStem> FINAL_KEY = ResourceKey.create(Registries.LEVEL_STEM, new ResourceLocation(CausalChaos.MODID, "final"));
-    public static final ResourceKey<Level> FINAL_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(CausalChaos.MODID, "final"));
-    public static final ResourceKey<DimensionType> FINAL_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "final_dim_type"));
+    public static final ResourceKey<LevelStem> TPLAIN_KEY = ResourceKey.create(Registries.LEVEL_STEM, new ResourceLocation(CausalChaos.MODID, "tplain"));
+    public static final ResourceKey<Level> TPLAIN_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(CausalChaos.MODID, "tplain"));
+    public static final ResourceKey<DimensionType> TPLAIN_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "tplain_dim_type"));
 
     // Parallel Universes
     public static final ResourceLocation DIMENSION_PARALLEL = CausalChaos.prefix("parallel"); //
@@ -50,24 +48,12 @@ public class CCDimensions {
     public static final ResourceKey<DimensionType> PARALLEL_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "parallel_dim_type"));
 
     public static void bootstrapTypeFinal(BootstapContext<DimensionType> context) {
-        context.register(FINAL_DIM_TYPE, new DimensionType(
-                OptionalLong.of(12000), // fixedTime
-                false, // hasSkylight
-                false, // hasCeiling
-                false, // ultraWarm
-                false, // natural
-                1.0, // coordinateScale
-                true, // bedWorks
-                false, // respawnAnchorWorks
-                0, // minY
-                256, // height
-                256, // logicalHeight
-                BlockTags.INFINIBURN_OVERWORLD, // infiniburn
-                BuiltinDimensionTypes.OVERWORLD_EFFECTS, // effectsLocation
-                1.0f, // ambientLight
+        context.register(TPLAIN_DIM_TYPE, new DimensionType(
+                OptionalLong.of(12000), false, false, false, false,
+                1.0, true, false, -64, 320, 320,
+                BlockTags.INFINIBURN_OVERWORLD, BuiltinDimensionTypes.OVERWORLD_EFFECTS, 1.0f,
                 new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
     }
-
     public static void bootstrapStemFinal(BootstapContext<LevelStem> context) {
         HolderGetter<Biome> biomeRegistry = context.lookup(Registries.BIOME);
         HolderGetter<DimensionType> dimTypes = context.lookup(Registries.DIMENSION_TYPE);
@@ -79,19 +65,41 @@ public class CCDimensions {
 
         NoiseBasedChunkGenerator noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
                 MultiNoiseBiomeSource.createFromList(
-                        new Climate.ParameterList<>(List.of(Pair.of(
-                                        Climate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(CCBiomes.TEST_BIOME)),
-                                Pair.of(
-                                        Climate.parameters(0.1F, 0.2F, 0.0F, 0.2F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.BIRCH_FOREST)),
-                                Pair.of(
-                                        Climate.parameters(0.3F, 0.6F, 0.1F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.OCEAN)),
-                                Pair.of(
-                                        Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.DARK_FOREST))
-
+                        new Climate.ParameterList<>(List.of(
+                                Pair.of(Climate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(CCBiomes.TEST_BIOME)),
+                                Pair.of(Climate.parameters(0.1F, 0.2F, 0.0F, 0.2F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.BIRCH_FOREST)),
+                                Pair.of(Climate.parameters(0.3F, 0.6F, 0.1F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.OCEAN)),
+                                Pair.of(Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.DARK_FOREST))
                         ))),
                 noiseGenSettings.getOrThrow(NoiseGeneratorSettings.OVERWORLD));
-        LevelStem stem = new LevelStem(dimTypes.getOrThrow(CCDimensions.FINAL_DIM_TYPE), noiseBasedChunkGenerator);
+        LevelStem stem = new LevelStem(dimTypes.getOrThrow(CCDimensions.TPLAIN_DIM_TYPE), noiseBasedChunkGenerator);
 
-        context.register(FINAL_KEY, stem);
+        context.register(TPLAIN_KEY, stem);
+    }
+
+    public static void bootstrapTypeSky(BootstapContext<DimensionType> context) {
+        context.register(SKY_DIM_TYPE, new DimensionType(
+                OptionalLong.empty(), false, false, false, false, 1.0,
+                true, false, -64, 320, 320, BlockTags.INFINIBURN_OVERWORLD,
+                BuiltinDimensionTypes.OVERWORLD_EFFECTS, 1.0f,
+                new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)
+        ));
+    }
+    public static void bootstrapStemSky(BootstapContext<LevelStem> context) {
+        HolderGetter<Biome> biomeRegistry = context.lookup(Registries.BIOME);
+        HolderGetter<DimensionType> dimTypes = context.lookup(Registries.DIMENSION_TYPE);
+        HolderGetter<NoiseGeneratorSettings> noiseGenSettings = context.lookup(Registries.NOISE_SETTINGS);
+
+        NoiseBasedChunkGenerator noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
+                MultiNoiseBiomeSource.createFromList(
+                        new Climate.ParameterList<>(List.of(
+                                Pair.of(Climate.parameters(0.1F, 0.2F, 0.0F, 0.2F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.BIRCH_FOREST)),
+                                Pair.of(Climate.parameters(0.3F, 0.6F, 0.1F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.OCEAN)),
+                                Pair.of(Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.DARK_FOREST))
+                        ))),
+                noiseGenSettings.getOrThrow(NoiseGeneratorSettings.FLOATING_ISLANDS));
+        LevelStem stem = new LevelStem(dimTypes.getOrThrow(CCDimensions.SKY_DIM_TYPE), noiseBasedChunkGenerator);
+
+        context.register(SKY_KEY, stem);
     }
 }

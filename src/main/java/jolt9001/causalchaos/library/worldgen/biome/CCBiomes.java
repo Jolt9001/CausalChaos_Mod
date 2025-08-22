@@ -7,23 +7,23 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.Musics;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
-import static jolt9001.causalchaos.library.worldgen.biome.biomegen.PerfectPlains.*;
-
 public class CCBiomes {
     // Test Biome
     public static final ResourceKey<Biome> TEST_BIOME = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "test_biome"));
+
+    //Overworld
+    public static final ResourceKey<Biome> STORM_WALL = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "overworld/storm_wall")); // Similar to Windswept Gravel Hills
 
     // Transcendent's Plain
         // Superboss Domains
     public static final ResourceKey<Biome> CRYSTAL_CLIFFS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "final/biome_tsuna")); // Tsuna
     public static final ResourceKey<Biome> DISMAL_DESERT = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "final/biome_kai")); // Kai
-    public static final ResourceKey<Biome> SYSTEMATIC_SHRUBLANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "final/biome_terry")); // Terry
+    public static final ResourceKey<Biome> SYSTEMATIC_SHRUBLANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "final/biome_terry")); // Terry Similar to Badlands
     public static final ResourceKey<Biome> PETRIFYING_PLATEAU = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "final/biome_lyadova")); // Lyadova
     public static final ResourceKey<Biome> CHROMATIC_CRAGS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "final/biome_aella")); // Aella, Similar to Stony Peaks
     public static final ResourceKey<Biome> GELID_GLACIER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "final/biome_jack")); // Jack
@@ -41,11 +41,7 @@ public class CCBiomes {
     public static final ResourceKey<Biome> RADIANT_RIVER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "final/radiant_river")); // Separator biome for biome map continuity
 
     // Sky
-    public static final ResourceKey<Biome> CUMULUS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "sky/cumulus"));
-    public static final ResourceKey<Biome> STRATUS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "sky/stratus"));
-    public static final ResourceKey<Biome> CIRRUS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "sky/cirrus"));
-    public static final ResourceKey<Biome> NIMBUS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "sky/nimbus"));
-    public static final ResourceKey<Biome> CUMULONIMBUS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "sky/cumulonimbus"));
+    public static final ResourceKey<Biome> CUMULONIMBUS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "sky/cumulonimbus")); //
 
     // Limbo
     public static final ResourceKey<Biome> REALMWEAVE_LANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "limbo/realmweave_lands"));

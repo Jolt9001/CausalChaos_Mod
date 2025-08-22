@@ -1,7 +1,8 @@
-package jolt9001.causalchaos.library.block;
+package jolt9001.causalchaos.library.block.starforge;
 
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.init.CCBlockEntities;
+import jolt9001.causalchaos.init.CCBlocks;
 import jolt9001.causalchaos.init.CCMultiblockEntities;
 import jolt9001.causalchaos.library.block.entity.starforgealone.*;
 import jolt9001.causalchaos.library.block.entity.starforgemultiblock.*;
@@ -85,7 +86,7 @@ public class StarforgeBlock extends BaseEntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder){
         super.createBlockStateDefinition(builder);
-        builder.add(FACING, ACTIVE, TIER);
+        builder.add(ACTIVE, FACING, TIER);
     }
 
 
@@ -278,17 +279,167 @@ public class StarforgeBlock extends BaseEntityBlock {
      */
     public boolean checkMultiblock(Level level, BlockPos pos) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
-
-
-        return switch (getTier()) {
-            case 1 -> blockEntity instanceof T1StarforgeMultiBlockEntity;
-            case 2 -> blockEntity instanceof T2StarforgeMultiBlockEntity;
-            case 3 -> blockEntity instanceof T3StarforgeMultiBlockEntity;
-            default -> throw new IllegalStateException("Illegal value: " + tier);
-        };
+        buildMultiblock(level, pos);
+        if (getIsMultiblock()) {
+            return switch (getTier()) {
+                case 1 -> blockEntity instanceof T1StarforgeMultiBlockEntity;
+                case 2 -> blockEntity instanceof T2StarforgeMultiBlockEntity;
+                case 3 -> blockEntity instanceof T3StarforgeMultiBlockEntity;
+                default -> throw new IllegalStateException("Illegal value: " + tier);
+            };
+        } else {
+            blockEntity.getBlockState().setValue(IN_STRUCTURE, false);
+            return false;
+        }
     }
 
-    public static void buildMultiblock() {
+    public void buildMultiblock(Level level, BlockPos pos) {
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+            BlockPos centerPos = pos.relative(direction, 1);
+            BlockState centerState = level.getBlockState(centerPos);
+            Block centerBlock = centerState.getBlock();
+            int x, y, z;
 
+            if (centerBlock == CCBlocks.FUSION_CORE.get() && getTier() != 0) {
+                setIsMultiblock(true);
+                while (getIsMultiblock()) {
+                    for (int i = 0; i <= 2; i++) { // y: layer
+                        for (int j = 0; j <= 2; j++) { // x
+                            for (int k = 0; k <= 2; k++) { // z
+                                x = j - 1;
+                                y = i - 1;
+                                z = k - 1;
+                                BlockPos testPos = centerPos.offset(x, y, z);
+                                Block testBlock = level.getBlockState(testPos).getBlock();
+                                switch (i) {
+                                    case 0, 2 -> {
+                                        switch (j) {
+                                            case 0, 2 -> {
+                                                switch (k) {
+                                                    case 0, 2 -> {
+                                                        if (!coreShield(testBlock)) {
+                                                            setIsMultiblock(false);
+                                                        }
+                                                    }
+                                                    case 1 -> {
+                                                        if (!heatSink(testBlock)) {
+                                                            setIsMultiblock(false);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            case 1 -> {
+                                                switch (k) {
+                                                    case 0, 2 -> {
+                                                        if (!heatSink(testBlock)) {
+                                                            setIsMultiblock(false);
+                                                        }
+                                                    }
+                                                    case 1 -> {
+                                                        if (!emagnet(testBlock)) {
+                                                            setIsMultiblock(false);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    case 1 -> {
+                                        switch (j) {
+                                            case 0, 2 -> {
+                                                switch (k) {
+                                                    case 0, 2 -> {
+                                                        if (!heatSink(testBlock)) {
+                                                            setIsMultiblock(false);
+                                                        }
+                                                    }
+                                                    case 1 -> {
+                                                        if (!emagnet(testBlock) || !findSF(testBlock)) {
+                                                            setIsMultiblock(false);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            case 1 -> {
+                                                switch (k) {
+                                                    case 0, 2 -> {
+                                                        if (!emagnet(testBlock) || !findSF(testBlock)) {
+                                                            setIsMultiblock(false);
+                                                        }
+                                                    }
+                                                    case 1 -> {
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                setIsMultiblock(false);
+            }
+        }
+    }
+
+    public boolean coreShield(Block block) {
+        switch (getTier()) {
+            case 1 -> {
+                return block == CCBlocks.T1_CORE_SHIELDING.get();
+            } case 2 -> {
+                return block == CCBlocks.T2_CORE_SHIELDING.get();
+            } case 3 -> {
+                return block == CCBlocks.T3_CORE_SHIELDING.get();
+            } default -> {
+                return true;
+            }
+        }
+    }
+    public boolean emagnet(Block block) {
+        switch (getTier()) {
+            case 1 -> {
+                return block == CCBlocks.T1_ELECTROMAGNET.get()
+                        || block == CCBlocks.T1_HOPPER.get()
+                        || block == CCBlocks.T1_S_HOPPER.get();
+            } case 2 -> {
+                return block == CCBlocks.T2_ELECTROMAGNET.get()
+                        || block == CCBlocks.T2_HOPPER.get()
+                        || block == CCBlocks.T2_S_HOPPER.get();
+            } case 3 -> {
+                return block == CCBlocks.T3_ELECTROMAGNET.get()
+                        || block == CCBlocks.T3_HOPPER.get()
+                        || block == CCBlocks.T3_S_HOPPER.get();
+            } default -> {
+                return true;
+            }
+        }
+    }
+    public boolean findSF(Block block) {
+        switch (getTier()) {
+            case 1 -> {
+                return block == CCBlocks.T1_STARFORGE.get();
+            } case 2 -> {
+                return block == CCBlocks.T2_STARFORGE.get();
+            } case 3 -> {
+                return block == CCBlocks.T3_STARFORGE.get();
+            } default -> {
+                return true;
+            }
+        }
+    }
+    public boolean heatSink(Block block) {
+        switch (getTier()) {
+            case 1 -> {
+                return block == CCBlocks.T1_HEAT_SINK.get();
+            } case 2 -> {
+                return block == CCBlocks.T2_HEAT_SINK.get();
+            } case 3 -> {
+                return block == CCBlocks.T3_HEAT_SINK.get();
+            } default -> {
+                return true;
+            }
+        }
     }
 }

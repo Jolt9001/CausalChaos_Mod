@@ -2,7 +2,7 @@ package jolt9001.causalchaos.library.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.block.StarforgeBlock;
+import jolt9001.causalchaos.library.block.starforge.StarforgeBlock;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;

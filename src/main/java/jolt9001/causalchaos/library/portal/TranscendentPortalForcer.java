@@ -35,9 +35,9 @@ public class TranscendentPortalForcer implements ITeleporter {
     public PortalInfo getPortalInfo(Entity entity, ServerLevel dest, Function<ServerLevel, PortalInfo> info) {
         PortalInfo pos;
         // Scale coordinates based on the dimension type coordinate_scale
-        ServerLevel dim = dest.getServer().getLevel(CCDimensions.FINAL_LEVEL_KEY);
+        ServerLevel dim = dest.getServer().getLevel(CCDimensions.TPLAIN_LEVEL_KEY);
         double scale = dim == null ? 0.125D : dim.dimensionType().coordinateScale();
-        scale = dest.dimension().equals(CCDimensions.FINAL_LEVEL_KEY) ? 1F / scale : scale;
+        scale = dest.dimension().equals(CCDimensions.TPLAIN_LEVEL_KEY) ? 1F / scale : scale;
         BlockPos destPos = dest.getWorldBorder().clampToBounds(entity.blockPosition().getX() * scale, entity.blockPosition().getY(), entity.blockPosition().getZ() * scale);
 
         if ((pos = findExisting(dest, entity, destPos)) == null) {

@@ -3,7 +3,6 @@ package jolt9001.causalchaos.library.portal;
 import jolt9001.causalchaos.library.worldgen.dimension.CCDimensions;
 import jolt9001.causalchaos.library.worldgen.portal.CCFinalTeleporter;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -11,20 +10,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TranscendentPortalBlock extends Block {
     //public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
@@ -49,12 +38,12 @@ public class TranscendentPortalBlock extends Block {
     private void handleFinalPortal(Entity player, BlockPos pPos) {
         if (player.level() instanceof ServerLevel serverlevel) {
             MinecraftServer minecraftserver = serverlevel.getServer();
-            ResourceKey<Level> resourcekey = player.level().dimension() == CCDimensions.FINAL_LEVEL_KEY ?
-                    Level.OVERWORLD : CCDimensions.FINAL_LEVEL_KEY;
+            ResourceKey<Level> resourcekey = player.level().dimension() == CCDimensions.TPLAIN_LEVEL_KEY ?
+                    Level.OVERWORLD : CCDimensions.TPLAIN_LEVEL_KEY;
 
             ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
             if (portalDimension != null && !player.isPassenger()) {
-                if(resourcekey == CCDimensions.FINAL_LEVEL_KEY) {
+                if(resourcekey == CCDimensions.TPLAIN_LEVEL_KEY) {
                     player.changeDimension(portalDimension, new CCFinalTeleporter(pPos, true));
                 } else {
                     player.changeDimension(portalDimension, new CCFinalTeleporter(pPos, false));

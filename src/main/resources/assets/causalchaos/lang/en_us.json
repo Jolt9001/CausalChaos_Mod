@@ -567,5 +567,8 @@
 
     "item_group.causalchaos.blocks": "Causal Chaos Blocks",
     "item_group.causalchaos.equipment": "Causal Chaos Equipment",
-    "item_group.causalchaos.items": "Causal Chaos Items"
+    "item_group.causalchaos.items": "Causal Chaos Items",
+
+    "keybind.causalchaos.dash": "Dash",
+    "keybind.causalchaos.parry": "Parry"
 }
