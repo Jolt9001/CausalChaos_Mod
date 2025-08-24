@@ -19,12 +19,12 @@ import java.util.concurrent.CompletableFuture;
 public class CCWorldGenProvider extends DatapackBuiltinEntriesProvider {
 
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-            .add(Registries.DIMENSION_TYPE, CCDimensions::bootstrapTypeFinal)
+            .add(Registries.DIMENSION_TYPE, CCDimensions::bootstrapTypeTPlain)
             .add(Registries.CONFIGURED_FEATURE, CCConfiguedFeatures::bootstrap)
             .add(Registries.PLACED_FEATURE, CCPlacedFeatures::bootstrap)
             .add(ForgeRegistries.Keys.BIOME_MODIFIERS, CCBiomeModifiers::bootstrap)
             .add(Registries.BIOME, CCBiomes::boostrap)
-            .add(Registries.LEVEL_STEM, CCDimensions::bootstrapStemFinal);
+            .add(Registries.LEVEL_STEM, CCDimensions::bootstrapStemTPlain);
 
     public CCWorldGenProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, BUILDER, Set.of(CausalChaos.MODID));

@@ -1,0 +1,20 @@
+{
+  "values": [
+    "#causalchaos:storage_blocks/anthracite",
+    "#causalchaos:storage_blocks/magnetite",
+    "#causalchaos:storage_blocks/cobalt",
+    "#causalchaos:storage_blocks/iridium",
+    "#causalchaos:storage_blocks/palladium",
+    "#causalchaos:storage_blocks/palladium",
+    "#causalchaos:storage_blocks/perplexium",
+    "#causalchaos:storage_blocks/thundersteel",
+    "#causalchaos:storage_blocks/titanium",
+    "#causalchaos:storage_blocks/tungsten",
+    "#causalchaos:storage_blocks/raw_cobalt",
+    "#causalchaos:storage_blocks/raw_iridium",
+    "#causalchaos:storage_blocks/raw_neodymium",
+    "#causalchaos:storage_blocks/raw_palladium",
+    "#causalchaos:storage_blocks/raw_titanium",
+    "#causalchaos:storage_blocks/raw_tungsten"
+  ]
+}

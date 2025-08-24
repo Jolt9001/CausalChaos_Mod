@@ -1,5 +1,5 @@
 {
-  "type": "causalchaos:final_dim_type",
+  "type": "causalchaos:tplain_dim_type",
   "generator": {
     "type": "minecraft:noise",
     "biome_source": {

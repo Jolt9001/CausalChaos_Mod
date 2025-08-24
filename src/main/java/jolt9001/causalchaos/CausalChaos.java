@@ -2,26 +2,19 @@ package jolt9001.causalchaos;
 
 import com.mojang.logging.LogUtils;
 
-import jolt9001.causalchaos.abilities.base.Parry;
 import jolt9001.causalchaos.init.*;
 
 import jolt9001.causalchaos.library.screen.StarforgeAloneScreen;
 import jolt9001.causalchaos.library.worldgen.biome.CCTerrablender;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,7 +26,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 import java.util.Locale;
@@ -70,19 +62,15 @@ public class CausalChaos {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         CCCreativeModeTabs.register(modEventBus);
-
         CCBlocks.register(modEventBus);
         CCItems.register(modEventBus);
-
-
         CCBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
         //CCMultiblockEntities.MULTIBLOCK_ENTITY_TYPES.register(modEventBus);
 
         CCMenuTypes.register(modEventBus);
 
-
         CCRecipes.register(modEventBus);
-        //CCTerrablender.registerBiomes();
+        CCTerrablender.registerBiomes();
 
         modEventBus.addListener(this::commonSetup);
 

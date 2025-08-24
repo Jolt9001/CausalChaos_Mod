@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.worldgen.chunkgenerators;
+package jolt9001.causalchaos.library.worldgen.chunkgenerators.limbo;
 
 public class ChunkGenLimbo {
     /**

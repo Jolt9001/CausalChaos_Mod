@@ -20,6 +20,9 @@ public class CCOverworldRegion extends Region {
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         this.addBiomeSimilar(mapper, Biomes.WINDSWEPT_GRAVELLY_HILLS, CCBiomes.STORM_WALL);
+        this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder -> {
+            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, CCBiomes.TEST_BIOME);
+        });
     }
 
 }

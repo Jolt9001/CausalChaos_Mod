@@ -1,22 +1,14 @@
-package jolt9001.causalchaos.library.worldgen.chunkgenerators;
+package jolt9001.causalchaos.library.worldgen.chunkgenerators.sky;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.StructureManager;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
-import net.minecraft.world.level.biome.BiomeSource;
-import net.minecraft.world.level.biome.Climate;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -26,30 +18,30 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
-public class ChunkGenFinal extends ChunkGenerator {
-    /*
-     * Endless rolling plain of green grass and white sky
-     * few trees, wide caves, no hostile mobs
-     * structures generate across the dimension in a grid pattern centered at the portal location
-     * Rare ores generate far more often here than in the Overworld
+public class ChunkGenSkyIslands extends ChunkGenerator {
+
+    /**
+     * similar to the Aether mod
+     * use similar worldgen but the same biomes as the overworld (use the same biome seed as the overworld does)
+     * new resources exclusive to this dimension
+     * use default terrain blocks (stone, dirt), but add new wood types and ores
+     * force some vanilla structures to form (villages, mineshafts, etc) using the available materials
      */
 
-    public static final Codec<ChunkGenFinal> CODE = RecordCodecBuilder.create((instance) -> instance.group(
-            ChunkGenerator.CODEC.fieldOf("wrapped_generator").forGetter(o -> o.delegate),
-            NoiseGeneratorSettings.CODEC.fieldOf("noise_generation_settings").forGetter(o -> o.noiseGeneratorSettings))
+    public static final Codec<ChunkGenSkyIslands> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+            ChunkGenerator.CODEC.fieldOf("sky_wrapped_generator").forGetter(o -> o.delegate),
+            NoiseGeneratorSettings.CODEC.fieldOf("sky_noise_generation_settings").forGetter(o -> o.noiseGeneratorSettings))
             //Codec.unboundedMap(ResourceKey.codec(Registries.BIOME), CCLandmark.CODEC.listOf().xmap(ImmutableSet::copyOf, ImmutableList::copyOf)).fieldOf("landmark_placement_allowed_biomes").forGetter(o -> o.biomeLandmarkOverrides)
-            .apply(instance, ChunkGenFinal::new));
+            .apply(instance, ChunkGenSkyIslands::new));
 
     private final Holder<NoiseGeneratorSettings> noiseGeneratorSettings;
-    //private final Map<ResourceKey<Biome>, ImmutableSet<CCLandmark>> biomeLandmarkOverrides;
     //private final Optional<Climate.Sampler> surfaceNoiseGetter;
     public final ChunkGenerator delegate;
 
-    public ChunkGenFinal(ChunkGenerator delegate, Holder<NoiseGeneratorSettings> noiseGeneratorSettings/*, ImmutableSet<CCLandmark>> biomeLandmarkOverrides*/) {
+    public ChunkGenSkyIslands(ChunkGenerator delegate, Holder<NoiseGeneratorSettings> noiseGeneratorSettings) {
         super(delegate.getBiomeSource());
         this.delegate = delegate;
         this.noiseGeneratorSettings = noiseGeneratorSettings;
