@@ -94,7 +94,6 @@ public final class CCBlocks {
      */
 
     // Transcendent Stone Ores (NYI)
-    /*
     public static final RegistryObject<Block> TRANSCENDENT_COBALT_ORE = registerBlock("transcendent_cobalt_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_STONE.get()).strength(3f)
                     .requiresCorrectToolForDrops(), ConstantInt.of(0)));
@@ -132,7 +131,7 @@ public final class CCBlocks {
     public static final RegistryObject<Block> TRANSCENDENT_DEEPSTONE_TUNGSTEN_ORE = registerBlock("transcendent_deepstone_tungsten_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_DEEPSTONE.get()).strength(3f)
                     .requiresCorrectToolForDrops(), ConstantInt.of(0)));
-     */
+
 
     // Decoration Blocks
     public static final RegistryObject<Block> QUANTUM_FABRIC = registerBlock("quantum_fabric", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OBSIDIAN)));

@@ -47,7 +47,8 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
     public static final TagKey<Block> ORES_MAGNETITE = BlockTags.create(CausalChaos.prefix("ores/magnetite")); // Only spawns in Sky Island dimension
 
     // Ore Replaceables
-    public static final TagKey<Block> FINAL_ORES_REPLACEABLES = BlockTags.create(CausalChaos.prefix("blocks/final_ores_replaceables")); // Transcendent's Plain ores
+    public static final TagKey<Block> TRANS_STONE_ORES_REPLACEABLES = BlockTags.create(CausalChaos.prefix("blocks/trans_stone_ores_replaceables")); // Transcendent's Plain Stone ores
+    public static final TagKey<Block> TRANS_DEEPSTONE_ORES_REPLACEABLES = BlockTags.create(CausalChaos.prefix("blocks/trans_deepstone_ores_replaceables"));
     public static final TagKey<Block> REALMWEAVE_ORES_REPLACEABLES = BlockTags.create(CausalChaos.prefix("blocks/realmweave_ores_replaceables")); // Limbo ores
 
     // Starforge Machine Blocks
@@ -219,7 +220,8 @@ public class BlockTagGenerator extends ModdedBlockTagGenerator {
         tag(BlockTags.PORTALS).addTag(TRANSCENDENT_PORTAL);
 
         // Terrain
-        tag(FINAL_ORES_REPLACEABLES).add(CCBlocks.TRANSCENDENT_STONE.get());
+        tag(TRANS_STONE_ORES_REPLACEABLES).add(CCBlocks.TRANSCENDENT_STONE.get());
+        tag(TRANS_DEEPSTONE_ORES_REPLACEABLES).add(CCBlocks.TRANSCENDENT_DEEPSTONE.get());
         tag(REALMWEAVE_ORES_REPLACEABLES).add(CCBlocks.REALMWEAVE_BLOCK.get());
 
         // Decorative

@@ -66,7 +66,7 @@ public class CCPlacedFeatures {
                 CCOrePlacement.commonOrePlacement(2,
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-16))));
         // #(Uncomment when dimensions are created)
-/*
+
         register(context, SKY_ANTHRACITE_ORE_PLACED_KEY, configuredFeatures.getOrThrow(CCConfiguedFeatures.SKY_ANTHRACITE_ORE_KEY),
                 CCOrePlacement.commonOrePlacement(30,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
@@ -93,7 +93,7 @@ public class CCPlacedFeatures {
                 CCOrePlacement.commonOrePlacement(11,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
 
- */
+
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {
