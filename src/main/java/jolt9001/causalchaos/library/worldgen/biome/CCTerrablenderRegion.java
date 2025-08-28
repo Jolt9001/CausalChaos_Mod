@@ -4,7 +4,7 @@ import jolt9001.causalchaos.CausalChaos;
 import net.minecraft.resources.ResourceLocation;
 import terrablender.api.Regions;
 
-public class CCTerrablender {
+public class CCTerrablenderRegion {
     public static void registerBiomes() {
         Regions.register(new CCOverworldRegion(new ResourceLocation(CausalChaos.MODID, "overworld"), 5));
     }

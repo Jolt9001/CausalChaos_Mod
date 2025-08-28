@@ -77,10 +77,51 @@ public final class CCBlocks {
     public static final RegistryObject<Block> TRANSCENDENT_STONE = registerBlock("transcendent_stone_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> TRANSCENDENT_DEEPSTONE = registerBlock("transcendent_deepstone_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
 
     // Environmental blocks (NYI)
-        // Skourainei Biome
+        // Abyss Wood (maybe)
+        // Fulgur Wood
+/*
+    public static final RegistryObject<Block> FULGUR_LOG = registerBlock("fulgurwood_log",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> FULGUR_PLANKS = registerBlock("fulgurwood_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+*/
+        // Enamel Wood
+/*
+    public static final RegistryObject<Block> ENAMEL_LOG = registerBlock("enamel_log",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> ENAMEL_PLANKS = registerBlock("enamel_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final RegistryObject<Block> ENAMEL_LEAVES = registerBlock("enamel_leaves",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
+    public static final RegistryObject<Block> ENAMEL_SAPLING = registerBlock("enamel_sapling",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
+*/
+        // Grim Wood
+/*
+    public static final RegistryObject<Block> GRIM_LOG = registerBlock("grim_log",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> GRIM_PLANKS = registerBlock("grim_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final RegistryObject<Block> GRIM_LEAVES = registerBlock("grim_leaves",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
+    public static final RegistryObject<Block> GRIM_SAPLING = registerBlock("grim_sapling",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
+*/
+        // Bloomheart Woood
+    /*
+    public static final RegistryObject<Block> BLOOMHEART_STEM = registerBlock("bloomheart_stem",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> BLOOMHEART_PLANKS = registerBlock("bloomheart_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final RegistryObject<Block> BLOOMHEART_PETALS = registerBlock("bloomheart_petals",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
+    public static final RegistryObject<Block> BLOOMHEART_SEED = registerBlock("bloomheart_seed",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
+     */
+        // Evenos, found in Skourainei biome
     /*
     public static final RegistryObject<Block> EVENOS_LOG = registerBlock("evenos_log",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
@@ -90,7 +131,6 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
     public static final RegistryObject<Block> EVENOS_SAPLING = registerBlock("evenos_sapling",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
-
      */
 
     // Transcendent Stone Ores (NYI)

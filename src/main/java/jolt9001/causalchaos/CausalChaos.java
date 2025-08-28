@@ -5,7 +5,7 @@ import com.mojang.logging.LogUtils;
 import jolt9001.causalchaos.init.*;
 
 import jolt9001.causalchaos.library.screen.StarforgeAloneScreen;
-import jolt9001.causalchaos.library.worldgen.biome.CCTerrablender;
+import jolt9001.causalchaos.library.worldgen.biome.CCTerrablenderRegion;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -70,7 +70,7 @@ public class CausalChaos {
         CCMenuTypes.register(modEventBus);
 
         CCRecipes.register(modEventBus);
-        CCTerrablender.registerBiomes();
+        CCTerrablenderRegion.registerBiomes();
 
         modEventBus.addListener(this::commonSetup);
 

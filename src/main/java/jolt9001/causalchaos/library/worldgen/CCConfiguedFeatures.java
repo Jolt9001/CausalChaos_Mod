@@ -113,8 +113,6 @@ public class CCConfiguedFeatures {
         register(context, TRANSCENDENT_TUNGSTEN_ORE_KEY, Feature.ORE,new OreConfiguration(transcendentTungstenOres, 10));
         register(context, TRANSCENDENT_PALLADIUM_ORE_KEY, Feature.ORE,new OreConfiguration(transcendentPalladiumOres, 9));
         register(context, TRANSCENDENT_IRIDIUM_ORE_KEY, Feature.ORE,new OreConfiguration(transcendentIridiumOres, 8));
-
-
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
