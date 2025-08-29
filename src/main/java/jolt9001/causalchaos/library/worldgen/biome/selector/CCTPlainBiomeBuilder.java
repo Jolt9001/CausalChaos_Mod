@@ -218,7 +218,7 @@ public final class CCTPlainBiomeBuilder {
                 this.addSurface(pConsumer, temp, humid, this.nearInlandContinentalness, this.erosions[5], pWeirdness, 0.0F, maybeWindSav);
                 this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), this.erosions[5], pWeirdness, 0.0F, mid);
                 this.addSurface(pConsumer, temp, humid, this.coastContinentalness, this.erosions[6], pWeirdness, 0.0F, beach);
-                if (t == 0); {
+                if (t == 0) {
                     this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, mid);
                 }
             }
