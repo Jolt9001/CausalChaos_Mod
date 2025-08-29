@@ -1,13 +1,11 @@
 package jolt9001.causalchaos.library.input;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import jolt9001.causalchaos.CausalChaos;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
-import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.lwjgl.glfw.GLFW;
 

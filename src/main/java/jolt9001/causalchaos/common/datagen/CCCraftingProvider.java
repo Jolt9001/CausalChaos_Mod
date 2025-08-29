@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public class CCCraftingProvider extends CraftingDataHelper {
     public CCCraftingProvider(PackOutput out) {

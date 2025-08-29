@@ -2,16 +2,10 @@ package jolt9001.causalchaos.library.worldgen.dimension;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
-import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
-import jolt9001.causalchaos.library.worldgen.biome.CCRegionUtils;
 import jolt9001.causalchaos.library.worldgen.biome.selector.CCTPlainBiomeBuilder;
-import jolt9001.causalchaos.library.worldgen.biome.selector.CCTPlainBiomeSelectors;
-import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -25,14 +19,9 @@ import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
-import org.apache.commons.lang3.mutable.MutableInt;
-import org.jetbrains.annotations.NotNull;
-import terrablender.api.Region;
 
-import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.List;
+import java.util.OptionalLong;
 import java.util.stream.Collectors;
 
 public class CCDimensions {

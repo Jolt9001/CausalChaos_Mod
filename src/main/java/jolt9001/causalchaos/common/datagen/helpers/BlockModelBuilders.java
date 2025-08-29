@@ -1,6 +1,5 @@
 package jolt9001.causalchaos.common.datagen.helpers;
 
-import jolt9001.causalchaos.CausalChaos;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 

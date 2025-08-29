@@ -1,14 +1,11 @@
 package jolt9001.causalchaos.common.datagen.helpers;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.init.CCItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;

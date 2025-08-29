@@ -1,15 +1,14 @@
 package jolt9001.causalchaos.common.datagen.helpers;
 
 import jolt9001.causalchaos.CausalChaos;
-import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.properties.*;
-import net.minecraftforge.client.model.generators.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 import static jolt9001.causalchaos.CausalChaos.prefix;
 
