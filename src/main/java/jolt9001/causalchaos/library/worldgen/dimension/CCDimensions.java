@@ -1,10 +1,17 @@
 package jolt9001.causalchaos.library.worldgen.dimension;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
+import jolt9001.causalchaos.library.worldgen.biome.CCRegionUtils;
+import jolt9001.causalchaos.library.worldgen.biome.selector.CCTPlainBiomeBuilder;
+import jolt9001.causalchaos.library.worldgen.biome.selector.CCTPlainBiomeSelectors;
+import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -14,16 +21,19 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
-import net.minecraft.world.level.dimension.DimensionDefaults;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
-import net.minecraft.world.level.levelgen.presets.WorldPreset;
-import net.minecraft.world.level.levelgen.presets.WorldPresets;
+import org.apache.commons.lang3.mutable.MutableInt;
+import org.jetbrains.annotations.NotNull;
+import terrablender.api.Region;
 
-import java.util.List;
-import java.util.OptionalLong;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class CCDimensions {
     //@Deprecated
@@ -59,22 +69,31 @@ public class CCDimensions {
                 new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
     }
     public static void bootstrapStemTPlain(BootstapContext<LevelStem> context) {
-        HolderGetter<Biome> biomeRegistry = context.lookup(Registries.BIOME);
+        HolderGetter<Biome> biomeGetter = context.lookup(Registries.BIOME);
         HolderGetter<DimensionType> dimTypes = context.lookup(Registries.DIMENSION_TYPE);
         HolderGetter<NoiseGeneratorSettings> noiseGenSettings = context.lookup(Registries.NOISE_SETTINGS);
 
+        ImmutableList.Builder<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> builder = new ImmutableList.Builder<>();
+        new CCTPlainBiomeBuilder().addBiomes(builder::add);
+        List<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> list = builder.build();
+        List<Pair<Climate.ParameterPoint, Holder<Biome>>> holder = convert(list, biomeGetter);
+
         NoiseBasedChunkGenerator noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
-                MultiNoiseBiomeSource.createFromList(
-                        new Climate.ParameterList<>(List.of(
-                                Pair.of(Climate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(CCBiomes.TEST_BIOME)),
-                                Pair.of(Climate.parameters(0.1F, 0.2F, 0.0F, 0.2F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.BIRCH_FOREST)),
-                                Pair.of(Climate.parameters(0.3F, 0.6F, 0.1F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.OCEAN)),
-                                Pair.of(Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.0F, 0.0F), biomeRegistry.getOrThrow(Biomes.DARK_FOREST))
-                        ))),
+                MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(holder)),
                 noiseGenSettings.getOrThrow(NoiseGeneratorSettings.LARGE_BIOMES));
         LevelStem stem = new LevelStem(dimTypes.getOrThrow(CCDimensions.TPLAIN_DIM_TYPE), noiseBasedChunkGenerator);
 
         context.register(TPLAIN_KEY, stem);
+    }
+    public static List<Pair<Climate.ParameterPoint, Holder<Biome>>> convert(List<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> inputList, HolderGetter<Biome> biomeGetter) {
+        return inputList.stream()
+                .map(pair -> {
+                    Climate.ParameterPoint parameterPoint = pair.getFirst();
+                    ResourceKey<Biome> biomeKey = pair.getSecond();
+                    Holder<Biome> biomeHolder = biomeGetter.getOrThrow(biomeKey);
+                    return Pair.of(parameterPoint, biomeHolder);
+                })
+                .collect(Collectors.toList());
     }
 
     public static void bootstrapTypeSky(BootstapContext<DimensionType> context) {

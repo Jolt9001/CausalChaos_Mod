@@ -19,13 +19,13 @@ import java.util.stream.Collectors;
 // Demonstrates how to use Forge's config APIs
 
 @Mod.EventBusSubscriber(modid = CausalChaos.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class CCConfig {
+public class CCConfigs {
 
     public static Common COMMON_CONFIG;
     public static Client CLIENT_CONFIG;
 
     /**
-     * Common specific config
+     * Common config
      */
     public static class Common {
 
@@ -51,9 +51,7 @@ public class CCConfig {
         public enum LogInvalidToolStack { STACKTRACE, WARNING, IGNORED }
 
         public Common(ForgeConfigSpec.Builder builder) {
-            builder
-                    .comment("Settings that affect gameplay.")
-                    .push("Gameplay Settings");
+            builder.comment("Settings that affect gameplay.").push("gameplay");
             {
                 this.spawnWithBook = builder
                         .comment("Set this to false to disable spawning with Causal Journal. Default: true")
@@ -137,7 +135,7 @@ public class CCConfig {
     // a list of strings that are treated as resource locations for items
     public static final ForgeConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER
             .comment("A list of items to log on common setup.")
-            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), CCConfig::validateItemName);
+            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), CCConfigs::validateItemName);
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 

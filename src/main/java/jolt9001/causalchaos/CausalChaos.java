@@ -79,7 +79,7 @@ public class CausalChaos {
         // Config a = new Config();
 
         // Register the mod's ForgeConfigSpec so that Forge can create and load the config file for me
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CCConfig.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CCConfigs.SPEC);
         modEventBus.addListener(this::commonSetup);
     }
 
@@ -87,14 +87,14 @@ public class CausalChaos {
         // Some common setup code
         LOGGER.info("Me when the common setup");
 
-        if (CCConfig.logDirtBlock)
+        if (CCConfigs.logDirtBlock)
         {
             LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
         }
 
-        LOGGER.info(CCConfig.magicNumberIntroduction + CCConfig.magicNumber);
+        LOGGER.info(CCConfigs.magicNumberIntroduction + CCConfigs.magicNumber);
 
-        CCConfig.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        CCConfigs.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
 
