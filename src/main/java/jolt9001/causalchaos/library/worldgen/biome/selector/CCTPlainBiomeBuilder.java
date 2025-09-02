@@ -147,7 +147,7 @@ public final class CCTPlainBiomeBuilder {
     }
     private void addMidSlice(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> pConsumer, Climate.Parameter pWeirdness) {
         this.addSurface(pConsumer, this.FULL_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[2]), pWeirdness, 0.0F, Biomes.STONY_SHORE);
-        this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[1], this.temperatures[2]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, Biomes.SWAMP );
+        this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[1], this.temperatures[2]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, CCBiomes.SUBCONSCIOUS_SWAMP);
         this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[3], this.temperatures[4]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, Biomes.MANGROVE_SWAMP);
 
         for(int t = 0; t < this.temperatures.length; ++t) {
@@ -194,7 +194,7 @@ public final class CCTPlainBiomeBuilder {
     }
     private void addLowSlice(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> pConsumer, Climate.Parameter pWeirdness) {
         this.addSurface(pConsumer, this.FULL_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[2]), pWeirdness, 0.0F, Biomes.STONY_SHORE);
-        this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[1], this.temperatures[2]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, Biomes.SWAMP );
+        this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[1], this.temperatures[2]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, CCBiomes.SUBCONSCIOUS_SWAMP);
         this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[3], this.temperatures[4]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, Biomes.MANGROVE_SWAMP);
 
         for(int t = 0; t < this.temperatures.length; ++t) {

@@ -19,22 +19,22 @@ public class CCBiomes {
 
     // Transcendent's Plain
         // Superboss Domains
-    public static final ResourceKey<Biome> CRYSTAL_CLIFFS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_tsuna")); // Tsuna
-    public static final ResourceKey<Biome> DISMAL_DESERT = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_kai")); // Kai, similar to Desert
-    public static final ResourceKey<Biome> SYSTEMATIC_SHRUBLANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_terry")); // Terry
-    public static final ResourceKey<Biome> PETRIFYING_PLATEAU = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_lyadova")); // Lyadova
-    public static final ResourceKey<Biome> CHROMATIC_CRAGS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_aella")); // Aella, Similar to Stony Peaks
-    public static final ResourceKey<Biome> GELID_GLACIER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_jack")); // Jack
-    public static final ResourceKey<Biome> SKOURAINEI = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_skourainei")); // Xanthea, similar to Dark Forest
-    public static final ResourceKey<Biome> HYPERBOLIC_HILLS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_will")); // Will
-    public static final ResourceKey<Biome> FATUOUS_FOREST = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_matthue")); // Matthue
-    public static final ResourceKey<Biome> HALCYON_HIGHLAND = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_alline")); // Alline
-    public static final ResourceKey<Biome> FERVENT_FIELD = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_madeline")); // Madeline, Similar to Flower Forest
-    public static final ResourceKey<Biome> SUBCONSCIOUS_SWAMP = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_emily")); // Emily
-    public static final ResourceKey<Biome> CALESCENT_CALDERA = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_adrian")); // Adrian
-    public static final ResourceKey<Biome> TRANSIENT_TERRACE = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_andrea")); // Andrea
-    public static final ResourceKey<Biome> QUIVERING_QUARRY = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_rex")); // Rex
-    public static final ResourceKey<Biome> PERFECT_PLAINS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_jolt")); // Jolt, similar to Plains
+    public static final ResourceKey<Biome> CRYSTAL_CLIFFS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "crystal_cliffs")); // Tsuna
+    public static final ResourceKey<Biome> DISMAL_DESERT = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "dismal_desert")); // Kai, Desert
+    public static final ResourceKey<Biome> SYSTEMATIC_SHRUBLANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_terry")); // Terry, Savanna or Badlands
+    public static final ResourceKey<Biome> PETRIFYING_PLATEAU = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_lyadova")); // Lyadova, Meadow or Cherry Grove
+    public static final ResourceKey<Biome> CHROMATIC_CRAGS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "chromatic_crags")); // Aella, Stony Peaks
+    public static final ResourceKey<Biome> GELID_GLACIER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_jack")); // Jack, Ice Spikes or Snowy Plains, maybe Taiga
+    public static final ResourceKey<Biome> SKOURAINEI = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "skourainei")); // Xanthea, Dark Forest
+    public static final ResourceKey<Biome> HYPERBOLIC_HILLS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_will")); // Will, Windswept Hills or Windswept Gravel Hills
+    public static final ResourceKey<Biome> FATUOUS_FOREST = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "fatuous_forest")); // Matthue, Forest
+    public static final ResourceKey<Biome> REGENERATIVE_RAINFOREST = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "regenerative_rainforest")); // Alline, Jungle
+    public static final ResourceKey<Biome> FERVENT_FIELD = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "fervent_field")); // Madeline, Flower Forest
+    public static final ResourceKey<Biome> SUBCONSCIOUS_SWAMP = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_emily")); // Emily, Swamp (may not fit)
+    public static final ResourceKey<Biome> CALESCENT_CALDERA = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_adrian")); // Adrian, Unknown
+    public static final ResourceKey<Biome> TRANSIENT_TERRACE = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_andrea")); // Andrea, Unknown Slope biome
+    public static final ResourceKey<Biome> QUIVERING_QUARRY = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_rex")); // Rex, Unknown
+    public static final ResourceKey<Biome> PERFECT_PLAINS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "perfect_plains")); // Jolt, Plains
         // Other Biomes
     public static final ResourceKey<Biome> RADIANT_RIVER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "radiant_river")); // Separator biome for biome map continuity
     public static final ResourceKey<Biome> FROZEN_RADIANT_RIVER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "frozen_radiant_river")); // Separator biome for biome map continuity
@@ -57,8 +57,8 @@ public class CCBiomes {
     public static final ResourceKey<Biome> CUMULONIMBUS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "cumulonimbus")); //
 
     // Limbo
-    public static final ResourceKey<Biome> REALMWEAVE_LANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "limbo/realmweave_lands"));
-    public static final ResourceKey<Biome> WORLD_THREAD_FLATS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "limbo/world_thread_flats"));
+    public static final ResourceKey<Biome> REALMWEAVE_LANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "realmweave_lands"));
+    public static final ResourceKey<Biome> WORLD_THREAD_FLATS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "world_thread_flats"));
 
     public static void boostrap(BootstapContext<Biome> context) {
         context.register(TEST_BIOME, OverworldBiomes.testBiome(context));

@@ -80,12 +80,13 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)));
 
     // Environmental blocks (NYI)
+        // Frosted Wood (maybe)
         // Abyss Wood (maybe)
         // Fulgur Wood
 /*
-    public static final RegistryObject<Block> FULGUR_LOG = registerBlock("fulgurwood_log",
+    public static final RegistryObject<Block> FULGUR_LOG = registerBlock("fulgur_log",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
-    public static final RegistryObject<Block> FULGUR_PLANKS = registerBlock("fulgurwood_planks",
+    public static final RegistryObject<Block> FULGUR_PLANKS = registerBlock("fulgur_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
 */
         // Enamel Wood
