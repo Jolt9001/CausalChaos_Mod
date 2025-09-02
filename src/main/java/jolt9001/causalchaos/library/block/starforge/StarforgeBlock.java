@@ -30,6 +30,7 @@ import net.minecraftforge.common.extensions.IForgeServerPlayer;
 import org.jetbrains.annotations.Nullable;
 
 public class StarforgeBlock extends BaseEntityBlock {
+    //TODO: Remove mutable fields from the Block singleton (isMultiblock especially). Keep dynamic flags on the BlockEntity and mirror to BlockState IN_STRUCTURE.
     protected boolean isMultiblock = false;
     protected int tier = 0;
 
@@ -56,8 +57,8 @@ public class StarforgeBlock extends BaseEntityBlock {
     public StarforgeBlock(Properties properties, int tier) {
         super(properties);
         setTier(tier);
-        this.registerDefaultState(this.defaultBlockState().setValue(ACTIVE, false).setValue(FACING, Direction.NORTH)
-                .setValue(TIER, 0));
+        // TODO: State props: FACING, ACTIVE, IN_STRUCTURE (default false). Drop the test-only TIER property.
+        this.registerDefaultState(this.defaultBlockState().setValue(ACTIVE, false).setValue(FACING, Direction.NORTH));
     }
 
     @Override
@@ -92,6 +93,7 @@ public class StarforgeBlock extends BaseEntityBlock {
 
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        // TODO: if block is changing, call be.drops() once, then super.onRemove(...).
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             //if (!checkMultiblock(level, pos)) {
@@ -123,6 +125,7 @@ public class StarforgeBlock extends BaseEntityBlock {
     @Override
     @Deprecated
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        // TODO: if BE is MenuProvider and player is ServerPlayer, call NetworkHooks.openScreen. No giant instanceof ladder.
         if (!level.isClientSide()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (!isMultiblock) {
@@ -302,6 +305,10 @@ public class StarforgeBlock extends BaseEntityBlock {
 
             if (centerBlock == CCBlocks.FUSION_CORE.get() && getTier() != 0) {
                 setIsMultiblock(true);
+                // TODO: Replace `while (getIsMultiblock())` with a pure validator (3×3×3 around Fusion Core) that returns boolean; write result once:
+                // level.setBlock(pos, state.setValue(IN_STRUCTURE, ok), Block.UPDATE_ALL)
+                // be.setInStructure(ok, centerPos)
+                // TODO: Trigger on `onPlace`, `neighborChanged`, and a throttled server tick (e.g., every 40 ticks).
                 while (getIsMultiblock()) {
                     for (int i = 0; i <= 2; i++) { // y: layer
                         for (int j = 0; j <= 2; j++) { // x

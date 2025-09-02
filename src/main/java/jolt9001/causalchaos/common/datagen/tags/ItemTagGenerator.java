@@ -82,7 +82,7 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
     public static final TagKey<Item> PORTAL_ACTIVATOR = create("portal/activator");
 
     // Fuel
-    public static final TagKey<Item> STARGORGE_FUEL = create("starforge_fuel");
+    public static final TagKey<Item> STARFORGE_FUEL = create("starforge_fuel");
 
     public static final TagKey<Item> WIP = create("wip");
     public static final TagKey<Item> NYI = create("nyi");
@@ -303,7 +303,7 @@ public class ItemTagGenerator extends ModdedItemTagGenerator {
 
         tag(PORTAL_ACTIVATOR).add(CCItems.STABLE_RIFT_TOKEN.get());
 
-        tag(STARGORGE_FUEL).add(CCItems.ANTHRACITE.get(), CCBlocks.ANTHRACITE_BLOCK.get().asItem());
+        tag(STARFORGE_FUEL).add(CCItems.ANTHRACITE.get(), CCBlocks.ANTHRACITE_BLOCK.get().asItem());
     }
 
     public static TagKey<Item> create(String tagName) {

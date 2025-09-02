@@ -76,12 +76,18 @@ public class StarforgeAloneRecipeBuilder {
         }
 
         public StarforgeAloneShapedRecipeBuilder pattern(String rows) {
+            // enforce 3×3 rows; emit pattern, key, and result (object with item + count), cook_time, experience.
+            if (rows.length() != 3) {
+                throw new IllegalArgumentException("Starforge (alone) shaped recipes must be width 3 (got " + rows.length() + ")");
+            }
             if (!this.rows.isEmpty() && rows.length() != this.rows.get(0).length()) {
                 throw new IllegalArgumentException("Pattern must be the same width on every line.");
-            } else {
-                this.rows.add(rows);
-                return this;
             }
+            if (this.rows.size() >= 3) {
+                throw new IllegalStateException("Starforge (alone) shaped recipes may only have 3 rows");
+            }
+            this.rows.add(rows);
+            return this;
         }
 
         @Override
@@ -112,29 +118,27 @@ public class StarforgeAloneRecipeBuilder {
         }
 
         private void ensureValid(ResourceLocation id) {
-            if (this.rows.isEmpty()) {
-                throw new IllegalStateException("No pattern defined for recipe " + id);
-            } else {
-                Set<Character> set = Sets.newHashSet(this.key.keySet());
-                set.remove(' ');
+            if (this.rows.size() != 3) {
+                throw new IllegalStateException("Recipe " + id + " must have exactly 3 rows");
+            }
+            Set<Character> unused = Sets.newHashSet(this.key.keySet());
+            unused.remove(' ');
 
-                for (String s : this.rows) {
-                    for (int i = 0; i < s.length(); ++i) {
-                        char c0 = s.charAt(i);
-                        if (!this.key.containsKey(c0) && c0 != ' ') {
-                            throw new IllegalStateException("Pattern in recipe " + id + " uses undefined symbol '" + c0 + "'");
-                        }
-                        set.remove(c0);
+            for (String r : this.rows) {
+                if (r.length() != 3) throw new IllegalStateException("Recipe " + id + " rows must be length 3");
+                for (int i = 0; i < r.length(); i++) {
+                    char c = r.charAt(i);
+                    if (c != ' ' && !this.key.containsKey(c)) {
+                        throw new IllegalStateException("Recipe " + id + " uses undefined symbol '" + c + "'");
                     }
+                    unused.remove(c);
                 }
-
-                if (!set.isEmpty()) {
-                    throw new IllegalStateException("Ingredients are defined but not used in pattern for recipe " + id);
-                } else if (this.rows.size() == 1 && this.rows.get(0).length() == 1) {
-                    throw new IllegalStateException("Shaped recipe " + id + " only takes in a single item - should it be a shapeless recipe instead?");
-                } else if (this.criteria.isEmpty()) {
-                    throw new IllegalStateException("No way of obtaining recipe " + id);
-                }
+            }
+            if (!unused.isEmpty()) {
+                throw new IllegalStateException("Ingredients defined but not used in pattern for " + id + ": " + unused);
+            }
+            if (this.criteria.isEmpty()) {
+                throw new IllegalStateException("No unlock criteria for recipe " + id);
             }
         }
     }
@@ -167,35 +171,36 @@ public class StarforgeAloneRecipeBuilder {
 
         @Override
         public void serializeRecipeData(JsonObject json) {
-            if (!this.group.isEmpty()) {
+            // (optional) group
+            if (this.group != null && !this.group.isEmpty()) {
                 json.addProperty("group", this.group);
             }
 
-            JsonArray jsonArray = new JsonArray();
-            for (String s : this.pattern) {
-                jsonArray.add(s);
-            }
-            json.add("pattern", jsonArray);
+            // pattern (preserve spaces)
+            JsonArray arr = new JsonArray();
+            for (String s : this.pattern) arr.add(s);
+            json.add("pattern", arr);
 
-            JsonObject jsonobject = new JsonObject();
-            for(Map.Entry<Character, Ingredient> entry : this.key.entrySet()) {
-                jsonobject.add(String.valueOf(entry.getKey()), entry.getValue().toJson(false));
+            // key → map of symbol -> ingredient
+            JsonObject keyObj = new JsonObject();
+            for (Map.Entry<Character, Ingredient> e : this.key.entrySet()) {
+                keyObj.add(String.valueOf(e.getKey()), e.getValue().toJson(false));
             }
+            json.add("key", keyObj);
 
-            ResourceLocation itemLocation = ForgeRegistries.ITEMS.getKey(this.result.asItem());
-            JsonObject jsonObject1 = new JsonObject();
-            jsonObject1.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result).toString());
-            if (itemLocation != null) {
-                json.addProperty("output", itemLocation.toString());
-                if (this.count > 1) {
-                    jsonObject1.addProperty("count", this.count);
-                }
-            } else {
-                throw new IllegalStateException("Item: " + this.result + "does not exist");
-            }
+            // result (OBJECT, not "output" string)
+            JsonObject resultObj = new JsonObject();
+            ResourceLocation rl = ForgeRegistries.ITEMS.getKey(this.result);
+            if (rl == null) throw new IllegalStateException("Unknown item: " + this.result);
+            resultObj.addProperty("item", rl.toString());
+            if (this.count > 1) resultObj.addProperty("count", this.count);
+            json.add("result", resultObj);
 
+            // extra fields your serializer expects
             json.addProperty("experience", this.exp);
             json.addProperty("cook_time", this.cookTime);
+
+            // (optional) notifications flag if your serializer uses it
             json.addProperty("show_notification", this.showNotification);
         }
         @Override
@@ -311,29 +316,25 @@ public class StarforgeAloneRecipeBuilder {
 
         @Override
         public void serializeRecipeData(JsonObject json) {
-            if (!this.group.isEmpty()) {
+            if (this.group != null && !this.group.isEmpty()) {
                 json.addProperty("group", this.group);
             }
 
-            JsonArray jsonArray = new JsonArray();
-            for (Ingredient ingredient : this.ingredients) {
-                jsonArray.add(ingredient.toJson(false));
-            }
-            json.add("ingredients", jsonArray);
+            JsonArray ing = new JsonArray();
+            for (Ingredient i : this.ingredients) ing.add(i.toJson(false));
+            json.add("ingredients", ing);
 
-            ResourceLocation itemLocation = ForgeRegistries.ITEMS.getKey(this.result.asItem());
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("item", ForgeRegistries.ITEMS.getKey(this.result).toString());
-            if (itemLocation != null) {
-                json.addProperty("output", itemLocation.toString());
-                if (this.count > 1) {
-                    jsonObject.addProperty("count", this.count);
-                }
-            } else {
-                throw new IllegalStateException("Item: " + this.result + "does not exist");
-            }
+            // result (OBJECT)
+            JsonObject resultObj = new JsonObject();
+            ResourceLocation rl = ForgeRegistries.ITEMS.getKey(this.result);
+            if (rl == null) throw new IllegalStateException("Unknown item: " + this.result);
+            resultObj.addProperty("item", rl.toString());
+            if (this.count > 1) resultObj.addProperty("count", this.count);
+            json.add("result", resultObj);
+
+            // keep field names consistent with shaped
             json.addProperty("experience", this.exp);
-            json.addProperty("cookingtime", this.cookTime);
+            json.addProperty("cook_time", this.cookTime);
         }
 
         @Override

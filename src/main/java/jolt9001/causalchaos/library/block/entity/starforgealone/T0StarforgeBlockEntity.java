@@ -45,6 +45,9 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
     };
 
     private static final int[] INPUT_SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+    // TODO: require Anthracite (item or block) via tag causalchaos:starforge_fuel; burn timer litTime/litDuration; progress only while lit.
+    // TODO: Guard slots: reject non-fuel into FUEL_SLOT, reject inserts into RESULT_SLOT.
+    // TODO: Never overwrite fuel with the result. Append to result stack if same item/tags and within max size.
     private static final int FUEL_SLOT =  9;
     private static final int RESULT_SLOT = 10;
 
@@ -79,8 +82,8 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
             }
             @Override
             public int getCount() {
-                return 11;
-            }
+                return 4;
+            } // getCount() should be 4 (progress, maxProgress, litTime, litDuration).
         };
     }
 
@@ -140,6 +143,7 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
         this.litDuration = tag.getInt("LitDuration");
     }
 
+    // TODO: Persist everything it will tick on: progress, maxProgress (if dynamic), litTime, litDuration, inventory.
     public void tick(Level level1, BlockPos pos, BlockState state1) {
         if(hasRecipe()) {
             increaseCraftingProgress();
