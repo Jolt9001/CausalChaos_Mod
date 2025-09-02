@@ -34,6 +34,26 @@ public class StarforgeBlock extends BaseEntityBlock {
     protected boolean isMultiblock = false;
     protected int tier = 0;
 
+    /*
+High-Priority TODOs (before release)
+ Replace isMultiblock field with BlockState property IN_STRUCTURE.
+ Refactor while (getIsMultiblock()) into a pure validator method.
+ Fix result/fuel overwrite bug (no more putting crafted items in the fuel slot).
+ Adjust ContainerData#getCount() → should be 4.
+ Ensure onRemove only calls drops() once.
+ Add proper sync for progress & fuel bars in the menu.
+Medium-Priority TODOs (quality of life)
+ Move structure validation logic into utility or dedicated “StarforgeStructureValidator”.
+ Introduce StarforgeBEBase with shared save/load/inventory/drops logic.
+ Guard FUEL_SLOT to only accept #causalchaos:starforge_fuel.
+ Add proper sided IItemHandlers for automation.
+Low-Priority TODOs (refactors + polish)
+ Merge 7 BE classes into 1 (dynamic grid based on inStructure).
+ Rotate structure validator by FACING.
+ Switch recipe validators to use block/item tags instead of hard-coding.
+ Add controller BE on Fusion Core (optional, more “tech mod” feel).
+ Log structure failures (block type + position) for easy debug.
+     */
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
