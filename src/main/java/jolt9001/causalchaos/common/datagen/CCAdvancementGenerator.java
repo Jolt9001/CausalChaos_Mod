@@ -60,6 +60,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
 
         // Tutorial
         var getCrystalDefault = nb()
+                .parent(root)
                 .display(
                         CCItems.CAUSALITY_CRYSTAL.get(),
                         Component.translatable("achievement.causalchaos.crystal_get"),
@@ -67,6 +68,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_root_0", this.advancementTrigger(root))
                 .addCriterion("get_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:get_crystal");
         var dashStrike = nb(); // "I Am Speed" Prereq: "adv_crystal_default_0", getCrystalDefault
         var dodge = nb(); // "Can't Touch This" Prereq: "adv_crystal_default_1", getCrystalDefault
@@ -121,8 +123,9 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.worldeater_win"),
                         Component.translatable("achievement.causalchaos.worldeater_win.desc"),
                         null, FrameType.TASK, true, true, false)
-                //.addCriterion("adv_worldeater_0", this.advancementTrigger(worldeaterEncounter))
-                //.addCriterion("worldeater_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.nb().entity().of(CCEntities.WORLDEATER.get())))
+                .addCriterion("adv_worldeater_0", this.advancementTrigger(worldeaterEncounter))
+                .addCriterion("worldeater_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.nb().entity().of(CCEntities.WORLDEATER.get())))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:worldeater_win")*/; // "Satiated Hunger" Prereq: "adv_worldeater_0", worldeaterEncounter
         var worldeaterLoss = nb()/*
                 .display(
@@ -132,6 +135,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_worldeater_1", this.advancementTrigger(worldeaterEncounter))
                 .addCriterion("die_to_worleater", KilledTrigger.TriggerInstance.entityKilledPlayer(EntityPredicate.nb().entity().of(CCEntities.WORLDEATER.get())))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:worldeater_loss")*/; // "Unexisted" Prereq: "adv_worldeater_1", worldeaterEncounter
         var worldeaterMax = nb(); // "Not Afraid Anymore" Prereq: "adv_cfpjolt_0", CFPJolt . "adv_worldeater_2" worldeaterEncounter
 
@@ -153,19 +157,23 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("riftwalker_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.nb().entity().of(CCEntities.RIFTWALKER_SCOUT.get())))
                 .addCriterion("adv_crystal_default_7", this.advancementTrigger(getCrystalDefault))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:riftwalker_kill")*/; // "Released From Suffering" Prereq: "adv_crystal_default_7", getCrystalDefault
 
         // MidGame (Advancements specific to the timeframe between the ending of the time loop and entering Transcendent's Plain)
         var loopEscape = nb()/*
+                .parent(fightDL2)
                 .display(
                         CCItems.WORLD_THREAD.get(),
                         Component.translatable("achievement.causalchaos.dl_win"),
                         Component.translatable("achievement.causalchaos.dl_win.desc"),
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("dl_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.nb().entity().of(CCEntities.DEMON_LORD.get())))
-                //.addCriterion("adv_dl2_2", this.advancementTrigger(fightDL2))
+                .addCriterion("adv_dl2_2", this.advancementTrigger(fightDL2))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:dl_win")*/; // "Shattered Dimension" Prereq: "adv_dl2_2", fightDL2
         var quantumSigil = nb()
+                //.parent(fightDL2)
                 .display(
                         CCItems.QUANTUM_SIGIL.get(),
                         Component.translatable("achievement.causalchaos.quantum_sigil"),
@@ -174,6 +182,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("has_quantum_sigil", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.QUANTUM_SIGIL.get()))
                 //.addCriterion("adv_dl2_3", this.advancementTrigger(fightDL2))
                 //.addCriterion("adv_riftwalker_kill_0", this.advancementTrigger(riftwalkerKill))
+                //.requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:quantum_sigil");
         var obtainStarforge = nb()
                 .display(
@@ -183,8 +192,10 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK, true, true, false)
                 //.addCriterion("adv_escape_loop_1", this.advancementTrigger(loopEscape))
                 .addCriterion("get_starforge", InventoryChangeTrigger.TriggerInstance.hasItems(CCBlocks.T0_STARFORGE.get()))
+                //.requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:get_starforge");
         var obtainThundersteel = nb()
+                .parent(obtainStarforge)
                 .display(
                         CCItems.THUNDERSTEEL_INGOT.get(),
                         Component.translatable("achievement.causalchaos.thundersteel_get"),
@@ -192,8 +203,10 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_starforge_0", this.advancementTrigger(obtainStarforge))
                 .addCriterion("get_thundersteel", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.THUNDERSTEEL_INGOT.get()))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:get_thundersteel");
         var obtainPerplexium = nb()
+                .parent(obtainThundersteel)
                 .display(
                         CCItems.PERPLEXIUM_INGOT.get(),
                         Component.translatable("achievement.causalchaos.perplexium_get"),
@@ -201,42 +214,51 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_thundersteel", this.advancementTrigger(obtainThundersteel))
                 .addCriterion("get_perplexium", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.PERPLEXIUM_INGOT.get()))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:get_perplexium");
         var infusedThundersteelArmor = nb()
+                .parent(obtainPerplexium)
                 .display(
                         CCItems.INFUSED_THUNDERSTEEL_CHESTPLATE.get(),
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_armor"),
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_armor.desc"),
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_perplexium_0", this.advancementTrigger(obtainPerplexium))
-                .addCriterion("thundersteel_infuse_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_INFUSED_THUNDERSTEEL)))
+                .addCriterion("thundersteel_infuse_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_INFUSED_THUNDERSTEEL).build()))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:thundersteel_infuse_armor");
         var infusedThundersteelTool = nb()
+                .parent(obtainPerplexium)
                 .display(
                         CCItems.INFUSED_THUNDERSTEEL_SWORD.get(),
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_tool"),
                         Component.translatable("achievement.causalchaos.thundersteel_infuse_tool.desc"),
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_perplexium_1", this.advancementTrigger(obtainPerplexium))
-                .addCriterion("thundersteel_infuse_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_INFUSED_THUNDERSTEEL)))
+                .addCriterion("thundersteel_infuse_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_INFUSED_THUNDERSTEEL).build()))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:thundersteel_infuse_tool");
         var purePerplexiumArmor = nb()
+                .parent(obtainPerplexium)
                 .display(
                         CCItems.PERPLEXIUM_CHESTPLATE.get(),
                         Component.translatable("achievement.causalchaos.perplexium_armor"),
                         Component.translatable("achievement.causalchaos.perplexium_armor.desc"),
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_perplexium_2", this.advancementTrigger(obtainPerplexium))
-                .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_PERPLEXIUM)))
+                .addCriterion("perplexium_armor", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.ARMORS_PERPLEXIUM).build()))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:perplexium_armor");
         var purePerplexiumTool = nb()
+                .parent(obtainPerplexium)
                 .display(
                         CCItems.PERPLEXIUM_SWORD.get(),
                         Component.translatable("achievement.causalchaos.perplexium_tool"),
                         Component.translatable("achievement.causalchaos.perplexium_tool.desc"),
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_perplexium_3", this.advancementTrigger(obtainPerplexium))
-                .addCriterion("perplexium_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM)))
+                .addCriterion("perplexium_tool", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ItemTagGenerator.TOOLS_PERPLEXIUM).build()))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:perplexium_tool");
 
         // Endgame (post Starforge)
@@ -267,6 +289,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_perplexium_4", this.advancementTrigger(obtainPerplexium))
                 .addCriterion("portal_enter", ChangeDimensionTrigger.TriggerInstance.changedDimension())
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:tpportal_enter"); // "Gateway to the Infinite" Prereq: "adv_perplexium_4", getPerplexium
         var EnterTPlain = nb()
                 .display(
@@ -278,6 +301,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("leave_portal_cage", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(
                         LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(CCBlocks.WARP_PAD.get())),
                         ItemPredicate.Builder.item().of(CCItems.CRYSTAL_KEY.get())))
+                //.requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:enter_tplain"); // "Preeminence" Prereq: "adv_tsuna_0", Tsuna
         var chaosModeKill = nb(); // "Chronicles of Chaos" Prereq: "adv_fpjolt_0", FPJolt
 
@@ -339,6 +363,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("adv_crystal_default_8", this.advancementTrigger(getCrystalDefault))
                 .addCriterion("get_crystal_hardcore", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
                 .addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:get_crystal_hardcore");
 
         LivingEntity entity = null;
@@ -351,6 +376,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.GOAL, true, true, false)
                 .addCriterion("adv_crystal_hardcore_0", this.advancementTrigger(getCrystalHardcore))
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:hardcore_death");
  */
         var hardcoreDLDefeat = nb(); // "Last Stand" Prereq: "adv_crystal_hardcore_1", getCrystalHardcore
@@ -387,6 +413,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         null, FrameType.TASK,true, true, false)
                 .addCriterion("adv_tp_portal_3", this.advancementTrigger(TPPortalActivate))
                 // Add criteria that allows for hit detecion from RNG-based attacks such as Aella's Prismatic Grenades
+                .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:badRNG");
  */
             // Hidden Challenges
