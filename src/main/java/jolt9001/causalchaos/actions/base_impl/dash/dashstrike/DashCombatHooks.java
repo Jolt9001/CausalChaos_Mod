@@ -19,9 +19,6 @@ public class DashCombatHooks {
         // Only boost “player attacks” (skip fall, magic, explosions, etc.)
         // If you want to be stricter, also check DamageTypes.PLAYER_ATTACK:
 
-        // Option A: require they are currently dashing
-        // if (!cap.isDashing()) return;
-
         if (!src.is(DamageTypeTags.IS_PROJECTILE) && src.getDirectEntity() == player) {
             player.getCapability(CCCapabilities.DASH_DATA).ifPresent(cap -> {
                 // Option A: require they are currently dashing
