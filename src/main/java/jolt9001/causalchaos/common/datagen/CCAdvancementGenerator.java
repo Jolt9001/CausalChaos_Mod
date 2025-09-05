@@ -1,30 +1,19 @@
 package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.common.advancements.HardcoreCheckTrigger;
-import jolt9001.causalchaos.common.advancements.HardcoreDeathTrigger;
 import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
 import jolt9001.causalchaos.init.CCBlocks;
-import jolt9001.causalchaos.init.CCEntities;
-import jolt9001.causalchaos.init.CCStructures;
-import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.storage.LevelData;
 
 import jolt9001.causalchaos.init.CCItems;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 import java.util.Optional;
 import java.util.function.Consumer;
