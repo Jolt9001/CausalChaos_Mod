@@ -94,8 +94,8 @@ public class DashHandler {
 
         // 10) Dash Strike handling
         p.getCapability(CCCapabilities.DASH_DATA).ifPresent(cap -> {
-            cap.setDashTicks(4);      // 4 ticks of movement burst
-            cap.setStrikeWindow(4);   // one boosted hit within 4 ticks
+            cap.setDashTicks(4); // 4 ticks of movement burst
+            cap.isDashing();     // one boosted hit each dash
         });
 
         // Optional: cooldown or stamina (capabilities/attributes hook)
