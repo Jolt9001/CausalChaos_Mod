@@ -90,7 +90,8 @@ public final class StarforgeBEBase extends BlockEntity implements MenuProvider {
     private int litDuration = 0;
 
     private StarforgeBEBase(BlockPos pos, BlockState state, StarforgeTier tier){
-        super(CCBlockEntities.STARFORGE_BE.get(), pos, state); // This will remain an error for now
+        // TODO: Map to CCBlockEntities.STARFORGE_BE when prepping for refactor
+        super(CCBlockEntities.T0_STARFORGE_BE.get(), pos, state); // This will remain incorrectly mapped for now.
         this.tier = tier;
         this.inStructure = state.getValue(StarforgeBlock.IN_STRUCTURE);
     }
