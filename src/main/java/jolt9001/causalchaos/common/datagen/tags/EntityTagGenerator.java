@@ -19,8 +19,9 @@ public class EntityTagGenerator extends ModdedEntityTagGenerator {
     public static final TagKey<EntityType<?>> BOSSES = create(CausalChaos.prefix("bosses"));
     public static final TagKey<EntityType<?>> SUPERBOSSES = create(CausalChaos.prefix("superbosses"));
     public static final TagKey<EntityType<?>> ENEMIES = create(CausalChaos.prefix("enemies"));
-    public static final TagKey<EntityType<?>> NPCS = create(CausalChaos.prefix("enemies"));
-
+    public static final TagKey<EntityType<?>> NPCS = create(CausalChaos.prefix("npcs"));
+    public static final TagKey<EntityType<?>> ANCHORS = create(CausalChaos.prefix("anchors"));
+    public static final TagKey<EntityType<?>> TWISTED_CHILDREN = create(CausalChaos.prefix("twisted_children"));
 
     public EntityTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, @Nullable ExistingFileHelper helper) {
         super(output, provider, helper);
