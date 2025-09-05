@@ -24,7 +24,7 @@ public final class CCNetwork {
         CHANNEL.messageBuilder(ServerboundDashPacket.class, nextId(), NetworkDirection.PLAY_TO_SERVER)
                 .encoder(ServerboundDashPacket::encode)
                 .decoder(ServerboundDashPacket::decode)
-                //.consumerMainThread(ServerboundDashPacket::handle)
+                .consumerMainThread(ServerboundDashPacket::handle)
                 .add();
     }
 }

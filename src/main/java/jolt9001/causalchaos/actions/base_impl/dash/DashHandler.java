@@ -1,5 +1,6 @@
 package jolt9001.causalchaos.actions.base_impl.dash;
 
+import jolt9001.causalchaos.common.CCCapabilities;
 import jolt9001.causalchaos.init.CCItems;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -31,13 +32,13 @@ public class DashHandler {
     // A super-lightweight per-player cooldown using persistent data
     private static final String NBT_LAST_DASH = "cc_last_dash";
 
-    public static void tryDash(ServerPlayer p, Vec3 clientDir, boolean jumpHeld, boolean sneakHeld) {
+    public static void tryDash(ServerPlayer p, Vec3 clientDir, boolean airborne, boolean jumpHeld, boolean sneakHeld) {
         // 1) Gate: must be alive and not mounted
-        if (p.isSpectator() || p.isPassenger() || p.isRemoved()) return;
+        if (p.isDeadOrDying() || p.isSpectator() || p.isPassenger() || p.isRemoved()) return;
 
-        // 2) Gate: holding Causality Crystal in either hand
+        // 2) Gate: holding Causality Crystal in offhand
         Item causality = CCItems.CAUSALITY_CRYSTAL.get();
-        boolean hasCrystal = p.getMainHandItem().is(causality) || p.getOffhandItem().is(causality);
+        boolean hasCrystal = p.getOffhandItem().is(causality);
         if (!hasCrystal) return;
 
         // 3) Gate: cooldown
@@ -56,19 +57,21 @@ public class DashHandler {
         double range = GROUND_RANGE * (onGround ? 1.0 : AIR_MULTIPLIER);
         if (inWater) range *= WATER_MULTIPLIER;
 
-        // Convert “range in blocks” to velocity impulse. A nice feel: deliver most distance immediately.
-        // You can tweak impulse scaling to taste.
-        double impulse = range * 0.85; // most of it in one tick
-        Vec3 dash = dir.scale(impulse);
+        // Convert “range in blocks” to velocity impulse.
+        double groundSpeed = 1.25;   // ~5 blocks in ~4 ticks
+        double airSpeed    = 2.25;   // stronger while flying
+        double speed = airborne ? airSpeed : groundSpeed;
+        double impulse = range * speed; //
+        Vec3 current = p.getDeltaMovement();
 
-        // Preserve a touch of vertical momentum unless we’re explicitly vertical-dashing.
-        Vec3 cur = p.getDeltaMovement();
+        // If you want it to “override” lateral velocity:
+        Vec3 dash = dir.scale(impulse);
         boolean forceVertical = Math.abs(dir.y) > 0.75;
-        Vec3 newMotion = forceVertical ? dash : new Vec3(dash.x, Math.max(dash.y, cur.y), dash.z);
+        Vec3 newVel = forceVertical ? dash : new Vec3(dash.x, current.y + dash.y, dash.z);
 
         // 6) Apply motion & short friction immunity
         p.hurtMarked = true;
-        p.setDeltaMovement(newMotion);
+        p.setDeltaMovement(newVel);
         p.hasImpulse = true;
 
         // Optional: brief fall-damage forgiveness on perfect upward dash
@@ -88,6 +91,15 @@ public class DashHandler {
         p.level().playSound(null, p.blockPosition(), SoundEvents.ELYTRA_FLYING, SoundSource.PLAYERS, 0.6F, 1.6F);
         ((ServerLevel) p.level()).sendParticles(ParticleTypes.CLOUD, p.getX(), p.getY() + 0.1, p.getZ(),
                 15, 0.15, 0.1, 0.15, 0.05);
+
+        // 10) Dash Strike handling
+        p.getCapability(CCCapabilities.DASH_DATA).ifPresent(cap -> {
+            cap.setDashTicks(4);      // 4 ticks of movement burst
+            cap.setStrikeWindow(4);   // one boosted hit within 4 ticks
+        });
+
+        // Optional: cooldown or stamina (capabilities/attributes hook)
+        // CCEnergy.get(player).consume(…); etc.
     }
 
     private static Vec3 sanitizeDirection(ServerPlayer p, Vec3 clientDir, boolean jumpHeld, boolean sneakHeld) {
@@ -115,5 +127,9 @@ public class DashHandler {
     private static boolean hitHeadSoon(ServerPlayer p) {
         AABB box = p.getBoundingBox().inflate(0.0, 0.1, 0.0).move(0, 0.2, 0);
         return !p.level().noCollision(p, box);
+    }
+
+    private static void checkDodge() {
+        // TODO: Handle dodges and perfect dodges using hitboxes displayed by DangerSense ability
     }
 }
