@@ -3,7 +3,10 @@ package jolt9001.causalchaos.common.advancements;
 import com.google.gson.JsonObject;
 import jolt9001.causalchaos.CausalChaos;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.*;
+import net.minecraft.advancements.critereon.AbstractCriterionTriggerInstance;
+import net.minecraft.advancements.critereon.ContextAwarePredicate;
+import net.minecraft.advancements.critereon.DeserializationContext;
+import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -12,9 +15,9 @@ import java.util.Optional;
 /**
  * Criterion trigger used to check for when a player gets unalived
  */
-public class PlayerDeathTrigger extends SimpleCriterionTrigger<PlayerDeathTrigger.Instance> {
+public class HardcoreDeathTrigger extends SimpleCriterionTrigger<HardcoreDeathTrigger.Instance> {
     public static final ResourceLocation ID = new ResourceLocation(CausalChaos.MODID, "hardcore_death");
-    public static final PlayerDeathTrigger INSTANCE = new PlayerDeathTrigger();
+    public static final HardcoreDeathTrigger INSTANCE = new HardcoreDeathTrigger();
 
     public ResourceLocation getId() {
         return ID; // <-- critical: JSON "trigger": "modid:hardcore_death"
@@ -41,7 +44,7 @@ public class PlayerDeathTrigger extends SimpleCriterionTrigger<PlayerDeathTrigge
 
         // ---- Datagen helper: use this in your Advancement builder ----
         public static Criterion<Instance> youDied() {
-            return PlayerDeathTrigger.INSTANCE.createCriterion(new Instance(Optional.empty()));
+            return HardcoreDeathTrigger.INSTANCE.createCriterion(new Instance(Optional.empty()));
         }
     }
 }

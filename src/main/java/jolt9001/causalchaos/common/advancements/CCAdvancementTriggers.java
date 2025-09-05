@@ -3,7 +3,7 @@ package jolt9001.causalchaos.common.advancements;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.*;
 
-public class CCAdvancements {
+public class CCAdvancementTriggers {
 
     /**
      * Tutorial Triggers
@@ -26,7 +26,8 @@ public class CCAdvancements {
      */
     public static final PlayerTrigger LOOP_RESET = new PlayerTrigger();
     public static final KilledTrigger APOCALYPSE = new KilledTrigger();
-    public static final PlayerDeathTrigger PLAYER_DEATH = CriteriaTriggers.register("jolt9001.causalchaos:hardcore_death", new PlayerDeathTrigger());
+    public static final HardcoreDeathTrigger HARDCORE_DEATH = CriteriaTriggers.register("jolt9001.causalchaos:hardcore_death", new HardcoreDeathTrigger());
+    public static final SurvivalDeathTrigger SURVIVAL_DEATH = CriteriaTriggers.register("jolt9001.causalchaos:survival_death", new SurvivalDeathTrigger());
 
     /**
      * Loop Escape Triggers

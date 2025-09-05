@@ -1,8 +1,10 @@
 package jolt9001.causalchaos.common.datagen;
 
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.common.advancements.HardcoreDeathTrigger;
 import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
 import jolt9001.causalchaos.init.CCBlocks;
+import jolt9001.causalchaos.init.CCEntities;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
@@ -10,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 import jolt9001.causalchaos.init.CCItems;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -67,7 +70,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var standInHitbox = nb(); // "Danger Zone" Prereq: "adv_danger_sense_0", dangerSense
         var QTEFail = nb(); // "You Blinked" Prereq: "adv_in_hitbox_0", standInHitbox
         var perfectDodge = nb(); // "Saw It Coming" Prereq: "adv_in_hitbox_1", standInHitbox, dodge
-        var parry = nb(); // "Denied"
+        var parry = nb(); // "Denied" Prereq: "adv_in_hitbox_2", standInHitbox
         var perfectParry = nb(); // "Damage Reflection"
 
         // Ability Mastery - Based on experience factor of Causality Crystal
@@ -97,7 +100,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
 
             // Demon Lord
         var fightDL1 = nb(); // "Great Destroyer" Prereq: "adv_crystal_default_4", getCrystalDefault
-        var fightDL2 = nb(); // "Déjà vu" Prereq: "adv_dl1_0", "adv_dl1_0", fightDL1
+        var fightDL2 = nb(); // "Déjà vu" Prereq: "adv_dl1_0", fightDL1
         var tripleDLPerfectDodge = nb(); // "Chronal Duelist" Prereq: "adv_dl2_0", fightDL2
         var DLFlurryCounter = nb(); // "Temporal Mastermind" Prereq: "adv_dl2_1", fightDL2
         var bossDLDeathless = nb(); // "Eternal Survivor" Prereq: "adv_dl1_1", fightDL1
@@ -107,6 +110,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
             // Worldeater
         var worldeaterEncounter = nb(); // "Horrific Monstrosity" Prereq: "adv_enter_limbo_0", enterLimbo
         var worldeaterDefeat = nb()/*
+                .parent(worldeaterEncounter)
                 .display(
                         CCBlocks.REALMWEAVE_BLOCK.get(),
                         Component.translatable("achievement.causalchaos.worldeater_win"),
@@ -117,13 +121,14 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:worldeater_win")*/; // "Satiated Hunger" Prereq: "adv_worldeater_0", worldeaterEncounter
         var worldeaterLoss = nb()/*
+                .parent(worldeaterEncounter)
                 .display(
                         CCBlocks.REALMWEAVE_BLOCK.get(),
                         Component.translatable("achievement.causalchaos.worldeater_loss"),
                         Component.translatable("achievement.causalchaos.worldeater_loss.desc"),
                         null, FrameType.TASK, true, true, false)
                 .addCriterion("adv_worldeater_1", this.advancementTrigger(worldeaterEncounter))
-                .addCriterion("die_to_worleater", KilledTrigger.TriggerInstance.entityKilledPlayer(EntityPredicate.nb().entity().of(CCEntities.WORLDEATER.get())))
+                .addCriterion("die_to_worleater", KilledTrigger.TriggerInstance.entityKilledPlayer(EntityPredicate.Builder.entity().of(CCEntities.WORLDEATER.get())))
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:worldeater_loss")*/; // "Unexisted" Prereq: "adv_worldeater_1", worldeaterEncounter
         var worldeaterMax = nb(); // "Not Afraid Anymore" Prereq: "adv_cfpjolt_0", CFPJolt . "adv_worldeater_2" worldeaterEncounter
@@ -139,12 +144,14 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var anchorDeath = nb(); // "Apocalypse" Prereq: "adv_anchor_find_1", anchorEncounter
         var anchorProtect = nb(); // "The Fifteen" Prereq: "adv_anchor_find_2", anchorEncounter
         var twistedEncounter = nb(); // "Twisted Children" Prereq: "adv_crystal_default_6", getCrystalDefault
-        var riftwalkerKill = nb()/*.display(
+        var riftwalkerKill = nb()/*
+                .parent(getCrystalDefault)
+                .display(
                         CCItems.WORLD_THREAD.get(),
                         Component.translatable("achievement.causalchaos.riftwalker_kill"),
                         Component.translatable("achievement.causalchaos.riftwalker_kill.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("riftwalker_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.nb().entity().of(CCEntities.RIFTWALKER_SCOUT.get())))
+                .addCriterion("riftwalker_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.RIFTWALKER_SCOUT.get())))
                 .addCriterion("adv_crystal_default_7", this.advancementTrigger(getCrystalDefault))
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:riftwalker_kill")*/; // "Released From Suffering" Prereq: "adv_crystal_default_7", getCrystalDefault
@@ -157,7 +164,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                         Component.translatable("achievement.causalchaos.dl_win"),
                         Component.translatable("achievement.causalchaos.dl_win.desc"),
                         null, FrameType.TASK, true, true, false)
-                .addCriterion("dl_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.nb().entity().of(CCEntities.DEMON_LORD.get())))
+                .addCriterion("dl_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.DEMON_LORD.get())))
                 .addCriterion("adv_dl2_2", this.advancementTrigger(fightDL2))
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:dl_win")*/; // "Shattered Dimension" Prereq: "adv_dl2_2", fightDL2
@@ -271,6 +278,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
 
             //Transcendent's Plain
         var TPPortalEnter = nb()
+                .parent(obtainPerplexium)
                 .display(
                         CCBlocks.QUANTUM_FABRIC.get(),
                         Component.translatable("achievement.causalchaos.tp_portal"),
@@ -281,6 +289,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:tpportal_enter"); // "Gateway to the Infinite" Prereq: "adv_perplexium_4", getPerplexium
         var EnterTPlain = nb()
+                //.parent(Tsuna)
                 .display(
                         CCItems.CRYSTAL_KEY.get(),
                         Component.translatable("achievement.causalchaos.tp_enter"),
@@ -303,7 +312,17 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
 
         // Superbosses
             // Normal Mode
-        var Tsuna = nb(); // "Diamonds are Not Forever" Prereq: "adv_tp_portal_0", TPPortalActivate
+        var Tsuna = nb()
+                .parent(TPPortalEnter)
+                .display(
+                        CCItems.WORLD_THREAD.get(),
+                        Component.translatable("achievement.causalchaos.superboss_tsuna"),
+                        Component.translatable("achievement.causalchaos.superboss_tsuna.desc"),
+                        null, FrameType.TASK, true, true, false)
+                .addCriterion("tsuna_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.TSUNA_BOSS.get())))
+                .addCriterion("adv_tp_portal_0", this.advancementTrigger(TPPortalEnter))
+                .requirements(AdvancementRequirements.Strategy.AND)
+                .save(consumer, "jolt9001.causalchaos:tsuna_win"); // "Diamonds are Not Forever" Prereq: "adv_tp_portal_0", TPPortalActivate
         var Kai = nb(); // "Caught Red Handed" Prereq: "adv_enter_tp_1", enterTPlain
         var Terry = nb(); // "Cheaters Never Prosper" Prereq: "adv_enter_tp_2", enterTPlain
         var Lyadova = nb(); // "Phobophobia" Prereq: "adv_enter_tp_3", enterTPlain
@@ -343,31 +362,30 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         // Hardcore
         /*
         var getCrystalHardcore = nb()
+                .parent(root)
                 .display(
                         CCItems.CAUSALITY_CRYSTAL.get(),
                         Component.translatable("achievement.causalchaos.hardcore_crystal_get"),
                         Component.translatable("achievement.causalchaos.hardcore_crystal_get.desc"),
                         null, FrameType.TASK, true, true, false
                 )
-                .addCriterion("adv_crystal_default_8", this.advancementTrigger(getCrystalDefault))
                 .addCriterion("get_crystal_hardcore", InventoryChangeTrigger.TriggerInstance.hasItems(CCItems.CAUSALITY_CRYSTAL.get()))
-                .addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck(levelData))
+                .addCriterion("is_hardcore", HardcoreCheckTrigger.Instance.hardcoreCheck())
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:get_crystal_hardcore");
-
-        LivingEntity entity = null;
-        LivingDeathEvent event = new LivingDeathEvent(entity, null);
+*/
         var hardcoreDeath = nb()
+                //.parent(getCrystalHardcore)
                 .display(
-                        (ItemLike) IconGenerator.RESUSCITATION_ICON, // Particle Effect
+                        (ItemLike) CCIconGenerator.RESUSCITATION_ICON, // Particle/Icon
                         Component.translatable("achievement.causalchaos.hardcore_death"),
                         Component.translatable("achievement.causalchaos.hardcore_death.desc"),
                         null, FrameType.GOAL, true, true, false)
-                .addCriterion("adv_crystal_hardcore_0", this.advancementTrigger(getCrystalHardcore))
-                .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied(event))
-                .requirements(AdvancementRequirements.Strategy.AND)
+                //.addCriterion("adv_crystal_hardcore_0", this.advancementTrigger(getCrystalHardcore))
+                .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied())
+                //.requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:hardcore_death");
- */
+
         var hardcoreDLDefeat = nb(); // "Last Stand" Prereq: "adv_crystal_hardcore_1", getCrystalHardcore
         var perfectSuperboss = nb(); // "Memento Mori" Prereq: "adv_crystal_hardcore_2", getCrystalHardcore . "adv_tp_portal_1", TPPortalActivate
         var day100 = nb(); /// "Indomitable Spirit" Prereq: "adv_crystal_hardcore_3", getCrystalHardcore
@@ -396,7 +414,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
 /*
         var badRNG = nb()
                 .display(
-                        (ItemLike) IconGenerator.NAT1,
+                        (ItemLike) CCIconGenerator.NAT1,
                         Component.translatable("achievement.causalchaos.superboss_bad_rng"),
                         Component.translatable("achievement.causalchaos.superboss_bad_rng.desc"),
                         null, FrameType.TASK,true, true, false)
