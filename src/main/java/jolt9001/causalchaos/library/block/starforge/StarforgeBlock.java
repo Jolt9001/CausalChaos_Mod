@@ -58,7 +58,6 @@ Low-Priority TODOs (refactors + polish)
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
-    public static final IntegerProperty TIER = IntegerProperty.create("tier", 0, 3);
     public static final BooleanProperty IN_STRUCTURE = BooleanProperty.create("in_structure");
 
     public int getTier() {
@@ -78,7 +77,10 @@ Low-Priority TODOs (refactors + polish)
         super(properties);
         setTier(tier);
         // TODO: State props: FACING, ACTIVE, IN_STRUCTURE (default false). Drop the test-only TIER property.
-        this.registerDefaultState(this.defaultBlockState().setValue(ACTIVE, false).setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.defaultBlockState()
+                .setValue(ACTIVE, false)
+                .setValue(FACING, Direction.NORTH)
+                .setValue(IN_STRUCTURE, false));
     }
 
     @Override
@@ -107,7 +109,7 @@ Low-Priority TODOs (refactors + polish)
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder){
         super.createBlockStateDefinition(builder);
-        builder.add(ACTIVE, FACING, TIER);
+        builder.add(ACTIVE, FACING, IN_STRUCTURE);
     }
 
 

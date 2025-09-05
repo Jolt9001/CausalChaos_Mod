@@ -1,6 +1,9 @@
 package jolt9001.causalchaos.library.block.entity.starforgealone;
 
+import jolt9001.causalchaos.common.datagen.tags.ItemTagGenerator;
 import jolt9001.causalchaos.init.CCBlockEntities;
+import jolt9001.causalchaos.init.CCBlocks;
+import jolt9001.causalchaos.init.CCItems;
 import jolt9001.causalchaos.library.recipe.recipes.StarforgeAloneRecipe;
 import jolt9001.causalchaos.library.screen.StarforgeAloneMenu;
 import net.minecraft.core.BlockPos;
@@ -46,7 +49,6 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
 
     private static final int[] INPUT_SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
     // TODO: require Anthracite (item or block) via tag causalchaos:starforge_fuel; burn timer litTime/litDuration; progress only while lit.
-    // TODO: Guard slots: reject non-fuel into FUEL_SLOT, reject inserts into RESULT_SLOT.
     // TODO: Never overwrite fuel with the result. Append to result stack if same item/tags and within max size.
     private static final int FUEL_SLOT =  9;
     private static final int RESULT_SLOT = 10;
@@ -87,6 +89,7 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
         };
     }
 
+    // TODO: Guard slots: reject non-fuel into FUEL_SLOT, reject inserts into RESULT_SLOT.
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
@@ -131,6 +134,7 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("t0_starforge.progress", progress);
         tag.putInt("LitTime", litTime);
+        tag.putInt("LitDuration", litDuration);
         super.saveAdditional(tag);
     }
 
@@ -145,7 +149,17 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
 
     // TODO: Persist everything it will tick on: progress, maxProgress (if dynamic), litTime, litDuration, inventory.
     public void tick(Level level1, BlockPos pos, BlockState state1) {
-        if(hasRecipe()) {
+        if (level1.isClientSide()) return;
+        if (hasRecipe()) {
+            if (!isLit()) {
+                // Attempt to light with anthracite
+                if (!tryConsumeFuel()) {
+                    resetProgress();
+                    return; // no fuel, no craft
+                }
+            }
+            this.litTime = Math.max(0, this.litTime - 1);
+
             increaseCraftingProgress();
             setChanged(level1, pos, state1);
 
@@ -156,6 +170,32 @@ public class T0StarforgeBlockEntity extends BlockEntity implements MenuProvider 
         } else {
             resetProgress();
         }
+    }
+
+    private boolean isFuel(ItemStack stack) {
+        return stack.is(ItemTagGenerator.STARFORGE_FUEL);
+    }
+    private int getFuelBurnTime(ItemStack stack) {
+        // Tweak to taste (coal = 1600). Make anthracite spicy.
+        if (stack.is(CCItems.ANTHRACITE.get())) return 3200;                  // 160 seconds @20tps
+        if (stack.is(CCBlocks.ANTHRACITE_BLOCK.get().asItem())) return 32000; // 1600 seconds
+        return 0;
+    }
+
+    private boolean tryConsumeFuel() {
+        ItemStack fuel = itemHandler.getStackInSlot(FUEL_SLOT);
+        if (fuel.isEmpty() || !isFuel(fuel)) return false;
+
+        int burn = getFuelBurnTime(fuel);
+        if (burn <= 0) return false;
+
+        // consume ONE fuel
+        fuel.shrink(1);
+        itemHandler.setStackInSlot(FUEL_SLOT, fuel); // writes back after shrink
+        this.litTime = burn;
+        this.litDuration = burn; // remember full duration for UI
+        setChanged();
+        return true;
     }
 
     private void resetProgress() {
