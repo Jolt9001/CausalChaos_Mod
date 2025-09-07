@@ -1,7 +1,8 @@
 package jolt9001.causalchaos.library.worldgen.biome;
 
 import jolt9001.causalchaos.CausalChaos;
-import jolt9001.causalchaos.library.worldgen.biome.biomegen.dimensions.OverworldBiomes;
+import jolt9001.causalchaos.library.worldgen.biome.biomegen.dimensions.OverworldBiomeGen;
+import jolt9001.causalchaos.library.worldgen.biome.biomegen.dimensions.SkyBiomeGen;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -39,7 +40,6 @@ public class CCBiomes {
     public static final ResourceKey<Biome> RADIANT_RIVER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "radiant_river")); // Separator biome for biome map continuity
     public static final ResourceKey<Biome> FROZEN_RADIANT_RIVER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "frozen_radiant_river")); // Separator biome for biome map continuity
 
-
         // Variants
 
         // Oceans
@@ -61,24 +61,52 @@ public class CCBiomes {
     public static final ResourceKey<Biome> WORLD_THREAD_FLATS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "world_thread_flats"));
 
     public static void boostrap(BootstapContext<Biome> context) {
-        context.register(TEST_BIOME, OverworldBiomes.testBiome(context));
+        // Test Biome
+        context.register(TEST_BIOME, OverworldBiomeGen.testBiome(context));
 
-        context.register(STORM_WALL, OverworldBiomes.stormWallBiome(context));
+        // Overworld
+        context.register(STORM_WALL, OverworldBiomeGen.stormWall(context));
+
+        // Transcendent's Plain
         /*
-        context.register(CRYSTAL_CLIFFS, TPlainBiomes.crystalCliffsBiome(context));
-        context.register(PERFECT_PLAINS, TPlainBiomes.perfectPlainsBiome(context));
-
-         */
+        context.register(CRYSTAL_CLIFFS, TPlainBiomes.crystalCliffs(context));
+        context.register(DISMAL_DESERT, TPlainBiomeGen.dismalDesert(context));
+        context.register(SYSTEMATIC_SHRUBLANDS, TPlainBiomes.systematicShrublands(context));
+        context.register(PETRIFYING_PLATEAU, TPlainBiomes.petrifyingPlateau(context));
+        context.register(CHROMATIC_CRAGS, TPlainBiomeGen.chromaticCrags(context));
+        context.register(GELID_GLACIER, TPlainBiomes.gelidGlacier(context));
+        context.register(SKOURAINEI, TPlainBiomeGen.skourainei(context));
+        context.register(HYPERBOLIC_HILLS, TPlainBiomes.hyperbolicHills(context));
+        context.register(FATUOUS_FOREST, TPlainBiomeGen.fatuousForest(context));
+        context.register(REGENERATIVE_RAINFOREST, TPlainBiomeGen.regenerativeRainforest(context));
+        context.register(FERVENT_FIELD, TPlainBiomeGen.ferventField(context));
+        context.register(SUBCONSCIOUS_SWAMP, TPlainBiomeGen.subconsciousSwamp(context));
+        context.register(CALESCENT_CALDERA, TPlainBiomes.calescentCaldera(context));
+        context.register(TRANSIENT_TERRACE, TPlainBiomes.transientTerrace(context));
+        context.register(QUIVERING_QUARRY, TPlainBiomes.quiveringQuarry(context));
+        context.register(ORIGINATIVE_OCEAN, TPlainBiomeGen.perfectPlains(context));
+        context.register(RADIANT_RIVER, TPlainBiomeGen.radiantRiver(context));
+        context.register(FROZEN_RADIANT_RIVER, TPlainBiomeGen.frozenRadiantRiver(context));
+        context.register(FROZEN_ORIGINATIVE_OCEAN, TPlainBiomeGen.frozenOriginativeOcean(context));
+        context.register(COLD_ORIGINATIVE_OCEAN, TPlainBiomeGen.coldOriginativeOcean(context));
+        context.register(ORIGINATIVE_OCEAN, TPlainBiomeGen.originativeOcean(context));
+        context.register(LUKEWARM_ORIGINATIVE_OCEAN, TPlainBiomeGen.lukewarmOriginativeOcean(context));
+        context.register(WARM_ORIGINATIVE_OCEAN, TPlainBiomeGen.warmOriginativeOcean(context));
+        context.register(DEEP_FROZEN_ORIGINATIVE_OCEAN, TPlainBiomeGen.deepFrozenOriginativeOcean(context));
+        context.register(DEEP_COLD_ORIGINATIVE_OCEAN, TPlainBiomeGen.deepColdOriginativeOcean(context));
+        context.register(DEEP_ORIGINATIVE_OCEAN, TPlainBiomeGen.deepOriginativeOcean(context));
+        context.register(DEEP_LUKEWARM_ORIGINATIVE_OCEAN, TPlainBiomeGen.deepLukewarmOriginativeOcean(context));
+*/
+        // Sky
+        context.register(CUMULONIMBUS, SkyBiomeGen.cumulonimbus(context));
+/*
+        // Limbo
+        context.register(REALMWEAVE_LANDS, LimboBiomeGen.realmweaveLands(context));
+        context.register(WORLD_THREAD_FLATS, LimboBiomeGen.worldThreadFlats(context));
+        */
     }
 
-
-    private static void addDefaultOverworldGeneration(BiomeGenerationSettings.Builder generationSettings) {
-        CCBiomes.globalOverworldGeneration(generationSettings);
-        BiomeDefaultFeatures.addDefaultOres(generationSettings);
-        BiomeDefaultFeatures.addDefaultSoftDisks(generationSettings);
-    }
-
-    public static void globalOverworldGeneration(BiomeGenerationSettings.Builder builder) {
+    public static void globalGeneration(BiomeGenerationSettings.Builder builder) {
         BiomeDefaultFeatures.addDefaultCarversAndLakes(builder);
         BiomeDefaultFeatures.addDefaultCrystalFormations(builder);
         BiomeDefaultFeatures.addDefaultMonsterRoom(builder);

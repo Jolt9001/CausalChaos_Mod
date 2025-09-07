@@ -10,7 +10,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
-public class OverworldBiomes {
+public class OverworldBiomeGen {
     public static Biome testBiome(BootstapContext<Biome> context) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         // spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
@@ -113,7 +113,7 @@ public class OverworldBiomes {
         * baseJungleSpawns
         * endSpawns
         */
-        CCBiomes.globalOverworldGeneration(biomeBuilder);
+        CCBiomes.globalGeneration(biomeBuilder);
         //BiomeDefaultFeatures.addMossyStoneBlock(biomeBuilder);
         BiomeDefaultFeatures.addForestFlowers(biomeBuilder);
         BiomeDefaultFeatures.addFerns(biomeBuilder);
@@ -147,7 +147,7 @@ public class OverworldBiomes {
     }
 
     // USE SEED 5869176929701707854 WHEN TESTING STORM WALL BIOME
-    public static Biome stormWallBiome(BootstapContext<Biome> context) {
+    public static Biome stormWall(BootstapContext<Biome> context) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
         spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
@@ -159,7 +159,7 @@ public class OverworldBiomes {
                 new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE),
                         context.lookup(Registries.CONFIGURED_CARVER));
 
-        CCBiomes.globalOverworldGeneration(biomeBuilder);
+        CCBiomes.globalGeneration(biomeBuilder);
         BiomeDefaultFeatures.addForestFlowers(biomeBuilder);
         BiomeDefaultFeatures.addFerns(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);

@@ -83,7 +83,7 @@ public class CCConfiguedFeatures {
         register(context, OVERWORLD_TUNGSTEN_ORE_KEY, Feature.ORE,  new OreConfiguration(overworldTungstenOres,  6));
         register(context, OVERWORLD_PALLADIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldPalladiumOres, 5));
         register(context, OVERWORLD_IRIDIUM_ORE_KEY, Feature.ORE,   new OreConfiguration(overworldIridiumOres,   4));
-/*
+        /*
         register(context, SKY_ANTHRACITE_ORE_KEY, Feature.ORE, new OreConfiguration(stoneReplaceable, CCBlocks.ANTHRACITE_ORE.get().defaultBlockState(), 17));
         register(context, SKY_MAGNETITE_ORE_KEY, Feature.ORE, new OreConfiguration(stoneReplaceable, CCBlocks.MAGNETITE_ORE.get().defaultBlockState(), 9));
 */

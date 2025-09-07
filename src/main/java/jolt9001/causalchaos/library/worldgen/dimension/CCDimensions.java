@@ -3,6 +3,7 @@ package jolt9001.causalchaos.library.worldgen.dimension;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import jolt9001.causalchaos.CausalChaos;
+import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
 import jolt9001.causalchaos.library.worldgen.biome.selector.CCTPlainBiomeBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -68,7 +69,14 @@ public class CCDimensions {
         List<Pair<Climate.ParameterPoint, Holder<Biome>>> holder = convert(list, biomeGetter);
 
         NoiseBasedChunkGenerator noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
-                MultiNoiseBiomeSource.createFromList(new Climate.ParameterList<>(holder)),
+                MultiNoiseBiomeSource.createFromList(
+                        new Climate.ParameterList<>(/*holder*/ // Uncomment when all biomes are complete
+                        List.of(
+                                Pair.of(Climate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(CCBiomes.TEST_BIOME)),
+                                Pair.of(Climate.parameters(0.1F, 0.2F, 0.0F, 0.2F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.BIRCH_FOREST)),
+                                Pair.of(Climate.parameters(0.3F, 0.6F, 0.1F, 0.1F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.OCEAN)),
+                                Pair.of(Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.DARK_FOREST))
+                        ))),
                 noiseGenSettings.getOrThrow(NoiseGeneratorSettings.LARGE_BIOMES));
         LevelStem stem = new LevelStem(dimTypes.getOrThrow(CCDimensions.TPLAIN_DIM_TYPE), noiseBasedChunkGenerator);
 
