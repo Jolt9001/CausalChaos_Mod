@@ -1,16 +1,5 @@
 package jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.masks;
 
-import net.minecraft.client.gui.screens.worldselection.WorldCreationUiState;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.levelgen.WorldGenSettings;
-import net.minecraft.world.level.levelgen.WorldOptions;
-import net.minecraft.world.level.storage.WorldData;
-
 public final class FerventFieldSpiralMask {
     public enum Variant { YIN, YANG, UNITY, OUT }
 
