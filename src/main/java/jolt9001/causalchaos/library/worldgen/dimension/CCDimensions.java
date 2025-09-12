@@ -53,7 +53,7 @@ public class CCDimensions {
 
     public static void bootstrapTypeTPlain(BootstapContext<DimensionType> context) {
         context.register(TPLAIN_DIM_TYPE, new DimensionType(
-                OptionalLong.of(12000), false, false, false, false,
+                OptionalLong.of(12000), true, false, false, false,
                 1.0, true, false, -64, 320, 320,
                 BlockTags.INFINIBURN_OVERWORLD, BuiltinDimensionTypes.OVERWORLD_EFFECTS, 1.0f,
                 new DimensionType.MonsterSettings(false, false, ConstantInt.of(0), 0)));
@@ -63,10 +63,13 @@ public class CCDimensions {
         HolderGetter<DimensionType> dimTypes = context.lookup(Registries.DIMENSION_TYPE);
         HolderGetter<NoiseGeneratorSettings> noiseGenSettings = context.lookup(Registries.NOISE_SETTINGS);
 
+        // Uncomment when all biomes are complete
+        /*
         ImmutableList.Builder<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> builder = new ImmutableList.Builder<>();
         new CCTPlainBiomeBuilder().addBiomes(builder::add);
         List<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> list = builder.build();
         List<Pair<Climate.ParameterPoint, Holder<Biome>>> holder = convert(list, biomeGetter);
+        */
 
         NoiseBasedChunkGenerator noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
                 MultiNoiseBiomeSource.createFromList(

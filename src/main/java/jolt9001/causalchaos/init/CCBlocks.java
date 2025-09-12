@@ -134,7 +134,7 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
      */
 
-    // Transcendent Stone Ores (NYI)
+    // Transcendent Stone Ores
     public static final RegistryObject<Block> TRANSCENDENT_COBALT_ORE = registerBlock("transcendent_cobalt_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(CCBlocks.TRANSCENDENT_STONE.get()).strength(3f)
                     .requiresCorrectToolForDrops(), ConstantInt.of(0)));

@@ -2,6 +2,7 @@ package jolt9001.causalchaos.library.worldgen.biome.selector;
 
 import com.mojang.datafixers.util.Pair;
 import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
+import jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.masks.FerventFieldSpiralMask;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.VisibleForDebug;
 import net.minecraft.world.level.biome.Biome;
@@ -91,7 +92,6 @@ public final class CCTPlainBiomeBuilder {
     private void addPeaks(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> pConsumer, Climate.Parameter pWeirdness) {
         for(int t = 0; t < this.temperatures.length; ++t) {
             Climate.Parameter temp = this.temperatures[t];
-
             for (int h = 0; h < this.humidities.length; ++h) {
                 Climate.Parameter humid = this.humidities[h];
                 ResourceKey<Biome> mid = this.pickMid(t, h, pWeirdness);
@@ -118,7 +118,6 @@ public final class CCTPlainBiomeBuilder {
     private void addHighSlice(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> pConsumer, Climate.Parameter pWeirdness) {
         for(int t = 0; t < this.temperatures.length; ++t) {
             Climate.Parameter temp = this.temperatures[t];
-
             for (int h = 0; h < this.humidities.length; ++h) {
                 Climate.Parameter humid = this.humidities[h];
                 ResourceKey<Biome> mid = this.pickMid(t, h, pWeirdness);
@@ -152,7 +151,6 @@ public final class CCTPlainBiomeBuilder {
 
         for(int t = 0; t < this.temperatures.length; ++t) {
             Climate.Parameter temp = this.temperatures[t];
-
             for (int h = 0; h < this.humidities.length; ++h) {
                 Climate.Parameter humid = this.humidities[h];
                 ResourceKey<Biome> mid = this.pickMid(t, h, pWeirdness);
@@ -199,7 +197,6 @@ public final class CCTPlainBiomeBuilder {
 
         for(int t = 0; t < this.temperatures.length; ++t) {
             Climate.Parameter temp = this.temperatures[t];
-
             for (int h = 0; h < this.humidities.length; ++h) {
                 Climate.Parameter humid = this.humidities[h];
                 ResourceKey<Biome> mid = this.pickMid(t, h, pWeirdness);
@@ -261,7 +258,16 @@ public final class CCTPlainBiomeBuilder {
 
     private ResourceKey<Biome> pickMid(int pTemperature, int pHumidity, Climate.Parameter pWeirdness) {
         if (pWeirdness.max() < 0L) {
-            return CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity];
+            ResourceKey<Biome> biome = CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity];
+            if (biome == CCBiomes.FERVENT_FIELD) {
+                int x;
+                int z;
+                // FerventFieldSpiralMask.Params p = new FerventFieldSpiralMask.Params();
+                // biome = FerventFieldSpiralMask.sample();
+                return biome;
+            } else {
+                return biome;
+            }
         } else {
             ResourceKey<Biome> biome = CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES_VARIANT[pTemperature][pHumidity];
             return biome == null ? CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity] : biome;
