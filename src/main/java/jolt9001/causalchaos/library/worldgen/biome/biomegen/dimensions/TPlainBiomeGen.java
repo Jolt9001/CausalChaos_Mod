@@ -176,16 +176,19 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
         BiomeDefaultFeatures.addForestFlowers(biomeBuilder);
+        /*
         if (variant.equals("yin")) {
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YIN);
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YIN);
         } else if (variant.equals("yang")) {
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YANG);
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YANG);
-        } else {
+
+
+        } else {*/
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.TREES_FLOWER_FOREST);
             biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_FLOWER_FOREST);
-        }
+        //}
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
 

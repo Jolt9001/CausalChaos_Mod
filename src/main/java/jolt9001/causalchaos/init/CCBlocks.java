@@ -82,14 +82,7 @@ public final class CCBlocks {
     // Environmental blocks (NYI)
         // Frosted Wood (maybe)
         // Abyss Wood (maybe)
-        // Fulgur Wood
-/*
-    public static final RegistryObject<Block> FULGUR_LOG = registerBlock("fulgur_log",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
-    public static final RegistryObject<Block> FULGUR_PLANKS = registerBlock("fulgur_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
-*/
-        // Enamel Wood
+        // Crystal Cliffs
 /*
     public static final RegistryObject<Block> ENAMEL_LOG = registerBlock("enamel_log",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
@@ -100,7 +93,7 @@ public final class CCBlocks {
     public static final RegistryObject<Block> ENAMEL_SAPLING = registerBlock("enamel_sapling",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
 */
-        // Grim Wood
+        // Petrifying Plateau
 /*
     public static final RegistryObject<Block> GRIM_LOG = registerBlock("grim_log",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
@@ -111,19 +104,8 @@ public final class CCBlocks {
     public static final RegistryObject<Block> GRIM_SAPLING = registerBlock("grim_sapling",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
 */
-        // Bloomheart Woood
-    /*
-    public static final RegistryObject<Block> BLOOMHEART_STEM = registerBlock("bloomheart_stem",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
-    public static final RegistryObject<Block> BLOOMHEART_PLANKS = registerBlock("bloomheart_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
-    public static final RegistryObject<Block> BLOOMHEART_PETALS = registerBlock("bloomheart_petals",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
-    public static final RegistryObject<Block> BLOOMHEART_SEED = registerBlock("bloomheart_seed",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
-     */
-        // Evenos, found in Skourainei biome
-    /*
+        // Skourainei
+/*
     public static final RegistryObject<Block> EVENOS_LOG = registerBlock("evenos_log",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
     public static final RegistryObject<Block> EVENOS_PLANKS = registerBlock("evenos_planks",
@@ -132,7 +114,36 @@ public final class CCBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
     public static final RegistryObject<Block> EVENOS_SAPLING = registerBlock("evenos_sapling",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
-     */
+*/
+        // Fervent Fields
+/*
+    public static final RegistryObject<Block> BLOOMHEART_STEM = registerBlock("bloomheart_stem",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> BLOOMHEART_PLANKS = registerBlock("bloomheart_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final RegistryObject<Block> BLOOMHEART_PETALS = registerBlock("bloomheart_petals",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)));
+    public static final RegistryObject<Block> BLOOMHEART_SEED = registerBlock("bloomheart_seed",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
+
+
+    public static final RegistryObject<Block> FOXGLOVE = registerBlock("flower_foxglove",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)));
+    public static final RegistryObject<Block> BLEEDING_HEART = registerBlock("flower_bleeding_heart",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+
+    public static final RegistryObject<Block> VIOLETTE = registerBlock("flower_violette",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+    public static final RegistryObject<Block> BELLFLOWER = registerBlock("flower_bellflower",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+ */
+        // Quivering Quarry
+/*
+    public static final RegistryObject<Block> FULGUR_LOG = registerBlock("fulgur_log",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> FULGUR_PLANKS = registerBlock("fulgur_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)));
+*/
 
     // Transcendent Stone Ores
     public static final RegistryObject<Block> TRANSCENDENT_COBALT_ORE = registerBlock("transcendent_cobalt_ore",

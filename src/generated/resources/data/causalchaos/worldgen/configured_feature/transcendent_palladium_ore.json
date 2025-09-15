@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "discard_chance_on_air_exposure": 0.0,
+    "size": 9,
+    "targets": [
+      {
+        "state": {
+          "Name": "causalchaos:transcendent_palladium_ore"
+        },
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "causalchaos:blocks/trans_stone_ores_replaceables"
+        }
+      },
+      {
+        "state": {
+          "Name": "causalchaos:transcendent_deepstone_palladium_ore"
+        },
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "causalchaos:blocks/trans_deepstone_ores_replaceables"
+        }
+      }
+    ]
+  }
+}

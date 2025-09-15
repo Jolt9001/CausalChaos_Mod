@@ -312,7 +312,8 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
 
         // Superbosses
             // Normal Mode
-        var Tsuna = nb()
+
+        var Tsuna = nb()/*
                 .parent(TPPortalEnter)
                 .display(
                         CCItems.WORLD_THREAD.get(),
@@ -322,7 +323,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("tsuna_kill", KilledTrigger.TriggerInstance.playerKilledEntity(EntityPredicate.Builder.entity().of(CCEntities.TSUNA_BOSS.get())))
                 .addCriterion("adv_tp_portal_0", this.advancementTrigger(TPPortalEnter))
                 .requirements(AdvancementRequirements.Strategy.AND)
-                .save(consumer, "jolt9001.causalchaos:tsuna_win"); // "Diamonds are Not Forever" Prereq: "adv_tp_portal_0", TPPortalActivate
+                .save(consumer, "jolt9001.causalchaos:tsuna_win")*/; // "Diamonds are Not Forever" Prereq: "adv_tp_portal_0", TPPortalActivate
         var Kai = nb(); // "Caught Red Handed" Prereq: "adv_enter_tp_1", enterTPlain
         var Terry = nb(); // "Cheaters Never Prosper" Prereq: "adv_enter_tp_2", enterTPlain
         var Lyadova = nb(); // "Phobophobia" Prereq: "adv_enter_tp_3", enterTPlain
@@ -374,7 +375,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, "jolt9001.causalchaos:get_crystal_hardcore");
 */
-        var hardcoreDeath = nb()
+        var hardcoreDeath = nb()/*
                 //.parent(getCrystalHardcore)
                 .display(
                         (ItemLike) CCIconGenerator.RESUSCITATION_ICON, // Particle/Icon
@@ -384,7 +385,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 //.addCriterion("adv_crystal_hardcore_0", this.advancementTrigger(getCrystalHardcore))
                 .addCriterion("hardcore_death", HardcoreDeathTrigger.Instance.youDied())
                 //.requirements(AdvancementRequirements.Strategy.AND)
-                .save(consumer, "jolt9001.causalchaos:hardcore_death");
+                .save(consumer, "jolt9001.causalchaos:hardcore_death")*/;
 
         var hardcoreDLDefeat = nb(); // "Last Stand" Prereq: "adv_crystal_hardcore_1", getCrystalHardcore
         var perfectSuperboss = nb(); // "Memento Mori" Prereq: "adv_crystal_hardcore_2", getCrystalHardcore . "adv_tp_portal_1", TPPortalActivate
@@ -411,8 +412,8 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
         var blackHoleTP = nb(); // "Wormhole'd" Prereq: "adv_enter_tp_16", enterTPlain
         var playerLostMind = nb(); // "Straitjacket" Prereq: "adv_enter_tp_17", enterTPlain
         var FPJoltDeath = nb(); // "Instant Karma" Prereq: "adv_jolt_2", Jolt
-/*
-        var badRNG = nb()
+
+        var badRNG = nb()/*
                 .display(
                         (ItemLike) CCIconGenerator.NAT1,
                         Component.translatable("achievement.causalchaos.superboss_bad_rng"),
@@ -421,8 +422,7 @@ public class CCAdvancementGenerator implements ForgeAdvancementProvider.Advancem
                 .addCriterion("adv_tp_portal_3", this.advancementTrigger(TPPortalActivate))
                 // Add criteria that allows for hit detecion from RNG-based attacks such as Aella's Prismatic Grenades
                 .requirements(AdvancementRequirements.Strategy.AND)
-                .save(consumer, "jolt9001.causalchaos:badRNG");
- */
+                .save(consumer, "jolt9001.causalchaos:badRNG")*/;
             // Hidden Challenges
         var chaosBossRush = nb(); // "Unlimited" Prereq: chaosCompletion
         var chaosBossRushHardcore = nb(); // "Boundless" Prereq: chaosCompletionHardcore

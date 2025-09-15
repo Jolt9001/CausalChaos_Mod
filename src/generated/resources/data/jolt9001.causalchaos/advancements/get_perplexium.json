@@ -1,43 +1,6 @@
 {
+  "parent": "jolt9001.causalchaos:get_thundersteel",
   "criteria": {
-    "adv_root_0": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type_specific": {
-                "type": "player",
-                "advancements": {
-                  "causalchaos:root": true
-                }
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:tick"
-    },
-    "adv_starforge_0": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type_specific": {
-                "type": "player",
-                "advancements": {
-                  "causalchaos:get_starforge": true
-                }
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:tick"
-    },
     "adv_thundersteel": {
       "conditions": {
         "player": [
@@ -57,18 +20,6 @@
       },
       "trigger": "minecraft:tick"
     },
-    "get_crystal": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:causality_crystal"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "get_perplexium": {
       "conditions": {
         "items": [
@@ -80,45 +31,6 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "get_starforge": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:starforge0"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "get_thundersteel": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:thundersteel_ingot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_quantum_sigil": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "causalchaos:quantum_sigil"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "tick": {
-      "trigger": "minecraft:tick"
     }
   },
   "display": {
@@ -138,37 +50,11 @@
   },
   "requirements": [
     [
-      "tick"
-    ],
-    [
-      "adv_root_0"
-    ],
-    [
-      "get_crystal"
-    ],
-    [
-      "has_quantum_sigil"
-    ],
-    [
-      "get_starforge"
-    ],
-    [
-      "adv_starforge_0"
-    ],
-    [
-      "get_thundersteel"
-    ],
-    [
       "adv_thundersteel"
     ],
     [
       "get_perplexium"
     ]
   ],
-  "rewards": {
-    "loot": [
-      "jolt9001.causalchaos:gameplay/causal_journal"
-    ]
-  },
   "sends_telemetry_event": true
 }

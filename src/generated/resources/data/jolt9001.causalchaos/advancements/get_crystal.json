@@ -1,4 +1,5 @@
 {
+  "parent": "jolt9001.causalchaos:root",
   "criteria": {
     "adv_root_0": {
       "conditions": {
@@ -30,9 +31,6 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "tick": {
-      "trigger": "minecraft:tick"
     }
   },
   "display": {
@@ -52,19 +50,11 @@
   },
   "requirements": [
     [
-      "tick"
-    ],
-    [
       "adv_root_0"
     ],
     [
       "get_crystal"
     ]
   ],
-  "rewards": {
-    "loot": [
-      "jolt9001.causalchaos:gameplay/causal_journal"
-    ]
-  },
   "sends_telemetry_event": true
 }

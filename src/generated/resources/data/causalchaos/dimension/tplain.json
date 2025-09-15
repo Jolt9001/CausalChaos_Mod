@@ -55,6 +55,6 @@
         }
       ]
     },
-    "settings": "minecraft:overworld"
+    "settings": "minecraft:large_biomes"
   }
 }

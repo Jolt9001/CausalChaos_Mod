@@ -17,7 +17,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Climate;
+import net.minecraft.world.phys.Vec3;
 
+import java.util.Set;
 import java.util.stream.Stream;
 
 public class FerventFieldBiomeSource extends BiomeSource {
@@ -43,11 +45,11 @@ public class FerventFieldBiomeSource extends BiomeSource {
 
     // --- Constructor used by the CODEC ---
     public FerventFieldBiomeSource(Holder<Biome> ferventField, Holder<Biome> yinVariant, Holder<Biome> yangVariant, Holder<Biome> unityVariant, ResourceKey<Level> dim) {
-        this.dimensionKey = dim;
         this.ferventField = ferventField;
         this.yinVariant = yinVariant;
         this.yangVariant = yangVariant;
         this.unityVariant = unityVariant;
+        this.dimensionKey = dim;
     }
 
     @Override
@@ -57,7 +59,7 @@ public class FerventFieldBiomeSource extends BiomeSource {
 
     @Override
     protected Stream<Holder<Biome>> collectPossibleBiomes() {
-        return null;
+        return Stream.of(ferventField, yinVariant, yangVariant, unityVariant);
     }
 
     @Override

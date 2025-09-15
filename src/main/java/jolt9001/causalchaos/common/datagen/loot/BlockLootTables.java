@@ -38,6 +38,20 @@ public class BlockLootTables extends BlockLootSubProvider {
         this.add(CCBlocks.DEEPSLATE_TITANIUM_ORE.get(), block -> createOreDrops(CCBlocks.DEEPSLATE_TITANIUM_ORE.get(), CCItems.RAW_TITANIUM.get()));
         this.add(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get(), block -> createOreDrops(CCBlocks.DEEPSLATE_TUNGSTEN_ORE.get(), CCItems.RAW_TUNGSTEN.get()));
 
+        this.add(CCBlocks.TRANSCENDENT_COBALT_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_COBALT_ORE.get(), CCItems.RAW_COBALT.get()));
+        this.add(CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_IRIDIUM_ORE.get(), CCItems.RAW_IRIDIUM.get()));
+        this.add(CCBlocks.TRANSCENDENT_NEODYMIUM_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_NEODYMIUM_ORE.get(), CCItems.RAW_NEODYMIUM.get()));
+        this.add(CCBlocks.TRANSCENDENT_PALLADIUM_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_PALLADIUM_ORE.get(), CCItems.RAW_PALLADIUM.get()));
+        this.add(CCBlocks.TRANSCENDENT_TITANIUM_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_TITANIUM_ORE.get(), CCItems.RAW_TITANIUM.get()));
+        this.add(CCBlocks.TRANSCENDENT_TUNGSTEN_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_TUNGSTEN_ORE.get(), CCItems.RAW_TUNGSTEN.get()));
+
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_COBALT_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_DEEPSTONE_COBALT_ORE.get(), CCItems.RAW_COBALT.get()));
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_IRIDIUM_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_DEEPSTONE_IRIDIUM_ORE.get(), CCItems.RAW_IRIDIUM.get()));
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_NEODYMIUM_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_DEEPSTONE_NEODYMIUM_ORE.get(), CCItems.RAW_NEODYMIUM.get()));
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_PALLADIUM_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_PALLADIUM_ORE.get(), CCItems.RAW_PALLADIUM.get()));
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_TITANIUM_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_DEEPSTONE_TITANIUM_ORE.get(), CCItems.RAW_TITANIUM.get()));
+        this.add(CCBlocks.TRANSCENDENT_DEEPSTONE_TUNGSTEN_ORE.get(), block -> createOreDrops(CCBlocks.TRANSCENDENT_DEEPSTONE_TUNGSTEN_ORE.get(), CCItems.RAW_TUNGSTEN.get()));
+
         // Terrain Blocks
         this.add(CCBlocks.REALMWEAVE_BLOCK.get(), block -> createOreDrops(CCBlocks.REALMWEAVE_BLOCK.get(), CCItems.ABYSS_STRING.get()));
         this.add(CCBlocks.TRANSCENDENT_TURF.get(), block -> createGrassDrops(CCBlocks.TRANSCENDENT_TURF.get()));

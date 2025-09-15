@@ -54,10 +54,10 @@ public class CCBiomes {
     public static final ResourceKey<Biome> ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "originative_ocean"));
     public static final ResourceKey<Biome> LUKEWARM_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "lukewarm_originative_ocean"));
     public static final ResourceKey<Biome> WARM_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "warm_originative_ocean"));
-    public static final ResourceKey<Biome> DEEP_FROZEN_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "frozen_originative_ocean"));
-    public static final ResourceKey<Biome> DEEP_COLD_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "cold_originative_ocean"));
-    public static final ResourceKey<Biome> DEEP_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "originative_ocean"));
-    public static final ResourceKey<Biome> DEEP_LUKEWARM_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "lukewarm_originative_ocean"));
+    public static final ResourceKey<Biome> DEEP_FROZEN_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "deep_frozen_originative_ocean"));
+    public static final ResourceKey<Biome> DEEP_COLD_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "deep_cold_originative_ocean"));
+    public static final ResourceKey<Biome> DEEP_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "deep_originative_ocean"));
+    public static final ResourceKey<Biome> DEEP_LUKEWARM_ORIGINATIVE_OCEAN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "deep_lukewarm_originative_ocean"));
 
     // Sky
     public static final ResourceKey<Biome> CUMULONIMBUS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "cumulonimbus")); //
