@@ -5,7 +5,7 @@ public final class FerventFieldSpiralMask {
 
     public static final class Params {
         public final double cx, cz;       // biome center in world coords
-        public final double a;            // internal radius (≥ 1)
+        public final double a;            // Starting point (≥ rCore)
         public final double b;            // growth rate (>0); larger = faster tightening
         public final double armWidth;     // physical half-width of each arm (blocks)
         public final double gap;          // min gap between arms (blocks)
@@ -90,12 +90,12 @@ public final class FerventFieldSpiralMask {
          Decaying Logarithmic spiral.
          We want distance to nearest “arm” modulo 2π with optional phase.
          Euler spiral is defined as x(t) = ∫0-1 cos(πu^2)du, y(t) = ∫0-1 sin(πu^2)du
-         I'm using a parametric substitute: r(θ) = rCore+(r0-rCore)e^(-bθ)
+         I'm using a parametric substitute: r1(θ) = rCore+(r0-rCore)e^(-b), r2(θ) = rCore+(r0-rCore)e^(-bθ)*e^(-bπ)
          a = starting radius scale; b = tightening rate
         */
-        final double R0   = Math.max(1e-6, p.a - p.rCore);                          // how far the first arm sits above rCore
-        final double ref0 = p.rCore + R0 * Math.exp(-p.b * (th + phase));           // “Yin” arm
-        final double ref1 = p.rCore + R0 * Math.exp(-p.b * (th + phase + Math.PI)); // "Yang" arm
+        final double R0   = Math.max(1e-6, p.a - p.rCore);                            // how far the first arm sits above rCore
+        final double ref0 = p.rCore + R0 * Math.exp(-p.b * (th + phase));             // “Yin” arm
+        final double ref1 = p.rCore + R0 * Math.exp(-p.b * (th + (phase + Math.PI))); // "Yang" arm
 
         // distance to each arm (radial distance works well because arms are nearly orthogonal to radial)
         double d0 = Math.abs(r - ref0);

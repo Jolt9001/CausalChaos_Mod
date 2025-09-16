@@ -75,8 +75,8 @@ public class FerventFieldBiomeSource extends BiomeSource {
             // Spiral params (tune to your Large Biomes + structure size)
             double cx = 0/* center X (e.g., structure center or 0) */;
             double cz = 0/* center Z */;
-            double a  = 100.0;     // initial radius scale
-            double b  = 0.077;    // growth rate (>0) - tightness
+            double a  = 480.0;     // initial radius scale
+            double b  = 0.3;    // growth rate (>0) - tightness
             double w  = 10.0;     // arm width
             double g = 1.0;       // arm gap
             double u = 48.0;      // UNITY radius (blocks) to avoid overlap near origin
