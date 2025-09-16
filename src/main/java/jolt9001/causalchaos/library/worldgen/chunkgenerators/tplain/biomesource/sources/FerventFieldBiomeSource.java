@@ -1,9 +1,10 @@
-package jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource;
+package jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.sources;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import jolt9001.causalchaos.init.CCWorldSeeds;
+import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
 import jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.masks.FerventFieldSpiralMask;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -55,7 +56,8 @@ public class FerventFieldBiomeSource extends BiomeSource {
 
     @Override
     protected Stream<Holder<Biome>> collectPossibleBiomes() {
-        return Stream.of(ferventField, yinVariant, yangVariant, unityVariant);
+        return Stream.concat(base.possibleBiomes().stream(),
+                Stream.of(ferventField, yinVariant, yangVariant, unityVariant));
     }
 
     @Override
@@ -63,7 +65,7 @@ public class FerventFieldBiomeSource extends BiomeSource {
         // Delegate to your base/vanilla source first
         Holder<Biome> baseHold = base.getNoiseBiome(x, y, z, pSampler);
 
-        if (baseHold == this.ferventField) {
+        if (baseHold.is(CCBiomes.FERVENT_FIELD)) {
             // World coords are at 4-block scale (biome noise res). Convert to block coords if you want:
             int bx = x << 2;
             int bz = z << 2;
@@ -79,7 +81,7 @@ public class FerventFieldBiomeSource extends BiomeSource {
             double g = 1.0;       // arm gap
             double u = 48.0;      // UNITY radius (blocks) to avoid overlap near origin
             double j = 1.0;       // jitter
-            double phase = 0.0;   // rotate spirals if needed
+            double phase = 0.0;   // rotate spirals if needed. May introduce randomness later
 
             // Close to the center? Force Unity
             double dist = Math.hypot(bx - cx, bz - cz);

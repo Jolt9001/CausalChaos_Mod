@@ -17,8 +17,10 @@ public class CCFoliagePlacers {
     // Fervent Field
     public static final ResourceKey<PlacedFeature> TREES_BLOOMHEART_YIN = PlacementUtils.createKey("trees_bloomheart_yin");
     public static final ResourceKey<PlacedFeature> TREES_BLOOMHEART_YANG = PlacementUtils.createKey("trees_bloomheart_yang");
+    public static final ResourceKey<PlacedFeature> TREES_BLOOMHEART_UNITY = PlacementUtils.createKey("trees_bloomheart_unity");
     public static final ResourceKey<PlacedFeature> FLOWERS_YIN = PlacementUtils.createKey("flowers_yin"); // Flowers for Yin variant
     public static final ResourceKey<PlacedFeature> FLOWERS_YANG = PlacementUtils.createKey("flowers_yang"); // Flowers for Yang variant
+    public static final ResourceKey<PlacedFeature> FLOWERS_UNITY = PlacementUtils.createKey("flowers_unity"); // Flowers for Unity variant
 
     // Quivering Quarry
     public static final ResourceKey<PlacedFeature> TREES_FULGUR = PlacementUtils.createKey("trees_fulgur");

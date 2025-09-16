@@ -64,10 +64,10 @@ public final class FerventFieldSpiralMask {
     }
 
     /**
-     * If baseBiome == ferventField: <br>
-     * If r <= rCore → return unityVariant.<br>
-     * Else compute isYin(x, z, seed, params, 0.0). <br>
-     * If true → yinVariant, else yangVariant.
+     * <font color=#9932CC>if</font> <font color="yellow">baseBiome</font> == <font color="green">ferventField</font>:<br>
+     * <font color=#9932CC>if</font> r <= <font color=#CD5C5C>rCore</font> → <font color=#9932CC>return</font> <font color="gray">unityVariant.</font><br>
+     * <font color=#9932CC>else</font> determine boolean <font color=#6495ED>isYin</font>(<font color=#DAA520>x</font>, <font color=#DAA520>z</font>, <font color=#DAA520>seed</font>, <font color=#DAA520>params</font>, <font color=#DAA520>phase</font>). <br>
+     * <font color=#9932CC>if true</font> → <font color="black">yinVariant</font>, else <font color="white">yangVariant</font>.
      * @param x reference x coordinate
      * @param z reference z corrdinate
      * @param worldSeed world seed
@@ -76,6 +76,7 @@ public final class FerventFieldSpiralMask {
      * @return boolean isYin
      */
     public static boolean isYin(int x, int z, long worldSeed, Params p, double phase) {
+
         double dx = x - p.cx;
         double dz = z - p.cz;
         final double r  = Math.hypot(dx, dz);
@@ -139,11 +140,10 @@ public final class FerventFieldSpiralMask {
 
     /**
      * Map angle from [-π,π] to [0, ∞) by adding whole 2π turns
-     * @param a windings
+     * @param a number of full turns
      * @return a
      */
     private static double toPositiveAngle(double a) {
-        // Map angle from [-π,π] to [0, ∞) by adding whole 2π turns
         if (a < 0) {
             double turns = Math.ceil(-a / (2.0 * Math.PI));
             a += turns * 2.0 * Math.PI;
@@ -152,18 +152,27 @@ public final class FerventFieldSpiralMask {
     }
 
     /**
-     * Tiny deterministic jitter (value in [-1,1]) to break straight edges
-     * @param seed World Seed
+     * Tiny deterministic jitter (value in [-1,1]) to break straight edges:<br>
+     * First, create a long value <font color=#7FFF00>s</font> and multiply inputs by constants.<br>
+     * Next, pass <font color=#7FFF00>s</font> into the SplitMix64 bit-mixer to scramble nearby values of (x, z) don't correlate.<br>
+     * Then, take the upper 23 bits of <font color=#7FFF00>s</font> and downcast to <font color=#9932CC>int</font><br>
+     * Finally, normalize <font color=#7FFF00>s</font> to <font color=#FFD700>[0, ~8191]</font> and remap to <font color=#FFD700>~[-1, 1]</font>
+     * @param seed Global world Seed
      * @param x x coordinate
      * @param z z coordinate
-     * @param salt
-     * @return jitter value
+     * @param salt extra tweak parameter (used to differentiate multiple jitter passes with the same seed)
+     * @return int jitter value
      */
     private static double jitter(long seed, int x, int z, int salt) {
+        // Multiply inputs by constants. XOR into long s
         long s = seed ^ (x * 0x9E3779B97F4A7C15L) ^ (z * 0xC2B2AE3D27D4EB4FL) ^ (salt * 0x632BE59BD9B4E019L);
+
+        // SplitMix64 Finalizer: Bit-Mixer - Hashing blender
         s ^= (s >>> 30); s *= 0xBF58476D1CE4E5B9L;
         s ^= (s >>> 27); s *= 0x94D049BB133111EBL;
         s ^= (s >>> 31);
-        return ((int)(s >>> 41) / 1023.0 ) * 2.0 - 1.0; // ~[-1,1]
+
+        // take the upper 23 bits of s, downcast to int, normalize to [0, ~8191], remap to ~[-1,1]
+        return ((int)(s >>> 41) / 1023.0 ) * 2.0 - 1.0;
     }
 }

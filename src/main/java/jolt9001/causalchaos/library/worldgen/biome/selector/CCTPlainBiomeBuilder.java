@@ -2,7 +2,6 @@ package jolt9001.causalchaos.library.worldgen.biome.selector;
 
 import com.mojang.datafixers.util.Pair;
 import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
-import jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.masks.FerventFieldSpiralMask;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.VisibleForDebug;
 import net.minecraft.world.level.biome.Biome;
@@ -258,16 +257,7 @@ public final class CCTPlainBiomeBuilder {
 
     private ResourceKey<Biome> pickMid(int pTemperature, int pHumidity, Climate.Parameter pWeirdness) {
         if (pWeirdness.max() < 0L) {
-            ResourceKey<Biome> biome = CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity];
-            if (biome == CCBiomes.FERVENT_FIELD) {
-                int x;
-                int z;
-                // FerventFieldSpiralMask.Params p = new FerventFieldSpiralMask.Params();
-                // biome = FerventFieldSpiralMask.sample();
-                return biome;
-            } else {
-                return biome;
-            }
+            return CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity]; // if it's FERVENT_FIELD, great — the BiomeSource will specialize it
         } else {
             ResourceKey<Biome> biome = CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES_VARIANT[pTemperature][pHumidity];
             return biome == null ? CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity] : biome;
