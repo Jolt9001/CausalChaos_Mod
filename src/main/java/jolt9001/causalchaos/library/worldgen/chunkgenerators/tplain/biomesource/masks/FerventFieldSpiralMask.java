@@ -1,11 +1,11 @@
 package jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.masks;
 
 public final class FerventFieldSpiralMask {
-    public enum Variant { YIN, YANG, UNITY, OUT }
+    public enum Variant { YIN, YANG, UNITY, OUT } // UNUSED
 
     public static final class Params {
         public final double cx, cz;       // biome center in world coords
-        public final double a;            // base radius (≥ 1)
+        public final double a;            // internal radius (≥ 1)
         public final double b;            // growth rate (>0); larger = faster tightening
         public final double armWidth;     // physical half-width of each arm (blocks)
         public final double gap;          // min gap between arms (blocks)
@@ -62,57 +62,108 @@ public final class FerventFieldSpiralMask {
             return Variant.OUT;
         }
     }
-    public static boolean isYin(int x, int z, long worldSeed,
-                                double cx, double cz,
-                                double a, double b,          // spiral params
-                                double armWidth,             // thickness in blocks
-                                double phaseOffset) {
-        double dx = x - cx;
-        double dz = z - cz;
-        double r  = Math.hypot(dx, dz);
-        double th = Math.atan2(dz, dx);  // [-π, π]
 
-        // Log spiral reference radius at this theta: r* ~ a * e^(b*theta)
-        // We want distance to nearest “arm” modulo 2π with optional phase.
-        double ref = a * Math.exp(b * (th + phaseOffset));
-        double dist = Math.abs(r - ref);
+    /**
+     * If baseBiome == ferventField: <br>
+     * If r <= rCore → return unityVariant.<br>
+     * Else compute isYin(x, z, seed, params, 0.0). <br>
+     * If true → yinVariant, else yangVariant.
+     * @param x reference x coordinate
+     * @param z reference z corrdinate
+     * @param worldSeed world seed
+     * @param p Params
+     * @param phase Log spiral phase
+     * @return boolean isYin
+     */
+    public static boolean isYin(int x, int z, long worldSeed, Params p, double phase) {
+        double dx = x - p.cx;
+        double dz = z - p.cz;
+        final double r  = Math.hypot(dx, dz);
+        if (r <= p.rCore) return false; // let caller pick UNITY biome inside the core radius
+
+        // angle in [0, ∞), we count windings by theta
+        double th = Math.atan2(dz, dx);  // [-π, π]
+        th = toPositiveAngle(th);
+
+        /*
+         Decaying Logarithmic spiral.
+         We want distance to nearest “arm” modulo 2π with optional phase.
+         Euler spiral is defined as x(t) = ∫0-1 cos(πu^2)du, y(t) = ∫0-1 sin(πu^2)du
+         I'm using a parametric substitute: r(θ) = rCore+(r0-rCore)e^(-bθ)
+         a = starting radius scale; b = tightening rate
+        */
+        final double R0   = Math.max(1e-6, p.a - p.rCore);                          // how far the first arm sits above rCore
+        final double ref0 = p.rCore + R0 * Math.exp(-p.b * (th + phase));           // “Yin” arm
+        final double ref1 = p.rCore + R0 * Math.exp(-p.b * (th + phase + Math.PI)); // "Yang" arm
+
+        // distance to each arm (radial distance works well because arms are nearly orthogonal to radial)
+        double d0 = Math.abs(r - ref0);
+        double d1 = Math.abs(r - ref1);
 
         // Add a tiny seed-based jitter so seams don’t look too perfect
-        double j = jitter(worldSeed, x, z,  0xC0FFEE);
-        dist += j;
+        double j = jitter(worldSeed, x, z, 0xC0FFEE) * p.jitter;
 
-        // Inside one arm?
-        boolean inArm = dist <= armWidth;
+        double dMin  = Math.min(d0, d1) + j;
+        boolean onArm = dMin <= p.armWidth;
 
-        // Yin/Yang split by alternating arms: e.g., even/odd “windings”
-        // Use theta / (2π / b) as a crude alternating ring index:
-        double ringIdx = (Math.log(Math.max(1e-6, r / Math.max(1e-6, a))) / b) / (2 * Math.PI);
-        boolean evenRing = (((long)Math.floor(ringIdx)) & 1L) == 0L;
+        if (onArm) {
+            // If we’re within the physical arm band, arm identity = nearest arm.
+            return d0 <= d1;
+        }
 
-        // Example rule: yin = in arm on even rings, or out of arm on odd rings
-        return (evenRing && inArm) || (!evenRing && !inArm);
+        // In the gaps between windings, alternate rings as we wind inward.
+        // Every π of theta we cross an arm (because the other arm is θ-shifted by π).
+        int winding = (int) Math.floor((th + phase) / Math.PI);
+        boolean even = (winding & 1) == 0;
+
+        // Side of nearest arm: outside (r > ref) vs inside (r < ref)
+        double refNearest = (d0 <= d1) ? ref0 : ref1;
+        boolean outside   = r > refNearest;
+
+        // Rule: alternate by winding; outside nearest arm on even windings = Yin, flip on odd.
+        return even == outside;
     }
 
     // --- helpers ---
-    private static double radialAngularDistance(double theta, double thetaStar, double phase, double r) {
+    private static double radialAngularDistance(double theta, double thetaStar, double phase, double r) { // UNUSED
         // Choose the 2π-wrapped angle difference that minimizes |Δθ|
         double dTheta = wrapToPi((theta - phase) - thetaStar);
         // Convert angular error to an approximate physical distance along the normal
         return Math.abs(dTheta) * r;
     }
-
-    private static double wrapToPi(double a) {
+    private static double wrapToPi(double a) { // UNUSED
         a = (a + Math.PI) % (2.0 * Math.PI);
         if (a < 0) a += 2.0 * Math.PI;
         return a - Math.PI;
     }
 
-    // Tiny deterministic jitter (value in [-1,1]) to break straight edges if you want it
+    /**
+     * Map angle from [-π,π] to [0, ∞) by adding whole 2π turns
+     * @param a windings
+     * @return a
+     */
+    private static double toPositiveAngle(double a) {
+        // Map angle from [-π,π] to [0, ∞) by adding whole 2π turns
+        if (a < 0) {
+            double turns = Math.ceil(-a / (2.0 * Math.PI));
+            a += turns * 2.0 * Math.PI;
+        }
+        return a;
+    }
+
+    /**
+     * Tiny deterministic jitter (value in [-1,1]) to break straight edges
+     * @param seed World Seed
+     * @param x x coordinate
+     * @param z z coordinate
+     * @param salt
+     * @return jitter value
+     */
     private static double jitter(long seed, int x, int z, int salt) {
         long s = seed ^ (x * 0x9E3779B97F4A7C15L) ^ (z * 0xC2B2AE3D27D4EB4FL) ^ (salt * 0x632BE59BD9B4E019L);
         s ^= (s >>> 30); s *= 0xBF58476D1CE4E5B9L;
         s ^= (s >>> 27); s *= 0x94D049BB133111EBL;
         s ^= (s >>> 31);
-        return ( (int)(s >>> 41) / 1023.0 ) * 2.0 - 1.0; // ~[-1,1]
+        return ((int)(s >>> 41) / 1023.0 ) * 2.0 - 1.0; // ~[-1,1]
     }
 }

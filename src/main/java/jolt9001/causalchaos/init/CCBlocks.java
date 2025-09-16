@@ -126,15 +126,26 @@ public final class CCBlocks {
     public static final RegistryObject<Block> BLOOMHEART_SEED = registerBlock("bloomheart_seed",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
 
-
     public static final RegistryObject<Block> FOXGLOVE = registerBlock("flower_foxglove",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
     public static final RegistryObject<Block> BLEEDING_HEART = registerBlock("flower_bleeding_heart",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+    public static final RegistryObject<Block> OLEANDER = registerBlock("flower_oleander",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+    public static final RegistryObject<Block> DELPHINIUM = registerBlock("flower_delphinium",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+    public static final RegistryObject<Block> ACONITE = registerBlock("flower_aconite",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
 
-    public static final RegistryObject<Block> VIOLETTE = registerBlock("flower_violette",
+    public static final RegistryObject<Block> VIOLET = registerBlock("flower_violet",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
     public static final RegistryObject<Block> BELLFLOWER = registerBlock("flower_bellflower",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+    public static final RegistryObject<Block> SNOWDROP = registerBlock("flower_snowdrop",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+    public static final RegistryObject<Block> CHAMOMILE = registerBlock("flower_chamomile",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
+    public static final RegistryObject<Block> FORGETMENOT = registerBlock("flower_forgetmenot",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.POPPY)));
  */
         // Quivering Quarry

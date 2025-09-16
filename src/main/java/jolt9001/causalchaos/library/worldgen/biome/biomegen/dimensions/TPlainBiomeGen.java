@@ -18,13 +18,23 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 
 public class TPlainBiomeGen {
+    protected static final int NORMAL_WATER_COLOR = 0x3f76e4;
+    protected static final int NORMAL_WATER_FOG_COLOR = 0x329011;
+    private static final int OVERWORLD_FOG_COLOR = 0xc0d8ff;
+
     protected static int calculateSkyColor(float pTemperature) {
-        float $$1 = pTemperature / 3.0F;
-        $$1 = Mth.clamp($$1, -1.0F, 1.0F);
-        return Mth.hsvToRgb(0.62222224F - $$1 * 0.05F, 0.5F + $$1 * 0.1F, 1.0F);
+        float color = pTemperature / 3.0F;
+        color = Mth.clamp(color, -1.0F, 1.0F);
+        return Mth.hsvToRgb(0.62222224F - color * 0.05F, 0.5F + color * 0.1F, 1.0F);
     }
 
     // ---- Superboss Domains ----
+
+    /**
+     *
+     * @param context
+     * @return
+     */
     public static Biome crystalCliffs(BootstapContext<Biome> context) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
@@ -32,7 +42,7 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome dismalDesert(BootstapContext<Biome> context) {
@@ -59,7 +69,7 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome petrifyingPlateau(BootstapContext<Biome> context) {
@@ -69,7 +79,7 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome chromaticCrags(BootstapContext<Biome> context) {
@@ -85,7 +95,7 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addExtraEmeralds(biomeBuilder);
         BiomeDefaultFeatures.addInfestedStone(biomeBuilder);
 
-        return buildBiome(true, 0.3F, 2.0f, biomeBuilder, spawnBuilder, 0xe82e3b, 0xbf1b26,
+        return buildBiome(true, 0.3F, 2.0f, biomeBuilder, spawnBuilder, 0x3f76e4, 0xbf1b26,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome gelidGlacier(BootstapContext<Biome> context) {
@@ -95,7 +105,7 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome skourainei(BootstapContext<Biome> context) {
@@ -112,7 +122,7 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
 
-        return buildBiome(true, 0.8f, 0.7f, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8f, 0.7f, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome hyperbolicHills(BootstapContext<Biome> context) {
@@ -122,7 +132,7 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome fatuousForest(BootstapContext<Biome> context) {
@@ -140,7 +150,7 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome regenerativeRainforest(BootstapContext<Biome> context) {
@@ -159,42 +169,98 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addJungleVines(biomeBuilder);
         BiomeDefaultFeatures.addJungleMelons(biomeBuilder);
 
-        return buildBiome(true, 0.9F, 0.95F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.9F, 0.95F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
 
+    // Behold: the Holy Javadoc comment
     /**
-     * This biome will have two variants.
-     * @param context
-     * @param variant
-     * @return biome build
+     * The Fervent Fields Biome will have three variants as follows -
+     * <div style="color: black;"><b>Yin Variant:</b></div>
+     * Scary but safe. Muted colors, vibrant flowers. Flowers occasionally give positive effects such as resistance
+     * and regeneration when collected or walked on.
+     * <div style="color: 7a8aa9;">Water -> muted steel blue</div>
+     * <div style="color: 446a37;">Water Fog -> dark mossy green</div>
+     * <div style="color: a1b9d7;">Sky -> pale, washed blue-gray</div>
+     * <div style="color: 85a179;">Grass -> dusty sage green</div>
+     * <div style="color: 668856;">Foliage -> muted olive green</div>
+     * <div style="color: 5d90ab;">Fog -> desaturated teal-gray</div>
+     * <div style="color: white;"><b>Yang Variant:</b></div>
+     * Beautiful but dangerous. Oversaturated colors, muted flowers. The flowers in this variant are poisonous
+     * and often toxic. Players should expect to be constantly poisoned.
+     * <div style="color: 2f71f4;">Water -> saturated bright blue</div>
+     * <div style="color: 2d9a07;">Water Fog -> neon grassy green</div>
+     * <div style="color: 79b4ff;">Sky -> vivid light blue</div>
+     * <div style="color: 6ae634;">Grass -> neon lime</div>
+     * <div style="color: 4fcb13;">Foliage -> strong chartreuse</div>
+     * <div style="color: 13a5f5;">Fog -> tropical aqua-blue</div>
+     * <div style="color: gray;"><b>Unity Variant:</b></div>
+     * A combination of the two variants. Colors are an average between the two variants. Arguably the most
+     * dangerous variant due to the poisonous plants intermingling with the safe ones.
+     * <div style="color: 3f76e4;">Water -> bright medium blue</div>
+     * <div style="color: 329011;">Water Fog -> vivid grass green</div>
+     * <div style="color: 8db6eb;">Sky -> medium soft blue</div>
+     * <div style="color: 79c05a;">Grass -> healthy mid-green</div>
+     * <div style="color: 59ae30;">Foliage -> strong leaf green</div>
+     * <div style="color: 22a1e6;">Fog -> electric cyan</div>
+     * @param context bootstrap context
+     * @param variant variant string
+     * @return buildBiome(boolean hasPrecipitation, float downfall, float temperature, BiomeGenerationSettings.Builder, MobSpawnSettings.Builder, int waterColor, int waterFogColor, int skyColor, int grassColor, int foliageColor, int fogColor, AmbientMoodSettings ambience, Music backgroundMusic)
      */
-    public static Biome ferventField(BootstapContext<Biome> context, @Nullable String variant) {
+    public static Biome ferventField(BootstapContext<Biome> context, String variant) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(context.lookup(Registries.PLACED_FEATURE), context.lookup(Registries.CONFIGURED_CARVER));
 
+        int waterColor = 0x3f76e4;
+        int waterFogColor = 0x329011;
+        int skyColor = 0x8db6eb;
+        int grassColor = 0x79c05a;
+        int foliageColor = 0x59ae30;
+        int fogColor = 0x22a1e6;
+
         CCBiomes.globalGeneration(biomeBuilder);
         BiomeDefaultFeatures.addForestFlowers(biomeBuilder);
-        /*
-        if (variant.equals("yin")) {
-            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YIN);
-            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YIN);
-        } else if (variant.equals("yang")) {
-            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YANG);
-            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YANG);
-
-
-        } else {*/
-            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.TREES_FLOWER_FOREST);
-            biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_FLOWER_FOREST);
-        //}
+        switch (variant) {
+            case "yin" -> { // scary but safe
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YIN);
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YIN);
+                waterColor = 0x7a8aa9;
+                waterFogColor = 0x446a37;
+                skyColor = 0xa1b9d7;
+                grassColor = 0x85a179;
+                foliageColor = 0x668856;
+                fogColor = 0x5d90ab;
+            }
+            case "yang" -> { // beautiful but dangerous
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YANG);
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YANG);
+                waterColor = 0x2f71f4;
+                waterFogColor = 0x2d9a07;
+                skyColor = 0x79b4ff;
+                grassColor = 0x6ae634;
+                foliageColor = 0x4fcb13;
+                fogColor = 0x13a5f5;
+            }
+            case "unity" -> { // Both variants unified
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YIN);
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YANG);
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YIN);
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YANG);
+            }
+            default -> {
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.TREES_FLOWER_FOREST);
+                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.FLOWER_FLOWER_FOREST);
+                /*
+                Default to vanilla flower forest
+                 */
+            }
+        }
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
 
-
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
-                0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, waterColor, waterFogColor,
+                skyColor, grassColor, foliageColor, fogColor, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome subconsciousSwamp(BootstapContext<Biome> context) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -210,8 +276,8 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addSwampExtraVegetation(biomeBuilder);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, AquaticPlacements.SEAGRASS_SWAMP);
 
-        return buildBiome(true, 0.9F, 0.8F, biomeBuilder, spawnBuilder, 6388580, 2302743,
-                0x30c918, 5011004, 6975545, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
+        return buildBiome(true, 0.9F, 0.8F, biomeBuilder, spawnBuilder, 0x617b64, 0x232317,
+                0x30c918, 0x4c763c, 6975545, 0x6a7039, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome calescentCaldera(BootstapContext<Biome> context) {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -220,7 +286,7 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome transientTerrace(BootstapContext<Biome> context) {
@@ -230,7 +296,7 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome quiveringQuarry(BootstapContext<Biome> context) {
@@ -240,7 +306,7 @@ public class TPlainBiomeGen {
 
         CCBiomes.globalGeneration(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     /**
@@ -290,7 +356,7 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
 
-        return buildBiome(true, 0.5F, 0.5F, biomeBuilder, spawnBuilder, 0x4e9204, 0x329011,
+        return buildBiome(true, 0.5F, 0.5F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome frozenRadiantRiver(BootstapContext<Biome> context) {
@@ -307,7 +373,7 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
 
-        return buildBiome(true, 0.5F, 0.0F, biomeBuilder, spawnBuilder, 0x4e9204, 0x329011,
+        return buildBiome(true, 0.5F, 0.0F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
 
@@ -359,7 +425,7 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addDefaultSeagrass(biomeBuilder);
         BiomeDefaultFeatures.addColdOceanExtraVegetation(biomeBuilder);
 
-        return buildBiome(true, 0.5F, 0.5F, biomeBuilder, spawnBuilder, 4020182, 0x329011,
+        return buildBiome(true, 0.5F, 0.5F, biomeBuilder, spawnBuilder, 0x3d57d6, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome originativeOcean(BootstapContext<Biome> context, boolean pIsDeep) {
@@ -373,7 +439,7 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addDefaultSeagrass(biomeBuilder);
         BiomeDefaultFeatures.addColdOceanExtraVegetation(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome lukewarmOriginativeOcean(BootstapContext<Biome> context, boolean pIsDeep) {
@@ -389,7 +455,7 @@ public class TPlainBiomeGen {
         }
         BiomeDefaultFeatures.addLukeWarmKelp(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     public static Biome warmOriginativeOcean(BootstapContext<Biome> context) {
@@ -403,7 +469,7 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addDefaultSeagrass(biomeBuilder);
         BiomeDefaultFeatures.addColdOceanExtraVegetation(biomeBuilder);
 
-        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x4e9204, 0x4e9204,
+        return buildBiome(true, 0.8F, 0.7F, biomeBuilder, spawnBuilder, 0x3f76e4, 0x329011,
                 0x30c918, 0x7f03fc, 0xd203fc, 0x22a1e6, AmbientMoodSettings.LEGACY_CAVE_SETTINGS, null);
     }
     /*

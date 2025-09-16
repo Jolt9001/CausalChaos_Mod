@@ -45,6 +45,7 @@ public class CCBiomes {
             // ---- FERVENT FILED VARIANTS ----
     public static final ResourceKey<Biome> FERVENT_FIELD_YIN = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "fervent_field_yin"));
     public static final ResourceKey<Biome> FERVENT_FIELD_YANG = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "fervent_field_yang"));
+    public static final ResourceKey<Biome> FERVENT_FIELD_UNITY = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "fervent_field_unity"));
 
 
 
@@ -85,7 +86,7 @@ public class CCBiomes {
         //context.register(HYPERBOLIC_HILLS, TPlainBiomeGen.hyperbolicHills(context));
         context.register(FATUOUS_FOREST, TPlainBiomeGen.fatuousForest(context));
         context.register(REGENERATIVE_RAINFOREST, TPlainBiomeGen.regenerativeRainforest(context));
-        context.register(FERVENT_FIELD, TPlainBiomeGen.ferventField(context, null));
+        context.register(FERVENT_FIELD, TPlainBiomeGen.ferventField(context, ""));
         context.register(SUBCONSCIOUS_SWAMP, TPlainBiomeGen.subconsciousSwamp(context));
         //context.register(CALESCENT_CALDERA, TPlainBiomeGen.calescentCaldera(context));
         //context.register(TRANSIENT_TERRACE, TPlainBiomeGen.transientTerrace(context));
@@ -94,6 +95,7 @@ public class CCBiomes {
 
         context.register(FERVENT_FIELD_YIN, TPlainBiomeGen.ferventField(context, "yin"));
         context.register(FERVENT_FIELD_YANG, TPlainBiomeGen.ferventField(context, "yang"));
+        context.register(FERVENT_FIELD_UNITY, TPlainBiomeGen.ferventField(context, "unity"));
 
         context.register(RADIANT_RIVER, TPlainBiomeGen.radiantRiver(context));
         context.register(FROZEN_RADIANT_RIVER, TPlainBiomeGen.frozenRadiantRiver(context));
