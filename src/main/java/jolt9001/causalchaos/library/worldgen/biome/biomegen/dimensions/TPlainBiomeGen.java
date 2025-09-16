@@ -175,7 +175,7 @@ public class TPlainBiomeGen {
 
     // Behold: the Holy Javadoc comment
     /**
-     * The Fervent Fields Biome will have three variants as follows -
+     * The Fervent Field Biome will have three variants as follows -
      * <div style="color: black;"><b>Yin Variant:</b></div>
      * Scary but safe. Muted colors, vibrant flowers. Flowers occasionally give positive effects such as resistance
      * and regeneration when collected or walked on.
