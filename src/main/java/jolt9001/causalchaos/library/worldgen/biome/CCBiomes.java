@@ -23,7 +23,7 @@ public class CCBiomes {
         // Superboss Domains
     public static final ResourceKey<Biome> CRYSTAL_CLIFFS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "crystal_cliffs")); // Tsuna
     public static final ResourceKey<Biome> DISMAL_DESERT = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "dismal_desert")); // Kai, Desert
-    public static final ResourceKey<Biome> SYSTEMATIC_SHRUBLANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_terry")); // Terry, Savanna or Badlands
+    public static final ResourceKey<Biome> SYSTEMATIC_SHRUBLANDS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_terry")); // Terry, Savanna
     public static final ResourceKey<Biome> PETRIFYING_PLATEAU = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_lyadova")); // Lyadova, Meadow or Cherry Grove
     public static final ResourceKey<Biome> CHROMATIC_CRAGS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "chromatic_crags")); // Aella, Stony Peaks
     public static final ResourceKey<Biome> GELID_GLACIER = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_jack")); // Jack, Ice Spikes or Snowy Plains, maybe Taiga
@@ -33,7 +33,7 @@ public class CCBiomes {
     public static final ResourceKey<Biome> REGENERATIVE_RAINFOREST = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "regenerative_rainforest")); // Alline, Jungle
     public static final ResourceKey<Biome> FERVENT_FIELD = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "fervent_field_unity")); // Madeline, Flower Forest
     public static final ResourceKey<Biome> SUBCONSCIOUS_SWAMP = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "subconscious_swamp")); // Emily, Swamp
-    public static final ResourceKey<Biome> CALESCENT_CALDERA = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_adrian")); // Adrian, Unknown
+    public static final ResourceKey<Biome> CALESCENT_CALDERA = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_adrian")); // Adrian, Badlands
     public static final ResourceKey<Biome> TRANSIENT_TERRACE = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_andrea")); // Andrea, Unknown Slope biome
     public static final ResourceKey<Biome> QUIVERING_QUARRY = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "biome_rex")); // Rex, Unknown
     public static final ResourceKey<Biome> PERFECT_PLAINS = ResourceKey.create(Registries.BIOME, new ResourceLocation(CausalChaos.MODID, "perfect_plains")); // Jolt, Plains

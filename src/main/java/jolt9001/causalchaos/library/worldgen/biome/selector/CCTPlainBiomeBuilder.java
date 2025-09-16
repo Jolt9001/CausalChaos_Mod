@@ -301,9 +301,9 @@ public final class CCTPlainBiomeBuilder {
     }
     private ResourceKey<Biome> pickPeak(int pTemperature, int pHumidity, Climate.Parameter pWierdness) {
         if (pTemperature <= 2) {
-            return pWierdness.max() < 0L ? Biomes.JAGGED_PEAKS : Biomes.FROZEN_PEAKS;
+            return pWierdness.max() < 0L ? CCBiomes.CHROMATIC_CRAGS : Biomes.FROZEN_PEAKS;
         } else {
-            return pTemperature == 3 ? CCBiomes.CHROMATIC_CRAGS : this.pickBad(pHumidity, pWierdness); // Chromatic Crags replaces Stony Peaks
+            return pTemperature == 3 ? Biomes.STONY_PEAKS : this.pickBad(pHumidity, pWierdness); // Chromatic Crags replaces Stony Peaks
         }
     }
     private ResourceKey<Biome> pickSlope(int pTemperature, int pHumidity, Climate.Parameter pWierdness) {

@@ -87,7 +87,7 @@ public final class FerventFieldSpiralMask {
         th = toPositiveAngle(th);
 
         /*
-         Decaying Logarithmic spiral.
+         Limited Logarithmic spiral.
          We want distance to nearest “arm” modulo 2π with optional phase.
          Euler spiral is defined as x(t) = ∫0-1 cos(πu^2)du, y(t) = ∫0-1 sin(πu^2)du
          I'm using a parametric substitute: r1(θ) = rCore+(r0-rCore)e^(-b), r2(θ) = rCore+(r0-rCore)e^(-bθ)*e^(-bπ)

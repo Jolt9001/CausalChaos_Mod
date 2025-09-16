@@ -11,11 +11,11 @@ public class CCTPlainBiomeSelectors {
             {CCBiomes.FROZEN_ORIGINATIVE_OCEAN,      CCBiomes.COLD_ORIGINATIVE_OCEAN,      CCBiomes.ORIGINATIVE_OCEAN,      CCBiomes.LUKEWARM_ORIGINATIVE_OCEAN,      CCBiomes.WARM_ORIGINATIVE_OCEAN}
     };
     public static final ResourceKey<Biome>[][] TPLAIN_MIDDLE_BIOMES = new ResourceKey[][]{ // pV near-inland/Mid Slice
-            {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER,      Region.DEFERRED_PLACEHOLDER},      // Temperature 0
-            {CCBiomes.PERFECT_PLAINS,     CCBiomes.PERFECT_PLAINS,     CCBiomes.FATUOUS_FOREST,     Region.DEFERRED_PLACEHOLDER,      Region.DEFERRED_PLACEHOLDER},      // Temperature 1
-            {CCBiomes.FERVENT_FIELD,      CCBiomes.PERFECT_PLAINS,     CCBiomes.FATUOUS_FOREST,     Region.DEFERRED_PLACEHOLDER,      CCBiomes.SKOURAINEI},              // Temperature 2
-            {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, CCBiomes.REGENERATIVE_RAINFOREST, CCBiomes.REGENERATIVE_RAINFOREST}, // Temperature 3
-            {CCBiomes.DISMAL_DESERT,      CCBiomes.DISMAL_DESERT,      CCBiomes.DISMAL_DESERT,      CCBiomes.DISMAL_DESERT,           CCBiomes.DISMAL_DESERT}            // Temperature 4
+            {Region.DEFERRED_PLACEHOLDER,    Region.DEFERRED_PLACEHOLDER,    Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER,      Region.DEFERRED_PLACEHOLDER},      // Temperature 0
+            {CCBiomes.PERFECT_PLAINS,        CCBiomes.PERFECT_PLAINS,        CCBiomes.FATUOUS_FOREST,     Region.DEFERRED_PLACEHOLDER,      Region.DEFERRED_PLACEHOLDER},      // Temperature 1
+            {CCBiomes.FERVENT_FIELD,         CCBiomes.PERFECT_PLAINS,        CCBiomes.FATUOUS_FOREST,     Region.DEFERRED_PLACEHOLDER,      CCBiomes.SKOURAINEI},              // Temperature 2
+            {CCBiomes.SYSTEMATIC_SHRUBLANDS, CCBiomes.SYSTEMATIC_SHRUBLANDS, Region.DEFERRED_PLACEHOLDER, CCBiomes.REGENERATIVE_RAINFOREST, CCBiomes.REGENERATIVE_RAINFOREST}, // Temperature 3
+            {CCBiomes.DISMAL_DESERT,         CCBiomes.DISMAL_DESERT,         CCBiomes.DISMAL_DESERT,      CCBiomes.DISMAL_DESERT,           CCBiomes.DISMAL_DESERT}            // Temperature 4
     };
     public static final ResourceKey<Biome>[][] TPLAIN_MIDDLE_BIOMES_VARIANT = new ResourceKey[][]{ // pV near-inland/Mid Slice
             {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER},
@@ -29,7 +29,7 @@ public class CCTPlainBiomeSelectors {
             {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, CCBiomes.FATUOUS_FOREST,     Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER},
             {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, CCBiomes.SKOURAINEI},
             {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, CCBiomes.FATUOUS_FOREST,     CCBiomes.FATUOUS_FOREST,     CCBiomes.REGENERATIVE_RAINFOREST},
-            {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER}
+            {CCBiomes.CALESCENT_CALDERA,  CCBiomes.CALESCENT_CALDERA,  CCBiomes.CALESCENT_CALDERA,  Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER}
     };
     public static final ResourceKey<Biome>[][] TPLAIN_PLATEAU_BIOMES_VARIANT = new ResourceKey[][]{
             {Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER, Region.DEFERRED_PLACEHOLDER},
