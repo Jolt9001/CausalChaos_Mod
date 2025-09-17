@@ -223,8 +223,8 @@ public class TPlainBiomeGen {
         BiomeDefaultFeatures.addForestFlowers(biomeBuilder);
         switch (variant) {
             case "yin" -> { // scary but safe
-                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YIN);
-                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YIN);
+                // biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YIN); // Uncomment these when te FoliagePlacers are complete
+                // biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YIN);
                 waterColor = 0x7a8aa9;
                 waterFogColor = 0x446a37;
                 skyColor = 0xa1b9d7;
@@ -233,8 +233,8 @@ public class TPlainBiomeGen {
                 fogColor = 0x5d90ab;
             }
             case "yang" -> { // beautiful but dangerous
-                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YANG);
-                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YANG);
+                // biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_YANG);
+                // biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YANG);
                 waterColor = 0x2f71f4;
                 waterFogColor = 0x2d9a07;
                 skyColor = 0x79b4ff;
@@ -243,10 +243,10 @@ public class TPlainBiomeGen {
                 fogColor = 0x13a5f5;
             }
             case "unity" -> { // Both variants unified
-                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_UNITY);
-                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YIN);
-                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YANG);
-                biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_UNITY);
+                //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.TREES_BLOOMHEART_UNITY);
+                //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YIN);
+                //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_YANG);
+                //biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, CCFoliagePlacers.FLOWERS_UNITY);
             }
             default -> {
                 biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.TREES_FLOWER_FOREST);

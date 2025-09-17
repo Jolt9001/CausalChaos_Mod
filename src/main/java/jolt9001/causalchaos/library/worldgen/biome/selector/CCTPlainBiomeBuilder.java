@@ -9,6 +9,7 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.NoiseRouterData;
+import terrablender.api.Region;
 
 import java.util.function.Consumer;
 
@@ -144,7 +145,7 @@ public final class CCTPlainBiomeBuilder {
         }
     }
     private void addMidSlice(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> pConsumer, Climate.Parameter pWeirdness) {
-        this.addSurface(pConsumer, this.FULL_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[2]), pWeirdness, 0.0F, Biomes.STONY_SHORE);
+        this.addSurface(pConsumer, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), Climate.Parameter.span(this.erosions[0], this.erosions[2]), pWeirdness, 0.0F, CCBiomes.CRYSTAL_CLIFFS);
         this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[1], this.temperatures[2]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, CCBiomes.SUBCONSCIOUS_SWAMP);
         this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[3], this.temperatures[4]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, Biomes.MANGROVE_SWAMP);
 
@@ -161,10 +162,10 @@ public final class CCTPlainBiomeBuilder {
                 ResourceKey<Biome> maybeWindSav = this.maybePickWindSav(t, h, pWeirdness, shatt);
                 ResourceKey<Biome> shattCoast = this.pickShattCoast(t, h, pWeirdness);
                 ResourceKey<Biome> slope = this.pickSlope(t, h, pWeirdness);
-                this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[0], pWeirdness, 0.0F, slope);
-                this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.nearInlandContinentalness, this.midInlandContinentalness), this.erosions[1], pWeirdness, 0.0F, midOrBadHotOrSlopeCold);
+                this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), this.erosions[0], pWeirdness, 0.0F, slope);
+                this.addSurface(pConsumer, temp, humid, this.midInlandContinentalness, this.erosions[1], pWeirdness, 0.0F, midOrBadHotOrSlopeCold);
                 this.addSurface(pConsumer, temp, humid, this.farInlandContinentalness, this.erosions[1], pWeirdness, 0.0F, t == 0 ? slope : plat);
-                this.addSurface(pConsumer, temp, humid, this.nearInlandContinentalness, this.erosions[2], pWeirdness, 0.0F, mid);
+                //this.addSurface(pConsumer, temp, humid, this.nearInlandContinentalness, this.erosions[2], pWeirdness, 0.0F, mid);
                 this.addSurface(pConsumer, temp, humid, this.midInlandContinentalness, this.erosions[2], pWeirdness, 0.0F, midOrBadHot);
                 this.addSurface(pConsumer, temp, humid, this.farInlandContinentalness, this.erosions[2], pWeirdness, 0.0F, plat);
                 this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), this.erosions[3], pWeirdness, 0.0F, mid);
@@ -190,7 +191,7 @@ public final class CCTPlainBiomeBuilder {
         }
     }
     private void addLowSlice(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> pConsumer, Climate.Parameter pWeirdness) {
-        this.addSurface(pConsumer, this.FULL_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[2]), pWeirdness, 0.0F, Biomes.STONY_SHORE);
+        this.addSurface(pConsumer, this.FULL_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.coastContinentalness, this.nearInlandContinentalness), Climate.Parameter.span(this.erosions[0], this.erosions[2]), pWeirdness, 0.0F, CCBiomes.CRYSTAL_CLIFFS);
         this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[1], this.temperatures[2]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, CCBiomes.SUBCONSCIOUS_SWAMP);
         this.addSurface(pConsumer, Climate.Parameter.span(this.temperatures[3], this.temperatures[4]), this.FULL_RANGE, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[6], pWeirdness, 0.0F, Biomes.MANGROVE_SWAMP);
 
@@ -204,9 +205,9 @@ public final class CCTPlainBiomeBuilder {
                 ResourceKey<Biome> beach = this.pickBeach(t, h);
                 ResourceKey<Biome> maybeWindSav = this.maybePickWindSav(t, h, pWeirdness, mid);
                 ResourceKey<Biome> shattCoast = this.pickShattCoast(t, h, pWeirdness);
-                this.addSurface(pConsumer, temp, humid, this.nearInlandContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWeirdness, 0.0F, midOrBadHot);
+                this.addSurface(pConsumer, temp, humid, this.midInlandContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWeirdness, 0.0F, midOrBadHot);
                 this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWeirdness, 0.0F, midOrBadHotOrSlopeCold);
-                this.addSurface(pConsumer, temp, humid, this.nearInlandContinentalness, Climate.Parameter.span(this.erosions[2], this.erosions[3]), pWeirdness, 0.0F, mid);
+                this.addSurface(pConsumer, temp, humid, this.nearInlandContinentalness, this.erosions[3], pWeirdness, 0.0F, mid);
                 this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.midInlandContinentalness, this.farInlandContinentalness), Climate.Parameter.span(this.erosions[0], this.erosions[3]), pWeirdness, 0.0F, midOrBadHot);
                 this.addSurface(pConsumer, temp, humid, this.coastContinentalness, Climate.Parameter.span(this.erosions[3], this.erosions[4]), pWeirdness, 0.0F, beach);
                 this.addSurface(pConsumer, temp, humid, Climate.Parameter.span(this.nearInlandContinentalness, this.farInlandContinentalness), this.erosions[4], pWeirdness, 0.0F, mid);
@@ -221,8 +222,8 @@ public final class CCTPlainBiomeBuilder {
         }
     }
     private void addValleys(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> pConsumer, Climate.Parameter pWierdness) {
-        this.addSurface(pConsumer, this.FROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWierdness, 0.0F, pWierdness.max() < 0L ? Biomes.STONY_SHORE : CCBiomes.FROZEN_RADIANT_RIVER);
-        this.addSurface(pConsumer, this.UNFROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWierdness, 0.0F, pWierdness.max() < 0L ? Biomes.STONY_SHORE : CCBiomes.RADIANT_RIVER);
+        this.addSurface(pConsumer, this.FROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWierdness, 0.0F, pWierdness.max() < 0L ? CCBiomes.CRYSTAL_CLIFFS : CCBiomes.FROZEN_RADIANT_RIVER);
+        this.addSurface(pConsumer, this.UNFROZEN_RANGE, this.FULL_RANGE, this.coastContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWierdness, 0.0F, pWierdness.max() < 0L ? CCBiomes.CRYSTAL_CLIFFS : CCBiomes.RADIANT_RIVER);
         this.addSurface(pConsumer, this.FROZEN_RANGE, this.FULL_RANGE, this.nearInlandContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWierdness, 0.0F, CCBiomes.FROZEN_RADIANT_RIVER);
         this.addSurface(pConsumer, this.UNFROZEN_RANGE, this.FULL_RANGE, this.nearInlandContinentalness, Climate.Parameter.span(this.erosions[0], this.erosions[1]), pWierdness, 0.0F, CCBiomes.RADIANT_RIVER);
         this.addSurface(pConsumer, this.FROZEN_RANGE, this.FULL_RANGE, Climate.Parameter.span(this.coastContinentalness, this.farInlandContinentalness), Climate.Parameter.span(this.erosions[2], this.erosions[5]), pWierdness, 0.0F, CCBiomes.FROZEN_RADIANT_RIVER);
@@ -293,7 +294,7 @@ public final class CCTPlainBiomeBuilder {
     private ResourceKey<Biome> pickPlat(int pTemperature, int pHumidity, Climate.Parameter pWierdness) {
         if (pWierdness.max() >= 0L) {
             ResourceKey<Biome> biome = CCTPlainBiomeSelectors.TPLAIN_PLATEAU_BIOMES_VARIANT[pTemperature][pHumidity];
-            if (biome != null) {
+            if (biome != Region.DEFERRED_PLACEHOLDER) {
                 return biome;
             }
         }
@@ -301,16 +302,16 @@ public final class CCTPlainBiomeBuilder {
     }
     private ResourceKey<Biome> pickPeak(int pTemperature, int pHumidity, Climate.Parameter pWierdness) {
         if (pTemperature <= 2) {
-            return pWierdness.max() < 0L ? CCBiomes.CHROMATIC_CRAGS : Biomes.FROZEN_PEAKS;
+            return pWierdness.max() < 0L ? CCBiomes.CHROMATIC_CRAGS : Biomes.FROZEN_PEAKS; // Chromatic Crags replaces Jagged Peaks
         } else {
-            return pTemperature == 3 ? Biomes.STONY_PEAKS : this.pickBad(pHumidity, pWierdness); // Chromatic Crags replaces Stony Peaks
+            return pTemperature == 3 ?  Biomes.STONY_PEAKS : this.pickBad(pHumidity, pWierdness);
         }
     }
     private ResourceKey<Biome> pickSlope(int pTemperature, int pHumidity, Climate.Parameter pWierdness) {
         if (pTemperature >= 3) {
             return this.pickPlat(pTemperature, pHumidity, pWierdness);
         } else {
-            return pHumidity <= 1 ? Biomes.SNOWY_SLOPES : Biomes.GROVE;
+            return pHumidity <= 1 ? CCBiomes.GELID_GLACIER : Biomes.GROVE;
         }
     }
     private ResourceKey<Biome> pickShatt(int pTemperature, int pHumidity, Climate.Parameter pWierdness) {
