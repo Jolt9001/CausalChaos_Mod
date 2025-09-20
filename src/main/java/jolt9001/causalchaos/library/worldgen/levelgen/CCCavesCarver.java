@@ -1,4 +1,4 @@
-package jolt9001.causalchaos.library.worldgen.components;
+package jolt9001.causalchaos.library.worldgen.levelgen;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;

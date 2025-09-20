@@ -5,6 +5,7 @@ import com.mojang.datafixers.util.Pair;
 import jolt9001.causalchaos.CausalChaos;
 import jolt9001.causalchaos.library.worldgen.biome.CCBiomes;
 import jolt9001.causalchaos.library.worldgen.biome.selector.CCTPlainBiomeBuilder;
+import jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.sources.FerventFieldBiomeSource;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -25,6 +26,8 @@ import java.util.List;
 import java.util.OptionalLong;
 import java.util.stream.Collectors;
 
+import static jolt9001.causalchaos.CausalChaos.LOGGER;
+
 public class CCDimensions {
     //@Deprecated
     public static final int SEALEVEL = 0;
@@ -35,9 +38,8 @@ public class CCDimensions {
     public static final ResourceKey<DimensionType> SKY_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "sky_dim_type"));
 
     // Limbo
-    public static final ResourceLocation DIMENSION_LIMBO = CausalChaos.prefix("limbo");
-    public static final ResourceKey<LevelStem> WORLDGEN_KEY_LIMBO = ResourceKey.create(Registries.LEVEL_STEM, DIMENSION_LIMBO);
-    public static final ResourceKey<Level> DIMENSION_KEY_LIMBO = ResourceKey.create(Registries.DIMENSION, DIMENSION_LIMBO);
+    public static final ResourceKey<LevelStem> LIMBO_KEY = ResourceKey.create(Registries.LEVEL_STEM, new ResourceLocation(CausalChaos.MODID, "limbo"));
+    public static final ResourceKey<Level> LIMBO_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(CausalChaos.MODID, "limbo"));
     public static final ResourceKey<DimensionType> LIMBO_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "limbo_dim_type"));
 
     // Transcendent's Plain
@@ -46,9 +48,8 @@ public class CCDimensions {
     public static final ResourceKey<DimensionType> TPLAIN_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "tplain_dim_type"));
 
     // Parallel Universes
-    public static final ResourceLocation DIMENSION_PARALLEL = CausalChaos.prefix("parallel"); //
-    public static final ResourceKey<LevelStem> WORLDGEN_KEY_PARALLEL = ResourceKey.create(Registries.LEVEL_STEM, DIMENSION_PARALLEL);
-    public static final ResourceKey<Level> DIMENSION_KEY_PARALLEL = ResourceKey.create(Registries.DIMENSION, DIMENSION_PARALLEL);
+    public static final ResourceKey<LevelStem> PARALLEL_KEY = ResourceKey.create(Registries.LEVEL_STEM, new ResourceLocation(CausalChaos.MODID, "parallel"));
+    public static final ResourceKey<Level> PARALLEL_LEVEL_KEY = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(CausalChaos.MODID, "parallel"));
     public static final ResourceKey<DimensionType> PARALLEL_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(CausalChaos.MODID, "parallel_dim_type"));
 
     public static void bootstrapTypeTPlain(BootstapContext<DimensionType> context) {
@@ -63,25 +64,57 @@ public class CCDimensions {
         HolderGetter<DimensionType> dimTypes = context.lookup(Registries.DIMENSION_TYPE);
         HolderGetter<NoiseGeneratorSettings> noiseGenSettings = context.lookup(Registries.NOISE_SETTINGS);
 
-        // Uncomment when all biomes are complete
-        /*
         ImmutableList.Builder<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> builder = new ImmutableList.Builder<>();
         new CCTPlainBiomeBuilder().addBiomes(builder::add);
         List<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> list = builder.build();
         List<Pair<Climate.ParameterPoint, Holder<Biome>>> holder = convert(list, biomeGetter);
-        */
 
         NoiseBasedChunkGenerator noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
                 MultiNoiseBiomeSource.createFromList(
                         new Climate.ParameterList<>(/*holder*/ // Uncomment when all biomes are complete
                         List.of(
-                                Pair.of(Climate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(CCBiomes.TEST_BIOME)),
+                                Pair.of(Climate.parameters(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(CCBiomes.FERVENT_FIELD)),
                                 Pair.of(Climate.parameters(0.1F, 0.2F, 0.0F, 0.2F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.BIRCH_FOREST)),
                                 Pair.of(Climate.parameters(0.3F, 0.6F, 0.1F, 0.1F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.OCEAN)),
                                 Pair.of(Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.DARK_FOREST))
                         ))),
                 noiseGenSettings.getOrThrow(NoiseGeneratorSettings.LARGE_BIOMES));
-        LevelStem stem = new LevelStem(dimTypes.getOrThrow(CCDimensions.TPLAIN_DIM_TYPE), noiseBasedChunkGenerator);
+
+        Climate.Parameter FULL = Climate.Parameter.span(-1.0F, 1.0F);
+
+        BiomeSource base = MultiNoiseBiomeSource.createFromList(
+                new Climate.ParameterList<>(
+                List.of(
+                    Pair.of(Climate.parameters(FULL, FULL, FULL, FULL, FULL, FULL, 0.0F), biomeGetter.getOrThrow(CCBiomes.FERVENT_FIELD)),
+                    Pair.of(Climate.parameters(0.1F, 0.2F, 0.0F, 0.2F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.BIRCH_FOREST)),
+                    Pair.of(Climate.parameters(0.3F, 0.6F, 0.1F, 0.1F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.OCEAN)),
+                    Pair.of(Climate.parameters(0.4F, 0.3F, 0.2F, 0.1F, 0.0F, 0.0F, 0.0F), biomeGetter.getOrThrow(Biomes.DARK_FOREST))
+        )));
+
+        // --- Wrap the base with your spiral/variant picker ---
+        BiomeSource masked = new FerventFieldBiomeSource(
+                base,
+                biomeGetter.getOrThrow(CCBiomes.FERVENT_FIELD),                   // placeholder to intercept
+                biomeGetter.getOrThrow(CCBiomes.FERVENT_FIELD_YIN),               // Yin biome
+                biomeGetter.getOrThrow(CCBiomes.FERVENT_FIELD_YANG),              // Yang biome
+                biomeGetter.getOrThrow(CCBiomes.FERVENT_FIELD_UNITY),             // Unity biome
+                TPLAIN_LEVEL_KEY                                                  // dimension key for seeding
+        );
+
+        // NOTE: your FerventFieldBiomeSource#getNoiseBiome should:
+        // - check if baseHold.is(CCBiomes.FERVENT_FIELD)
+        // - convert (x,z) -> block coords (x<<2, z<<2)
+        // - classify to Yin/Yang/Unity using the spiral
+        // - otherwise return baseHold
+
+        NoiseBasedChunkGenerator gen = new NoiseBasedChunkGenerator(
+                masked, noiseGenSettings.getOrThrow(NoiseGeneratorSettings.LARGE_BIOMES) // or your custom settings
+        );
+
+        LOGGER.info("TPlain biome source = {}", gen.getBiomeSource().getClass().getName());
+
+        LevelStem stem = new LevelStem(dimTypes.getOrThrow(CCDimensions.TPLAIN_DIM_TYPE), gen);
+        //LevelStem stem = new LevelStem(dimTypes.getOrThrow(CCDimensions.TPLAIN_DIM_TYPE), noiseBasedChunkGenerator);
 
         context.register(TPLAIN_KEY, stem);
     }

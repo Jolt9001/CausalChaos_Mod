@@ -11,11 +11,11 @@ import net.minecraftforge.common.util.ITeleporter;
 
 import java.util.function.Function;
 
-public class CCFinalTeleporter implements ITeleporter {
+public class CCTPlainTeleporter implements ITeleporter {
     public static BlockPos thisPos = BlockPos.ZERO;
     public static boolean insideDimension = true;
 
-    public CCFinalTeleporter(BlockPos pos, boolean insideDim) {
+    public CCTPlainTeleporter(BlockPos pos, boolean insideDim) {
         thisPos = pos;
         insideDimension = insideDim;
     }

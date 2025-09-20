@@ -258,7 +258,7 @@ public final class CCTPlainBiomeBuilder {
 
     private ResourceKey<Biome> pickMid(int pTemperature, int pHumidity, Climate.Parameter pWeirdness) {
         if (pWeirdness.max() < 0L) {
-            return CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity]; // if it's FERVENT_FIELD, great — the BiomeSource will specialize it
+            return CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity]; // BiomeSource will specialize
         } else {
             ResourceKey<Biome> biome = CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES_VARIANT[pTemperature][pHumidity];
             return biome == null ? CCTPlainBiomeSelectors.TPLAIN_MIDDLE_BIOMES[pTemperature][pHumidity] : biome;
@@ -294,7 +294,7 @@ public final class CCTPlainBiomeBuilder {
     private ResourceKey<Biome> pickPlat(int pTemperature, int pHumidity, Climate.Parameter pWierdness) {
         if (pWierdness.max() >= 0L) {
             ResourceKey<Biome> biome = CCTPlainBiomeSelectors.TPLAIN_PLATEAU_BIOMES_VARIANT[pTemperature][pHumidity];
-            if (biome != Region.DEFERRED_PLACEHOLDER) {
+            if (biome != null) {
                 return biome;
             }
         }

@@ -5,10 +5,15 @@ import com.mojang.logging.LogUtils;
 import jolt9001.causalchaos.init.*;
 
 import jolt9001.causalchaos.library.screen.StarforgeAloneScreen;
+import jolt9001.causalchaos.library.worldgen.CCBiomeModifiers;
 import jolt9001.causalchaos.library.worldgen.biome.CCTerrablenderRegion;
+import jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.sources.FerventFieldBiomeSource;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Blocks;
@@ -26,6 +31,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import net.minecraftforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 
 import java.util.Locale;
@@ -59,26 +65,40 @@ public class CausalChaos {
         INSTANCE = this;
         LOGGER.info("Me when the mod startup");
 
+        LOGGER.info("Getting the Mod Event Bus");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        modEventBus.addListener(this::registerExtraStuff);
+
+        LOGGER.info("Registering Creative Mode Tabs");
         CCCreativeModeTabs.register(modEventBus);
+        LOGGER.info("Registering Blocks");
         CCBlocks.register(modEventBus);
+        LOGGER.info("Registering Items");
         CCItems.register(modEventBus);
+        LOGGER.info("Registering Block Entities");
         CCBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
+        LOGGER.info("Registering Multiblock Entities (NYI)");
         //CCMultiblockEntities.MULTIBLOCK_ENTITY_TYPES.register(modEventBus);
 
+        LOGGER.info("Registering Menus");
         CCMenuTypes.register(modEventBus);
-
+        LOGGER.info("Registering Recipes");
         CCRecipes.register(modEventBus);
+        LOGGER.info("Registering Terrablender Biomes");
         CCTerrablenderRegion.registerBiomes();
 
+
+        LOGGER.info("Adding Common Setup Listener");
         modEventBus.addListener(this::commonSetup);
 
+        LOGGER.info("Registering Event Bus");
         MinecraftForge.EVENT_BUS.register(this);
 
         // Config a = new Config();
 
         // Register the mod's ForgeConfigSpec so that Forge can create and load the config file for me
+        LOGGER.info("Registering ForgeConfigSpec");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CCConfigs.SPEC);
         modEventBus.addListener(this::commonSetup);
     }
@@ -125,6 +145,12 @@ public class CausalChaos {
         CCCommand.register(event.getDispatcher());
     }
      */
+    @SubscribeEvent
+    public void registerExtraStuff(RegisterEvent evt) {
+        if (evt.getRegistryKey().equals(Registries.BIOME_SOURCE)) {
+            Registry.register(BuiltInRegistries.BIOME_SOURCE, CausalChaos.prefix("causalchaos_biomes"), FerventFieldBiomeSource.CODEC.codec());
+        }
+    }
 
     public static ResourceLocation prefix(String name) {
         return new ResourceLocation(MODID, name.toLowerCase(Locale.ROOT));

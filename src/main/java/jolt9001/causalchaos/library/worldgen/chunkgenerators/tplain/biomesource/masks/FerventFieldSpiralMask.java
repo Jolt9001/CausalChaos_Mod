@@ -1,8 +1,6 @@
 package jolt9001.causalchaos.library.worldgen.chunkgenerators.tplain.biomesource.masks;
 
 public final class FerventFieldSpiralMask {
-    public enum Variant { YIN, YANG, UNITY, OUT } // UNUSED
-
     public static final class Params {
         public final double cx, cz;       // biome center in world coords
         public final double a;            // Starting point (≥ rCore)
@@ -21,45 +19,6 @@ public final class FerventFieldSpiralMask {
             this.gap = gap;
             this.rCore = rCore;
             this.jitter = jitter;
-        }
-    }
-
-    /**
-     * Sample the mask at world (x,z).
-     */
-    public static Variant sample(int x, int z, Params p, long seed) {
-        // Position relative to center
-        double dx = (x + jitter(seed, x, z, 0) * p.jitter) - p.cx;
-        double dz = (z + jitter(seed, x, z, 1) * p.jitter) - p.cz;
-        double r  = Math.hypot(dx, dz);
-        if (r <= p.rCore) return Variant.UNITY;
-
-        // Angle in [-π, π]
-        double theta = Math.atan2(dz, dx);
-
-        /*
-         For a logarithmic spiral r = a * e^(b * θ).
-         Given r, the "ideal" angle of the spiral passing through r is θ* = ln(r/a)/b.
-        */
-        double thetaStar = Math.log(Math.max(r, 1e-6) / p.a) / p.b;
-
-        /*
-         Distance-to-curve metric: angular deviation (wrapped to [-π, π]) * radius ≈ normal distance.
-         Arm A (YIN): phase = 0; Arm B (YANG): phase = π. Both wind with same b.
-        */
-        double dA = radialAngularDistance(theta, thetaStar, 0.0, r);
-        double dB = radialAngularDistance(theta, thetaStar, Math.PI, r);
-
-        // Pick nearest arm and apply width + gap. If both are close, prefer UNITY or keep nearest.
-        double halfWidth = p.armWidth * 0.5;
-        if (dA < dB) {
-            if (dA <= halfWidth) return Variant.YIN;
-            if (dA <= halfWidth + p.gap) return Variant.OUT;
-            return Variant.OUT;
-        } else {
-            if (dB <= halfWidth) return Variant.YANG;
-            if (dB <= halfWidth + p.gap) return Variant.OUT;
-            return Variant.OUT;
         }
     }
 
@@ -126,18 +85,6 @@ public final class FerventFieldSpiralMask {
     }
 
     // --- helpers ---
-    private static double radialAngularDistance(double theta, double thetaStar, double phase, double r) { // UNUSED
-        // Choose the 2π-wrapped angle difference that minimizes |Δθ|
-        double dTheta = wrapToPi((theta - phase) - thetaStar);
-        // Convert angular error to an approximate physical distance along the normal
-        return Math.abs(dTheta) * r;
-    }
-    private static double wrapToPi(double a) { // UNUSED
-        a = (a + Math.PI) % (2.0 * Math.PI);
-        if (a < 0) a += 2.0 * Math.PI;
-        return a - Math.PI;
-    }
-
     /**
      * Map angle from [-π,π] to [0, ∞) by adding whole 2π turns
      * @param a number of full turns

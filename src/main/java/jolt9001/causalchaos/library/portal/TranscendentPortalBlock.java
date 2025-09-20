@@ -1,7 +1,7 @@
 package jolt9001.causalchaos.library.portal;
 
 import jolt9001.causalchaos.library.worldgen.dimension.CCDimensions;
-import jolt9001.causalchaos.library.worldgen.portal.CCFinalTeleporter;
+import jolt9001.causalchaos.library.worldgen.portal.CCTPlainTeleporter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -28,25 +28,24 @@ public class TranscendentPortalBlock extends Block {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pPlayer.canChangeDimensions()) {
-            handleFinalPortal(pPlayer, pPos);
+            handleTPlainPortal(pPlayer, pPos);
             return InteractionResult.SUCCESS;
         } else {
             return InteractionResult.CONSUME;
         }
     }
 
-    private void handleFinalPortal(Entity player, BlockPos pPos) {
+    private void handleTPlainPortal(Entity player, BlockPos pPos) {
         if (player.level() instanceof ServerLevel serverlevel) {
             MinecraftServer minecraftserver = serverlevel.getServer();
-            ResourceKey<Level> resourcekey = player.level().dimension() == CCDimensions.TPLAIN_LEVEL_KEY ?
-                    Level.OVERWORLD : CCDimensions.TPLAIN_LEVEL_KEY;
+            ResourceKey<Level> resourcekey = player.level().dimension() == CCDimensions.TPLAIN_LEVEL_KEY ? Level.OVERWORLD : CCDimensions.TPLAIN_LEVEL_KEY;
 
             ServerLevel portalDimension = minecraftserver.getLevel(resourcekey);
             if (portalDimension != null && !player.isPassenger()) {
                 if(resourcekey == CCDimensions.TPLAIN_LEVEL_KEY) {
-                    player.changeDimension(portalDimension, new CCFinalTeleporter(pPos, true));
+                    player.changeDimension(portalDimension, new CCTPlainTeleporter(pPos, true));
                 } else {
-                    player.changeDimension(portalDimension, new CCFinalTeleporter(pPos, false));
+                    player.changeDimension(portalDimension, new CCTPlainTeleporter(pPos, false));
                 }
             }
         }
